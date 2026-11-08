@@ -28,3 +28,7 @@ Domain/schema and explicit reference seeding are available; ERD/deletion rules a
 ## Current state after Phases 05 and 06
 
 Working account APIs and browser account flows now available. Start with the root README quick start or open the running localhost:3000. Reports PHASE-05-REPORT.md and PHASE-06-REPORT.md distinguish verification and remaining later-phase scope. Next prompt: phase-prompts/PHASE-07.md.
+
+## Current state after Phases 09 and 10
+
+Public chords with private custom-chord management and a guest metronome are implemented. See PHASE-09-REPORT.md and PHASE-10-REPORT.md for actual verification. Next prompt: phase-prompts/PHASE-11.md. Earlier current-state sections above are historical; Phase 08 physical calibration remains open.

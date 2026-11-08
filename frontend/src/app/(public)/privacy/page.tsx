@@ -19,10 +19,10 @@ export default function Privacy() {
       </p>
       <h2>Microphone and notifications</h2>
       <p>
-        The upcoming tuner will request microphone permission only when you
-        start it and will process audio locally. It is not available yet. No
-        microphone or notification permission is requested by these account
-        pages.
+        The tuner requests microphone permission only when you start it and
+        processes audio locally. Stop releases microphone capture. Chord audio
+        and the metronome use local synthesized sound without microphone access.
+        No notification permission is requested by these account pages.
       </p>
       <h2>Local use and third parties</h2>
       <p>

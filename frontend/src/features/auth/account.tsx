@@ -130,8 +130,9 @@ export function Account() {
         <h2>What’s available today</h2>
         <p>
           Your account, learning preferences and security settings are ready.
-          Your workspace and tuner are ready. Metronome, chord library, song
-          catalogue and practice history arrive in later phases.
+          Your workspace, tuner, chord library and metronome are ready. Save
+          private custom chords from the chord library. Song catalogue and
+          practice history arrive in later phases.
         </p>
       </section>
     </>

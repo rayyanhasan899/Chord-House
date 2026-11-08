@@ -58,3 +58,5 @@ Phase 07: reviewed song identities are a minimal prerequisite; full catalogue/co
 Phase 08: 440 Hz reference, manual target selection, worker-local YIN-style detector and five-cent indicator band. Physical hardware calibration remains open; synthetic browser results never substitute for real instrument measurements.
 
 Phase 09: generated/structured standard-tuning voicings are mathematically validated, not expert-reviewed. Custom names are labels. Bass initially major/minor; optional easier-voicing recommendation unselected. Public provider may be replaced by managed catalogue in 15.
+
+Phase 10: ADR-0015 accepts 30–300 denominator-note BPM, four meters, local synthesized clicks and 150 ms lookahead. Meter changes reset; settings affect already-queued beats after at most that horizon. Background/sleep continuity is not guaranteed. No account, microphone, persistence or new service is required.

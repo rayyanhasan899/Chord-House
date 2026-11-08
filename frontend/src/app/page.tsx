@@ -43,8 +43,9 @@ export default function Home() {
         </div>
         <p>
           Create an account, sign in securely and set your learning preferences.
-          The metronome, chord library, songs and practice tracking are planned
-          for upcoming phases and are not available yet.
+          Use the tuner, chord library and metronome as a guest. Sign in for
+          your private workspace and saved custom chords. Songs and practice
+          tracking arrive in later phases.
         </p>
       </section>
     </>

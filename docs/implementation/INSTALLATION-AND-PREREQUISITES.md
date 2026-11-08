@@ -35,3 +35,5 @@ Node 24.15.0/Python 3.14.7 foundation verified locally; use root README.md for a
 ## Phase 06 update
 
 One-command local startup: backend/.venv/Scripts/python scripts/dev.py after locked dependency installation. It starts PostgreSQL, applies migrations/reference seeds and starts app services; credentials stay in ignored root .env. Real account-browser verification uses backend/tests/run_postgres.py --browser with disposable data. No extra user installation or hosted account required for local use. Production SMTP/HTTPS configuration remains required before deployment. Development mail files are local account codes, not external email.
+
+Phases 09/10 add no installation dependencies or external services. Existing local frontend/API/PostgreSQL setup serves /chords and /metronome. Sign in only to persist private custom chords. Browser-native audio requires an explicit Play/Start action and audible output device. No microphone is needed for these two tools. Metronome background/sleep playback can be interrupted; restart after suspension. See architecture/METRONOME.md and phase reports for verification limits.
