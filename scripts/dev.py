@@ -21,7 +21,8 @@ if not config_file.exists():
     )
     if existing.returncode == 0:
         raise RuntimeError(
-            "Existing database volume found. Restore its original credentials in the ignored root .env; do not replace them."
+            "Existing database volume found. Restore its original credentials "
+            "in the ignored root .env; do not replace them."
         )
     password = secrets.token_hex(24)
     with config_file.open("x", encoding="utf-8") as config:
