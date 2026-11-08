@@ -1,0 +1,24 @@
+{
+  "name": "chord-house",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace frontend",
+    "build": "npm run build --workspace frontend",
+    "start": "npm run start --workspace frontend",
+    "lint": "npm run lint --workspace frontend",
+    "typecheck": "npm run typecheck --workspace frontend",
+    "test": "npm run test --workspace frontend",
+    "test:e2e": "npm run test:e2e --workspace frontend",
+    "format": "prettier --write frontend package.json .github",
+    "format:check": "prettier --check frontend package.json .github"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
