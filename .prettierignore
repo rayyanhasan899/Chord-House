@@ -5,3 +5,5 @@ backend
 frontend/next-env.d.ts
 frontend/test-results
 frontend/playwright-report
+frontend/src/lib/api/openapi.json
+frontend/src/lib/api/schema.d.ts

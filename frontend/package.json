@@ -12,28 +12,30 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "next": "16.4.5",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.3.1",
-    "radix-ui": "latest"
+    "next": "16.4.5",
+    "openapi-fetch": "^0.17.0",
+    "radix-ui": "latest",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.56",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "tailwindcss": "^4",
-    "@tailwindcss/postcss": "^4",
     "eslint": "^10",
     "eslint-config-next": "16.4.5",
-    "vitest": "^4",
-    "@testing-library/react": "^16",
-    "@testing-library/jest-dom": "^6",
     "jsdom": "^27",
-    "@playwright/test": "^1.56"
+    "tailwindcss": "^4",
+    "typescript": "^5.9.3",
+    "vitest": "^4"
   },
   "type": "module"
 }

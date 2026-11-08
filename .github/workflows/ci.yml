@@ -17,7 +17,6 @@ jobs:
       - run: npm run build
       - run: npx playwright install --with-deps chromium
         working-directory: frontend
-      - run: npm run test:e2e
   backend:
     runs-on: ubuntu-latest
     services:
@@ -33,6 +32,7 @@ jobs:
           --health-cmd "pg_isready -U chord_house -d chord_house_test"
           --health-interval 3s --health-timeout 3s --health-retries 20
     env:
+      CHORD_PYTHON: python
       CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@127.0.0.1:5432/chord_house_test
     steps:
       - uses: actions/checkout@v4
@@ -43,11 +43,21 @@ jobs:
         working-directory: backend
       - run: python -m pip install --no-deps -e .
         working-directory: backend
-      - run: python -m ruff check .
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run contracts:check
+      - run: npx playwright install --with-deps chromium
+        working-directory: frontend
+      - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py
         working-directory: backend
-      - run: python -m ruff format --check .
+      - run: python -m ruff format --config pyproject.toml --check . ../scripts/dev.py
         working-directory: backend
       - run: python -m mypy app
         working-directory: backend
       - run: python -m pytest
+        working-directory: backend
+      - run: python tests/browser_system.py
         working-directory: backend

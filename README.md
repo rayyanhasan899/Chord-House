@@ -1,72 +1,37 @@
 # Chord House
 
-Phase 05 adds identity APIs under `/api/v1/auth` and `/api/v1/me`. Apply migrations first. Unsafe calls require an allowlisted Origin; authenticated changes also need X-CSRF-Token from GET /me. Frontend forms follow in Phase 06. Development verification/reset codes are private files under `.local-mail` in the backend process working directory. Never commit or share these codes. Production requires SMTP and HTTPS origins. See docs/architecture/IDENTITY-AND-SESSIONS.md.
+Your home for guitar learning. Phases 01–06 now provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a responsive light/dark interface, API documentation and PostgreSQL migrations. Learning tools, songs, dashboard and practice tracking arrive in their assigned later phases.
 
-Phase 02 provides a Next.js frontend and FastAPI skeleton. Accounts, database features, songs and audio tools are not available yet.
+## Run locally
 
-## Setup
-
-Use Node 24.x, npm 11.x and Python 3.14.x. No database or hosted account is needed yet. From the repository root in PowerShell:
+Requires Node 24.x/npm 11.x, Python 3.14.x and a running Docker engine. From this repository in PowerShell:
 
 ```powershell
 npm ci
 python -m venv backend/.venv
 backend/.venv/Scripts/python -m pip install -r backend/requirements-dev.lock
 backend/.venv/Scripts/python -m pip install --no-deps -e backend
-npm run dev
+backend/.venv/Scripts/python scripts/dev.py
 ```
 
-Open http://127.0.0.1:3000 . In another terminal:
+Open http://127.0.0.1:3000 . API docs: http://127.0.0.1:8000/docs . The launcher creates a gitignored root .env for a new database, starts PostgreSQL on loopback port 5433, migrates/seeds references and starts local servers. It never replaces credentials for an existing volume; restore its original credentials if .env is missing. It leaves an existing frontend process alone. Ctrl+C stops its own server children; the database volume persists. Stop the database separately with `docker compose stop db`; do not delete volumes to fix authentication.
 
-```powershell
-backend/.venv/Scripts/python -m uvicorn app.main:app --app-dir backend --reload --host 127.0.0.1 --port 8000
-```
+On Linux use backend/.venv/bin/python. Manual server startup remains possible with exported CHORD_DATABASE_URL, Alembic upgrade, uvicorn (app-dir backend, port 8000, no-access-log) and npm run dev. Backend .env.example documents configuration. The application reads process environment; the launcher loads the root local .env.
 
-API documentation: http://127.0.0.1:8000/docs . No learning endpoints exist yet. Environment examples document the zero-variable configuration. Real environment files are ignored. Linux uses `.venv/bin/python` instead of `.venv/Scripts/python`.
+## Accounts and mail
 
-## Verification
+Create an account, sign in, choose an instrument/level and save preferences. Verification/reset codes are delivered to private .local-mail JSON files in the backend process working directory during development; use the newest matching recipient/purpose code in /verify or /reset. These files contain sensitive codes: never commit them or paste them into chat. No external SMTP delivery is configured locally. Production requires configured certificate-verified SMTP and explicit HTTPS trusted origins. Session/account privacy limits are documented in docs/architecture/IDENTITY-AND-SESSIONS.md. Full data export and deletion UI remain privacy-hardening scope, while the verified deletion API already exists.
 
-Run `npm run format:check`, `npm run lint`, `npm run typecheck`, `npm test`, and `npm run build` from the root. Install the browser once with `npx playwright install chromium` from `frontend`, then run `npm run test:e2e` from the root. Browser tests start the production frontend, so build first.
+## Checks
 
-From backend, run `.venv/Scripts/python -m ruff check .`, `.venv/Scripts/python -m ruff format --check .`, `.venv/Scripts/python -m mypy app`, and `.venv/Scripts/python -m pytest`.
+Run npm run format:check, npm run lint, npm run typecheck, npm test and npm run build from the root. API contract generation/check: npm run contracts:generate and npm run contracts:check. The generator uses the backend virtual environment; CHORD_PYTHON can override the interpreter.
 
-## Structure and scope
+From backend, run .venv/Scripts/python -m ruff check ., .venv/Scripts/python -m ruff format --check ., and .venv/Scripts/python -m mypy app. To verify real PostgreSQL/backend behavior run `.venv/Scripts/python tests/run_postgres.py`.
 
-Frontend routes live in frontend/src/app. Shared utilities live in frontend/src/lib. shadcn/ui configuration is prepared; complete components and the design system follow in Phase 06. Backend/app is the ASGI skeleton. Add domain/application/persistence modules with their actual features rather than creating empty trees. Database connection/migration infrastructure starts in Phase 03. Browser audio stays local.
+For the complete real browser journey, install Chromium once with `npx playwright install chromium` from frontend, then run `.venv/Scripts/python tests/run_postgres.py --browser` from backend. It runs backend tests and builds/serves an isolated production frontend on 3100 against a test API on 8100; no test users are placed in the local personal database. Test output/mail/screenshots are ignored. After that harness, rebuild normally with npm run build before using npm start, because the harness build targets its test API. npm run dev always uses the normal configured origin. Standalone npm run test:e2e is smoke mode and explicitly skips account integration without the harness.
 
-Commit npm package-lock.json and backend/requirements-dev.lock. Python lock records exact transitive versions; regenerate using pip freeze after installing the project's dev extra, excluding the editable local project. CI checks formatting, lint, types, tests, builds and Chromium smoke tests.
+## Structure and migrations
 
-See docs/implementation/README.md for the phase workflow. Original supplied source documents remain unchanged and untracked locally; a new checkout needs them separately for requirements work, but they are not needed to run this foundation.
+frontend/src/app contains route groups; features/auth owns account UI; components/ui holds shared primitives; lib/api holds generated schemas and typed client. Backend modules own domain rules, persistence and use cases; composition lives in app/core and main. No browser credentials in localStorage. PostgreSQL changes use reviewed Alembic migrations, never auto-create. `python -m app.modules.catalog.seeds` from backend explicitly installs non-overwriting instrument/tuning references; no songs or accounts are seeded. Never run migration downgrades or integration tests on personal/production data.
 
-## Phase 03 backend and PostgreSQL
-
-Liveness: http://127.0.0.1:8000/api/v1/health/live . Readiness: http://127.0.0.1:8000/api/v1/health/ready . Without a database the API still starts, but readiness returns 503. Readiness checks database connectivity, not business-table or migration readiness. OpenAPI documents health responses and shared error schemas.
-
-For a new local database, keep this PowerShell terminal open so its generated password remains available. Do not replace credentials for an existing volume; use its original password. No actual credentials are stored in tracked files.
-
-```powershell
-$env:CHORD_DB_PASSWORD = python -c "import secrets; print(secrets.token_hex(24))"
-$env:CHORD_DATABASE_URL = "postgresql+psycopg://chord_house:$($env:CHORD_DB_PASSWORD)@127.0.0.1:5433/chord_house"
-docker compose up -d --wait db
-backend/.venv/Scripts/python -m alembic -c backend/alembic.ini upgrade head
-backend/.venv/Scripts/python -m uvicorn app.main:app --app-dir backend --reload --host 127.0.0.1 --port 8000 --no-access-log
-```
-
-Persist credentials securely if reusing the named volume across terminal sessions. Compose reads CHORD_DB_PASSWORD from the shell or a local ignored root .env; the backend reads CHORD_ variables from its process environment (examples are not auto-loaded). No public database binding: local database is on 127.0.0.1:5433. `docker compose stop db` preserves the data. Do not delete volumes to fix connection problems.
-
-Run the complete backend suite against a disposable PostgreSQL instance without touching your normal database:
-
-```powershell
-cd backend
-.venv/Scripts/python tests/run_postgres.py
-```
-
-This runner generates credentials in memory, binds an ephemeral loopback port, runs all tests and stops only its own temporary container. For CI, CHORD_TEST_DATABASE_URL points to an isolated service database. Never point integration tests at production or a personal database: they exercise upgrades/downgrades and temporary table creation.
-
-Migration commands: `alembic -c backend/alembic.ini current`, `upgrade head`, `check`, and (only on a reviewed disposable/development database) `downgrade base`, prefixed by the virtual-environment Python `-m`. Generate future revisions using `revision --autogenerate -m DESCRIPTION`, inspect them and test clean upgrade before committing. Phase 03 baseline establishes migration versioning only; business tables arrive later. CHORD_DATABASE_URL_UNPOOLED optionally selects a direct connection for migration work. No schema auto-create at startup.
-
-Structured application logs include allowlisted event, request ID, level and status. Raw URL/query/body, credentials and exception messages are omitted. Uvicorn access logs are disabled to avoid leaking query strings. Every API response has a server-generated X-Request-ID; errors use error.code/message/request_id/fields. Detailed exceptions are intentionally not returned or logged. Feature validation and domain-specific errors follow in their owning phases.
-
-## Phase 04 domain/reference schema
-
-After `alembic upgrade head`, run `python -m app.modules.catalog.seeds` from backend with CHORD_DATABASE_URL configured to install instrument/tuning references. This repeatable command creates no accounts or songs and preserves existing reference edits. See docs/architecture/DOMAIN-AND-DATA-MODEL.md for the ERD, ownership boundaries and deletion policies. Notes are an internal ownership-tested persistence slice, not a user-facing API yet. The learner UI is unchanged.
+See docs/architecture/FRONTEND-FOUNDATION.md, DOMAIN-AND-DATA-MODEL.md and the reports in docs/implementation/Phase-Reports. Follow the 20-phase prompt index one phase at a time unless the owner explicitly authorizes a sequence. Original source documents remain untouched and untracked locally; supply them separately when resuming requirements work from a fresh checkout.

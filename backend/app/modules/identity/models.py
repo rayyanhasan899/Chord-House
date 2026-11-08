@@ -29,6 +29,7 @@ class AccountRecord(Base):
     theme: Mapped[str] = mapped_column(String(10), server_default="system")
     handedness: Mapped[str] = mapped_column(String(10), server_default="right")
     tuning: Mapped[str] = mapped_column(String(40), server_default="standard")
+    chord_display: Mapped[str] = mapped_column(String(20), server_default="diagrams")
     interests: Mapped[str] = mapped_column(String(500), server_default="")
     onboarding_complete: Mapped[bool] = mapped_column(server_default="false")
     __table_args__ = (

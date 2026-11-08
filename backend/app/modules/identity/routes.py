@@ -3,6 +3,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, Request, Response
 
+from app.core.contracts import ErrorResponse
 from app.modules.identity.domain import Actor, IdentityError
 from app.modules.identity.schemas import (
     Credentials,
@@ -18,7 +19,14 @@ from app.modules.identity.schemas import (
 )
 from app.modules.identity.service import IdentityService
 
-router = APIRouter(prefix="/api/v1", tags=["identity"])
+router = APIRouter(
+    prefix="/api/v1",
+    tags=["identity"],
+    responses={
+        status: {"model": ErrorResponse}
+        for status in (400, 401, 403, 409, 422, 429, 503)
+    },
+)
 COOKIE = "chord_session"
 
 

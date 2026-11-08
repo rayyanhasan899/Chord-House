@@ -55,6 +55,10 @@ try:
         + "/chord_house_test"
     )
     result = subprocess.run([sys.executable, "-m", "pytest", "tests"], env=env)
+    if result.returncode == 0 and "--browser" in sys.argv:
+        from browser_system import run_browser
+
+        result = subprocess.CompletedProcess(args=[], returncode=run_browser(env))
 finally:
     subprocess.run(
         ["docker", "stop", name], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
