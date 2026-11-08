@@ -1560,43 +1560,68 @@
         ],
         "summary": "Songs",
         "operationId": "songs_api_v1_workspace_songs_get",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
+                  "type": "array",
                   "items": {
+                    "type": "object",
                     "additionalProperties": {
                       "type": "string"
-                    },
-                    "type": "object"
+                    }
                   },
-                  "type": "array",
                   "title": "Response Songs Api V1 Workspace Songs Get"
                 }
               }
             }
           },
           "422": {
-            "description": "Unprocessable Content",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
-            }
+            },
+            "description": "Unprocessable Content"
           },
           "500": {
-            "description": "Internal Server Error",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
-            }
+            },
+            "description": "Internal Server Error"
           }
         }
       }
@@ -2369,6 +2394,454 @@
         }
       }
     },
+    "/api/v1/songs": {
+      "get": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "List Songs",
+        "operationId": "list_songs_api_v1_songs_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200,
+              "default": "",
+              "title": "Q"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "en",
+                    "ur",
+                    "hi"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Language"
+            }
+          },
+          {
+            "name": "artist",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200,
+              "default": "",
+              "title": "Artist"
+            }
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "beginner",
+                    "intermediate",
+                    "advanced"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Difficulty"
+            }
+          },
+          {
+            "name": "instrument",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "guitar",
+                    "bass",
+                    "ukulele"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Instrument"
+            }
+          },
+          {
+            "name": "genre",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 60,
+              "default": "",
+              "title": "Genre"
+            }
+          },
+          {
+            "name": "availability",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "arrangement",
+                    "lyrics"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Availability"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SongPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/songs/{identifier}": {
+      "get": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Song",
+        "operationId": "song_api_v1_songs__identifier__get",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SongDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/song-imports": {
+      "post": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Stage Import",
+        "operationId": "stage_import_api_v1_song_imports_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/song-imports/{identifier}": {
+      "get": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Preview Import",
+        "operationId": "preview_import_api_v1_song_imports__identifier__get",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/song-imports/{identifier}/commit": {
+      "post": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Commit Import",
+        "operationId": "commit_import_api_v1_song_imports__identifier__commit_post",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImportView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/managed-songs/{identifier}/withdraw": {
+      "post": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Withdraw Song",
+        "operationId": "withdraw_song_api_v1_managed_songs__identifier__withdraw_post",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Withdrawal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/health/live": {
       "get": {
         "tags": [
@@ -2464,6 +2937,137 @@
   },
   "components": {
     "schemas": {
+      "ArrangementInput": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Key"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "tuning": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "drop_d",
+              "dadgad",
+              "reentrant"
+            ],
+            "title": "Tuning",
+            "default": "standard"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ],
+            "title": "Difficulty"
+          },
+          "capo": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 12,
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capo"
+          },
+          "key_note": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-G][#b]?$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Key Note"
+          },
+          "chords": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Chords"
+          },
+          "placements": {
+            "items": {
+              "$ref": "#/components/schemas/ChordPlacement"
+            },
+            "type": "array",
+            "maxItems": 1000,
+            "title": "Placements"
+          },
+          "text_key": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text Key"
+          },
+          "pattern_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pattern Id"
+          },
+          "guidance": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Guidance",
+            "default": ""
+          },
+          "grant": {
+            "$ref": "#/components/schemas/Grant"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "key",
+          "name",
+          "instrument",
+          "difficulty",
+          "chords",
+          "grant"
+        ],
+        "title": "ArrangementInput"
+      },
       "ChordInput": {
         "properties": {
           "name": {
@@ -2509,6 +3113,35 @@
           "fingers"
         ],
         "title": "ChordInput"
+      },
+      "ChordPlacement": {
+        "properties": {
+          "line": {
+            "type": "integer",
+            "maximum": 10000,
+            "minimum": 0,
+            "title": "Line"
+          },
+          "offset": {
+            "type": "integer",
+            "maximum": 10000,
+            "minimum": 0,
+            "title": "Offset"
+          },
+          "chord": {
+            "type": "string",
+            "maxLength": 15,
+            "title": "Chord"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "line",
+          "offset",
+          "chord"
+        ],
+        "title": "ChordPlacement"
       },
       "ChordView": {
         "properties": {
@@ -2660,6 +3293,106 @@
         ],
         "title": "FieldError"
       },
+      "Grant": {
+        "properties": {
+          "origin": {
+            "type": "string",
+            "enum": [
+              "application",
+              "user_submission",
+              "third_party"
+            ],
+            "title": "Origin"
+          },
+          "license": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "License"
+          },
+          "source_url": {
+            "type": "string",
+            "maxLength": 500,
+            "title": "Source Url"
+          },
+          "attribution": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Attribution"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "terms_version": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Terms Version"
+          },
+          "reviewer": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Reviewer"
+          },
+          "reviewed": {
+            "type": "boolean",
+            "title": "Reviewed",
+            "default": false
+          },
+          "display": {
+            "type": "boolean",
+            "title": "Display",
+            "default": false
+          },
+          "cache": {
+            "type": "boolean",
+            "title": "Cache",
+            "default": false
+          },
+          "transpose": {
+            "type": "boolean",
+            "title": "Transpose",
+            "default": false
+          },
+          "territories": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "title": "Territories"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "origin",
+          "license",
+          "source_url",
+          "attribution",
+          "evidence",
+          "terms_version",
+          "reviewer"
+        ],
+        "title": "Grant"
+      },
       "Health": {
         "properties": {
           "status": {
@@ -2672,6 +3405,74 @@
           "status"
         ],
         "title": "Health"
+      },
+      "ImportInput": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Key"
+          },
+          "replace_existing": {
+            "type": "boolean",
+            "title": "Replace Existing",
+            "default": false
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SongInput"
+            },
+            "type": "array",
+            "maxItems": 200,
+            "minItems": 1,
+            "title": "Items"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "key",
+          "items"
+        ],
+        "title": "ImportInput"
+      },
+      "ImportView": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "key": {
+            "type": "string",
+            "title": "Key"
+          },
+          "state": {
+            "type": "string",
+            "title": "State"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "issues": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Issues"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "key",
+          "state",
+          "count",
+          "issues"
+        ],
+        "title": "ImportView"
       },
       "Message": {
         "properties": {
@@ -3287,6 +4088,362 @@
         ],
         "title": "SharedPatternInput"
       },
+      "SongDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "artist": {
+            "type": "string",
+            "title": "Artist"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language"
+          },
+          "aliases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Aliases"
+          },
+          "genre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Genre"
+          },
+          "version_note": {
+            "type": "string",
+            "title": "Version Note",
+            "default": ""
+          },
+          "arrangement_count": {
+            "type": "integer",
+            "title": "Arrangement Count"
+          },
+          "text_count": {
+            "type": "integer",
+            "title": "Text Count"
+          },
+          "metadata_grant": {
+            "$ref": "#/components/schemas/Grant"
+          },
+          "arrangements": {
+            "items": {
+              "$ref": "#/components/schemas/ArrangementInput"
+            },
+            "type": "array",
+            "title": "Arrangements"
+          },
+          "texts": {
+            "items": {
+              "$ref": "#/components/schemas/TextInput"
+            },
+            "type": "array",
+            "title": "Texts"
+          },
+          "lyrics_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics Url"
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "artist",
+          "language",
+          "aliases",
+          "genre",
+          "arrangement_count",
+          "text_count",
+          "metadata_grant",
+          "arrangements",
+          "texts",
+          "lyrics_url",
+          "revision"
+        ],
+        "title": "SongDetail"
+      },
+      "SongInput": {
+        "properties": {
+          "external_key": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "External Key"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "artist": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Artist"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ur",
+              "hi"
+            ],
+            "title": "Language"
+          },
+          "aliases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Aliases"
+          },
+          "genre": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 60
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Genre"
+          },
+          "version_note": {
+            "type": "string",
+            "maxLength": 500,
+            "title": "Version Note",
+            "default": ""
+          },
+          "metadata_grant": {
+            "$ref": "#/components/schemas/Grant"
+          },
+          "arrangements": {
+            "items": {
+              "$ref": "#/components/schemas/ArrangementInput"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Arrangements"
+          },
+          "texts": {
+            "items": {
+              "$ref": "#/components/schemas/TextInput"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Texts"
+          },
+          "lyrics_url": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics Url"
+          },
+          "lyrics_link_verified": {
+            "type": "boolean",
+            "title": "Lyrics Link Verified",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "external_key",
+          "title",
+          "artist",
+          "language",
+          "metadata_grant"
+        ],
+        "title": "SongInput"
+      },
+      "SongPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SongSummary"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "SongPage"
+      },
+      "SongSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "artist": {
+            "type": "string",
+            "title": "Artist"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language"
+          },
+          "aliases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Aliases"
+          },
+          "genre": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Genre"
+          },
+          "version_note": {
+            "type": "string",
+            "title": "Version Note",
+            "default": ""
+          },
+          "arrangement_count": {
+            "type": "integer",
+            "title": "Arrangement Count"
+          },
+          "text_count": {
+            "type": "integer",
+            "title": "Text Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "artist",
+          "language",
+          "aliases",
+          "genre",
+          "arrangement_count",
+          "text_count"
+        ],
+        "title": "SongSummary"
+      },
+      "TextInput": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Key"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ur",
+              "hi"
+            ],
+            "title": "Language"
+          },
+          "script": {
+            "type": "string",
+            "enum": [
+              "Latn",
+              "Arab",
+              "Deva"
+            ],
+            "title": "Script"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Label"
+          },
+          "lines": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 1000,
+            "minItems": 1,
+            "title": "Lines"
+          },
+          "grant": {
+            "$ref": "#/components/schemas/Grant"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "key",
+          "language",
+          "script",
+          "label",
+          "lines",
+          "grant"
+        ],
+        "title": "TextInput"
+      },
       "TokenInput": {
         "properties": {
           "token": {
@@ -3302,6 +4459,36 @@
           "token"
         ],
         "title": "TokenInput"
+      },
+      "Withdrawal": {
+        "properties": {
+          "component": {
+            "type": "string",
+            "enum": [
+              "metadata",
+              "arrangement",
+              "text"
+            ],
+            "title": "Component"
+          },
+          "key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Key"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "component"
+        ],
+        "title": "Withdrawal"
       },
       "WorkspaceInput": {
         "properties": {

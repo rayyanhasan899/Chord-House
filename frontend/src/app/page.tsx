@@ -45,7 +45,9 @@ export default function Home() {
           Create an account, sign in securely and set your learning preferences.
           Use the tuner, chord library and metronome as a guest. Sign in for
           your private workspace, saved custom chords and strumming patterns.
-          Songs and practice tracking arrive in later phases.
+          Browse the English, Urdu and Hindi song catalog, with learning content
+          where permission is verified. Practice tracking arrives in later
+          phases.
         </p>
       </section>
     </>

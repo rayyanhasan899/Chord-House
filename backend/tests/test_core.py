@@ -62,9 +62,11 @@ def test_settings_and_logs_do_not_expose_secrets() -> None:
         "test", logging.ERROR, "", 1, "password=private", (), None
     )
     record.request_id = "safe"
+    record.exception_type = "RuntimeError"
     output = SafeJsonFormatter().format(record)
     assert "private" not in output
     assert json.loads(output)["request_id"] == "safe"
+    assert json.loads(output)["exception_type"] == "RuntimeError"
 
 
 def test_unavailable_database_returns_safe_error() -> None:

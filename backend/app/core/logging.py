@@ -12,6 +12,7 @@ class SafeJsonFormatter(logging.Formatter):
                 "event": getattr(record, "event", "application_event"),
                 "request_id": getattr(record, "request_id", None),
                 "status": getattr(record, "status", None),
+                "exception_type": getattr(record, "exception_type", None),
             }
         )
 

@@ -1,0 +1,2241 @@
+[
+  {
+    "external_key": "original:en:one-more-morning",
+    "title": "One More Morning",
+    "artist": "Chord House Originals",
+    "language": "en",
+    "aliases": [],
+    "genre": "Original practice song",
+    "metadata_grant": {
+      "origin": "application",
+      "license": "Original project content",
+      "source_url": "https://github.com/rayyanhasan899/Chord-House",
+      "attribution": "Chord House original learning songs",
+      "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+      "terms_version": "Original pack 1 / 2026-11-08",
+      "reviewer": "Chord House editorial review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": true,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [
+      {
+        "key": "guitar-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "guitar",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": 0,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "english",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "bass-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "bass",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "english",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "ukulele-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "ukulele",
+        "tuning": "reentrant",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "english",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "texts": [
+      {
+        "key": "english",
+        "language": "en",
+        "script": "Latn",
+        "label": "English lyrics",
+        "lines": [
+          "The window holds a square of light",
+          "I let the quiet leave the night",
+          "One open string, one steady hand",
+          "A little tune is where I stand",
+          "One more morning, one more try",
+          "Let the small notes climb the sky",
+          "If I stumble, I can stay",
+          "And find the beat another way",
+          "The room is still, the clock is slow",
+          "I give each chord a place to grow",
+          "No race to win, no crowd to see",
+          "This little song belongs to me"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "original:en:lantern-on-the-table",
+    "title": "Lantern on the Table",
+    "artist": "Chord House Originals",
+    "language": "en",
+    "aliases": [],
+    "genre": "Original practice song",
+    "metadata_grant": {
+      "origin": "application",
+      "license": "Original project content",
+      "source_url": "https://github.com/rayyanhasan899/Chord-House",
+      "attribution": "Chord House original learning songs",
+      "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+      "terms_version": "Original pack 1 / 2026-11-08",
+      "reviewer": "Chord House editorial review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": true,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [
+      {
+        "key": "guitar-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "guitar",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": 0,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "english",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "bass-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "bass",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "english",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "ukulele-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "ukulele",
+        "tuning": "reentrant",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "english",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "texts": [
+      {
+        "key": "english",
+        "language": "en",
+        "script": "Latn",
+        "label": "English lyrics",
+        "lines": [
+          "A lantern on the table glows",
+          "The evening settles, no one knows",
+          "How many times I missed this change",
+          "And made the silence feel less strange",
+          "Hold the beat and breathe again",
+          "Every note can be a friend",
+          "Let the ringing fill the room",
+          "Like a seed that learns to bloom",
+          "The final chord can fade away",
+          "I keep the part I learned today",
+          "Tomorrow brings a softer hand",
+          "And one more tune I understand"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "original:ur:aik-nayi-subah",
+    "title": "Aik Nayi Subah",
+    "artist": "Chord House Originals",
+    "language": "ur",
+    "aliases": [
+      "Ek Nayi Subah",
+      "ایک نئی صبح"
+    ],
+    "genre": "Original practice song",
+    "metadata_grant": {
+      "origin": "application",
+      "license": "Original project content",
+      "source_url": "https://github.com/rayyanhasan899/Chord-House",
+      "attribution": "Chord House original learning songs",
+      "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+      "terms_version": "Original pack 1 / 2026-11-08",
+      "reviewer": "Chord House editorial review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": true,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [
+      {
+        "key": "guitar-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "guitar",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": 0,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "bass-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "bass",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "ukulele-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "ukulele",
+        "tuning": "reentrant",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "texts": [
+      {
+        "key": "roman",
+        "language": "ur",
+        "script": "Latn",
+        "label": "Roman Urdu",
+        "lines": [
+          "Khidki se roshni aayi",
+          "Dil ne aik dhun banayi",
+          "Taar ko aahista chhero",
+          "Apni saanson ko suno",
+          "Aik nayi subah, aik naya raag",
+          "Chhoti koshish, roshan raah",
+          "Bhool ho to phir se gaao",
+          "Dheere dheere aage aao",
+          "Shaam ko jab ghar mein aao",
+          "Aaj ka seekha yaad dilao",
+          "Har nayi dhun saath nibhaaye",
+          "Dil ko apni raah dikhaaye"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "native",
+        "language": "ur",
+        "script": "Arab",
+        "label": "Urdu script",
+        "lines": [
+          "کھڑکی سے روشنی آئی",
+          "دل نے ایک دھن بنائی",
+          "تار کو آہستہ چھیڑو",
+          "اپنی سانسوں کو سنو",
+          "ایک نئی صبح، ایک نیا راگ",
+          "چھوٹی کوشش، روشن راہ",
+          "بھول ہو تو پھر سے گاؤ",
+          "دھیرے دھیرے آگے آؤ",
+          "شام کو جب گھر میں آؤ",
+          "آج کا سیکھا یاد دلاؤ",
+          "ہر نئی دھن ساتھ نبھائے",
+          "دل کو اپنی راہ دکھائے"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "original:ur:chhota-sa-safar",
+    "title": "Chhota Sa Safar",
+    "artist": "Chord House Originals",
+    "language": "ur",
+    "aliases": [
+      "Chota Sa Safar",
+      "چھوٹا سا سفر"
+    ],
+    "genre": "Original practice song",
+    "metadata_grant": {
+      "origin": "application",
+      "license": "Original project content",
+      "source_url": "https://github.com/rayyanhasan899/Chord-House",
+      "attribution": "Chord House original learning songs",
+      "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+      "terms_version": "Original pack 1 / 2026-11-08",
+      "reviewer": "Chord House editorial review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": true,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [
+      {
+        "key": "guitar-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "guitar",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": 0,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "bass-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "bass",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "ukulele-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "ukulele",
+        "tuning": "reentrant",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "texts": [
+      {
+        "key": "roman",
+        "language": "ur",
+        "script": "Latn",
+        "label": "Roman Urdu",
+        "lines": [
+          "Mez pe rakha mera saaz",
+          "Chupke se deta hai aawaaz",
+          "Aaj zara sa waqt nikaala",
+          "Dil ka aik kona ujaala",
+          "Chhota sa safar hai mera",
+          "Har sur mein hai naya savera",
+          "Jaldi kya hai, saath to chalo",
+          "Aik aik qadam pe dhun ko suno",
+          "Ungli rukti, phir chalti hai",
+          "Dhun bhi mere saath badalti hai",
+          "Aaj ki mehnat kal muskuraaye",
+          "Apna saaz mujhe ghar bulaaye"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "original:hi:nayi-dhoop",
+    "title": "Nayi Dhoop",
+    "artist": "Chord House Originals",
+    "language": "hi",
+    "aliases": [
+      "नई धूप",
+      "Nai Dhoop"
+    ],
+    "genre": "Original practice song",
+    "metadata_grant": {
+      "origin": "application",
+      "license": "Original project content",
+      "source_url": "https://github.com/rayyanhasan899/Chord-House",
+      "attribution": "Chord House original learning songs",
+      "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+      "terms_version": "Original pack 1 / 2026-11-08",
+      "reviewer": "Chord House editorial review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": true,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [
+      {
+        "key": "guitar-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "guitar",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": 0,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "bass-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "bass",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "ukulele-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "ukulele",
+        "tuning": "reentrant",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "texts": [
+      {
+        "key": "roman",
+        "language": "hi",
+        "script": "Latn",
+        "label": "Roman Hindi",
+        "lines": [
+          "Aangan mein nayi dhoop aayi",
+          "Maine halki taan sunaayi",
+          "Dheere se ik taar bajaaya",
+          "Chhota sa ik geet banaaya",
+          "Nayi dhoop aur nayi kahaani",
+          "Seekh raha hoon dhun puraani",
+          "Gir kar phir se uth jaaunga",
+          "Apni lay mein gaata jaaunga",
+          "Shaam dhale jab deep jalaaoon",
+          "Aaj ki mehnat yaad dilaaoon",
+          "Kal ki raah ab paas lagegi",
+          "Har koshish ek aas banegi"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "native",
+        "language": "hi",
+        "script": "Deva",
+        "label": "Hindi script",
+        "lines": [
+          "आँगन में नई धूप आई",
+          "मैंने हल्की तान सुनाई",
+          "धीरे से इक तार बजाया",
+          "छोटा सा इक गीत बनाया",
+          "नई धूप और नई कहानी",
+          "सीख रहा हूँ धुन पुरानी",
+          "गिर कर फिर से उठ जाऊँगा",
+          "अपनी लय में गाता जाऊँगा",
+          "शाम ढले जब दीप जलाऊँ",
+          "आज की मेहनत याद दिलाऊँ",
+          "कल की राह अब पास लगेगी",
+          "हर कोशिश एक आस बनेगी"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "original:hi:dheere-chalo",
+    "title": "Dheere Chalo",
+    "artist": "Chord House Originals",
+    "language": "hi",
+    "aliases": [
+      "धीरे चलो"
+    ],
+    "genre": "Original practice song",
+    "metadata_grant": {
+      "origin": "application",
+      "license": "Original project content",
+      "source_url": "https://github.com/rayyanhasan899/Chord-House",
+      "attribution": "Chord House original learning songs",
+      "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+      "terms_version": "Original pack 1 / 2026-11-08",
+      "reviewer": "Chord House editorial review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": true,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [
+      {
+        "key": "guitar-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "guitar",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": 0,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "bass-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "bass",
+        "tuning": "standard",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      },
+      {
+        "key": "ukulele-standard",
+        "name": "Original 4/4 chord exercise",
+        "instrument": "ukulele",
+        "tuning": "reentrant",
+        "difficulty": "beginner",
+        "capo": null,
+        "key_note": "C",
+        "chords": [
+          "C",
+          "Am",
+          "F",
+          "G"
+        ],
+        "placements": [
+          {
+            "line": 0,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 1,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 2,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 3,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 4,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 5,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 6,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 7,
+            "offset": 0,
+            "chord": "G"
+          },
+          {
+            "line": 8,
+            "offset": 0,
+            "chord": "C"
+          },
+          {
+            "line": 9,
+            "offset": 0,
+            "chord": "Am"
+          },
+          {
+            "line": 10,
+            "offset": 0,
+            "chord": "F"
+          },
+          {
+            "line": 11,
+            "offset": 0,
+            "chord": "G"
+          }
+        ],
+        "text_key": "roman",
+        "pattern_id": "702869f2-0cb7-5055-848c-cbefc0acc425",
+        "guidance": "Original chord-and-lyric practice song: one 4/4 measure per line, four even downstrokes, suggested 60–90 BPM. No melody or vocal recording is supplied; speak or sing freely over the chords. Bass entries are chord-tone exercises rather than a recorded bass line. Use comfortable voicings from the diagrams.",
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "texts": [
+      {
+        "key": "roman",
+        "language": "hi",
+        "script": "Latn",
+        "label": "Roman Hindi",
+        "lines": [
+          "Raaste par ped khade hain",
+          "Patton mein kuchh sur chhupe hain",
+          "Baith ke unko aaj suno tum",
+          "Apni dhun mein saath buno tum",
+          "Dheere chalo, lay ko paao",
+          "Har ik sur se haath milaao",
+          "Chhoti dhun bhi door chalegi",
+          "Mann ki khidki aaj khulegi",
+          "Kal jo mushkil lagta tha",
+          "Aaj zara aasaan hua",
+          "Ek kadam aur ek nishaana",
+          "Roz naya kuchh seekhte jaana"
+        ],
+        "grant": {
+          "origin": "application",
+          "license": "Original project content",
+          "source_url": "https://github.com/rayyanhasan899/Chord-House",
+          "attribution": "Chord House original learning songs",
+          "evidence": "New lyrics and chord exercises authored for this project, not adapted from a named third-party song.",
+          "terms_version": "Original pack 1 / 2026-11-08",
+          "reviewer": "Chord House editorial review",
+          "reviewed": true,
+          "display": true,
+          "cache": true,
+          "transpose": true,
+          "territories": [
+            "*"
+          ],
+          "expires_at": null
+        }
+      }
+    ],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  }
+]

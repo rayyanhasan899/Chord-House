@@ -518,3 +518,38 @@ fieldset {
   border-color: var(--accent);
   outline: 2px solid var(--accent);
 }
+
+.song-chords {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 1rem;
+}
+.song-chords section {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.song-lines {
+  font-family: ui-monospace, monospace;
+  overflow-x: auto;
+  max-width: 100%;
+  padding-block: 1rem;
+}
+.song-lines p,
+.chord-line {
+  white-space: pre;
+  margin: 0;
+  line-height: 1.8;
+  font: inherit;
+}
+.chord-line {
+  font-weight: 700;
+  color: var(--accent);
+}
+.song-learning > section {
+  margin-block: 2rem;
+}
+.practice-view {
+  max-width: 900px;
+  margin-inline: auto;
+}

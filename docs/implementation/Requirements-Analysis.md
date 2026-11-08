@@ -3,7 +3,7 @@
 User decisions supplement the unchanged source SRS and blueprint. Original documents remain preserved.
 
 1. Core song catalogue includes popular English, Urdu and Hindi songs, with Roman Urdu/Hindi variants. English UI is independent of song language. No fixed small sample-only cap.
-2. Guests can use tuner, metronome and public chord library. Personal records require authentication; guest access to other catalogue areas remains proposed, not approved.
+2. Guests can use tuner, metronome and public chord library. Personal records require authentication; song discovery/learning requires sign-in (owner confirmation in Phase 12). Other guest catalogue access is not inferred.
 3. Secure server-managed cookie sessions; revocation, expiration, logout and backend authorization required.
 4. Fully usable local application plus deployment preparation; no paid core dependency; provider selection requires current evaluation.
 5. Guitar presets: E2 A2 D3 G3 B3 E4; Drop D D2 A2 D3 G3 B3 E4; DADGAD D2 A2 D3 G3 A3 D4. Preserve bass E1 A1 D2 G2 and re-entrant ukulele G4 C4 E4 A4.

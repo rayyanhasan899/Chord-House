@@ -1,0 +1,2764 @@
+[
+  {
+    "external_key": "musicbrainz:recording:1b04cca9-10f9-4d1c-9228-e55f9c7bd987",
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "language": "en",
+    "aliases": [
+      "Wonderwall"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/1b04cca9-10f9-4d1c-9228-e55f9c7bd987",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:efa1ec75-f467-48cc-a792-1a4adbeac590",
+    "title": "Let It Be",
+    "artist": "The Beatles",
+    "language": "en",
+    "aliases": [
+      "Let It Be"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/efa1ec75-f467-48cc-a792-1a4adbeac590",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:03e4c323-ccf9-441e-99e6-3e1f652565b1",
+    "title": "Hey Jude",
+    "artist": "The Beatles",
+    "language": "en",
+    "aliases": [
+      "Hey Jude"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/03e4c323-ccf9-441e-99e6-3e1f652565b1",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:f708b0d2-0010-45b8-b58b-602bacc96351",
+    "title": "Yesterday",
+    "artist": "The Beatles",
+    "language": "en",
+    "aliases": [
+      "Yesterday"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/f708b0d2-0010-45b8-b58b-602bacc96351",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:89b0e936-b021-4aae-a077-107379e15e69",
+    "title": "Blackbird",
+    "artist": "The Beatles",
+    "language": "en",
+    "aliases": [
+      "Blackbird"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/89b0e936-b021-4aae-a077-107379e15e69",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:c1278fab-44ea-432e-a9c2-862c68f453af",
+    "title": "Perfect",
+    "artist": "Ed Sheeran",
+    "language": "en",
+    "aliases": [
+      "Perfect"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/c1278fab-44ea-432e-a9c2-862c68f453af",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:ea6f52e4-0071-4d62-adfe-f24580560374",
+    "title": "Photograph",
+    "artist": "Ed Sheeran",
+    "language": "en",
+    "aliases": [
+      "Photograph"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/ea6f52e4-0071-4d62-adfe-f24580560374",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5ae98718-cb35-4016-9a99-d52092f8cda4",
+    "title": "Thinking Out Loud",
+    "artist": "Ed Sheeran",
+    "language": "en",
+    "aliases": [
+      "Thinking Out Loud"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5ae98718-cb35-4016-9a99-d52092f8cda4",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:d7500dd6-b815-4299-88c6-3fbda358f1fc",
+    "title": "Shape of You",
+    "artist": "Ed Sheeran",
+    "language": "en",
+    "aliases": [
+      "Shape of You"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/d7500dd6-b815-4299-88c6-3fbda358f1fc",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:60653512-157a-47c5-9ac8-50eb82185243",
+    "title": "Yellow",
+    "artist": "Coldplay",
+    "language": "en",
+    "aliases": [
+      "Yellow"
+    ],
+    "version_note": "live, 2002-06-26: Wisseloord Studios, Hilversum, The Netherlands",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/60653512-157a-47c5-9ac8-50eb82185243",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:e8a57e03-cbf8-4073-9ff8-139858518074",
+    "title": "The Scientist",
+    "artist": "Coldplay",
+    "language": "en",
+    "aliases": [
+      "The Scientist"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/e8a57e03-cbf8-4073-9ff8-139858518074",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:50674c21-3544-47d0-9ebd-f1070df8e812",
+    "title": "Fix You",
+    "artist": "Coldplay",
+    "language": "en",
+    "aliases": [
+      "Fix You"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/50674c21-3544-47d0-9ebd-f1070df8e812",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:2359d8b9-3543-4511-9485-2494e41ca321",
+    "title": "Viva La Vida",
+    "artist": "Coldplay",
+    "language": "en",
+    "aliases": [
+      "Viva la Vida"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/2359d8b9-3543-4511-9485-2494e41ca321",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:930ac040-5f83-4746-9135-6c165f8539b7",
+    "title": "I'm Yours",
+    "artist": "Jason Mraz",
+    "language": "en",
+    "aliases": [
+      "I'm Yours"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/930ac040-5f83-4746-9135-6c165f8539b7",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:11ab727b-f9d4-49fb-86da-b6c591caadc9",
+    "title": "Riptide",
+    "artist": "Vance Joy",
+    "language": "en",
+    "aliases": [
+      "Riptide"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/11ab727b-f9d4-49fb-86da-b6c591caadc9",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:e7131935-9e91-484e-bf34-d45cf1966aa5",
+    "title": "Hallelujah",
+    "artist": "Leonard Cohen",
+    "language": "en",
+    "aliases": [
+      "Hallelujah"
+    ],
+    "version_note": "live, 2008-10-29: Festhalle, Frankfurt am Main, Germany",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/e7131935-9e91-484e-bf34-d45cf1966aa5",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:f18334f8-a985-4719-b14a-d4e54572ee1f",
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "language": "en",
+    "aliases": [
+      "Hotel California"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/f18334f8-a985-4719-b14a-d4e54572ee1f",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:8f82c91f-7f22-4976-ac70-ac910fcb8d9e",
+    "title": "Wish You Were Here",
+    "artist": "Pink Floyd",
+    "language": "en",
+    "aliases": [
+      "Wish You Were Here"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/8f82c91f-7f22-4976-ac70-ac910fcb8d9e",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:99c7030c-ee01-4538-a261-1c6300d53510",
+    "title": "Knockin' on Heaven's Door",
+    "artist": "Bob Dylan",
+    "language": "en",
+    "aliases": [
+      "Knockin' on Heaven's Door"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/99c7030c-ee01-4538-a261-1c6300d53510",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:8a082a1c-1980-4ed0-94d0-3310708ea4bf",
+    "title": "Blowin' in the Wind",
+    "artist": "Bob Dylan",
+    "language": "en",
+    "aliases": [
+      "Blowin' in the Wind"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/8a082a1c-1980-4ed0-94d0-3310708ea4bf",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:4780ec88-c478-45fe-ac2a-c096e6f349bf",
+    "title": "Stand by Me",
+    "artist": "Ben E. King",
+    "language": "en",
+    "aliases": [
+      "Stand by Me"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/4780ec88-c478-45fe-ac2a-c096e6f349bf",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:50a79fd3-0e18-4979-a20d-9d5c0c7d8c6e",
+    "title": "Can’t Help Falling in Love",
+    "artist": "Elvis Presley",
+    "language": "en",
+    "aliases": [
+      "Can't Help Falling in Love"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/50a79fd3-0e18-4979-a20d-9d5c0c7d8c6e",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:80ab189a-5e89-4697-9d2a-8561901f75eb",
+    "title": "Take Me Home, Country Roads",
+    "artist": "John Denver",
+    "language": "en",
+    "aliases": [
+      "Take Me Home, Country Roads"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/80ab189a-5e89-4697-9d2a-8561901f75eb",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:2e41556b-e76e-4eca-b541-db564cf1ada4",
+    "title": "Leaving on a Jet Plane",
+    "artist": "John Denver",
+    "language": "en",
+    "aliases": [
+      "Leaving on a Jet Plane"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/2e41556b-e76e-4eca-b541-db564cf1ada4",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:d38be2bf-841f-494f-9c09-4e0e6474b30c",
+    "title": "Good Riddance",
+    "artist": "Green Day",
+    "language": "en",
+    "aliases": [
+      "Good Riddance"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/d38be2bf-841f-494f-9c09-4e0e6474b30c",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:57c5eef8-0656-4f86-b34a-231402c5ea45",
+    "title": "Boulevard of Broken Dreams",
+    "artist": "Green Day",
+    "language": "en",
+    "aliases": [
+      "Boulevard of Broken Dreams"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/57c5eef8-0656-4f86-b34a-231402c5ea45",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:028efe7f-cdfb-4135-846f-848f2fff15b1",
+    "title": "Someone Like You",
+    "artist": "Adele",
+    "language": "en",
+    "aliases": [
+      "Someone Like You"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/028efe7f-cdfb-4135-846f-848f2fff15b1",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:7a04aff5-25d1-4640-a8da-7dd7bdbfa7e1",
+    "title": "Fast Car",
+    "artist": "Tracy Chapman",
+    "language": "en",
+    "aliases": [
+      "Fast Car"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/7a04aff5-25d1-4640-a8da-7dd7bdbfa7e1",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5a5dcfca-3954-49f5-b45d-ef56ec90a204",
+    "title": "Brown Eyed Girl",
+    "artist": "Van Morrison",
+    "language": "en",
+    "aliases": [
+      "Brown Eyed Girl"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5a5dcfca-3954-49f5-b45d-ef56ec90a204",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:9624dbd3-7dc0-42e1-9bab-6565a004e814",
+    "title": "Sweet Child O' Mine",
+    "artist": "Guns N’ Roses",
+    "language": "en",
+    "aliases": [
+      "Sweet Child o' Mine"
+    ],
+    "version_note": "Live at Rock in Rio",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/9624dbd3-7dc0-42e1-9bab-6565a004e814",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:40b0cb89-3033-4e04-94fd-0cb6b7e300b3",
+    "title": "Aadat",
+    "artist": "Jal",
+    "language": "ur",
+    "aliases": [
+      "Aadat",
+      "عادت"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/40b0cb89-3033-4e04-94fd-0cb6b7e300b3",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:bfafe2ad-46e9-47ac-8e3f-8ede362c5411",
+    "title": "Woh Lamhe",
+    "artist": "Jal",
+    "language": "ur",
+    "aliases": [
+      "Woh Lamhe",
+      "Woh Lamhey",
+      "وہ لمحے"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/bfafe2ad-46e9-47ac-8e3f-8ede362c5411",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:c72811ae-43ff-4cbd-8c21-3554ceadf33f",
+    "title": "Sajni",
+    "artist": "Jal",
+    "language": "ur",
+    "aliases": [
+      "Sajni",
+      "سجنی"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/c72811ae-43ff-4cbd-8c21-3554ceadf33f",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:e055263b-a2c8-4afd-ad0a-9d7624603c74",
+    "title": "Bikhra Hoon Main",
+    "artist": "Jal",
+    "language": "ur",
+    "aliases": [
+      "Bikhra Hoon Main",
+      "Bikhra Hun Main",
+      "بکھرا ہوں میں"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/e055263b-a2c8-4afd-ad0a-9d7624603c74",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:21fbd163-88da-46c2-bab6-06bc90a32b83",
+    "title": "Panchi",
+    "artist": "Jal",
+    "language": "ur",
+    "aliases": [
+      "Panchi"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/21fbd163-88da-46c2-bab6-06bc90a32b83",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:ab70f9eb-4f70-4bad-978c-f7a33c54d873",
+    "title": "Doorie",
+    "artist": "Atif Aslam",
+    "language": "ur",
+    "aliases": [
+      "Doorie",
+      "Doori",
+      "دوری"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/ab70f9eb-4f70-4bad-978c-f7a33c54d873",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:d6fb8ec9-eede-4008-a1a8-204bc3f4288e",
+    "title": "Ehsaas",
+    "artist": "Atif Aslam",
+    "language": "ur",
+    "aliases": [
+      "Ehsaas",
+      "Ehsas",
+      "احساس"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/d6fb8ec9-eede-4008-a1a8-204bc3f4288e",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:0cd2cbfe-d407-460d-877a-f2f3e8cb8584",
+    "title": "Jal Pari",
+    "artist": "Atif Aslam",
+    "language": "ur",
+    "aliases": [
+      "Jal Pari",
+      "جل پری"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/0cd2cbfe-d407-460d-877a-f2f3e8cb8584",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:49fb1a01-1dd5-4ea0-86da-e0c482919547",
+    "title": "Kuch Is Tarah",
+    "artist": "Atif Aslam",
+    "language": "ur",
+    "aliases": [
+      "Kuch Is Tarah",
+      "کچھ اس طرح"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/49fb1a01-1dd5-4ea0-86da-e0c482919547",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:46c01cf3-2273-4fb7-93ef-8ab4df414b2c",
+    "title": "Dil Dil Pakistan",
+    "artist": "Vital Signs",
+    "language": "ur",
+    "aliases": [
+      "Dil Dil Pakistan",
+      "دل دل پاکستان"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/46c01cf3-2273-4fb7-93ef-8ab4df414b2c",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:c5bea45d-9b32-4b67-a608-199e847c9bfc",
+    "title": "Aitebar",
+    "artist": "Vital Signs",
+    "language": "ur",
+    "aliases": [
+      "Aitebar",
+      "Aitbaar",
+      "Aetbaar",
+      "اعتبار"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/c5bea45d-9b32-4b67-a608-199e847c9bfc",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:0898f8a5-95c5-47a1-b652-e92fca35a56d",
+    "title": "Tum Mil Gaye",
+    "artist": "Vital Signs",
+    "language": "ur",
+    "aliases": [
+      "Tum Mil Gaye"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/0898f8a5-95c5-47a1-b652-e92fca35a56d",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:a786e613-ddbe-4497-93e0-e1af0ea502fb",
+    "title": "Duur",
+    "artist": "Strings",
+    "language": "ur",
+    "aliases": [
+      "Duur",
+      "Door",
+      "دور"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/a786e613-ddbe-4497-93e0-e1af0ea502fb",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:58979bdf-8a59-4c55-9f4a-8b04dbd209bf",
+    "title": "Dhaani",
+    "artist": "Strings",
+    "language": "ur",
+    "aliases": [
+      "Dhaani",
+      "Dhani",
+      "دھانی"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/58979bdf-8a59-4c55-9f4a-8b04dbd209bf",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:7c1863fd-26d7-4ed2-a376-64a452042769",
+    "title": "Sar Kiye Yeh Pahar",
+    "artist": "Strings",
+    "language": "ur",
+    "aliases": [
+      "Sar Kiye Yeh Pahar"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/7c1863fd-26d7-4ed2-a376-64a452042769",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:ca8bfac3-2a82-43e3-a027-f35f7e7f0fb3",
+    "title": "Mera Bichra Yaar",
+    "artist": "Strings",
+    "language": "ur",
+    "aliases": [
+      "Mera Bichra Yaar"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/ca8bfac3-2a82-43e3-a027-f35f7e7f0fb3",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:a1dbb634-327d-4442-ab88-0ad8c6847ad6",
+    "title": "Anjane",
+    "artist": "Strings",
+    "language": "ur",
+    "aliases": [
+      "Anjane"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/a1dbb634-327d-4442-ab88-0ad8c6847ad6",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:4cb0e4a6-641d-4959-9bcb-88ec9051894c",
+    "title": "Neend Aati Nahin",
+    "artist": "Junoon",
+    "language": "ur",
+    "aliases": [
+      "Neend Aati Nahin"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/4cb0e4a6-641d-4959-9bcb-88ec9051894c",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:7eb709bf-c7b6-48a9-a207-3fbe088c0766",
+    "title": "Jazba‐e‐Junoon",
+    "artist": "Junoon",
+    "language": "ur",
+    "aliases": [
+      "Jazba E Junoon"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/7eb709bf-c7b6-48a9-a207-3fbe088c0766",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:dbcf99c7-8c16-41e9-bfe4-15286cb1a0da",
+    "title": "Khudi",
+    "artist": "Junoon",
+    "language": "ur",
+    "aliases": [
+      "Khudi"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/dbcf99c7-8c16-41e9-bfe4-15286cb1a0da",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:d63e9698-a014-4c03-a475-77ff0c63061c",
+    "title": "Garaj Baras",
+    "artist": "Ali Azmat",
+    "language": "ur",
+    "aliases": [
+      "Garaj Baras"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/d63e9698-a014-4c03-a475-77ff0c63061c",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:d8205ff8-df37-4fd1-a0a0-a5874f720b5f",
+    "title": "Na Re Na",
+    "artist": "Ali Azmat",
+    "language": "ur",
+    "aliases": [
+      "Na Re Na"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/d8205ff8-df37-4fd1-a0a0-a5874f720b5f",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:190c1758-5872-4c13-8ad4-9823bde9bea5",
+    "title": "Channo",
+    "artist": "Ali Zafar",
+    "language": "ur",
+    "aliases": [
+      "Channo"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/190c1758-5872-4c13-8ad4-9823bde9bea5",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:44eabe78-525d-45e7-b9ef-f0cbd666b09a",
+    "title": "Chal Dil Mere",
+    "artist": "Ali Zafar & Talha Anjum",
+    "language": "ur",
+    "aliases": [
+      "Chal Dil Mere"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/44eabe78-525d-45e7-b9ef-f0cbd666b09a",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:b2a6c932-204c-41b3-98cf-d0148b49b2ba",
+    "title": "Afreen Afreen",
+    "artist": "Nusrat Fateh Ali Khan",
+    "language": "ur",
+    "aliases": [
+      "Afreen Afreen",
+      "Aafreen Aafreen",
+      "آفریں آفریں"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/b2a6c932-204c-41b3-98cf-d0148b49b2ba",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:9c96fed3-1be0-455a-8a74-05a4cc820522",
+    "title": "Hona Tha Pyar",
+    "artist": "Atif Aslam & Hadiqa Kiani",
+    "language": "ur",
+    "aliases": [
+      "Hona Tha Pyar",
+      "Hona Tha Pyaar",
+      "ہونا تھا پیار"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/9c96fed3-1be0-455a-8a74-05a4cc820522",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:3e5bc764-dfa4-454d-a2a9-0ee84ae35db2",
+    "title": "Tum Hi Ho",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Tum Hi Ho",
+      "तुम ही हो"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/3e5bc764-dfa4-454d-a2a9-0ee84ae35db2",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:e27ee5d7-703d-4985-a183-e5eef0020fb5",
+    "title": "Channa Mereya",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Channa Mereya",
+      "Channa Merya",
+      "चन्ना मेरेया"
+    ],
+    "version_note": "from the film \"Ae Dil Hai Mushkil\"",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/e27ee5d7-703d-4985-a183-e5eef0020fb5",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:a12467af-5c00-4fbf-8615-4dbab2cf8ea2",
+    "title": "Raabta",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Raabta",
+      "Rabta",
+      "राब्ता"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/a12467af-5c00-4fbf-8615-4dbab2cf8ea2",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:393ad701-a13d-4f1c-9e3f-65dfd7cac167",
+    "title": "Kesariya",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Kesariya",
+      "केसरिया"
+    ],
+    "version_note": "from the film \"Brahmastra\"",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/393ad701-a13d-4f1c-9e3f-65dfd7cac167",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5efdc1af-929e-48da-8821-802fb6c0199e",
+    "title": "Kabira (MTV Unplugged Version)",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Kabira"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5efdc1af-929e-48da-8821-802fb6c0199e",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:fe7640bd-e721-4827-8a7b-8e9569317298",
+    "title": "Phir Le Aya Dil (reprise)",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Phir Le Aya Dil"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/fe7640bd-e721-4827-8a7b-8e9569317298",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:714f89b3-7e22-4d6d-8570-0259812717f7",
+    "title": "Shayad",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Shayad",
+      "शायद"
+    ],
+    "version_note": "from the 2020 film \"Love Aaj Kal\"",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/714f89b3-7e22-4d6d-8570-0259812717f7",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5b47741a-304d-4a60-a014-84c5e649976a",
+    "title": "Khairiyat",
+    "artist": "Arijit Singh & Mithoon",
+    "language": "hi",
+    "aliases": [
+      "Khairiyat"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5b47741a-304d-4a60-a014-84c5e649976a",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:6e29af7a-dc0f-4486-9681-0dadefdb3509",
+    "title": "Tera Yaar Hoon Main",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Tera Yaar Hoon Main"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/6e29af7a-dc0f-4486-9681-0dadefdb3509",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:c5ddadca-efb9-4345-8545-ed8cf022e9df",
+    "title": "Hawayein",
+    "artist": "Arijit Singh",
+    "language": "hi",
+    "aliases": [
+      "Hawayein"
+    ],
+    "version_note": "from the film \"Jab Harry Met Sejal\"",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/c5ddadca-efb9-4345-8545-ed8cf022e9df",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:0b04d700-63ad-4830-821a-6ffc836c6614",
+    "title": "Tera Hone Laga Hoon",
+    "artist": "Atif Aslam & Alisha Chinai",
+    "language": "hi",
+    "aliases": [
+      "Tera Hone Laga Hoon"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/0b04d700-63ad-4830-821a-6ffc836c6614",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:a534d8ef-90f8-4b18-a481-d185403b5ad3",
+    "title": "Tu Jaane Na",
+    "artist": "Atif Aslam",
+    "language": "hi",
+    "aliases": [
+      "Tu Jaane Na",
+      "Tu Jane Na",
+      "तू जाने ना"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/a534d8ef-90f8-4b18-a481-d185403b5ad3",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:44b4ed20-a0e6-464e-96de-c95b134c0c60",
+    "title": "Pehli Nazar Mein",
+    "artist": "Atif Aslam",
+    "language": "hi",
+    "aliases": [
+      "Pehli Nazar Mein"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/44b4ed20-a0e6-464e-96de-c95b134c0c60",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:6cd0fc97-ebcd-4ed9-9d68-e9fad9bc289b",
+    "title": "Tere Sang Yaara",
+    "artist": "Atif Aslam",
+    "language": "hi",
+    "aliases": [
+      "Tere Sang Yaara"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/6cd0fc97-ebcd-4ed9-9d68-e9fad9bc289b",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:2c79b42b-6c9a-4df7-a0ea-94f859bea3f3",
+    "title": "Jeena Jeena",
+    "artist": "Atif Aslam",
+    "language": "hi",
+    "aliases": [
+      "Jeena Jeena",
+      "जीना जीना"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/2c79b42b-6c9a-4df7-a0ea-94f859bea3f3",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:195d5e57-96b8-4fd4-9212-3d17d2334a1f",
+    "title": "Tera Ban Jaunga",
+    "artist": "Akhil Sachdeva & Tulsi Kumar",
+    "language": "hi",
+    "aliases": [
+      "Tera Ban Jaunga"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/195d5e57-96b8-4fd4-9212-3d17d2334a1f",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:cc47a6ee-9d98-4790-9123-1d07e59736dc",
+    "title": "Tum Se Hi",
+    "artist": "Mohit Chauhan",
+    "language": "hi",
+    "aliases": [
+      "Tum Se Hi",
+      "Tumse Hi",
+      "तुम से ही"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/cc47a6ee-9d98-4790-9123-1d07e59736dc",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:cf542c3c-5f58-4a18-8b84-2af7ece4a391",
+    "title": "Chura Liya Hai Tumne",
+    "artist": "Asha Bhosle, Mohd.Rafi, Suresh Wadkar, Roop Kumar",
+    "language": "hi",
+    "aliases": [
+      "Chura Liya Hai Tumne"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/cf542c3c-5f58-4a18-8b84-2af7ece4a391",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:dce06f23-627a-48df-b73e-b9a8756bc27c",
+    "title": "Pehla Nasha",
+    "artist": "Udit Narayan",
+    "language": "hi",
+    "aliases": [
+      "Pehla Nasha",
+      "पहला नशा"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/dce06f23-627a-48df-b73e-b9a8756bc27c",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5370e60c-e82c-45a0-9448-b6c0eb5b6473",
+    "title": "Pal",
+    "artist": "KK",
+    "language": "hi",
+    "aliases": [
+      "Pal"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5370e60c-e82c-45a0-9448-b6c0eb5b6473",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:8b2165e1-726a-45b8-b1c1-7ac116aca50b",
+    "title": "Yaaron",
+    "artist": "KK",
+    "language": "hi",
+    "aliases": [
+      "Yaaron",
+      "Yaron",
+      "यारों"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/8b2165e1-726a-45b8-b1c1-7ac116aca50b",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5b50ba9b-8682-40aa-9b16-234c1e3acc49",
+    "title": "Tadap Tadap",
+    "artist": "KK & Dominique",
+    "language": "hi",
+    "aliases": [
+      "Tadap Tadap"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5b50ba9b-8682-40aa-9b16-234c1e3acc49",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:7b295ac0-19c5-43de-82cc-474ebce31b14",
+    "title": "Alvida",
+    "artist": "KK",
+    "language": "hi",
+    "aliases": [
+      "Alvida"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/7b295ac0-19c5-43de-82cc-474ebce31b14",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:d40ac998-7c3e-4fb5-a431-1f86f8a6d304",
+    "title": "O Sanam",
+    "artist": "Lucky Ali",
+    "language": "hi",
+    "aliases": [
+      "O Sanam",
+      "ओ सनम"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/d40ac998-7c3e-4fb5-a431-1f86f8a6d304",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:73d48608-60d0-42bd-b379-3b2aa1284ce7",
+    "title": "Aa Bhi Ja",
+    "artist": "Lucky Ali",
+    "language": "hi",
+    "aliases": [
+      "Aa Bhi Ja"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/73d48608-60d0-42bd-b379-3b2aa1284ce7",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:5da8b84e-def4-4aa6-8cfa-ea7c0ab0024f",
+    "title": "Tujhe Dekha To",
+    "artist": "Lata Mangeshkar & Kumar Sanu",
+    "language": "hi",
+    "aliases": [
+      "Tujhe Dekha To"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/5da8b84e-def4-4aa6-8cfa-ea7c0ab0024f",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:ea574501-56e6-4ebd-a587-526136c75be9",
+    "title": "Ek ladki ko dekha",
+    "artist": "Kumar Sanu",
+    "language": "hi",
+    "aliases": [
+      "Ek Ladki Ko Dekha"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/ea574501-56e6-4ebd-a587-526136c75be9",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:a8bd4f96-64c7-4b84-bf4e-ab0da399ed78",
+    "title": "Papa Kehte Hain",
+    "artist": "Udit Narayan & Aditya Dev",
+    "language": "hi",
+    "aliases": [
+      "Papa Kehte Hain"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/a8bd4f96-64c7-4b84-bf4e-ab0da399ed78",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  },
+  {
+    "external_key": "musicbrainz:recording:c53f4c04-feda-43b8-b341-6eecffc47133",
+    "title": "Pee Loon",
+    "artist": "Mohit Chauhan",
+    "language": "hi",
+    "aliases": [
+      "Pee Loon",
+      "Pee Lun",
+      "पी लूँ"
+    ],
+    "version_note": "",
+    "genre": null,
+    "metadata_grant": {
+      "origin": "third_party",
+      "license": "CC0 1.0 — MusicBrainz core metadata",
+      "source_url": "https://musicbrainz.org/recording/c53f4c04-feda-43b8-b341-6eecffc47133",
+      "attribution": "MusicBrainz core recording/artist metadata; Chord House editorial language and title aliases",
+      "evidence": "Recording ID/title/artist credit matched via MusicBrainz API on 2026-11-08. Core metadata CC0 scope confirmed at https://musicbrainz.org/doc/MusicBrainz_Database . This does not grant lyrics, arrangements, recordings or artwork rights.",
+      "terms_version": "MusicBrainz data license checked 2026-11-08",
+      "reviewer": "Chord House metadata review",
+      "reviewed": true,
+      "display": true,
+      "cache": true,
+      "transpose": false,
+      "territories": [
+        "*"
+      ],
+      "expires_at": null
+    },
+    "arrangements": [],
+    "texts": [],
+    "lyrics_url": null,
+    "lyrics_link_verified": false
+  }
+]
