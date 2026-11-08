@@ -182,6 +182,9 @@ test("real account registration onboarding verification recovery and signout", a
   await page.getByRole("button", { name: "Delete Updated private C" }).click();
   await expect(page.getByText("Private chord deleted.")).toBeVisible();
   await page.goto("/account");
+  await expect(
+    page.getByRole("link", { name: "Edit learning preferences" }),
+  ).toBeVisible();
   await page.context().clearCookies();
   await page.getByRole("link", { name: "Edit learning preferences" }).click();
   await expect(page).toHaveURL(/onboarding/);

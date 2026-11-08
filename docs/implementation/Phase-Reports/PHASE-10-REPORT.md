@@ -31,3 +31,5 @@ Exit gate: long-duration scheduling, suspension/restart and stop/navigation clea
 Branch `codex/phase-10` based on completed `codex/phase-09`. Push, code commit and PR/check identifiers recorded after execution. No merge authorized or performed. Original three source documents remain untracked and untouched; existing generated frontend type-file change stays outside the commit.
 
 Final local checks: format, lint, TypeScript, 269 tests, contract drift and normal local-target production build all exited 0. PostgreSQL/browser runner exited 0 as detailed above.
+
+Hosted initial code c2c8a8f: push run 42474977915 passed both jobs, including 16 PostgreSQL tests and 7 browser journeys (361 clicks, zero measured scheduling phase error). Separate PR run 42474995529 passed metronome checks but exposed a pre-existing auth-test race: cookies were cleared before /account finished loading. Added an explicit visible account-link wait before simulating session loss; no application authentication behavior changed. Final rerun identifiers follow. PR: https://github.com/rayyanhasan899/Chord-House/pull/10 targets codex/phase-09, open/unmerged.
