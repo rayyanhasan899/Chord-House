@@ -20,3 +20,7 @@ Frontend and backend skeletons now run locally. See root README.md for setup/che
 ## Current state after Phase 03
 
 Backend liveness/readiness, safe structured errors/logs, PostgreSQL connection/transactions and Alembic workflow are available. Root README contains commands. No learner feature added in this phase. Next: phase-prompts/PHASE-04.md.
+
+## Current state after Phase 04
+
+Domain/schema and explicit reference seeding are available; ERD/deletion rules are in ../architecture/DOMAIN-AND-DATA-MODEL.md. No new user-facing feature yet. Next prompt: phase-prompts/PHASE-05.md.

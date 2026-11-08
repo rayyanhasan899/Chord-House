@@ -40,3 +40,9 @@ A-020 (Accepted engineering decision): synchronous SQLAlchemy/psycopg with bound
 A-021 (Accepted engineering decision): PostgreSQL 17.9 Compose local service; baseline Alembic revision has no business tables. Real PostgreSQL disposable tests validate migration chain and rollback. Direct migration URL may differ from application URL.
 
 A-022 (Accepted engineering decision): allowlisted JSON logs omit raw exception/request payloads. Generated request IDs correlate safe failure events. No external error-monitoring service selected (NFR-OBS-005 MAY).
+
+## Phase 04
+
+A-023 (Accepted engineering scope): minimal account anchor plus private notes establish ownership/FK/cascade behavior before feature workflows; no identity API or workspace UI added. Detailed future entity/retention map lives in DOMAIN-AND-DATA-MODEL.md.
+
+A-024 (Accepted engineering choice): reference seeds are explicit, idempotent and non-overwriting; no song or user data seeded. Note account deletion cascades private rows; shared reference data remains independent. Exact future audit retention remains a pre-release decision. Tuning aggregate cardinality is enforced by domain validation, while independent ranges/FKs are SQL constraints.
