@@ -42,6 +42,7 @@ function Shell({ children }: { children: React.ReactNode }) {
         <nav aria-label="Main navigation">
           <Link href="/tuner">Tuner</Link>
           <Link href="/chords">Chords</Link>
+          <Link href="/metronome">Metronome</Link>
           <Link href="/" aria-current={path === "/" ? "page" : undefined}>
             Home
           </Link>

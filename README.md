@@ -1,6 +1,6 @@
 # Chord House
 
-Your home for guitar learning. Phases 01–06 now provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a responsive light/dark interface, API documentation and PostgreSQL migrations. Learning tools, songs, dashboard and practice tracking arrive in their assigned later phases.
+Your home for guitar learning. Phases 01–10 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library and metronome, a responsive light/dark interface, API documentation and PostgreSQL migrations. Songs and practice tracking arrive in their assigned later phases.
 
 ## Run locally
 
@@ -39,3 +39,9 @@ See docs/architecture/FRONTEND-FOUNDATION.md, DOMAIN-AND-DATA-MODEL.md and the r
 ## Workspace and tuner (Phases 07/08)
 
 /dashboard adds private tasks, collections, notes and favorites over reviewed song references; actual song population remains Phase 12. /tuner is public and processes microphone audio locally in a worker. Choose instrument/tuning/target, then Start and allow microphone use; Stop releases capture. Standard/Drop D/DADGAD guitar, standard bass and re-entrant ukulele are included. Synthetic tests pass; real-device calibration is still being collected. See TUNER.md and phase reports for exact limitations.
+
+## Chords and metronome (Phases 09/10)
+
+Open `/chords` without signing in to search 198 structured voicings, inspect diagrams, edit a fretboard and play synthesized chords/arpeggios. Sign in to save, edit and delete private custom chords. Shapes have automated pitch/fingering checks; no expert ergonomic review is claimed. Bass initially covers major/minor.
+
+Open `/metronome`, set 30–300 BPM (or tap), choose 2/4, 3/4, 4/4 or 6/8, sound, accent, volume and visual beats, then press Start. Stop releases audio. In 6/8 each click is an eighth note. No account or microphone is needed. Brief UI stalls are tolerated by audio-clock lookahead; background tabs, device sleep or long stalls can interrupt playback. Restart after suspension. See docs/architecture/METRONOME.md for timing evidence and limits. Both tools work locally with the existing installation; no additional service or environment variables are needed. Use headphones or speakers to check sound on your own device.
