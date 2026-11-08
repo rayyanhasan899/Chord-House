@@ -131,7 +131,8 @@ export function Account() {
         <p>
           Your account, learning preferences and security settings are ready.
           Your workspace, tuner, chord library and metronome are ready. Save
-          private custom chords from the chord library. Song catalogue and
+          private custom chords from the chord library and practice strumming
+          patterns with private favorites and an editor. Song catalogue and
           practice history arrive in later phases.
         </p>
       </section>

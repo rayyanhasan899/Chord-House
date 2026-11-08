@@ -27,6 +27,12 @@ def run_browser(env: dict[str, str]) -> int:
         child_env["CHORD_E2E_MAIL_DIR"] = folder
         child_env.pop("CHORD_SMTP_HOST", None)
         child_env.pop("CHORD_DATABASE_URL_UNPOOLED", None)
+        subprocess.run(
+            [sys.executable, "-m", "app.modules.catalog.seeds"],
+            cwd=root / "backend",
+            env=child_env,
+            check=True,
+        )
         server = subprocess.Popen(
             [
                 sys.executable,

@@ -1827,6 +1827,548 @@
         }
       }
     },
+    "/api/v1/patterns": {
+      "get": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "List Patterns",
+        "operationId": "list_patterns_api_v1_patterns_get",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatternView"
+                  },
+                  "title": "Response List Patterns Api V1 Patterns Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Create Pattern",
+        "operationId": "create_pattern_api_v1_patterns_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatternInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatternView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/patterns/{identifier}": {
+      "put": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Update Pattern",
+        "operationId": "update_pattern_api_v1_patterns__identifier__put",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatternInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatternView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Delete Pattern",
+        "operationId": "delete_pattern_api_v1_patterns__identifier__delete",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/patterns/{identifier}/favorite": {
+      "put": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Favorite Pattern",
+        "operationId": "favorite_pattern_api_v1_patterns__identifier__favorite_put",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Unfavorite Pattern",
+        "operationId": "unfavorite_pattern_api_v1_patterns__identifier__favorite_delete",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/managed-patterns": {
+      "get": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Managed Patterns",
+        "operationId": "managed_patterns_api_v1_managed_patterns_get",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PatternView"
+                  },
+                  "title": "Response Managed Patterns Api V1 Managed Patterns Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Create Shared",
+        "operationId": "create_shared_api_v1_managed_patterns_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SharedPatternInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatternView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/managed-patterns/{identifier}": {
+      "put": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Update Shared",
+        "operationId": "update_shared_api_v1_managed_patterns__identifier__put",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SharedPatternInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatternView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "strumming patterns"
+        ],
+        "summary": "Archive Shared",
+        "operationId": "archive_shared_api_v1_managed_patterns__identifier__delete",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/health/live": {
       "get": {
         "tags": [
@@ -2167,6 +2709,197 @@
         ],
         "title": "PasswordChange"
       },
+      "PatternInput": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "meter": {
+            "type": "string",
+            "enum": [
+              "2/4",
+              "3/4",
+              "4/4",
+              "6/8"
+            ],
+            "title": "Meter"
+          },
+          "subdivision": {
+            "type": "integer",
+            "title": "Subdivision"
+          },
+          "strokes": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "D",
+                "U",
+                "R",
+                "X"
+              ]
+            },
+            "type": "array",
+            "maxItems": 24,
+            "title": "Strokes"
+          },
+          "tempo_min": {
+            "type": "integer",
+            "title": "Tempo Min",
+            "default": 60
+          },
+          "tempo_max": {
+            "type": "integer",
+            "title": "Tempo Max",
+            "default": 140
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ],
+            "title": "Difficulty",
+            "default": "beginner"
+          },
+          "style": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Style",
+            "default": "General"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Description",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "meter",
+          "subdivision",
+          "strokes"
+        ],
+        "title": "PatternInput"
+      },
+      "PatternView": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "meter": {
+            "type": "string",
+            "enum": [
+              "2/4",
+              "3/4",
+              "4/4",
+              "6/8"
+            ],
+            "title": "Meter"
+          },
+          "subdivision": {
+            "type": "integer",
+            "title": "Subdivision"
+          },
+          "strokes": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "D",
+                "U",
+                "R",
+                "X"
+              ]
+            },
+            "type": "array",
+            "maxItems": 24,
+            "title": "Strokes"
+          },
+          "tempo_min": {
+            "type": "integer",
+            "title": "Tempo Min",
+            "default": 60
+          },
+          "tempo_max": {
+            "type": "integer",
+            "title": "Tempo Max",
+            "default": 140
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ],
+            "title": "Difficulty",
+            "default": "beginner"
+          },
+          "style": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Style",
+            "default": "General"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Description",
+            "default": ""
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "favorite": {
+            "type": "boolean",
+            "title": "Favorite",
+            "default": false
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Attribution"
+          },
+          "rights_statement": {
+            "type": "string",
+            "title": "Rights Statement"
+          },
+          "reviewed": {
+            "type": "boolean",
+            "title": "Reviewed"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "meter",
+          "subdivision",
+          "strokes",
+          "id",
+          "status",
+          "attribution",
+          "rights_statement",
+          "reviewed"
+        ],
+        "title": "PatternView"
+      },
       "Profile": {
         "properties": {
           "id": {
@@ -2446,6 +3179,113 @@
           "current_password"
         ],
         "title": "SensitiveInput"
+      },
+      "SharedPatternInput": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "meter": {
+            "type": "string",
+            "enum": [
+              "2/4",
+              "3/4",
+              "4/4",
+              "6/8"
+            ],
+            "title": "Meter"
+          },
+          "subdivision": {
+            "type": "integer",
+            "title": "Subdivision"
+          },
+          "strokes": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "D",
+                "U",
+                "R",
+                "X"
+              ]
+            },
+            "type": "array",
+            "maxItems": 24,
+            "title": "Strokes"
+          },
+          "tempo_min": {
+            "type": "integer",
+            "title": "Tempo Min",
+            "default": 60
+          },
+          "tempo_max": {
+            "type": "integer",
+            "title": "Tempo Max",
+            "default": 140
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "beginner",
+              "intermediate",
+              "advanced"
+            ],
+            "title": "Difficulty",
+            "default": "beginner"
+          },
+          "style": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Style",
+            "default": "General"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Description",
+            "default": ""
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published",
+              "archived"
+            ],
+            "title": "Status",
+            "default": "draft"
+          },
+          "reviewed": {
+            "type": "boolean",
+            "title": "Reviewed",
+            "default": false
+          },
+          "rights_statement": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Rights Statement",
+            "default": ""
+          },
+          "attribution": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Attribution",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "meter",
+          "subdivision",
+          "strokes"
+        ],
+        "title": "SharedPatternInput"
       },
       "TokenInput": {
         "properties": {

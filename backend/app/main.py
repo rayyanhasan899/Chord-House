@@ -60,6 +60,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     from app.modules.catalog.chord_routes import router as chord_router
 
     app.include_router(chord_router)
+    from app.modules.catalog.pattern_routes import router as pattern_router
+
+    app.include_router(pattern_router)
 
     def error(
         request: Request,

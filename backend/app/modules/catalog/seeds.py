@@ -12,6 +12,9 @@ from app.modules.catalog.models import (
 
 
 def seed_reference(session: Session) -> None:
+    from app.modules.catalog.pattern_seeds import seed_patterns
+
+    seed_patterns(session)
     for instrument, count in (
         ("acoustic_guitar", 6),
         ("electric_guitar", 6),

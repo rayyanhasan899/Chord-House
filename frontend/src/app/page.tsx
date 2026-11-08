@@ -44,8 +44,8 @@ export default function Home() {
         <p>
           Create an account, sign in securely and set your learning preferences.
           Use the tuner, chord library and metronome as a guest. Sign in for
-          your private workspace and saved custom chords. Songs and practice
-          tracking arrive in later phases.
+          your private workspace, saved custom chords and strumming patterns.
+          Songs and practice tracking arrive in later phases.
         </p>
       </section>
     </>

@@ -12,10 +12,12 @@ export class BeatTimeline {
     this.next = at;
     this.index = 0;
   }
-  due(now: number, bpm: number, beats: number): Tick[] {
+  due(now: number, bpm: number, beats: number, subdivision = 1): Tick[] {
     if (!validBpm(bpm) || !Number.isInteger(beats) || beats < 1 || beats > 12)
       throw new RangeError("Invalid tempo or meter");
-    const period = 60 / bpm;
+    if (![1, 2, 4].includes(subdivision))
+      throw new RangeError("Invalid subdivision");
+    const period = 60 / bpm / subdivision;
     this.resynced = false;
     if (this.next < now) {
       const missed = Math.ceil((now + 0.03 - this.next) / period);
@@ -25,7 +27,10 @@ export class BeatTimeline {
     }
     const result: Tick[] = [];
     while (this.next < now + 0.15) {
-      result.push({ time: this.next, beat: this.index % beats });
+      result.push({
+        time: this.next,
+        beat: this.index % (beats * subdivision),
+      });
       this.index++;
       this.next += period;
     }

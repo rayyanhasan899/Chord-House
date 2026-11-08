@@ -44,7 +44,7 @@ def test_postgres_migrations_transactions_and_readiness(
         with db.transaction() as session:
             assert (
                 session.scalar(text("SELECT version_num FROM alembic_version"))
-                == "0006_custom_chords"
+                == "0007_patterns"
             )
             session.execute(text("CREATE TABLE phase03_probe (id integer PRIMARY KEY)"))
         with pytest.raises(RuntimeError), db.transaction() as session:
