@@ -24,4 +24,3 @@ Exit gate met? Evidence:
 Branch, commit, push status, PR URL (actual only):
 User changes preserved:
 Next prompt:
-

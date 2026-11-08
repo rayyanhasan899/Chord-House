@@ -15,4 +15,3 @@ Practice owns PracticeSession, active timer state, PracticeGoal with effective d
 Content management owns moderation Report and AuditEvent. Keep actor/reference/time/action without secrets or unnecessary private payloads. FKs, uniqueness/check constraints and reviewed cascade/anonymization policies protect consistency; indexes start with owner/date and catalog filters. All schema changes use Alembic with fresh-upgrade and representative data tests. No ORM auto-create deployment. Phase 04 produces reviewed ERD and deletion matrix; actual migrations accompany the responsible feature slices.
 
 Visual proposal: warm neutral surfaces, restrained amber accent, readable song typography, clear tool panels, light/dark themes and responsive keyboard-accessible controls. Status uses text/symbols as well as colour. All UI phases include loading/empty/error/offline/permission states. No visual generation or website publishing is part of this planning stage.
-

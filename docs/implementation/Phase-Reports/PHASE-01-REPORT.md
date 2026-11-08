@@ -5,7 +5,7 @@ Scope: baseline and technical design only.
 
 ## Outcome
 Implemented: documentation baseline, module contracts, ownership/deletion map, threat boundaries, acceptance gates, source fingerprints and reporting requirement across all 20 prompts.
-Tested: structural Python assertions passed for 450 unique SRS rows mapped exactly once, 20 phase prompts and three source SHA-256 fingerprints. `git diff --check` passed (exit 0); final staged check recorded in Git workflow.
+Tested: structural Python assertions passed for 450 unique SRS rows mapped exactly once, 20 phase prompts and three source SHA-256 fingerprints. `git diff --check` passed (exit 0); initial staged check found two trailing blank lines in the planning package; both corrected and staged check rerun successfully.
 Verified: Node v24.15.0, Python 3.14.7, Docker daemon 29.3.1; GitHub repository PRIVATE and read access available. Current branch codex/phase-01.
 Blocked: no Phase 01 blocker. Lawful song coverage, provider/email choice and device checks remain future release gates.
 Not attempted: application scaffolding, installs, database migrations, lint/type/build/Pytest/Vitest/Playwright or audio tests; no application or tool configurations exist yet. These checks belong to later phases and are not counted as passed.
