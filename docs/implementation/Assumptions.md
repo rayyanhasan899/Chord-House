@@ -21,6 +21,14 @@ Accepted records reflect user decisions only. Proposed policies are reversible e
 | A-015 | Proposed | Guest songs | Require sign-in for song learning until access policy reviewed | Only three guest tools explicitly authorized | Decide before 12 | Medium |
 | A-016 | Rejected | Free lyrics assumption | Popularity or Roman script establishes reproduction rights | Conflicts with verified-rights baseline | Permission must be evidenced | High |
 
-## Phase 01 review — 2026-11-08
+## Phase 01 review â€” 2026-11-08
 
-A-009–015 reviewed and remain Proposed, with dependency-specific gates in docs/architecture/PHASE-01-BASELINE.md. No product approval inferred. Architecture contracts and lifecycle choices establish the engineering baseline; runtime verification follows. User requests a brief usable-functionality summary at the end of every phase; this is an accepted reporting requirement.
+A-009â€“015 reviewed and remain Proposed, with dependency-specific gates in docs/architecture/PHASE-01-BASELINE.md. No product approval inferred. Architecture contracts and lifecycle choices establish the engineering baseline; runtime verification follows. User requests a brief usable-functionality summary at the end of every phase; this is an accepted reporting requirement.
+
+## Phase 02 engineering decisions — 2026-11-08
+
+A-017 (Accepted engineering choice): use existing Node 24 and Python 3.14 for this foundation; local package installation and checks validate this combination. Reassess provider runtime support in 19. No global runtime changes.
+
+A-018 (Accepted engineering choice): npm workspaces with exact npm lock and pip/venv with exact transitive development lock; no mandatory uv or Docker/database for Phase 02. Phase 03 introduces PostgreSQL. Source imports and architecture rules are established incrementally rather than by empty folders.
+
+A-019 (Known limitation): full npm audit reports 10 moderate development-tool findings from minimatch dependencies; production audit reports zero. Attempted scoped override did not resolve npm workspace transitive resolution and was removed. No force downgrade applied. Track upstream lint tool fixes; no claim of vulnerability-free dev tooling.

@@ -104,7 +104,7 @@ All SRS MUST/SHOULD/MAY IDs are preserved. Planned is not implemented. Primary o
 | TUN-047 | MUST | Tests shall include background noise, silence, and low-amplitude signals. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
 | TUN-048 | MUST | Tests shall include low-frequency bass notes, not only guitar-range notes. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
 | TUN-049 | MUST | The tuner shall be calibrated against a known reference source during development. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
-| TUN-050 | SHOULD | Under controlled conditions with a clean sustained input, the target should be a stable error within approximately ±5 cents for supported notes. This is an engineering acceptance target, not a guarantee for every microphone, instrument, room, or browser. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
+| TUN-050 | SHOULD | Under controlled conditions with a clean sustained input, the target should be a stable error within approximately Â±5 cents for supported notes. This is an engineering acceptance target, not a guarantee for every microphone, instrument, room, or browser. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
 | TUN-051 | MUST | Accuracy claims shall not be made until measured on representative devices and instruments. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
 | TUN-052 | MUST | Browser/device limitations and known tuning constraints shall be documented. | 08 | frontend/tuner | Generated tone/harmonic/noise tests; reference calibration and real-device measurements | Planned |
 | SON-001 | MUST | Users shall be able to search for songs. | 12 | catalog/songs | Search/transposition/rights policy tests; content inventory; browser learning journey | Planned |
@@ -466,4 +466,8 @@ All SRS MUST/SHOULD/MAY IDs are preserved. Planned is not implemented. Primary o
 
 ## Phase 01 architecture evidence
 
-ARC-001–008: design addressed in ../architecture/PHASE-01-BASELINE.md (contracts and boundaries). Runtime enforcement remains Planned until implementation tests exist. No SRS requirement is marked implemented merely because its design is complete.
+ARC-001â€“008: design addressed in ../architecture/PHASE-01-BASELINE.md (contracts and boundaries). Runtime enforcement remains Planned until implementation tests exist. No SRS requirement is marked implemented merely because its design is complete.
+
+## Phase 02 evidence
+
+NFR-MNT-001/004: frontend/backend separation, ESLint/Prettier, Ruff/mypy and lockfiles implemented; local checks pass. NFR-MNT-002/003/005/006/007/008 remain partially addressed or Planned: no business rules, generated client, feature isolation, migration engine, provider adapter or new instrument behavior exists yet. NFR-MNT-006 migration infrastructure is specifically owned by phase 03 despite this matrix grouping its broader maintainability baseline in 02. DEP-001/002/003/007/013 and BUD-007/010: local setup, environment examples and initial CI configured; hosted CI execution evidence must be recorded separately. Component/API/Chromium smoke tests verify only current foundation. No future feature requirement marked complete.
