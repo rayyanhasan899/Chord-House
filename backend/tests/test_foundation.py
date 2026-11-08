@@ -8,4 +8,4 @@ def test_openapi_available_without_external_services() -> None:
         response = client.get("/openapi.json")
     assert response.status_code == 200
     assert response.json()["info"]["title"] == "Chord House API"
-    assert response.json()["paths"] == {}
+    assert "/api/v1/health/live" in response.json()["paths"]

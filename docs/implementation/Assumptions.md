@@ -32,3 +32,11 @@ A-017 (Accepted engineering choice): use existing Node 24 and Python 3.14 for th
 A-018 (Accepted engineering choice): npm workspaces with exact npm lock and pip/venv with exact transitive development lock; no mandatory uv or Docker/database for Phase 02. Phase 03 introduces PostgreSQL. Source imports and architecture rules are established incrementally rather than by empty folders.
 
 A-019 (Known limitation): full npm audit reports 10 moderate development-tool findings from minimatch dependencies; production audit reports zero. Attempted scoped override did not resolve npm workspace transitive resolution and was removed. No force downgrade applied. Track upstream lint tool fixes; no claim of vulnerability-free dev tooling.
+
+## Phase 03
+
+A-020 (Accepted engineering decision): synchronous SQLAlchemy/psycopg with bounded pool, explicit transaction contexts, pre-ping and lifecycle disposal. Health DB work uses synchronous route workers, not the event loop. Database optional for liveness, required for readiness.
+
+A-021 (Accepted engineering decision): PostgreSQL 17.9 Compose local service; baseline Alembic revision has no business tables. Real PostgreSQL disposable tests validate migration chain and rollback. Direct migration URL may differ from application URL.
+
+A-022 (Accepted engineering decision): allowlisted JSON logs omit raw exception/request payloads. Generated request IDs correlate safe failure events. No external error-monitoring service selected (NFR-OBS-005 MAY).
