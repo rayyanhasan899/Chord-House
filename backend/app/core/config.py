@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import SecretStr, field_validator
+from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.engine import make_url
 
@@ -13,6 +13,30 @@ class Settings(BaseSettings):
     database_url: SecretStr | None = None
     database_url_unpooled: SecretStr | None = None
     log_level: Literal["INFO", "WARNING", "ERROR", "DEBUG"] = "INFO"
+
+    trusted_origins: list[str] = [
+        "http://127.0.0.1:3000",
+        "http://localhost:3000",
+        "http://127.0.0.1:8000",
+    ]
+    auth_limit: int = Field(default=30, ge=1, le=1000)
+    mail_directory: str = ".local-mail"
+    smtp_host: str | None = None
+    smtp_port: int = 587
+    smtp_user: str | None = None
+    smtp_password: SecretStr | None = None
+    mail_from: str = "chord-house@localhost"
+
+    @model_validator(mode="after")
+    def production_mail(self) -> Settings:
+        if self.environment == "production":
+            if not self.smtp_host or not all(
+                origin.startswith("https://") for origin in self.trusted_origins
+            ):
+                raise ValueError(
+                    "Production requires SMTP and explicit HTTPS trusted origins"
+                )
+        return self
 
     @field_validator("database_url", "database_url_unpooled")
     @classmethod

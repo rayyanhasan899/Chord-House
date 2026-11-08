@@ -45,3 +45,15 @@ def test_domain_is_framework_independent() -> None:
                     not alias.name.startswith(("fastapi", "sqlalchemy", "pydantic"))
                     for alias in node.names
                 )
+
+
+def test_session_idle_and_absolute_expiry() -> None:
+    from datetime import UTC, datetime, timedelta
+
+    from app.modules.identity.domain import session_valid
+
+    now = datetime.now(UTC)
+    assert session_valid(now, now - timedelta(hours=1), now + timedelta(days=1))
+    assert not session_valid(now, now - timedelta(days=1), now + timedelta(days=1))
+    assert not session_valid(now, now, now)
+    assert not session_valid(now, now + timedelta(seconds=1), now + timedelta(days=1))

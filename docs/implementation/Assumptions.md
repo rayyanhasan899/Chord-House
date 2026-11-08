@@ -1,5 +1,7 @@
 # Assumptions and decisions
 
+Phase 05 update: A-011 is adopted as initial engineering policy (24h idle/7d absolute sessions). A-025: private local mail capture plus SMTP adapter, with real delivery required in production. A-026: verified email/current password/confirmation guard account deletion; existing private data cascades. OAuth remains unselected and full export remains a Phase 17 contract. No new user product approval is inferred.
+
 Accepted records reflect user decisions only. Proposed policies are reversible engineering recommendations, not approvals. Preserve history and mark superseded with a replacement ID.
 
 | ID | Status | Topic | Decision/proposal | Reason | Impact / next decision | Confidence |
