@@ -13,3 +13,9 @@ Usable: /tuner without an account; choose instrument/tuning/target, Start and gr
 Final local system run: 16 PostgreSQL tests and 5 production browser tests passed without skips; tuner screenshot visually inspected. User confirmed guitar/reference tuner availability; six-string comparison readings requested and pending. Hardware gate remains open until results are received.
 
 Hosted verification: implementation c0ac5ee, PR https://github.com/rayyanhasan899/Chord-House/pull/8 . GitHub run https://github.com/rayyanhasan899/Chord-House/actions/runs/42468000916 passed both backend and frontend jobs, including full browser pipeline. No merge. The local workspace/tuner/proxied DB readiness each returned 200 after migration/restart. User has a guitar/reference tuner; actual six-string readings remain pending, so physical calibration is still open.
+
+## Initial guitar feedback — 2026-11-08
+
+Owner reports D3/G3/B3/E4 correct and E2/A2 reading approximately 81.x/109.x Hz. Exact Hz/cents, reference readings/calibration, browser and microphone not yet supplied. This is qualitative feedback, not a passed accuracy measurement. Expected nominal E2 is 82.406889 Hz and A2 is 110 Hz.
+
+Additional direct Node execution of detect(): 54 synthetic cases across E2/A2 at 44.1/48/96 kHz, three phases and three exponential decay rates, stronger second harmonic plus third harmonic and deterministic low noise. No cases rejected; observed error range +0.002 to +0.104 cents. This does not reproduce a systematic negative low-frequency bias. No detector offset or tuning reference changed. Physical comparison remains open; exact simultaneous reference/application readings requested.
