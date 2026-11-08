@@ -54,3 +54,5 @@ A-024 (Accepted engineering choice): reference seeds are explicit, idempotent an
 A-027 (Accepted engineering): same-origin /api/v1 rewrite with server-validated cookie session; client guard never replaces backend authorization. CSRF stays in memory; expired API sessions clear client state. No new product decision. A-028: generated OpenAPI JSON/types and drift checks; complete real-API browser harness on isolated ports/database. A-029: one additive chord-display preference migration completes onboarding inputs; full dashboard and learning tools remain later phase scope. Local launcher creates ignored credentials only for a new volume and preserves existing data.
 
 Phase 07: reviewed song identities are a minimal prerequisite; full catalogue/content population stays in 12. No invented song seed or practice totals. Workspace storage uses typed kinds; legacy notes preserved for later consolidation.
+
+Phase 08: 440 Hz reference, manual target selection, worker-local YIN-style detector and five-cent indicator band. Physical hardware calibration remains open; synthetic browser results never substitute for real instrument measurements.
