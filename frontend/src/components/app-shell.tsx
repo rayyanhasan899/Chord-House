@@ -40,6 +40,7 @@ function Shell({ children }: { children: React.ReactNode }) {
           Chord House
         </Link>
         <nav aria-label="Main navigation">
+          <Link href="/tuner">Tuner</Link>
           <Link href="/" aria-current={path === "/" ? "page" : undefined}>
             Home
           </Link>
