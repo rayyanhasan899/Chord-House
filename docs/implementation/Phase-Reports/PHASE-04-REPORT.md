@@ -29,3 +29,7 @@ Branch codex/phase-04, stacked on codex/phase-03 while prior PRs remain open. Or
 You can still use the foundation frontend, API docs and health checks. You can now migrate the five-table reference/ownership schema and explicitly seed the instrument/tuning references using root README commands. There is no note-editing screen or new learner-facing functionality yet. No manual software installation required.
 
 Exit gate: domain and actual PostgreSQL constraint/migration tests passed. Next: docs/implementation/phase-prompts/PHASE-05.md.
+
+## Final hosted evidence
+
+Final Ruff format --check: exit 0, 27 files already formatted. GitHub Actions 42459410349 passed for code commit 5032422: backend 54s, frontend 49s, including real PostgreSQL tests and production Chromium smoke. URL: https://github.com/rayyanhasan899/Chord-House/actions/runs/42459410349 . PR: https://github.com/rayyanhasan899/Chord-House/pull/4 , unmerged. Nonfatal action-runtime/ubuntu-latest notices remain as in Phase 03. This documentation-only follow-up does not change tested code.
