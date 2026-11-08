@@ -12,3 +12,7 @@ To resume in a new chat, open this repository, supply the selected prompt and as
 ## Current state after Phase 01
 
 Phase 01 baseline established; see ../architecture/PHASE-01-BASELINE.md and Phase-Reports/PHASE-01-REPORT.md. Next execution prompt is phase-prompts/PHASE-02.md. No application exists yet. Every phase completion response must briefly state which functionalities are present and what the owner can actually use.
+
+## Current state after Phase 02
+
+Frontend and backend skeletons now run locally. See root README.md for setup/check commands and Phase-Reports/PHASE-02-REPORT.md for verification. Next: phase-prompts/PHASE-03.md. Initial planning/Phase 01 statements above describe historical state.
