@@ -1,0 +1,19 @@
+name: chord-house
+services:
+  db:
+    image: postgres:17.9
+    environment:
+      POSTGRES_USER: chord_house
+      POSTGRES_PASSWORD: ${CHORD_DB_PASSWORD:?Set CHORD_DB_PASSWORD in your local environment}
+      POSTGRES_DB: chord_house
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - chord_house_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chord_house -d chord_house"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  chord_house_pgdata:

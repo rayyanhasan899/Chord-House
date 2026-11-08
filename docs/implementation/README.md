@@ -16,3 +16,7 @@ Phase 01 baseline established; see ../architecture/PHASE-01-BASELINE.md and Phas
 ## Current state after Phase 02
 
 Frontend and backend skeletons now run locally. See root README.md for setup/check commands and Phase-Reports/PHASE-02-REPORT.md for verification. Next: phase-prompts/PHASE-03.md. Initial planning/Phase 01 statements above describe historical state.
+
+## Current state after Phase 03
+
+Backend liveness/readiness, safe structured errors/logs, PostgreSQL connection/transactions and Alembic workflow are available. Root README contains commands. No learner feature added in this phase. Next: phase-prompts/PHASE-04.md.

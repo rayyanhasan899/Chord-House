@@ -20,6 +20,20 @@ jobs:
       - run: npm run test:e2e
   backend:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17.9
+        env:
+          POSTGRES_USER: chord_house
+          POSTGRES_PASSWORD: ci_disposable_only
+          POSTGRES_DB: chord_house_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U chord_house -d chord_house_test"
+          --health-interval 3s --health-timeout 3s --health-retries 20
+    env:
+      CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@127.0.0.1:5432/chord_house_test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
