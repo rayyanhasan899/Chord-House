@@ -366,6 +366,108 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/songs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Songs */
+        get: operations["list_songs_api_v1_songs_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/songs/{identifier}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Song */
+        get: operations["song_api_v1_songs__identifier__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/song-imports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Stage Import */
+        post: operations["stage_import_api_v1_song_imports_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/song-imports/{identifier}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Preview Import */
+        get: operations["preview_import_api_v1_song_imports__identifier__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/song-imports/{identifier}/commit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Commit Import */
+        post: operations["commit_import_api_v1_song_imports__identifier__commit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/managed-songs/{identifier}/withdraw": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Withdraw Song */
+        post: operations["withdraw_song_api_v1_managed_songs__identifier__withdraw_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health/live": {
         parameters: {
             query?: never;
@@ -404,6 +506,47 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** ArrangementInput */
+        ArrangementInput: {
+            /** Key */
+            key: string;
+            /** Name */
+            name: string;
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "guitar" | "bass" | "ukulele";
+            /**
+             * Tuning
+             * @default standard
+             * @enum {string}
+             */
+            tuning: "standard" | "drop_d" | "dadgad" | "reentrant";
+            /**
+             * Difficulty
+             * @enum {string}
+             */
+            difficulty: "beginner" | "intermediate" | "advanced";
+            /** Capo */
+            capo?: number | null;
+            /** Key Note */
+            key_note?: string | null;
+            /** Chords */
+            chords: string[];
+            /** Placements */
+            placements?: components["schemas"]["ChordPlacement"][];
+            /** Text Key */
+            text_key?: string | null;
+            /** Pattern Id */
+            pattern_id?: string | null;
+            /**
+             * Guidance
+             * @default
+             */
+            guidance: string;
+            grant: components["schemas"]["Grant"];
+        };
         /** ChordInput */
         ChordInput: {
             /** Name */
@@ -417,6 +560,15 @@ export interface components {
             frets: number[];
             /** Fingers */
             fingers: number[];
+        };
+        /** ChordPlacement */
+        ChordPlacement: {
+            /** Line */
+            line: number;
+            /** Offset */
+            offset: number;
+            /** Chord */
+            chord: string;
         };
         /** ChordView */
         ChordView: {
@@ -480,10 +632,82 @@ export interface components {
             /** Code */
             code: string;
         };
+        /** Grant */
+        Grant: {
+            /**
+             * Origin
+             * @enum {string}
+             */
+            origin: "application" | "user_submission" | "third_party";
+            /** License */
+            license: string;
+            /** Source Url */
+            source_url: string;
+            /** Attribution */
+            attribution: string;
+            /** Evidence */
+            evidence: string;
+            /** Terms Version */
+            terms_version: string;
+            /** Reviewer */
+            reviewer: string;
+            /**
+             * Reviewed
+             * @default false
+             */
+            reviewed: boolean;
+            /**
+             * Display
+             * @default false
+             */
+            display: boolean;
+            /**
+             * Cache
+             * @default false
+             */
+            cache: boolean;
+            /**
+             * Transpose
+             * @default false
+             */
+            transpose: boolean;
+            /** Territories */
+            territories?: string[];
+            /** Expires At */
+            expires_at?: string | null;
+        };
         /** Health */
         Health: {
             /** Status */
             status: string;
+        };
+        /** ImportInput */
+        ImportInput: {
+            /** Key */
+            key: string;
+            /**
+             * Replace Existing
+             * @default false
+             */
+            replace_existing: boolean;
+            /** Items */
+            items: components["schemas"]["SongInput"][];
+        };
+        /** ImportView */
+        ImportView: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Key */
+            key: string;
+            /** State */
+            state: string;
+            /** Count */
+            count: number;
+            /** Issues */
+            issues: string[];
         };
         /** Message */
         Message: {
@@ -785,10 +1009,149 @@ export interface components {
              */
             attribution: string;
         };
+        /** SongDetail */
+        SongDetail: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Title */
+            title: string;
+            /** Artist */
+            artist: string;
+            /** Language */
+            language: string;
+            /** Aliases */
+            aliases: string[];
+            /** Genre */
+            genre: string | null;
+            /**
+             * Version Note
+             * @default
+             */
+            version_note: string;
+            /** Arrangement Count */
+            arrangement_count: number;
+            /** Text Count */
+            text_count: number;
+            metadata_grant: components["schemas"]["Grant"];
+            /** Arrangements */
+            arrangements: components["schemas"]["ArrangementInput"][];
+            /** Texts */
+            texts: components["schemas"]["TextInput"][];
+            /** Lyrics Url */
+            lyrics_url: string | null;
+            /** Revision */
+            revision: number;
+        };
+        /** SongInput */
+        SongInput: {
+            /** External Key */
+            external_key: string;
+            /** Title */
+            title: string;
+            /** Artist */
+            artist: string;
+            /**
+             * Language
+             * @enum {string}
+             */
+            language: "en" | "ur" | "hi";
+            /** Aliases */
+            aliases?: string[];
+            /** Genre */
+            genre?: string | null;
+            /**
+             * Version Note
+             * @default
+             */
+            version_note: string;
+            metadata_grant: components["schemas"]["Grant"];
+            /** Arrangements */
+            arrangements?: components["schemas"]["ArrangementInput"][];
+            /** Texts */
+            texts?: components["schemas"]["TextInput"][];
+            /** Lyrics Url */
+            lyrics_url?: string | null;
+            /**
+             * Lyrics Link Verified
+             * @default false
+             */
+            lyrics_link_verified: boolean;
+        };
+        /** SongPage */
+        SongPage: {
+            /** Items */
+            items: components["schemas"]["SongSummary"][];
+            /** Total */
+            total: number;
+            /** Offset */
+            offset: number;
+            /** Limit */
+            limit: number;
+        };
+        /** SongSummary */
+        SongSummary: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Title */
+            title: string;
+            /** Artist */
+            artist: string;
+            /** Language */
+            language: string;
+            /** Aliases */
+            aliases: string[];
+            /** Genre */
+            genre: string | null;
+            /**
+             * Version Note
+             * @default
+             */
+            version_note: string;
+            /** Arrangement Count */
+            arrangement_count: number;
+            /** Text Count */
+            text_count: number;
+        };
+        /** TextInput */
+        TextInput: {
+            /** Key */
+            key: string;
+            /**
+             * Language
+             * @enum {string}
+             */
+            language: "en" | "ur" | "hi";
+            /**
+             * Script
+             * @enum {string}
+             */
+            script: "Latn" | "Arab" | "Deva";
+            /** Label */
+            label: string;
+            /** Lines */
+            lines: string[];
+            grant: components["schemas"]["Grant"];
+        };
         /** TokenInput */
         TokenInput: {
             /** Token */
             token: string;
+        };
+        /** Withdrawal */
+        Withdrawal: {
+            /**
+             * Component
+             * @enum {string}
+             */
+            component: "metadata" | "arrangement" | "text";
+            /** Key */
+            key?: string | null;
         };
         /** WorkspaceInput */
         WorkspaceInput: {
@@ -2208,7 +2571,10 @@ export interface operations {
     };
     songs_api_v1_workspace_songs_get: {
         parameters: {
-            query?: never;
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
             header?: never;
             path?: never;
             cookie?: never;
@@ -2789,6 +3155,258 @@ export interface operations {
             cookie?: never;
         };
         requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    list_songs_api_v1_songs_get: {
+        parameters: {
+            query?: {
+                q?: string;
+                language?: ("en" | "ur" | "hi") | null;
+                artist?: string;
+                difficulty?: ("beginner" | "intermediate" | "advanced") | null;
+                instrument?: ("guitar" | "bass" | "ukulele") | null;
+                genre?: string;
+                availability?: ("arrangement" | "lyrics") | null;
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SongPage"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    song_api_v1_songs__identifier__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SongDetail"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    stage_import_api_v1_song_imports_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ImportInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImportView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    preview_import_api_v1_song_imports__identifier__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImportView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    commit_import_api_v1_song_imports__identifier__commit_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImportView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    withdraw_song_api_v1_managed_songs__identifier__withdraw_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Withdrawal"];
+            };
+        };
         responses: {
             /** @description Successful Response */
             204: {

@@ -1,6 +1,6 @@
 # Chord House
 
-Your home for guitar learning. Phases 01–11 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library, metronome and strumming patterns, a responsive light/dark interface, API documentation and PostgreSQL migrations. Songs and practice tracking arrive in their assigned later phases.
+Your home for guitar learning. Phases 01–12 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library, metronome, strumming patterns and song discovery/learning, a responsive light/dark interface, API documentation and PostgreSQL migrations. Practice tracking arrives in its assigned later phases.
 
 ## Run locally
 
@@ -49,3 +49,9 @@ Open `/metronome`, set 30–300 BPM (or tap), choose 2/4, 3/4, 4/4 or 6/8, sound
 ## Strumming patterns (Phase 11)
 
 Sign in and open `/patterns` for 12 original exercises, filters, count/stroke notation, synchronized metronome/chord playback, looping and accents. Create private patterns or save private copies; edit/delete them and save favorites. Playback uses synthesized tones, not guitar recordings. Shared pattern management is available to content managers through authorized API endpoints; full admin UI follows in Phase 15. Apply migrations and run the existing reference seed command (the local launcher does both). No extra service is needed. See docs/architecture/STRUMMING.md for usage, endpoints, rights/publication rules and limits.
+
+## Songs (Phase 12)
+
+Sign in and open `/songs` to search English/Urdu/Hindi entries and Roman/native aliases. Filter and page through results, open dedicated pages, save private favorites/collections and track learning status. The bundle contains 85 popular-song identities (30 English, 26 Urdu, 29 Hindi) with source metadata; their lyrics and arrangements are unavailable because no licensed source has been supplied. Six separately labeled original practice songs contain complete original text and 18 guitar/bass/ukulele chord exercises with diagrams, transposition, text size and practice view. They include Roman Urdu/Hindi and two native-script variants, with no supplied melody/vocal recording. Do not mistake these originals for popular-song arrangements.
+
+The owner confirmed song pages require sign-in. Existing startup applies migration 0008 and seeds without overwriting edits/withdrawals; no provider account/key or runtime network is needed. Managers can stage/review/commit further rights-cleared content via API or the interactive local import CLI. See docs/architecture/SONGS.md, docs/implementation/SONG-CONTENT-INVENTORY.md and PHASE-12-REPORT.md for exact rights/coverage, workflow and tests. Full manager UI remains Phase 15.

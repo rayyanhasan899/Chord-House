@@ -15,6 +15,9 @@ def seed_reference(session: Session) -> None:
     from app.modules.catalog.pattern_seeds import seed_patterns
 
     seed_patterns(session)
+    from app.modules.catalog.song_seeds import seed_songs
+
+    seed_songs(session)
     for instrument, count in (
         ("acoustic_guitar", 6),
         ("electric_guitar", 6),
@@ -56,6 +59,7 @@ def seed_reference(session: Session) -> None:
 
 
 def main() -> None:
+    import app.core.models  # noqa: F401 -- register all referenced FK metadata
     from app.core.config import Settings
     from app.core.database import Database
 

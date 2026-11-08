@@ -10,6 +10,8 @@ dependencies = ["fastapi", "uvicorn", "sqlalchemy>=2,<3", "alembic>=1,<2", "psyc
 dev = ["pytest", "httpx2", "ruff", "mypy"]
 [tool.setuptools.packages.find]
 include = ["app*"]
+[tool.setuptools.package-data]
+"app.modules.catalog" = ["data/*.json"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 [tool.ruff]

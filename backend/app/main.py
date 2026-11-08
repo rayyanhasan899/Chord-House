@@ -63,6 +63,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     from app.modules.catalog.pattern_routes import router as pattern_router
 
     app.include_router(pattern_router)
+    from app.modules.catalog.song_routes import router as song_router
+
+    app.include_router(song_router)
 
     def error(
         request: Request,
@@ -89,13 +92,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         request.state.request_id = str(uuid4())
         try:
             response = await call_next(request)
-        except Exception:
+        except Exception as exc:
             logger.error(
                 "request_failed",
                 extra={
                     "event": "request_failed",
                     "request_id": request.state.request_id,
                     "status": 500,
+                    "exception_type": type(exc).__name__,
                 },
             )
             return error(request, 500, "internal_error", "An unexpected error occurred")

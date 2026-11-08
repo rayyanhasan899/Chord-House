@@ -1,0 +1,597 @@
+[
+  {
+    "language": "en",
+    "candidate_title": "Wonderwall",
+    "recording_id": "1b04cca9-10f9-4d1c-9228-e55f9c7bd987",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Let It Be",
+    "recording_id": "efa1ec75-f467-48cc-a792-1a4adbeac590",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Hey Jude",
+    "recording_id": "03e4c323-ccf9-441e-99e6-3e1f652565b1",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Yesterday",
+    "recording_id": "f708b0d2-0010-45b8-b58b-602bacc96351",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Blackbird",
+    "recording_id": "89b0e936-b021-4aae-a077-107379e15e69",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Perfect",
+    "recording_id": "c1278fab-44ea-432e-a9c2-862c68f453af",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Photograph",
+    "recording_id": "ea6f52e4-0071-4d62-adfe-f24580560374",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Thinking Out Loud",
+    "recording_id": "5ae98718-cb35-4016-9a99-d52092f8cda4",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Shape of You",
+    "recording_id": "d7500dd6-b815-4299-88c6-3fbda358f1fc",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Yellow",
+    "recording_id": "60653512-157a-47c5-9ac8-50eb82185243",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "The Scientist",
+    "recording_id": "e8a57e03-cbf8-4073-9ff8-139858518074",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Fix You",
+    "recording_id": "50674c21-3544-47d0-9ebd-f1070df8e812",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Viva la Vida",
+    "recording_id": "2359d8b9-3543-4511-9485-2494e41ca321",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "I'm Yours",
+    "recording_id": "930ac040-5f83-4746-9135-6c165f8539b7",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Riptide",
+    "recording_id": "11ab727b-f9d4-49fb-86da-b6c591caadc9",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Hallelujah",
+    "recording_id": "e7131935-9e91-484e-bf34-d45cf1966aa5",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Hotel California",
+    "recording_id": "f18334f8-a985-4719-b14a-d4e54572ee1f",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Wish You Were Here",
+    "recording_id": "8f82c91f-7f22-4976-ac70-ac910fcb8d9e",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Knockin' on Heaven's Door",
+    "recording_id": "99c7030c-ee01-4538-a261-1c6300d53510",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Blowin' in the Wind",
+    "recording_id": "8a082a1c-1980-4ed0-94d0-3310708ea4bf",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Stand by Me",
+    "recording_id": "4780ec88-c478-45fe-ac2a-c096e6f349bf",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Can't Help Falling in Love",
+    "recording_id": "50a79fd3-0e18-4979-a20d-9d5c0c7d8c6e",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Take Me Home, Country Roads",
+    "recording_id": "80ab189a-5e89-4697-9d2a-8561901f75eb",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Leaving on a Jet Plane",
+    "recording_id": "2e41556b-e76e-4eca-b541-db564cf1ada4",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Good Riddance",
+    "recording_id": "d38be2bf-841f-494f-9c09-4e0e6474b30c",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Boulevard of Broken Dreams",
+    "recording_id": "57c5eef8-0656-4f86-b34a-231402c5ea45",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Someone Like You",
+    "recording_id": "028efe7f-cdfb-4135-846f-848f2fff15b1",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Fast Car",
+    "recording_id": "7a04aff5-25d1-4640-a8da-7dd7bdbfa7e1",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Brown Eyed Girl",
+    "recording_id": "5a5dcfca-3954-49f5-b45d-ef56ec90a204",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "en",
+    "candidate_title": "Sweet Child o' Mine",
+    "recording_id": "9624dbd3-7dc0-42e1-9bab-6565a004e814",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Aadat",
+    "recording_id": "40b0cb89-3033-4e04-94fd-0cb6b7e300b3",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Woh Lamhe",
+    "recording_id": "bfafe2ad-46e9-47ac-8e3f-8ede362c5411",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Sajni",
+    "recording_id": "c72811ae-43ff-4cbd-8c21-3554ceadf33f",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Bikhra Hoon Main",
+    "recording_id": "e055263b-a2c8-4afd-ad0a-9d7624603c74",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Panchi",
+    "recording_id": "21fbd163-88da-46c2-bab6-06bc90a32b83",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Doorie",
+    "recording_id": "ab70f9eb-4f70-4bad-978c-f7a33c54d873",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Ehsaas",
+    "recording_id": "d6fb8ec9-eede-4008-a1a8-204bc3f4288e",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Jal Pari",
+    "recording_id": "0cd2cbfe-d407-460d-877a-f2f3e8cb8584",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Kuch Is Tarah",
+    "recording_id": "49fb1a01-1dd5-4ea0-86da-e0c482919547",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Dil Dil Pakistan",
+    "recording_id": "46c01cf3-2273-4fb7-93ef-8ab4df414b2c",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Aitebar",
+    "recording_id": "c5bea45d-9b32-4b67-a608-199e847c9bfc",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Tum Mil Gaye",
+    "recording_id": "0898f8a5-95c5-47a1-b652-e92fca35a56d",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Duur",
+    "recording_id": "a786e613-ddbe-4497-93e0-e1af0ea502fb",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Dhaani",
+    "recording_id": "58979bdf-8a59-4c55-9f4a-8b04dbd209bf",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Sar Kiye Yeh Pahar",
+    "recording_id": "7c1863fd-26d7-4ed2-a376-64a452042769",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Mera Bichra Yaar",
+    "recording_id": "ca8bfac3-2a82-43e3-a027-f35f7e7f0fb3",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Anjane",
+    "recording_id": "a1dbb634-327d-4442-ab88-0ad8c6847ad6",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Neend Aati Nahin",
+    "recording_id": "4cb0e4a6-641d-4959-9bcb-88ec9051894c",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Jazba E Junoon",
+    "recording_id": "7eb709bf-c7b6-48a9-a207-3fbe088c0766",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Khudi",
+    "recording_id": "dbcf99c7-8c16-41e9-bfe4-15286cb1a0da",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Garaj Baras",
+    "recording_id": "d63e9698-a014-4c03-a475-77ff0c63061c",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Na Re Na",
+    "recording_id": "d8205ff8-df37-4fd1-a0a0-a5874f720b5f",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Channo",
+    "recording_id": "190c1758-5872-4c13-8ad4-9823bde9bea5",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Chal Dil Mere",
+    "recording_id": "44eabe78-525d-45e7-b9ef-f0cbd666b09a",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Afreen Afreen",
+    "recording_id": "b2a6c932-204c-41b3-98cf-d0148b49b2ba",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "ur",
+    "candidate_title": "Hona Tha Pyar",
+    "recording_id": "9c96fed3-1be0-455a-8a74-05a4cc820522",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tum Hi Ho",
+    "recording_id": "3e5bc764-dfa4-454d-a2a9-0ee84ae35db2",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Channa Mereya",
+    "recording_id": "e27ee5d7-703d-4985-a183-e5eef0020fb5",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Raabta",
+    "recording_id": "a12467af-5c00-4fbf-8615-4dbab2cf8ea2",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Kesariya",
+    "recording_id": "393ad701-a13d-4f1c-9e3f-65dfd7cac167",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Kabira",
+    "recording_id": "5efdc1af-929e-48da-8821-802fb6c0199e",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Phir Le Aya Dil",
+    "recording_id": "fe7640bd-e721-4827-8a7b-8e9569317298",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Shayad",
+    "recording_id": "714f89b3-7e22-4d6d-8570-0259812717f7",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Khairiyat",
+    "recording_id": "5b47741a-304d-4a60-a014-84c5e649976a",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tera Yaar Hoon Main",
+    "recording_id": "6e29af7a-dc0f-4486-9681-0dadefdb3509",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Hawayein",
+    "recording_id": "c5ddadca-efb9-4345-8545-ed8cf022e9df",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tera Hone Laga Hoon",
+    "recording_id": "0b04d700-63ad-4830-821a-6ffc836c6614",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tu Jaane Na",
+    "recording_id": "a534d8ef-90f8-4b18-a481-d185403b5ad3",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Pehli Nazar Mein",
+    "recording_id": "44b4ed20-a0e6-464e-96de-c95b134c0c60",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tere Sang Yaara",
+    "recording_id": "6cd0fc97-ebcd-4ed9-9d68-e9fad9bc289b",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Jeena Jeena",
+    "recording_id": "2c79b42b-6c9a-4df7-a0ea-94f859bea3f3",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tera Ban Jaunga",
+    "recording_id": "195d5e57-96b8-4fd4-9212-3d17d2334a1f",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tum Se Hi",
+    "recording_id": "cc47a6ee-9d98-4790-9123-1d07e59736dc",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Chura Liya Hai Tumne",
+    "recording_id": "cf542c3c-5f58-4a18-8b84-2af7ece4a391",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Pehla Nasha",
+    "recording_id": "dce06f23-627a-48df-b73e-b9a8756bc27c",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Pal",
+    "recording_id": "5370e60c-e82c-45a0-9448-b6c0eb5b6473",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Yaaron",
+    "recording_id": "8b2165e1-726a-45b8-b1c1-7ac116aca50b",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tadap Tadap",
+    "recording_id": "5b50ba9b-8682-40aa-9b16-234c1e3acc49",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Alvida",
+    "recording_id": "7b295ac0-19c5-43de-82cc-474ebce31b14",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "O Sanam",
+    "recording_id": "d40ac998-7c3e-4fb5-a431-1f86f8a6d304",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Aa Bhi Ja",
+    "recording_id": "73d48608-60d0-42bd-b379-3b2aa1284ce7",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Tujhe Dekha To",
+    "recording_id": "5da8b84e-def4-4aa6-8cfa-ea7c0ab0024f",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Ek Ladki Ko Dekha",
+    "recording_id": "ea574501-56e6-4ebd-a587-526136c75be9",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Papa Kehte Hain",
+    "recording_id": "a8bd4f96-64c7-4b84-bf4e-ab0da399ed78",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  },
+  {
+    "language": "hi",
+    "candidate_title": "Pee Loon",
+    "recording_id": "c53f4c04-feda-43b8-b341-6eecffc47133",
+    "reviewed_by": "Chord House implementation metadata review",
+    "reviewed_on": "2026-11-08"
+  }
+]

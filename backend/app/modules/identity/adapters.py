@@ -2,28 +2,62 @@ import json
 import secrets
 import smtplib
 import ssl
+from collections.abc import Iterator
+from contextlib import contextmanager
 from email.message import EmailMessage
 from pathlib import Path
+from threading import BoundedSemaphore
 
 from argon2 import PasswordHasher
-from argon2.exceptions import VerificationError
+from argon2.exceptions import (
+    HashingError,
+    InvalidHashError,
+    VerificationError,
+    VerifyMismatchError,
+)
 
 from app.core.config import Settings
+from app.modules.identity.domain import IdentityError
+
+_password_slots = BoundedSemaphore(2)
+
+
+@contextmanager
+def password_slot() -> Iterator[None]:
+    if not _password_slots.acquire(timeout=3):
+        raise IdentityError(
+            503, "auth_busy", "Account service is busy. Try again shortly."
+        )
+    try:
+        yield
+    finally:
+        _password_slots.release()
 
 
 class ArgonPasswords:
     def __init__(self) -> None:
         self.hasher = PasswordHasher()
-        self.dummy = self.hasher.hash(secrets.token_urlsafe(32))
+        self.dummy = self.hash(secrets.token_urlsafe(32))
 
     def hash(self, password: str) -> str:
-        return self.hasher.hash(password)
+        with password_slot():
+            try:
+                return self.hasher.hash(password)
+            except HashingError:
+                raise IdentityError(
+                    503, "auth_busy", "Account service is busy. Try again shortly."
+                ) from None
 
     def verify(self, encoded: str, password: str) -> bool:
-        try:
-            return self.hasher.verify(encoded, password)
-        except VerificationError:
-            return False
+        with password_slot():
+            try:
+                return self.hasher.verify(encoded, password)
+            except VerifyMismatchError, InvalidHashError:
+                return False
+            except VerificationError:
+                raise IdentityError(
+                    503, "auth_busy", "Account service is busy. Try again shortly."
+                ) from None
 
 
 class Delivery:

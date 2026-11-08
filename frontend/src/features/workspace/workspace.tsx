@@ -28,6 +28,9 @@ export function Workspace() {
   const [draft, setDraft] = useState<Draft>(blank);
   const [edit, setEdit] = useState<string | null>(null);
   const [filter, setFilter] = useState("all");
+  const [collectionFilter, setCollectionFilter] = useState("");
+  const [songStatus, setSongStatus] = useState("");
+  const [sort, setSort] = useState("newest");
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("Loading your workspace…");
   const [error, setError] = useState(false);
@@ -63,12 +66,25 @@ export function Workspace() {
       });
   }, [fetchItems]);
   useEffect(() => {
-    api
-      .GET("/api/v1/workspace/songs")
-      .then((r) => {
-        if (r.data) setSongs(r.data.map((s) => ({ id: s.id, title: s.title })));
-      })
-      .catch(() => {});
+    let active = true;
+    async function listSongs() {
+      const all: { id: string; title: string }[] = [];
+      for (let offset = 0; ; offset += 100) {
+        const r = await api.GET("/api/v1/workspace/songs", {
+          params: { query: { offset, limit: 100 } },
+        });
+        if (!r.data) return;
+        all.push(...r.data.map((s) => ({ id: s.id, title: s.title })));
+        if (r.data.length < 100) {
+          if (active) setSongs(all);
+          return;
+        }
+      }
+    }
+    void listSongs().catch(() => {});
+    return () => {
+      active = false;
+    };
   }, []);
   async function save(e: React.FormEvent) {
     e.preventDefault();
@@ -344,12 +360,51 @@ export function Workspace() {
           {!status && !items.length && (
             <p>No saved items yet. Start with a task or collection.</p>
           )}
+          <label>
+            Filter saved collection
+            <select
+              value={collectionFilter}
+              onChange={(e) => setCollectionFilter(e.target.value)}
+            >
+              <option value="">All collections</option>
+              {items
+                .filter((i) => i.kind === "collection")
+                .map((i) => (
+                  <option key={i.id} value={i.id}>
+                    {i.title}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <label>
+            Filter song learning status
+            <select
+              value={songStatus}
+              onChange={(e) => setSongStatus(e.target.value)}
+            >
+              <option value="">Any status</option>
+              <option value="learning">Learning</option>
+              <option value="practicing">Practicing</option>
+              <option value="comfortable">Comfortable / learned</option>
+            </select>
+          </label>
+          <label>
+            Sort saved items
+            <select value={sort} onChange={(e) => setSort(e.target.value)}>
+              <option value="newest">Newest first</option>
+              <option value="title">Title A–Z</option>
+            </select>
+          </label>
           {items
             .filter(
               (i) =>
                 (i.title + " " + i.body + " " + i.category)
                   .toLowerCase()
                   .includes(query.toLowerCase()) &&
+                (!collectionFilter || i.collection_id === collectionFilter) &&
+                (!songStatus ||
+                  (i.kind === "favorite" &&
+                    i.learning_status === songStatus)) &&
                 (filter === "all" ||
                   i.kind === filter ||
                   ((filter === "open" ||
@@ -362,6 +417,11 @@ export function Workspace() {
                         ? !i.completed && !!i.due && i.due < today
                         : !i.completed))),
             )
+            .sort((a, b) =>
+              sort === "title"
+                ? a.title.localeCompare(b.title)
+                : b.created_at.localeCompare(a.created_at),
+            )
             .map((i) => (
               <article
                 key={i.id}
@@ -372,6 +432,19 @@ export function Workspace() {
                   {i.kind} {i.completed ? "· completed" : ""}
                 </span>
                 <h3>{i.title}</h3>
+                {i.song_id && (
+                  <p>
+                    <Link href={`/songs/${i.song_id}`}>Open linked song</Link> ·{" "}
+                    {i.learning_status}
+                  </p>
+                )}
+                {i.collection_id && (
+                  <p>
+                    Collection:{" "}
+                    {items.find((c) => c.id === i.collection_id)?.title ||
+                      "Unavailable"}
+                  </p>
+                )}
                 <p style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>
                   {i.body}
                 </p>
@@ -403,8 +476,9 @@ export function Workspace() {
         </section>
       </div>
       <p>
-        Practice totals and song favorites will connect when their data sources
-        are implemented; no fabricated activity is shown.
+        Song favorites connect to the catalog. Practice totals arrive with saved
+        practice sessions in their assigned phase; no fabricated activity is
+        shown.
       </p>
     </>
   );

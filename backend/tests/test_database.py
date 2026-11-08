@@ -1,4 +1,6 @@
 import os
+import subprocess
+import sys
 from pathlib import Path
 from uuid import uuid4
 
@@ -39,12 +41,18 @@ def test_postgres_migrations_transactions_and_readiness(
     config = Config(str(Path(__file__).parents[1] / "alembic.ini"))
     command.upgrade(config, "head")
     command.check(config)
+    # A fresh process must resolve FK metadata without pytest's import side effects.
+    subprocess.run(
+        [sys.executable, "-m", "app.modules.catalog.seeds"],
+        cwd=Path(__file__).parents[1],
+        check=True,
+    )
     db = Database(url)
     try:
         with db.transaction() as session:
             assert (
                 session.scalar(text("SELECT version_num FROM alembic_version"))
-                == "0007_patterns"
+                == "0008_songs"
             )
             session.execute(text("CREATE TABLE phase03_probe (id integer PRIMARY KEY)"))
         with pytest.raises(RuntimeError), db.transaction() as session:

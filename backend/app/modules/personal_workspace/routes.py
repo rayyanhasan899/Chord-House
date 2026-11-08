@@ -2,6 +2,7 @@ from typing import Annotated, Literal
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, Query
+from sqlalchemy.exc import IntegrityError
 
 from app.modules.identity.domain import Actor, IdentityError
 from app.modules.identity.routes import current, service
@@ -52,6 +53,10 @@ def save(
         raise IdentityError(404, "not_found", "Item not found") from None
     except ValueError as exc:
         raise IdentityError(422, "invalid_item", str(exc)) from None
+    except IntegrityError:
+        raise IdentityError(
+            409, "favorite_conflict", "Song is already saved; refresh and retry"
+        ) from None
 
 
 @router.put("/{identifier}", response_model=WorkspaceView)
@@ -69,23 +74,21 @@ def remove(identifier: UUID, actor: ActorDep, svc: ServiceDep) -> None:
 
 
 @router.get("/songs")
-def songs(actor: ActorDep, svc: ServiceDep) -> list[dict[str, str]]:
-    from sqlalchemy import select
+def songs(
+    actor: ActorDep,
+    svc: ServiceDep,
+    offset: int = Query(0, ge=0),
+    limit: int = Query(100, ge=1, le=100),
+) -> list[dict[str, str]]:
+    from app.modules.catalog.songs import Songs
 
-    from app.modules.personal_workspace.workspace import SongReference
-
-    with svc.db.transaction() as session:
-        return [
-            {
-                "id": str(row.id),
-                "title": row.title,
-                "artist": row.artist,
-                "language": row.language,
-            }
-            for row in session.scalars(
-                select(SongReference)
-                .where(SongReference.reviewed.is_(True))
-                .order_by(SongReference.title)
-                .limit(100)
-            )
-        ]
+    page = Songs(svc.db).list("", None, "", None, None, "", None, offset, limit)
+    return [
+        {
+            "id": str(row.id),
+            "title": row.title,
+            "artist": row.artist,
+            "language": row.language,
+        }
+        for row in page.items
+    ]

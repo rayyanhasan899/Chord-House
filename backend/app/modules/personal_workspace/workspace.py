@@ -12,6 +12,7 @@ from sqlalchemy import (
     Text,
     func,
     select,
+    text,
 )
 from sqlalchemy.orm import Mapped, Session, mapped_column
 
@@ -36,6 +37,13 @@ class WorkspaceRecord(Base):
         CheckConstraint("priority IN ('low','normal','high')", name="priority"),
         CheckConstraint("length(trim(title)) > 0", name="title"),
         Index("ix_workspace_owner_kind_created", "owner_id", "kind", "created_at"),
+        Index(
+            "uq_workspace_favorite_song",
+            "owner_id",
+            "song_id",
+            unique=True,
+            postgresql_where=text("kind='favorite'"),
+        ),
     )
     id: Mapped[UUID] = mapped_column(primary_key=True)
     owner_id: Mapped[UUID] = mapped_column(
@@ -119,9 +127,26 @@ class WorkspaceRepository:
     ) -> WorkspaceRecord:
         if data.kind == "favorite" and data.song_id is None:
             raise ValueError("Choose a catalogue song")
+        if data.kind == "favorite":
+            existing = self.session.scalar(
+                select(WorkspaceRecord).where(
+                    WorkspaceRecord.owner_id == self.actor,
+                    WorkspaceRecord.kind == "favorite",
+                    WorkspaceRecord.song_id == data.song_id,
+                )
+            )
+            if existing and existing.id != identifier:
+                if identifier:
+                    raise ValueError("This song is already a favorite")
+                return existing
         if data.song_id is not None:
             song = self.session.get(SongReference, data.song_id)
             if song is None or not song.reviewed:
+                raise ValueError("Song is not available")
+            from app.modules.catalog.songs import SongRecord, detail
+
+            catalog_row = self.session.get(SongRecord, data.song_id)
+            if catalog_row is not None and detail(catalog_row) is None:
                 raise ValueError("Song is not available")
         if data.collection_id is not None:
             parent = self.get(data.collection_id)

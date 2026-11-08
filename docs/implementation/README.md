@@ -36,3 +36,7 @@ Public chords with private custom-chord management and a guest metronome are imp
 ## Current state after Phase 11
 
 Sign-in pattern library, private editor/CRUD/favorites and synchronized chord/metronome playback are available. Shared content-management API is implemented; full manager UI remains Phase 15. See Phase-Reports/PHASE-11-REPORT.md for actual tests. Next prompt: phase-prompts/PHASE-12.md. Earlier state sections are historical; tuner physical calibration is still open.
+
+## Current state after Phase 12
+
+Song discovery and learning pages, private catalog saves/collections and manager staged imports are implemented. Bundled content: 85 popular metadata-only entries plus six original learning songs; real popular lyrics/arrangements remain unlicensed and unavailable. See SONG-CONTENT-INVENTORY.md/JSON and PHASE-12-REPORT.md. Owner confirmed sign-in access and no licensed source. Next prompt: phase-prompts/PHASE-13.md. Prior state sections are historical; physical tuner calibration remains open.
