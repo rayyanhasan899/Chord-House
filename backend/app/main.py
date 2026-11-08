@@ -12,6 +12,10 @@ from starlette.exceptions import HTTPException
 from app.core.config import Settings
 from app.core.database import Database
 from app.core.logging import configure_logging
+from app.modules.identity.adapters import ArgonPasswords, Delivery
+from app.modules.identity.domain import IdentityError
+from app.modules.identity.routes import router as identity_router
+from app.modules.identity.service import IdentityService
 
 
 class Health(BaseModel):
@@ -58,6 +62,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         responses={422: {"model": ErrorResponse}, 500: {"model": ErrorResponse}},
     )
     app.state.database = database
+    app.state.settings = config
+    app.state.identity = (
+        IdentityService(database, ArgonPasswords(), Delivery(config))
+        if database
+        else None
+    )
+    app.include_router(identity_router)
 
     def error(
         request: Request,
@@ -94,6 +105,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 },
             )
             return error(request, 500, "internal_error", "An unexpected error occurred")
+        if request.url.path.startswith(("/api/v1/auth", "/api/v1/me")):
+            response.headers["Cache-Control"] = "no-store"
         response.headers["X-Request-ID"] = request.state.request_id
         logger.info(
             "request_complete",
@@ -104,6 +117,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             },
         )
         return response
+
+    @app.exception_handler(IdentityError)
+    async def identity_error(request: Request, exc: IdentityError) -> JSONResponse:
+        return error(request, exc.status, exc.code, exc.message)
 
     @app.exception_handler(HTTPException)
     async def http_error(request: Request, exc: HTTPException) -> JSONResponse:

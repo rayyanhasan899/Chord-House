@@ -1,5 +1,7 @@
 # Requirement traceability matrix
 
+Phase 05 evidence: ACC-001–019/021–023/026/029–037 and ONB-001–006 have identity API/schema/service/repository and PostgreSQL test evidence. User-facing guidance/forms remain Phase 06; practice-goal behavior remains its feature phase. ACC-020 OAuth is unselected. ACC-024/025/028 deletion API implemented; ACC-027 export contract is documented, not implemented. SMTP delivery is configured but not externally tested. These statements do not claim full product-wide completion.
+
 All SRS MUST/SHOULD/MAY IDs are preserved. Planned is not implemented. Primary ownership below does not postpone cross-cutting controls: authorization, migrations, tests, privacy and accessibility accompany each feature. Phase 18 audits tests; phase 20 audits documentation; both begin earlier. MAY selection remains reviewable.
 
 | ID | Priority | Requirement | Primary phase | Module | Evidence planned | Status |

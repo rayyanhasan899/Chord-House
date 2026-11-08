@@ -1,5 +1,7 @@
 # Chord House
 
+Phase 05 adds identity APIs under `/api/v1/auth` and `/api/v1/me`. Apply migrations first. Unsafe calls require an allowlisted Origin; authenticated changes also need X-CSRF-Token from GET /me. Frontend forms follow in Phase 06. Development verification/reset codes are private files under `.local-mail` in the backend process working directory. Never commit or share these codes. Production requires SMTP and HTTPS origins. See docs/architecture/IDENTITY-AND-SESSIONS.md.
+
 Phase 02 provides a Next.js frontend and FastAPI skeleton. Accounts, database features, songs and audio tools are not available yet.
 
 ## Setup
