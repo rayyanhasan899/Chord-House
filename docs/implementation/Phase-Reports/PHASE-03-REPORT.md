@@ -32,3 +32,7 @@ No actual credentials or real .env files committed. Compose requires a local pas
 ## Exit and usable functionality
 Local Phase 03 exit gate met. You can run the foundation frontend, view API documentation, check /api/v1/health/live and /api/v1/health/ready, and run local PostgreSQL migrations using root README instructions. Ready returns 503 until a database is configured and reachable. Accounts, tuner, metronome, songs and practice features remain unavailable. No immediate manual installation required; Docker must be running for DB use/tests.
 Next: docs/implementation/phase-prompts/PHASE-04.md.
+
+## Hosted verification
+
+GitHub Actions run 42458130912 passed on Linux for implementation e9d68f0: backend 42s, frontend 1m4s, including all PostgreSQL tests and the production Chromium check. URL: https://github.com/rayyanhasan899/Chord-House/actions/runs/42458130912 . PR: https://github.com/rayyanhasan899/Chord-House/pull/3 . GitHub reported nonfatal action-runtime Node 20 deprecation and ubuntu-latest migration notices; action-version updates can be handled with CI hardening. Documentation-only evidence follow-up does not change tested code.
