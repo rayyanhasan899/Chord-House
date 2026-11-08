@@ -1,5 +1,7 @@
 # Phase 05 report
 
+Hosted evidence: GitHub run 42460170391 passed for commit 27bd40c (backend 47s; frontend 1m11s), including PostgreSQL and browser regressions. PR https://github.com/rayyanhasan899/Chord-House/pull/5 remains unmerged. Final Ruff format check: 35 files already formatted. Phase 05 exit gate met; Phase 06 explicitly authorized next.
+
 Date: 2026-11-08
 
 Implemented: registration, validated normalized emails and uniqueness, Argon2id passwords, hashed opaque cookie sessions, 24h idle/7d absolute expiry, logout and password-change/reset revocation, exact Origin and session CSRF checks, PostgreSQL rate limits, backend roles, owner-scoped profile/preferences/onboarding, verification/reset mail adapter and single-use hashed codes, verified confirmed account deletion. Migration 0003 preserves prior account anchors. Export contract documented for Phase 17; OAuth unselected.
