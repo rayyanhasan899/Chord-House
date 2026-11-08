@@ -485,3 +485,5 @@ DAT-001/002/003/005/006/008/010: implemented for the private-note/reference slic
 ## Phase 06 evidence
 
 UI-001/003/004/006/007/009/011/012: shared responsive shell, public/protected account routes, working forms/feedback, keyboard skip/navigation and no hover-only controls implemented; rendered tests in e2e/auth.spec.ts. UI-002 current implemented routes discoverable; future tool navigation arrives with actual tools. UI-005 applies to existing backend sensitive operations; deletion UI remains Phase 17. UI-008/010 remain planned for actual audio/song/chord screens, not claimed complete from foundation UI. ACC onboarding/profile/session behavior now has frontend/real-browser evidence including chord-display preference and expiry handling. API type generation/drift closes foundation NFR-MNT-003 evidence. Automated axe checks passed on current pages; full accessibility/browser/device audit remains 17/18.
+
+Phase 07: DSH/TSK/SON-038–044/UNI-024 have workspace API/UI and ownership evidence; real song population and practice-derived dashboard summaries remain their catalog/practice integrations. See PHASE-07-REPORT.md; do not mark unavailable content populated.

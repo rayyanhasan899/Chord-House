@@ -45,6 +45,7 @@ function Shell({ children }: { children: React.ReactNode }) {
           </Link>
           {auth.profile ? (
             <>
+              <Link href="/dashboard">Workspace</Link>
               <Link
                 href="/account"
                 aria-current={path === "/account" ? "page" : undefined}

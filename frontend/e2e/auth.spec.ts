@@ -91,6 +91,27 @@ test("real account registration onboarding verification recovery and signout", a
   ).toEqual([]);
   await page.reload();
   await expect(page.getByText("Asia/Karachi", { exact: true })).toBeVisible();
+  await page.goto("/dashboard");
+  await expect(
+    page.getByRole("heading", { name: "Make practice intentional." }),
+  ).toBeVisible();
+  await page.getByLabel("Title", { exact: true }).fill("Practice triads");
+  await page.getByRole("button", { name: "Save item", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Practice triads" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Edit", exact: true }).click();
+  await page.getByRole("checkbox", { name: "Completed" }).check();
+  await page.getByRole("button", { name: "Save item", exact: true }).click();
+  await expect(
+    page.locator(".tag").filter({ hasText: /task.*completed/ }),
+  ).toBeVisible();
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "Delete", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Practice triads" }),
+  ).toHaveCount(0);
+  await page.goto("/account");
   await page
     .getByRole("link", { name: "Verify your email", exact: true })
     .click();
