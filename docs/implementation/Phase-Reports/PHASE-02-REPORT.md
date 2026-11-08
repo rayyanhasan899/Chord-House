@@ -30,7 +30,7 @@ Initial formatting script referenced an absent scripts folder; corrected. PostCS
 Not attempted: PostgreSQL connection/migrations/health/logging foundation (Phase 03), feature APIs, session authorization, generated frontend API types, live audio, content rights acquisition, hosting and mobile/device measurements. No personal-data endpoints exist to ownership-test yet. CI workflow is configured; actual hosted results recorded separately after push.
 
 ## Traceability and decisions
-NFR-MNT-001/004 foundation implemented with separation/tooling evidence. NFR-MNT-002/003/005/006/007/008 retain planned or partial status until features/contracts/migrations exist. Supporting DEP-001/002/003/007/013 and BUD-007/010 addressed for local skeleton. Traceability adds evidence without claiming all maintainability requirements complete. ADR-0007 and A-017–019 document runtime/lock choices and remaining audit risk. No source requirement changed.
+NFR-MNT-001/004 foundation implemented with separation/tooling evidence. NFR-MNT-002/003/005/006/007/008 retain planned or partial status until features/contracts/migrations exist. Supporting DEP-001/002/003/007/013 and BUD-007/010 addressed for local skeleton. Traceability adds evidence without claiming all maintainability requirements complete. ADR-0007 and A-017â€“019 document runtime/lock choices and remaining audit risk. No source requirement changed.
 
 ## Security
 No real environment files, credentials, private data or third-party lyrics committed. Dev servers bind loopback. No deployment or public sharing introduced. Skeleton OpenAPI has no business endpoints. Ignore rules exclude environments, build outputs, browser results and caches.
@@ -42,3 +42,7 @@ Exit gate met locally: repeatable clean installs and all applicable foundation c
 ## Functionalities present / what you can use
 Run npm run dev and open http://127.0.0.1:3000 for the foundation page. Start FastAPI using the root README command and open http://127.0.0.1:8000/docs for API documentation (no feature endpoints yet). Accounts, tuner, metronome, chords, songs and practice tracking are unavailable until their assigned phases.
 Next: docs/implementation/phase-prompts/PHASE-03.md.
+
+## Hosted CI evidence
+
+GitHub Actions run 42455472937 for implementation commit 9283f82 succeeded: backend 22 seconds, frontend 1 minute 37 seconds, including clean installs, formatting, lint, types, Pytest/Vitest, production build and Chromium end-to-end smoke. Run URL: https://github.com/rayyanhasan899/Chord-House/actions/runs/42455472937 . PR: https://github.com/rayyanhasan899/Chord-House/pull/2 (base codex/phase-01, unmerged). Final documentation-only evidence commit does not change tested code.
