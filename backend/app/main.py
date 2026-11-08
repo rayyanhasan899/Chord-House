@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from starlette.exceptions import HTTPException
 
 from app.core.config import Settings
+from app.core.contracts import ErrorResponse
 from app.core.database import Database
 from app.core.logging import configure_logging
 from app.modules.identity.adapters import ArgonPasswords, Delivery
@@ -20,22 +21,6 @@ from app.modules.identity.service import IdentityService
 
 class Health(BaseModel):
     status: str
-
-
-class FieldError(BaseModel):
-    field: str
-    code: str
-
-
-class ErrorDetail(BaseModel):
-    code: str
-    message: str
-    request_id: str
-    fields: list[FieldError] = []
-
-
-class ErrorResponse(BaseModel):
-    error: ErrorDetail
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:

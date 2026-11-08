@@ -24,3 +24,7 @@ Backend liveness/readiness, safe structured errors/logs, PostgreSQL connection/t
 ## Current state after Phase 04
 
 Domain/schema and explicit reference seeding are available; ERD/deletion rules are in ../architecture/DOMAIN-AND-DATA-MODEL.md. No new user-facing feature yet. Next prompt: phase-prompts/PHASE-05.md.
+
+## Current state after Phases 05 and 06
+
+Working account APIs and browser account flows now available. Start with the root README quick start or open the running localhost:3000. Reports PHASE-05-REPORT.md and PHASE-06-REPORT.md distinguish verification and remaining later-phase scope. Next prompt: phase-prompts/PHASE-07.md.

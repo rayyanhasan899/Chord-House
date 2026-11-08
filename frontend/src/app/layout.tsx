@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AppShell } from "@/components/app-shell";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "Chord House",
@@ -9,7 +10,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <noscript>
+          <p>
+            JavaScript is required for account forms. Enable it to sign in
+            securely.
+          </p>
+        </noscript>
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

@@ -31,3 +31,7 @@ Phase 19 must compare at least one durable free PostgreSQL option with current o
 ## Phase 02 update
 
 Node 24.15.0/Python 3.14.7 foundation verified locally; use root README.md for actual setup. Dependencies installed inside npm workspace and backend/.venv. PostgreSQL/Compose intentionally not required until phase 03. No additional user installation needed. Current exact versions are in package-lock.json and backend/requirements-dev.lock.
+
+## Phase 06 update
+
+One-command local startup: backend/.venv/Scripts/python scripts/dev.py after locked dependency installation. It starts PostgreSQL, applies migrations/reference seeds and starts app services; credentials stay in ignored root .env. Real account-browser verification uses backend/tests/run_postgres.py --browser with disposable data. No extra user installation or hosted account required for local use. Production SMTP/HTTPS configuration remains required before deployment. Development mail files are local account codes, not external email.

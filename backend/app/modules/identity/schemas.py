@@ -35,6 +35,7 @@ class ProfileUpdate(Input):
     theme: Literal["system", "light", "dark"] = "system"
     handedness: Literal["right", "left"] = "right"
     tuning: str = Field(default="standard", max_length=40)
+    chord_display: Literal["diagrams", "fretboard"] = "diagrams"
     interests: str = Field(default="", max_length=500)
     onboarding_complete: bool = True
 
@@ -91,6 +92,7 @@ class Profile(BaseModel):
     theme: Literal["system", "light", "dark"]
     handedness: Literal["right", "left"]
     tuning: str
+    chord_display: Literal["diagrams", "fretboard"]
     interests: str
     onboarding_complete: bool
     email_verified: bool

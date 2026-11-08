@@ -110,6 +110,7 @@ class IdentityService:
                         "timezone",
                         "theme",
                         "handedness",
+                        "chord_display",
                         "tuning",
                         "interests",
                         "onboarding_complete",

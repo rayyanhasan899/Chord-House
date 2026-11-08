@@ -16,7 +16,7 @@ Accepted records reflect user decisions only. Proposed policies are reversible e
 | A-008 | Accepted | Language | English UI and multilingual song catalogue | Explicit user decision | No UI translation implementation initially | High |
 | A-009 | Proposed | Calendar rules | Monday week start; positive saved active duration qualifies a practice day; split intervals at midnight | Deterministic testable default | Confirm before phase 14; preserve seconds and show rounded minutes | Medium |
 | A-010 | Proposed | Timezone edits | Recompute history in current profile timezone; retain original session timezone for audit | Predictable current-calendar summaries | Review in phase 01/14 | Medium |
-| A-011 | Proposed | Sessions policy | 24-hour idle and 7-day absolute expiry; rotate on login and sensitive changes | Practical initial policy | Review threat model in 05 | Medium |
+| A-011 | Accepted (engineering, Phase 05) | Sessions policy | 24-hour idle and 7-day absolute expiry; rotate on login and revoke on password changes | Reviewed initial policy under authorized implementation | Security hardening review in 17 | Medium |
 | A-012 | Proposed | Content breadth gate | Inventory and prioritized requested-song backlog; no invented minimum catalogue count | No numeric target supplied | Owner reviews actual coverage before release | Medium |
 | A-013 | Proposed | Reminders | In-app reminders while running; no promise of closed-browser delivery | Avoid unapproved background infrastructure | Confirm delivery expectations in 16 | Medium |
 | A-014 | Proposed | Email | Replaceable mail adapter; local capture for development only | Reset/verification need delivery online | Choose real delivery before public deployment | Medium |
@@ -48,3 +48,7 @@ A-022 (Accepted engineering decision): allowlisted JSON logs omit raw exception/
 A-023 (Accepted engineering scope): minimal account anchor plus private notes establish ownership/FK/cascade behavior before feature workflows; no identity API or workspace UI added. Detailed future entity/retention map lives in DOMAIN-AND-DATA-MODEL.md.
 
 A-024 (Accepted engineering choice): reference seeds are explicit, idempotent and non-overwriting; no song or user data seeded. Note account deletion cascades private rows; shared reference data remains independent. Exact future audit retention remains a pre-release decision. Tuning aggregate cardinality is enforced by domain validation, while independent ranges/FKs are SQL constraints.
+
+## Phase 06
+
+A-027 (Accepted engineering): same-origin /api/v1 rewrite with server-validated cookie session; client guard never replaces backend authorization. CSRF stays in memory; expired API sessions clear client state. No new product decision. A-028: generated OpenAPI JSON/types and drift checks; complete real-API browser harness on isolated ports/database. A-029: one additive chord-display preference migration completes onboarding inputs; full dashboard and learning tools remain later phase scope. Local launcher creates ignored credentials only for a new volume and preserves existing data.
