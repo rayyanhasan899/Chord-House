@@ -54,6 +54,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         else None
     )
     app.include_router(identity_router)
+    from app.modules.personal_workspace.routes import router as workspace_router
+
+    app.include_router(workspace_router)
 
     def error(
         request: Request,

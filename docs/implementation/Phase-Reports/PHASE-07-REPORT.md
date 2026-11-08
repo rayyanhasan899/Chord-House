@@ -1,0 +1,11 @@
+# Phase 07 report
+
+Implemented owner-scoped workspace dashboard, task/collection/note/favorite CRUD, search/filter, due dates, priority/category/completion, collection links, reviewed-song links and favorite learning status. Existing profile/preferences remain editable. Catalogue identity is a minimal prerequisite; no songs or copyrighted content were seeded. Empty reviewed-song catalogue explicitly prevents song selection until Phase 12 populates real content. Practice totals/goals/recent practice are not fabricated; their source arrives in 13/14.
+
+Verified: Ruff check/format, mypy (28 app files), generated API types, frontend lint/types/build; real PostgreSQL suite 16 passed including all workspace kinds and two-owner list/update/delete/parent-link isolation. Production Chromium 3 passed, including task creation/edit/completion/deletion and prior account/profile journeys. Early failures: missing required typed default corrected; browser text locator used an encoding-sensitive bullet and was replaced with a semantic tag match. No failure hidden. Catalogue population and measured practice summaries remain later integrations, not available today.
+
+Migration 0005 adds workspace_items and reviewed song identity references. Private owner cascades, collection deletion unlinks children, song deletion restricted while referenced. API derives actor from existing sessions; unknown body fields rejected. Shared song identities are distinct from private records. Existing Phase 04 notes remain stored separately and must be included in later export/migration work; no existing data deleted. Current catalogue reference code location will be consolidated with full catalog module in 12. This structural debt is explicit.
+
+Git branch codex/phase-07; PR/commit/push results reported in completion response; no merge. Sources and generated next-env work preserved. No credentials/mail committed.
+
+Usable: /dashboard for tasks, collections and notes; account preferences remain available. Favorite/link controls work against reviewed song references, but the current local catalogue is empty. Next: explicitly authorized Phase 08, independently browser-local; physical-device evidence remains a separate gate.

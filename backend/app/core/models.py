@@ -23,3 +23,6 @@ __all__ = [
     "TuningStringRecord",
     "NoteRecord",
 ]
+
+
+__all__.extend(["WorkspaceRecord", "SongReference"])

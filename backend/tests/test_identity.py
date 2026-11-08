@@ -189,6 +189,74 @@ def test_identity_journeys(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> N
                 secure_login.status_code == 200
                 and "Secure" in secure_login.headers["set-cookie"]
             )
+        from app.modules.personal_workspace.workspace import SongReference
+
+        song_id = uuid4()
+        with db.transaction() as session:
+            session.add(
+                SongReference(
+                    id=song_id,
+                    title="Test-only song",
+                    artist="Fixture",
+                    language="en",
+                    reviewed=True,
+                )
+            )
+        for kind in ("task", "collection", "note", "favorite"):
+            item = {
+                "kind": kind,
+                "title": "Private item",
+                "song_id": str(song_id) if kind == "favorite" else None,
+            }
+            created = first.post("/api/v1/workspace", json=item, headers=csrf)
+            assert created.status_code == 201
+            identifier = created.json()["id"]
+            other_csrf = ORIGIN | {
+                "X-CSRF-Token": second.get("/api/v1/me").json()["csrf_token"]
+            }
+            assert all(
+                row["id"] != identifier
+                for row in second.get("/api/v1/workspace").json()
+            )
+            assert (
+                second.put(
+                    "/api/v1/workspace/" + identifier, json=item, headers=other_csrf
+                ).status_code
+                == 404
+            )
+            assert (
+                second.delete(
+                    "/api/v1/workspace/" + identifier, headers=other_csrf
+                ).status_code
+                == 404
+            )
+            if kind == "collection":
+                assert (
+                    second.post(
+                        "/api/v1/workspace",
+                        json={
+                            "kind": "note",
+                            "title": "bad link",
+                            "collection_id": identifier,
+                        },
+                        headers=other_csrf,
+                    ).status_code
+                    == 422
+                )
+            assert (
+                first.put(
+                    "/api/v1/workspace/" + identifier,
+                    json=item | {"title": "Updated"},
+                    headers=csrf,
+                ).status_code
+                == 200
+            )
+            assert (
+                first.delete(
+                    "/api/v1/workspace/" + identifier, headers=csrf
+                ).status_code
+                == 204
+            )
         changed = first.post(
             "/api/v1/auth/password",
             json={"current_password": PASSWORD, "new_password": PASSWORD + "new"},
