@@ -6,6 +6,7 @@ from app.modules.catalog.models import (
     TuningRecord,
     TuningStringRecord,
 )
+from app.modules.catalog.patterns import PatternFavorite, PatternRecord
 from app.modules.identity.models import (
     AccountRecord,
     RateRecord,
@@ -25,6 +26,8 @@ __all__ = [
     "TuningStringRecord",
     "NoteRecord",
     "CustomChordRecord",
+    "PatternRecord",
+    "PatternFavorite",
     "WorkspaceRecord",
     "SongReference",
 ]

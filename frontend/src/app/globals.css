@@ -483,3 +483,38 @@ fieldset {
   display: grid;
   gap: 1.2rem;
 }
+
+.pattern-library {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.2rem;
+  list-style: none;
+  padding: 0;
+}
+.pattern-library li {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.pattern-library h2 {
+  font-size: 1.15rem;
+}
+.pattern-library button {
+  margin-block: 0.25rem;
+}
+.stroke-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 105px), 1fr));
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+.stroke-grid li {
+  border: 2px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.stroke-grid li[aria-current="step"] {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+}

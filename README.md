@@ -1,6 +1,6 @@
 # Chord House
 
-Your home for guitar learning. Phases 01–10 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library and metronome, a responsive light/dark interface, API documentation and PostgreSQL migrations. Songs and practice tracking arrive in their assigned later phases.
+Your home for guitar learning. Phases 01–11 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library, metronome and strumming patterns, a responsive light/dark interface, API documentation and PostgreSQL migrations. Songs and practice tracking arrive in their assigned later phases.
 
 ## Run locally
 
@@ -45,3 +45,7 @@ See docs/architecture/FRONTEND-FOUNDATION.md, DOMAIN-AND-DATA-MODEL.md and the r
 Open `/chords` without signing in to search 198 structured voicings, inspect diagrams, edit a fretboard and play synthesized chords/arpeggios. Sign in to save, edit and delete private custom chords. Shapes have automated pitch/fingering checks; no expert ergonomic review is claimed. Bass initially covers major/minor.
 
 Open `/metronome`, set 30–300 BPM (or tap), choose 2/4, 3/4, 4/4 or 6/8, sound, accent, volume and visual beats, then press Start. Stop releases audio. In 6/8 each click is an eighth note. No account or microphone is needed. Brief UI stalls are tolerated by audio-clock lookahead; background tabs, device sleep or long stalls can interrupt playback. Restart after suspension. See docs/architecture/METRONOME.md for timing evidence and limits. Both tools work locally with the existing installation; no additional service or environment variables are needed. Use headphones or speakers to check sound on your own device.
+
+## Strumming patterns (Phase 11)
+
+Sign in and open `/patterns` for 12 original exercises, filters, count/stroke notation, synchronized metronome/chord playback, looping and accents. Create private patterns or save private copies; edit/delete them and save favorites. Playback uses synthesized tones, not guitar recordings. Shared pattern management is available to content managers through authorized API endpoints; full admin UI follows in Phase 15. Apply migrations and run the existing reference seed command (the local launcher does both). No extra service is needed. See docs/architecture/STRUMMING.md for usage, endpoints, rights/publication rules and limits.

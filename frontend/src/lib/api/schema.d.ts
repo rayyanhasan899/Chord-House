@@ -276,6 +276,96 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/patterns": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Patterns */
+        get: operations["list_patterns_api_v1_patterns_get"];
+        put?: never;
+        /** Create Pattern */
+        post: operations["create_pattern_api_v1_patterns_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/patterns/{identifier}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update Pattern */
+        put: operations["update_pattern_api_v1_patterns__identifier__put"];
+        post?: never;
+        /** Delete Pattern */
+        delete: operations["delete_pattern_api_v1_patterns__identifier__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/patterns/{identifier}/favorite": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Favorite Pattern */
+        put: operations["favorite_pattern_api_v1_patterns__identifier__favorite_put"];
+        post?: never;
+        /** Unfavorite Pattern */
+        delete: operations["unfavorite_pattern_api_v1_patterns__identifier__favorite_delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/managed-patterns": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Managed Patterns */
+        get: operations["managed_patterns_api_v1_managed_patterns_get"];
+        put?: never;
+        /** Create Shared */
+        post: operations["create_shared_api_v1_managed_patterns_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/managed-patterns/{identifier}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update Shared */
+        put: operations["update_shared_api_v1_managed_patterns__identifier__put"];
+        post?: never;
+        /** Archive Shared */
+        delete: operations["archive_shared_api_v1_managed_patterns__identifier__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health/live": {
         parameters: {
             query?: never;
@@ -407,6 +497,104 @@ export interface components {
             /** New Password */
             new_password: string;
         };
+        /** PatternInput */
+        PatternInput: {
+            /** Name */
+            name: string;
+            /**
+             * Meter
+             * @enum {string}
+             */
+            meter: "2/4" | "3/4" | "4/4" | "6/8";
+            /** Subdivision */
+            subdivision: number;
+            /** Strokes */
+            strokes: ("D" | "U" | "R" | "X")[];
+            /**
+             * Tempo Min
+             * @default 60
+             */
+            tempo_min: number;
+            /**
+             * Tempo Max
+             * @default 140
+             */
+            tempo_max: number;
+            /**
+             * Difficulty
+             * @default beginner
+             * @enum {string}
+             */
+            difficulty: "beginner" | "intermediate" | "advanced";
+            /**
+             * Style
+             * @default General
+             */
+            style: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+        };
+        /** PatternView */
+        PatternView: {
+            /** Name */
+            name: string;
+            /**
+             * Meter
+             * @enum {string}
+             */
+            meter: "2/4" | "3/4" | "4/4" | "6/8";
+            /** Subdivision */
+            subdivision: number;
+            /** Strokes */
+            strokes: ("D" | "U" | "R" | "X")[];
+            /**
+             * Tempo Min
+             * @default 60
+             */
+            tempo_min: number;
+            /**
+             * Tempo Max
+             * @default 140
+             */
+            tempo_max: number;
+            /**
+             * Difficulty
+             * @default beginner
+             * @enum {string}
+             */
+            difficulty: "beginner" | "intermediate" | "advanced";
+            /**
+             * Style
+             * @default General
+             */
+            style: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Status */
+            status: string;
+            /**
+             * Favorite
+             * @default false
+             */
+            favorite: boolean;
+            /** Attribution */
+            attribution: string;
+            /** Rights Statement */
+            rights_statement: string;
+            /** Reviewed */
+            reviewed: boolean;
+        };
         /** Profile */
         Profile: {
             /** Id */
@@ -535,6 +723,67 @@ export interface components {
              * @default false
              */
             confirm: boolean;
+        };
+        /** SharedPatternInput */
+        SharedPatternInput: {
+            /** Name */
+            name: string;
+            /**
+             * Meter
+             * @enum {string}
+             */
+            meter: "2/4" | "3/4" | "4/4" | "6/8";
+            /** Subdivision */
+            subdivision: number;
+            /** Strokes */
+            strokes: ("D" | "U" | "R" | "X")[];
+            /**
+             * Tempo Min
+             * @default 60
+             */
+            tempo_min: number;
+            /**
+             * Tempo Max
+             * @default 140
+             */
+            tempo_max: number;
+            /**
+             * Difficulty
+             * @default beginner
+             * @enum {string}
+             */
+            difficulty: "beginner" | "intermediate" | "advanced";
+            /**
+             * Style
+             * @default General
+             */
+            style: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+            /**
+             * Status
+             * @default draft
+             * @enum {string}
+             */
+            status: "draft" | "published" | "archived";
+            /**
+             * Reviewed
+             * @default false
+             */
+            reviewed: boolean;
+            /**
+             * Rights Statement
+             * @default
+             */
+            rights_statement: string;
+            /**
+             * Attribution
+             * @default
+             */
+            attribution: string;
         };
         /** TokenInput */
         TokenInput: {
@@ -2125,6 +2374,412 @@ export interface operations {
         };
     };
     delete_chord_api_v1_custom_chords__identifier__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    list_patterns_api_v1_patterns_get: {
+        parameters: {
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PatternView"][];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    create_pattern_api_v1_patterns_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PatternInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PatternView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    update_pattern_api_v1_patterns__identifier__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PatternInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PatternView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    delete_pattern_api_v1_patterns__identifier__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    favorite_pattern_api_v1_patterns__identifier__favorite_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    unfavorite_pattern_api_v1_patterns__identifier__favorite_delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    managed_patterns_api_v1_managed_patterns_get: {
+        parameters: {
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PatternView"][];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    create_shared_api_v1_managed_patterns_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SharedPatternInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PatternView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    update_shared_api_v1_managed_patterns__identifier__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SharedPatternInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PatternView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    archive_shared_api_v1_managed_patterns__identifier__delete: {
         parameters: {
             query?: never;
             header?: never;
