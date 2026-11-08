@@ -57,6 +57,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     from app.modules.personal_workspace.routes import router as workspace_router
 
     app.include_router(workspace_router)
+    from app.modules.catalog.chord_routes import router as chord_router
+
+    app.include_router(chord_router)
 
     def error(
         request: Request,

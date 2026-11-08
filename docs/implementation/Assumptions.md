@@ -56,3 +56,5 @@ A-027 (Accepted engineering): same-origin /api/v1 rewrite with server-validated 
 Phase 07: reviewed song identities are a minimal prerequisite; full catalogue/content population stays in 12. No invented song seed or practice totals. Workspace storage uses typed kinds; legacy notes preserved for later consolidation.
 
 Phase 08: 440 Hz reference, manual target selection, worker-local YIN-style detector and five-cent indicator band. Physical hardware calibration remains open; synthetic browser results never substitute for real instrument measurements.
+
+Phase 09: generated/structured standard-tuning voicings are mathematically validated, not expert-reviewed. Custom names are labels. Bass initially major/minor; optional easier-voicing recommendation unselected. Public provider may be replaced by managed catalogue in 15.

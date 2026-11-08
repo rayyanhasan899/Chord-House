@@ -257,6 +257,50 @@ def test_identity_journeys(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> N
                 ).status_code
                 == 204
             )
+        shape = {
+            "name": "My C",
+            "instrument": "guitar",
+            "frets": [-1, 3, 2, 0, 1, 0],
+            "fingers": [0, 3, 2, 0, 1, 0],
+        }
+        created = first.post("/api/v1/custom-chords", json=shape, headers=csrf)
+        assert created.status_code == 201
+        chord_id = created.json()["id"]
+        assert all(
+            c["id"] != chord_id for c in second.get("/api/v1/custom-chords").json()
+        )
+        assert (
+            second.put(
+                "/api/v1/custom-chords/" + chord_id, json=shape, headers=other_csrf
+            ).status_code
+            == 404
+        )
+        assert (
+            second.delete(
+                "/api/v1/custom-chords/" + chord_id, headers=other_csrf
+            ).status_code
+            == 404
+        )
+        assert (
+            first.put(
+                "/api/v1/custom-chords/" + chord_id,
+                json=shape | {"name": "Edited C"},
+                headers=csrf,
+            ).status_code
+            == 200
+        )
+        assert (
+            first.post(
+                "/api/v1/custom-chords",
+                json=shape | {"frets": [24, 1, 2, 0, 1, 0]},
+                headers=csrf,
+            ).status_code
+            == 422
+        )
+        assert (
+            first.delete("/api/v1/custom-chords/" + chord_id, headers=csrf).status_code
+            == 204
+        )
         changed = first.post(
             "/api/v1/auth/password",
             json={"current_password": PASSWORD, "new_password": PASSWORD + "new"},

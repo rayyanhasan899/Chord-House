@@ -489,3 +489,5 @@ UI-001/003/004/006/007/009/011/012: shared responsive shell, public/protected ac
 Phase 07: DSH/TSK/SON-038–044/UNI-024 have workspace API/UI and ownership evidence; real song population and practice-derived dashboard summaries remain their catalog/practice integrations. See PHASE-07-REPORT.md; do not mark unavailable content populated.
 
 Phase 08: TUN-001–048/050/052 implementation and generated-signal/browser evidence documented in TUNER.md; TUN-049 real reference calibration and TUN-051 real-device claims remain NOT VERIFIED. Full Phase 08 acceptance stays open for that evidence.
+
+Phase 09: CHR-001–019/021–029 implementation evidence in features/chords and catalog custom service/domain, migration 0006, 263 frontend tests and real API/browser custom-chord journey. CHR-020 MAY unselected. No physical ergonomics/expert review claimed. Phase 08 calibration remains open.
