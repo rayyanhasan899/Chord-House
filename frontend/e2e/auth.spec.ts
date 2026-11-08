@@ -155,6 +155,33 @@ test("real account registration onboarding verification recovery and signout", a
   await page.getByLabel("Password", { exact: true }).fill(password + "changed");
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page).toHaveURL(/account/);
+  await page.goto("/chords");
+  await page.getByLabel("Chord name", { exact: true }).fill("My private C");
+  await page
+    .getByRole("button", { name: "Save private chord", exact: true })
+    .click();
+  await expect(page.getByText("Private chord saved.")).toBeVisible();
+  await page
+    .getByLabel("Chord name", { exact: true })
+    .fill("Updated private C");
+  await page
+    .getByRole("button", { name: "Update private chord", exact: true })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "Delete Updated private C" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Play chord", exact: true }).click();
+  await expect(
+    page.getByRole("status").filter({ hasText: "Audio playing" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Stop chord", exact: true }).click();
+  await expect(
+    page.getByRole("status").filter({ hasText: "Audio stopped" }),
+  ).toBeVisible();
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByRole("button", { name: "Delete Updated private C" }).click();
+  await expect(page.getByText("Private chord deleted.")).toBeVisible();
+  await page.goto("/account");
   await page.context().clearCookies();
   await page.getByRole("link", { name: "Edit learning preferences" }).click();
   await expect(page).toHaveURL(/onboarding/);

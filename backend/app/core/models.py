@@ -1,5 +1,6 @@
 """Explicit metadata registration for migration composition, not domain imports."""
 
+from app.modules.catalog.custom_chords import CustomChordRecord
 from app.modules.catalog.models import (
     InstrumentRecord,
     TuningRecord,
@@ -12,6 +13,7 @@ from app.modules.identity.models import (
     TokenRecord,
 )
 from app.modules.personal_workspace.models import NoteRecord
+from app.modules.personal_workspace.workspace import SongReference, WorkspaceRecord
 
 __all__ = [
     "AccountRecord",
@@ -22,7 +24,7 @@ __all__ = [
     "TuningRecord",
     "TuningStringRecord",
     "NoteRecord",
+    "CustomChordRecord",
+    "WorkspaceRecord",
+    "SongReference",
 ]
-
-
-__all__.extend(["WorkspaceRecord", "SongReference"])

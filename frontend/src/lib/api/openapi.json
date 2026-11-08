@@ -1601,6 +1601,232 @@
         }
       }
     },
+    "/api/v1/custom-chords": {
+      "get": {
+        "tags": [
+          "custom chords"
+        ],
+        "summary": "List Chords",
+        "operationId": "list_chords_api_v1_custom_chords_get",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChordView"
+                  },
+                  "title": "Response List Chords Api V1 Custom Chords Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "custom chords"
+        ],
+        "summary": "Create Chord",
+        "operationId": "create_chord_api_v1_custom_chords_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChordInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChordView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/custom-chords/{identifier}": {
+      "put": {
+        "tags": [
+          "custom chords"
+        ],
+        "summary": "Update Chord",
+        "operationId": "update_chord_api_v1_custom_chords__identifier__put",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChordInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChordView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "custom chords"
+        ],
+        "summary": "Delete Chord",
+        "operationId": "delete_chord_api_v1_custom_chords__identifier__delete",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/health/live": {
       "get": {
         "tags": [
@@ -1696,6 +1922,104 @@
   },
   "components": {
     "schemas": {
+      "ChordInput": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "frets": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 4,
+            "title": "Frets"
+          },
+          "fingers": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 4,
+            "title": "Fingers"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "instrument",
+          "frets",
+          "fingers"
+        ],
+        "title": "ChordInput"
+      },
+      "ChordView": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 80,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "frets": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 4,
+            "title": "Frets"
+          },
+          "fingers": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 4,
+            "title": "Fingers"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "instrument",
+          "frets",
+          "fingers",
+          "id"
+        ],
+        "title": "ChordView"
+      },
       "Credentials": {
         "properties": {
           "email": {
