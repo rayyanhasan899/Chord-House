@@ -20,6 +20,7 @@ export function Progress({ compact = false }: { compact?: boolean }) {
   const [reflection, setReflection] = useState("");
   const turn = useRef(0);
   const dirty = useRef(false);
+  const saving = useRef(false);
   const [hasDirty, setHasDirty] = useState(false);
   const selectedWeek = useRef<string | undefined>(undefined);
   const invalidate = useCallback(() => {
@@ -49,7 +50,7 @@ export function Progress({ compact = false }: { compact?: boolean }) {
   useEffect(() => {
     let cancelled = false;
     const refresh = () => {
-      if (dirty.current) return;
+      if (dirty.current || saving.current) return;
       void load(selectedWeek.current).catch((e) => {
         if (!cancelled) setError(e.message);
       });
@@ -72,7 +73,19 @@ export function Progress({ compact = false }: { compact?: boolean }) {
   async function complete(code: string, completed: boolean) {
     if (!roadmap || busy || hasDirty) return;
     setBusy(true);
-    setMessage("");
+    saving.current = true;
+    invalidate();
+    const previous = roadmap;
+    let persisted = false;
+    setRoadmap({
+      ...roadmap,
+      milestones: roadmap.milestones.map((m) =>
+        m.code === code
+          ? { ...m, completed_at: completed ? new Date().toISOString() : null }
+          : m,
+      ),
+    });
+    setMessage("Saving milestone…");
     try {
       const r = await api.PUT("/api/v1/practice/roadmap/{code}", {
         params: { path: { code } },
@@ -83,16 +96,22 @@ export function Progress({ compact = false }: { compact?: boolean }) {
         },
       });
       if (!r.response.ok) throw new Error(apiError(r.error));
+      persisted = true;
       await load(data?.review.week);
       setMessage("Milestone updated. Completion is self-reported.");
     } catch (e) {
+      if (!persisted) setRoadmap(previous);
+      setMessage("");
       setError(e instanceof Error ? e.message : "Unable to update milestone");
     } finally {
+      saving.current = false;
       setBusy(false);
     }
   }
   async function saveReview() {
     if (!data || busy) return;
+    saving.current = true;
+    invalidate();
     setBusy(true);
     try {
       const r = await api.PUT("/api/v1/practice/reviews/{week}", {
@@ -107,6 +126,7 @@ export function Progress({ compact = false }: { compact?: boolean }) {
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unable to save review");
     } finally {
+      saving.current = false;
       setBusy(false);
     }
   }
