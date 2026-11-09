@@ -1,9 +1,9 @@
 # 20-phase implementation plan
 
-Planning finalized 2026-11-08; no implementation phase executed. Read Requirements-Analysis.md and Architecture-and-Database-Design.md with unchanged source documents. All statuses are planned.
+Planning finalized 2026-11-08. This is the original phase scope; actual execution and limitations are recorded in Phase-Reports. Read Requirements-Analysis.md and Architecture-and-Database-Design.md with unchanged source documents.
 
 1. Core song catalogue includes popular English, Urdu and Hindi songs, with Roman Urdu/Hindi variants. English UI is independent of song language. No fixed small sample-only cap.
-2. Guests can use tuner, metronome and public chord library. Personal records require authentication; guest access to other catalogue areas remains proposed, not approved.
+2. Guests can use tuner, metronome and public chord library. Personal records require authentication; song discovery/learning requires sign-in by the owner’s explicit Phase 12 decision.
 3. Secure server-managed cookie sessions; revocation, expiration, logout and backend authorization required.
 4. Fully usable local application plus deployment preparation; no paid core dependency; provider selection requires current evaluation.
 5. Guitar presets: E2 A2 D3 G3 B3 E4; Drop D D2 A2 D3 G3 B3 E4; DADGAD D2 A2 D3 G3 A3 D4. Preserve bass E1 A1 D2 G2 and re-entrant ukulele G4 C4 E4 A4.

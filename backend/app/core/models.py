@@ -16,6 +16,13 @@ from app.modules.identity.models import (
 )
 from app.modules.personal_workspace.models import NoteRecord
 from app.modules.personal_workspace.workspace import SongReference, WorkspaceRecord
+from app.modules.practice.models import (
+    ActivityRecord,
+    GoalRecord,
+    PracticeRecord,
+    PracticeStartRecord,
+    RoutineRecord,
+)
 
 __all__ = [
     "AccountRecord",
@@ -34,4 +41,9 @@ __all__ = [
     "SongAuditRecord",
     "WorkspaceRecord",
     "SongReference",
+    "PracticeRecord",
+    "RoutineRecord",
+    "ActivityRecord",
+    "GoalRecord",
+    "PracticeStartRecord",
 ]

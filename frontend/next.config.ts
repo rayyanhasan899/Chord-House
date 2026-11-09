@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 const config: NextConfig = {
+  // Bound page-generation memory on local machines and free-tier builders.
+  experimental: { cpus: 2 },
   async rewrites() {
     return [
       {

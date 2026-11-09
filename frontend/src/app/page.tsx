@@ -46,8 +46,8 @@ export default function Home() {
           Use the tuner, chord library and metronome as a guest. Sign in for
           your private workspace, saved custom chords and strumming patterns.
           Browse the English, Urdu and Hindi song catalog, with learning content
-          where permission is verified. Practice tracking arrives in later
-          phases.
+          where permission is verified. Save practice sessions, build routines
+          and set daily or weekly practice targets.
         </p>
       </section>
     </>
