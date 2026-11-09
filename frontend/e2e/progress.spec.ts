@@ -38,7 +38,7 @@ test("progress recomputes session corrections/deletion and keeps roadmap/reviews
   const timezone = new Date().getUTCHours() < 12 ? "Etc/GMT-12" : "UTC";
   expect(
     (
-      await page.request.put("/api/v1/me", {
+      await page.request.patch("/api/v1/me", {
         headers,
         data: {
           display_name: "Progress player",
