@@ -49,3 +49,6 @@ No new prerequisite, service, hosting provider or package is required. Existing 
 
 
 Phase 14 adds migration 0010 and /progress plus dashboard summaries. No new application package/provider. The normal launcher applies migrations. Locked Linux test dependencies and disposable PostgreSQL were used for verification while native Windows Python imports remain subject to Application Control. CI additionally exports only the synthetic-account progress screenshot for visual verification, never local mail/credentials or personal data.
+
+
+Current workstation: existing Docker service chord-house-api-local-1 was migrated to 0010_progress and restarted. Local readiness and /progress registration were verified. This avoids changing Windows policy and preserves the user's existing Docker setup/database. The native Python launcher remains subject to its separate Application Control issue. No additional user setup is currently required to open /progress on the running local frontend.
