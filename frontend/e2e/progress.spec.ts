@@ -34,6 +34,21 @@ test("progress recomputes session corrections/deletion and keeps roadmap/reviews
     ...origin,
     "X-CSRF-Token": (await login.json()).csrf_token,
   };
+  // Keep the test's saved intervals away from local midnight at any UTC hour.
+  const timezone = new Date().getUTCHours() < 12 ? "Etc/GMT-12" : "UTC";
+  expect(
+    (
+      await page.request.put("/api/v1/me", {
+        headers,
+        data: {
+          display_name: "Progress player",
+          instrument: "acoustic_guitar",
+          skill: "beginner",
+          timezone,
+        },
+      })
+    ).status(),
+  ).toBe(200);
   await page.goto("/progress");
   await expect(page.getByTestId("total-practice-minutes")).toHaveText(
     "0 minutes",
