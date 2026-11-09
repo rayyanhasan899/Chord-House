@@ -345,6 +345,7 @@ export function Progress({ compact = false }: { compact?: boolean }) {
               <label>
                 What would you like to improve?
                 <textarea
+                  aria-label="What would you like to improve?"
                   maxLength={2000}
                   value={reflection}
                   disabled={busy}
