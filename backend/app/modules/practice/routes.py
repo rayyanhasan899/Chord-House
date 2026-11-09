@@ -1,3 +1,4 @@
+from datetime import date
 from typing import Annotated, Literal
 from uuid import UUID
 
@@ -6,6 +7,13 @@ from fastapi import APIRouter, Depends, Query
 from app.modules.identity.domain import Actor
 from app.modules.identity.routes import current, service
 from app.modules.identity.service import IdentityService
+from app.modules.practice.progress_schemas import (
+    CompletionInput,
+    ProgressView,
+    ReviewInput,
+    RoadmapView,
+)
+from app.modules.practice.progress_service import Progress
 from app.modules.practice.schemas import (
     Command,
     Duplicate,
@@ -122,3 +130,23 @@ def goal(
     period: Literal["daily", "weekly"], data: GoalInput, actor: A, svc: S
 ) -> GoalView:
     return Practice(svc.db).goal(actor.id, period, data)
+
+
+@router.get("/roadmap", response_model=RoadmapView)
+def roadmap(actor: A, svc: S) -> RoadmapView:
+    return Progress(svc.db).roadmap(actor.id)
+
+
+@router.put("/roadmap/{code}", status_code=204)
+def complete_milestone(code: str, data: CompletionInput, actor: A, svc: S) -> None:
+    Progress(svc.db).complete(actor.id, code, data)
+
+
+@router.get("/progress", response_model=ProgressView)
+def progress(actor: A, svc: S, review_week: date | None = None) -> ProgressView:
+    return Progress(svc.db).summary(actor.id, review_week)
+
+
+@router.put("/reviews/{week}", status_code=204)
+def review(week: date, data: ReviewInput, actor: A, svc: S) -> None:
+    Progress(svc.db).review(actor.id, week, data)

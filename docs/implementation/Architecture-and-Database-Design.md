@@ -22,3 +22,8 @@ Phase 12 implementation detail: ADR-0017 uses relational stable SongReference id
 ## Phase 13 implemented practice persistence
 
 Migration 0009 adds practice_sessions, practice_starts, practice_routines, practice_activities and practice_goals (ADR-0019). Sessions persist UTC active intervals, running anchor, captured timezone, version and immutable routine snapshot. Saved state is the sole future progress input; no duplicated aggregate counter exists. Owner locking serializes writes and saved interval collision checks. Goals are effective-dated versions, with one current daily/weekly target. Optional links SET NULL and account cascades preserve ownership/deletion semantics. See ../architecture/PRACTICE.md for endpoints, UI, lifecycle, retry and timer limits. Phase 14 owns derived statistics/calendar policy.
+
+
+## Phase 14 progress and roadmap
+
+Saved intervals are allocated by current account timezone in pure progress_domain functions with integer microsecond accounting and UTC elapsed durations. Progress service uses coherent repeatable-read snapshots; no aggregate counter can become stale after edit/delete. Goal versions are evaluated at period close. Migration 0010 adds owner/instrument/milestone completions and owner/week reflection text/version, both account-cascading. Request/response contracts and authenticated practice routes compose the service; frontend Progress is reused for full /progress and compact dashboard summaries. ADR-0020 and ../architecture/PROGRESS.md hold detailed behavior and owner-approved calendar rules.

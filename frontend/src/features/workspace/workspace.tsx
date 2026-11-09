@@ -1,4 +1,5 @@
 "use client";
+import { Progress } from "@/features/progress/progress";
 import { useCallback, useEffect, useState } from "react";
 import { api, apiError } from "@/lib/api/client";
 import type { components } from "@/lib/api/schema";
@@ -141,6 +142,7 @@ export function Workspace() {
       <p>
         <Link href="/onboarding">Edit profile & preferences</Link>
       </p>
+      <Progress compact />
       <Feedback error={error} message={status} />
       {error && (
         <Button onClick={() => void load().catch((e) => setStatus(e.message))}>

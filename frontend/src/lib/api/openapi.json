@@ -3717,6 +3717,218 @@
         }
       }
     },
+    "/api/v1/practice/roadmap": {
+      "get": {
+        "tags": [
+          "practice"
+        ],
+        "summary": "Roadmap",
+        "operationId": "roadmap_api_v1_practice_roadmap_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoadmapView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/practice/roadmap/{code}": {
+      "put": {
+        "tags": [
+          "practice"
+        ],
+        "summary": "Complete Milestone",
+        "operationId": "complete_milestone_api_v1_practice_roadmap__code__put",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompletionInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/practice/progress": {
+      "get": {
+        "tags": [
+          "practice"
+        ],
+        "summary": "Progress",
+        "operationId": "progress_api_v1_practice_progress_get",
+        "parameters": [
+          {
+            "name": "review_week",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Review Week"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/practice/reviews/{week}": {
+      "put": {
+        "tags": [
+          "practice"
+        ],
+        "summary": "Review",
+        "operationId": "review_api_v1_practice_reviews__week__put",
+        "parameters": [
+          {
+            "name": "week",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "title": "Week"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/health/live": {
       "get": {
         "tags": [
@@ -4175,6 +4387,31 @@
         ],
         "title": "Command"
       },
+      "CompletionInput": {
+        "properties": {
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "acoustic_guitar",
+              "electric_guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "instrument",
+          "completed"
+        ],
+        "title": "CompletionInput"
+      },
       "Credentials": {
         "properties": {
           "email": {
@@ -4196,6 +4433,48 @@
           "password"
         ],
         "title": "Credentials"
+      },
+      "DayView": {
+        "properties": {
+          "day": {
+            "type": "string",
+            "title": "Day"
+          },
+          "seconds": {
+            "type": "number",
+            "title": "Seconds"
+          },
+          "goal_minutes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Goal Minutes"
+          },
+          "goal_met": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Goal Met"
+          }
+        },
+        "type": "object",
+        "required": [
+          "day",
+          "seconds",
+          "goal_minutes",
+          "goal_met"
+        ],
+        "title": "DayView"
       },
       "Duplicate": {
         "properties": {
@@ -4314,6 +4593,39 @@
           "minutes"
         ],
         "title": "GoalInput"
+      },
+      "GoalProgress": {
+        "properties": {
+          "period": {
+            "type": "string",
+            "title": "Period"
+          },
+          "minutes": {
+            "type": "integer",
+            "title": "Minutes"
+          },
+          "paused": {
+            "type": "boolean",
+            "title": "Paused"
+          },
+          "seconds": {
+            "type": "number",
+            "title": "Seconds"
+          },
+          "percent": {
+            "type": "number",
+            "title": "Percent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "period",
+          "minutes",
+          "paused",
+          "seconds",
+          "percent"
+        ],
+        "title": "GoalProgress"
       },
       "GoalView": {
         "properties": {
@@ -4572,6 +4884,52 @@
           "message"
         ],
         "title": "Message"
+      },
+      "MilestoneView": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "instruction": {
+            "type": "string",
+            "title": "Instruction"
+          },
+          "tool": {
+            "type": "string",
+            "title": "Tool"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "level",
+          "title",
+          "instruction",
+          "tool",
+          "completed_at"
+        ],
+        "title": "MilestoneView"
       },
       "PasswordChange": {
         "properties": {
@@ -4989,6 +5347,137 @@
         ],
         "title": "ProfileUpdate"
       },
+      "ProgressView": {
+        "properties": {
+          "timezone": {
+            "type": "string",
+            "title": "Timezone"
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date-time",
+            "title": "As Of"
+          },
+          "today": {
+            "type": "string",
+            "title": "Today"
+          },
+          "week": {
+            "type": "string",
+            "title": "Week"
+          },
+          "month": {
+            "type": "string",
+            "title": "Month"
+          },
+          "total_seconds": {
+            "type": "number",
+            "title": "Total Seconds"
+          },
+          "today_seconds": {
+            "type": "number",
+            "title": "Today Seconds"
+          },
+          "week_seconds": {
+            "type": "number",
+            "title": "Week Seconds"
+          },
+          "month_seconds": {
+            "type": "number",
+            "title": "Month Seconds"
+          },
+          "saved_sessions": {
+            "type": "integer",
+            "title": "Saved Sessions"
+          },
+          "current_streak": {
+            "type": "integer",
+            "title": "Current Streak"
+          },
+          "longest_streak": {
+            "type": "integer",
+            "title": "Longest Streak"
+          },
+          "days": {
+            "items": {
+              "$ref": "#/components/schemas/DayView"
+            },
+            "type": "array",
+            "title": "Days"
+          },
+          "goals": {
+            "items": {
+              "$ref": "#/components/schemas/GoalProgress"
+            },
+            "type": "array",
+            "title": "Goals"
+          },
+          "instruments": {
+            "items": {
+              "$ref": "#/components/schemas/Ranking"
+            },
+            "type": "array",
+            "title": "Instruments"
+          },
+          "songs": {
+            "items": {
+              "$ref": "#/components/schemas/Ranking"
+            },
+            "type": "array",
+            "title": "Songs"
+          },
+          "chords": {
+            "items": {
+              "$ref": "#/components/schemas/Ranking"
+            },
+            "type": "array",
+            "title": "Chords"
+          },
+          "review": {
+            "$ref": "#/components/schemas/ReviewView"
+          }
+        },
+        "type": "object",
+        "required": [
+          "timezone",
+          "as_of",
+          "today",
+          "week",
+          "month",
+          "total_seconds",
+          "today_seconds",
+          "week_seconds",
+          "month_seconds",
+          "saved_sessions",
+          "current_streak",
+          "longest_streak",
+          "days",
+          "goals",
+          "instruments",
+          "songs",
+          "chords",
+          "review"
+        ],
+        "title": "ProgressView"
+      },
+      "Ranking": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "seconds": {
+            "type": "number",
+            "title": "Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "seconds"
+        ],
+        "title": "Ranking"
+      },
       "Registration": {
         "properties": {
           "email": {
@@ -5045,6 +5534,113 @@
           "password"
         ],
         "title": "ResetInput"
+      },
+      "ReviewInput": {
+        "properties": {
+          "improvement": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Improvement"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0,
+            "title": "Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "improvement",
+          "version"
+        ],
+        "title": "ReviewInput"
+      },
+      "ReviewView": {
+        "properties": {
+          "week": {
+            "type": "string",
+            "title": "Week"
+          },
+          "end": {
+            "type": "string",
+            "title": "End"
+          },
+          "seconds": {
+            "type": "number",
+            "title": "Seconds"
+          },
+          "practice_days": {
+            "type": "integer",
+            "title": "Practice Days"
+          },
+          "achieved_daily_goals": {
+            "type": "integer",
+            "title": "Achieved Daily Goals"
+          },
+          "evaluated_daily_goals": {
+            "type": "integer",
+            "title": "Evaluated Daily Goals"
+          },
+          "weekly_goal_met": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weekly Goal Met"
+          },
+          "improvement": {
+            "type": "string",
+            "title": "Improvement"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "week",
+          "end",
+          "seconds",
+          "practice_days",
+          "achieved_daily_goals",
+          "evaluated_daily_goals",
+          "weekly_goal_met",
+          "improvement",
+          "version"
+        ],
+        "title": "ReviewView"
+      },
+      "RoadmapView": {
+        "properties": {
+          "instrument": {
+            "type": "string",
+            "title": "Instrument"
+          },
+          "skill": {
+            "type": "string",
+            "title": "Skill"
+          },
+          "milestones": {
+            "items": {
+              "$ref": "#/components/schemas/MilestoneView"
+            },
+            "type": "array",
+            "title": "Milestones"
+          }
+        },
+        "type": "object",
+        "required": [
+          "instrument",
+          "skill",
+          "milestones"
+        ],
+        "title": "RoadmapView"
       },
       "RoutineCreate": {
         "properties": {

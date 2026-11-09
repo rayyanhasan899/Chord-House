@@ -61,3 +61,10 @@ jobs:
         working-directory: backend
       - run: python tests/browser_system.py
         working-directory: backend
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase14-progress-evidence
+          path: .artifacts/phase14-progress.png
+          if-no-files-found: ignore

@@ -23,8 +23,11 @@ from app.modules.practice.models import (
     PracticeStartRecord,
     RoutineRecord,
 )
+from app.modules.practice.progress_models import MilestoneRecord, ReviewRecord
 
 __all__ = [
+    "MilestoneRecord",
+    "ReviewRecord",
     "AccountRecord",
     "SessionRecord",
     "TokenRecord",

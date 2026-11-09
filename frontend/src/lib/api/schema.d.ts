@@ -627,6 +627,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/practice/roadmap": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Roadmap */
+        get: operations["roadmap_api_v1_practice_roadmap_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/roadmap/{code}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Complete Milestone */
+        put: operations["complete_milestone_api_v1_practice_roadmap__code__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/progress": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Progress */
+        get: operations["progress_api_v1_practice_progress_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/reviews/{week}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Review */
+        put: operations["review_api_v1_practice_reviews__week__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health/live": {
         parameters: {
             query?: never;
@@ -787,6 +855,16 @@ export interface components {
              */
             confirm_long: boolean;
         };
+        /** CompletionInput */
+        CompletionInput: {
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /** Completed */
+            completed: boolean;
+        };
         /** Credentials */
         Credentials: {
             /**
@@ -796,6 +874,17 @@ export interface components {
             email: string;
             /** Password */
             password: string;
+        };
+        /** DayView */
+        DayView: {
+            /** Day */
+            day: string;
+            /** Seconds */
+            seconds: number;
+            /** Goal Minutes */
+            goal_minutes: number | null;
+            /** Goal Met */
+            goal_met: boolean | null;
         };
         /** Duplicate */
         Duplicate: {
@@ -852,6 +941,19 @@ export interface components {
              * @default 0
              */
             version: number;
+        };
+        /** GoalProgress */
+        GoalProgress: {
+            /** Period */
+            period: string;
+            /** Minutes */
+            minutes: number;
+            /** Paused */
+            paused: boolean;
+            /** Seconds */
+            seconds: number;
+            /** Percent */
+            percent: number;
         };
         /** GoalView */
         GoalView: {
@@ -971,6 +1073,21 @@ export interface components {
         Message: {
             /** Message */
             message: string;
+        };
+        /** MilestoneView */
+        MilestoneView: {
+            /** Code */
+            code: string;
+            /** Level */
+            level: string;
+            /** Title */
+            title: string;
+            /** Instruction */
+            instruction: string;
+            /** Tool */
+            tool: string;
+            /** Completed At */
+            completed_at: string | null;
         };
         /** PasswordChange */
         PasswordChange: {
@@ -1175,6 +1292,54 @@ export interface components {
              */
             onboarding_complete: boolean;
         };
+        /** ProgressView */
+        ProgressView: {
+            /** Timezone */
+            timezone: string;
+            /**
+             * As Of
+             * Format: date-time
+             */
+            as_of: string;
+            /** Today */
+            today: string;
+            /** Week */
+            week: string;
+            /** Month */
+            month: string;
+            /** Total Seconds */
+            total_seconds: number;
+            /** Today Seconds */
+            today_seconds: number;
+            /** Week Seconds */
+            week_seconds: number;
+            /** Month Seconds */
+            month_seconds: number;
+            /** Saved Sessions */
+            saved_sessions: number;
+            /** Current Streak */
+            current_streak: number;
+            /** Longest Streak */
+            longest_streak: number;
+            /** Days */
+            days: components["schemas"]["DayView"][];
+            /** Goals */
+            goals: components["schemas"]["GoalProgress"][];
+            /** Instruments */
+            instruments: components["schemas"]["Ranking"][];
+            /** Songs */
+            songs: components["schemas"]["Ranking"][];
+            /** Chords */
+            chords: components["schemas"]["Ranking"][];
+            review: components["schemas"]["ReviewView"];
+        };
+        /** Ranking */
+        Ranking: {
+            /** Label */
+            label: string;
+            /** Seconds */
+            seconds: number;
+        };
         /** Registration */
         Registration: {
             /**
@@ -1195,6 +1360,43 @@ export interface components {
             token: string;
             /** Password */
             password: string;
+        };
+        /** ReviewInput */
+        ReviewInput: {
+            /** Improvement */
+            improvement: string;
+            /** Version */
+            version: number;
+        };
+        /** ReviewView */
+        ReviewView: {
+            /** Week */
+            week: string;
+            /** End */
+            end: string;
+            /** Seconds */
+            seconds: number;
+            /** Practice Days */
+            practice_days: number;
+            /** Achieved Daily Goals */
+            achieved_daily_goals: number;
+            /** Evaluated Daily Goals */
+            evaluated_daily_goals: number;
+            /** Weekly Goal Met */
+            weekly_goal_met: boolean | null;
+            /** Improvement */
+            improvement: string;
+            /** Version */
+            version: number;
+        };
+        /** RoadmapView */
+        RoadmapView: {
+            /** Instrument */
+            instrument: string;
+            /** Skill */
+            skill: string;
+            /** Milestones */
+            milestones: components["schemas"]["MilestoneView"][];
         };
         /** RoutineCreate */
         RoutineCreate: {
@@ -4500,6 +4702,168 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["GoalView"];
                 };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    roadmap_api_v1_practice_roadmap_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RoadmapView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    complete_milestone_api_v1_practice_roadmap__code__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                code: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompletionInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    progress_api_v1_practice_progress_get: {
+        parameters: {
+            query?: {
+                review_week?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProgressView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    review_api_v1_practice_reviews__week__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                week: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReviewInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Unprocessable Content */
             422: {
