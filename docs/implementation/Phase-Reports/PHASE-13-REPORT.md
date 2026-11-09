@@ -12,7 +12,7 @@ Implemented:
 - Daily/weekly goal targets and pause settings are versioned/effective-dated. No statistics, streaks, roadmap, goal completion claim or aggregate counters. Migration 0009 adds five tables, indexes/checks/FKs without rewriting prior user data. OpenAPI/client refreshed. No package or provider dependency added.
 - All 20 phase purposes documented in PHASE-PURPOSES.md and listed for the owner before implementation.
 
-Tested (exact commands/results): final execution evidence is recorded below after completion.
+Tested final implementation c5955b9 on Linux CI (exit 0): npm run format:check, npm run lint, npm run typecheck, npm test (403 tests, seven files), npm run build; npm run contracts:check; python -m ruff check/format --check; python -m mypy app (46 files); python -m pytest (46 passed in 10.80 seconds); python tests/browser_system.py (production build and all 10 Chromium journeys passed in 3.1 minutes). Practice journey covers refresh/pause/resume/end/save/retried save/edit/delete, goal pause, routine reorder/duplicate/edit/delete/snapshot/countdown, guided metronome/pattern cleanup and axe/no-overflow checks at 375/768/1280 pixels. Screenshot generated in CI; no exported screenshot was visually inspected locally.
 
 Verified: PostgreSQL migration up/down/up and drift checks run only on an isolated disposable container. Backend tests exercise lifecycle, retries, concurrent starts, microsecond pause exclusion, target completion after five simulated background hours, time correction/overlap/zero/long guards, private links, session/routine/goal ownership, goal history, account cascades, CSRF and cache policy. Browser verification uses its isolated API/database, not local personal accounts.
 
@@ -36,10 +36,15 @@ Initial parallel verification on the memory-constrained host: existing password 
 
 Manual use: restart through existing launcher, sign in and open /practice. Pause for breaks; review elapsed idle time after sleep. Only Save adds history. Correct accidental time explicitly. Audio is synthesized and requires user initiation; separate song/tuner tabs manage their own playback. No hardware, hearing, hosting or rights verification is claimed by automated tests. Progress summaries/streaks/calendar choices next in Phase 14.
 
-Exit gate: final results below determine session/routine CRUD, retry/ownership browser integration status.
+Exit gate met for implementation: final CI passed all session/routine CRUD, retry/ownership and browser integration checks. Local runtime availability remains blocked by Windows policy as recorded below.
 
 ## Git status
 
 Branch codex/phase-13 from codex/phase-12. Actual commit, push, PR and hosted terminal checks recorded after execution. No merge. Preserved original three untracked root documents and pre-existing frontend/next-env.d.ts dev-types imports outside commits. Next prompt PHASE-14.md; do not auto-start.
 
 Continuation 2026-11-09: Windows Application Control now rejects installed native SQLAlchemy/mypy files (DLL load failed), blocking final local contracts/backend startup/browser reruns. No security policy altered. Docker restarted successfully. Prior local 46-test PostgreSQL run/build passed before policy blockage; first browser journey timed out on incorrect Start button locator, corrected to Start metronome (and Add routine activity). Final hosted checks are required for the latest missing-chord fix. PROJECT_GAP_ANALYSIS.md is additional user work preserved untracked.
+
+
+Final verified delivery — 2026-11-09: c5955b9 pushed on codex/phase-13. Push run 42575743593 and PR run 42575750451 both completed successfully, frontend/backend. PR https://github.com/rayyanhasan899/Chord-House/pull/13 targets codex/phase-12, open/unmerged. Initial hosted run c4eb3d6 passed nine browser journeys but the practice selector had an option-dependent accessible name; c5955b9 adds explicit aria-label and the final complete suite passes. Metronome regression: 361 clicks, maximum scheduled phase error 0.000000000 seconds over three minutes (no physical speaker accuracy inferred).
+
+Normal local-target npm run build exited 0 after the isolated build, and the user's next-env dev-type imports were restored. Local Ruff passes (67 files); a pure-Python mypy execution using the installed source also passed 46 app files. Final native SQLAlchemy startup/contracts remain blocked by Windows Application Control; no policy setting or security control changed. Resolve the installed native-library approval/block with the machine administrator/security tooling before using scripts/dev.py again. Then the launcher applies migration 0009 to the retained personal database and /practice becomes locally usable. No local accounts/data were removed; no successful local Phase 13 API restart or migration is claimed. Do not infer local readiness from CI success. No Phase 14 implementation begun.
