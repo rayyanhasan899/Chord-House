@@ -525,6 +525,7 @@ export function Practice() {
               <label>
                 Use routine
                 <select
+                  aria-label="Use routine"
                   disabled={busy}
                   value={routineChoice}
                   onChange={(e) => {
