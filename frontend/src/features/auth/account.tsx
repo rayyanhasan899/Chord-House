@@ -134,7 +134,8 @@ export function Account() {
           private custom chords from the chord library and practice strumming
           patterns with private favorites and an editor. Browse songs and save
           them to private collections. Popular-song lyrics and arrangements
-          require verified permission; practice history arrives in later phases.
+          require verified permission. Use Practice for sessions, routines and
+          goal settings.
         </p>
       </section>
     </>

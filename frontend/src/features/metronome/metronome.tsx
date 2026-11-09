@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Feedback } from "@/components/ui/feedback";
 import { MetronomeAudio, type Options } from "./engine";
 import { validBpm, tapTempo } from "./timeline";
-export function Metronome() {
+export function Metronome({ initialTempo = 100 }: { initialTempo?: number }) {
   const hydrated = useHydrated();
-  const [tempo, setTempo] = useState("100");
+  const [tempo, setTempo] = useState(String(initialTempo));
   const [meter, setMeter] = useState("4/4");
   const [accent, setAccent] = useState(true);
   const [sound, setSound] = useState<Options["sound"]>("click");

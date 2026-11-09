@@ -66,6 +66,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     from app.modules.catalog.song_routes import router as song_router
 
     app.include_router(song_router)
+    from app.modules.practice.routes import router as practice_router
+
+    app.include_router(practice_router)
 
     def error(
         request: Request,
@@ -103,7 +106,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 },
             )
             return error(request, 500, "internal_error", "An unexpected error occurred")
-        if request.url.path.startswith(("/api/v1/auth", "/api/v1/me")):
+        if request.url.path.startswith(
+            ("/api/v1/auth", "/api/v1/me", "/api/v1/practice")
+        ):
             response.headers["Cache-Control"] = "no-store"
         response.headers["X-Request-ID"] = request.state.request_id
         logger.info(

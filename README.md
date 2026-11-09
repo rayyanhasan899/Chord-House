@@ -1,6 +1,6 @@
 # Chord House
 
-Your home for guitar learning. Phases 01–12 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library, metronome, strumming patterns and song discovery/learning, a responsive light/dark interface, API documentation and PostgreSQL migrations. Practice tracking arrives in its assigned later phases.
+Your home for guitar learning. Phases 01–13 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library, metronome, strumming patterns and song discovery/learning, a responsive light/dark interface, API documentation and PostgreSQL migrations. Practice sessions, reusable routines and goal settings are available; progress summaries and streaks follow in Phase 14.
 
 ## Run locally
 
@@ -55,3 +55,12 @@ Sign in and open `/patterns` for 12 original exercises, filters, count/stroke no
 Sign in and open `/songs` to search English/Urdu/Hindi entries and Roman/native aliases. Filter and page through results, open dedicated pages, save private favorites/collections and track learning status. The bundle contains 85 popular-song identities (30 English, 26 Urdu, 29 Hindi) with source metadata; their lyrics and arrangements are unavailable because no licensed source has been supplied. Six separately labeled original practice songs contain complete original text and 18 guitar/bass/ukulele chord exercises with diagrams, transposition, text size and practice view. They include Roman Urdu/Hindi and two native-script variants, with no supplied melody/vocal recording. Do not mistake these originals for popular-song arrangements.
 
 The owner confirmed song pages require sign-in. Existing startup applies migration 0008 and seeds without overwriting edits/withdrawals; no provider account/key or runtime network is needed. Managers can stage/review/commit further rights-cleared content via API or the interactive local import CLI. See docs/architecture/SONGS.md, docs/implementation/SONG-CONTENT-INVENTORY.md and PHASE-12-REPORT.md for exact rights/coverage, workflow and tests. Full manager UI remains Phase 15.
+
+
+## Practice (Phase 13)
+
+Sign in and open `/practice`. Start a count-up session or set a target, pause/resume, end, review and explicitly save. Refreshing or navigating away keeps the server timer running. Only saved sessions enter history. Link songs, private chords or a chord symbol, add a focus/notes, and edit/delete your records. Time corrections explicitly replace pause segments; future/overlapping saved time is rejected. Sessions over four hours require confirmation; the maximum saved active duration is 24 hours.
+
+Build, reorder, edit, duplicate and delete private routines. The player advances by active time and preserves its starting routine snapshot even if the template changes. Guided tools show chords and reuse metronome/pattern audio; song practice and tuner open in a separate tab. Audio requires its own Play action and closes on pause/end/activity change/navigation. Set or pause daily/weekly goal settings without altering history. Totals, streaks, charts and roadmap are Phase 14.
+
+Existing startup applies reviewed migration `0009_practice`; no new package, provider, payment or environment variable is needed. See [practice guide](docs/architecture/PRACTICE.md) for timer behavior, validation and APIs. Unit tests use one worker to fit local memory; larger environments may override Vitest's worker count.

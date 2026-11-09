@@ -468,6 +468,165 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/practice/current": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Active */
+        get: operations["active_api_v1_practice_current_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/sessions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** History */
+        get: operations["history_api_v1_practice_sessions_get"];
+        put?: never;
+        /** Start */
+        post: operations["start_api_v1_practice_sessions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/sessions/{identifier}/{action}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Command */
+        post: operations["command_api_v1_practice_sessions__identifier___action__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/sessions/{identifier}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Session */
+        get: operations["get_session_api_v1_practice_sessions__identifier__get"];
+        /** Update Session */
+        put: operations["update_session_api_v1_practice_sessions__identifier__put"];
+        post?: never;
+        /** Delete Session */
+        delete: operations["delete_session_api_v1_practice_sessions__identifier__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/routines": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Routines */
+        get: operations["routines_api_v1_practice_routines_get"];
+        put?: never;
+        /** Create Routine */
+        post: operations["create_routine_api_v1_practice_routines_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/routines/{identifier}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Routine */
+        get: operations["get_routine_api_v1_practice_routines__identifier__get"];
+        /** Update Routine */
+        put: operations["update_routine_api_v1_practice_routines__identifier__put"];
+        post?: never;
+        /** Delete Routine */
+        delete: operations["delete_routine_api_v1_practice_routines__identifier__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/routines/{identifier}/duplicate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Duplicate Routine */
+        post: operations["duplicate_routine_api_v1_practice_routines__identifier__duplicate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/goals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Goals */
+        get: operations["goals_api_v1_practice_goals_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/practice/goals/{period}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Goal */
+        put: operations["goal_api_v1_practice_goals__period__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health/live": {
         parameters: {
             query?: never;
@@ -506,6 +665,35 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** ActivityInput */
+        ActivityInput: {
+            /** Name */
+            name: string;
+            /** Duration Seconds */
+            duration_seconds: number;
+            /**
+             * Tool
+             * @default none
+             * @enum {string}
+             */
+            tool: "none" | "metronome" | "chords" | "pattern" | "song" | "tuner";
+            /**
+             * Bpm
+             * @default 100
+             */
+            bpm: number;
+            /** Song Id */
+            song_id?: string | null;
+            /** Chord Id */
+            chord_id?: string | null;
+            /** Pattern Id */
+            pattern_id?: string | null;
+            /**
+             * Chord Name
+             * @default
+             */
+            chord_name: string;
+        };
         /** ArrangementInput */
         ArrangementInput: {
             /** Key */
@@ -589,6 +777,16 @@ export interface components {
              */
             id: string;
         };
+        /** Command */
+        Command: {
+            /** Version */
+            version: number;
+            /**
+             * Confirm Long
+             * @default false
+             */
+            confirm_long: boolean;
+        };
         /** Credentials */
         Credentials: {
             /**
@@ -598,6 +796,14 @@ export interface components {
             email: string;
             /** Password */
             password: string;
+        };
+        /** Duplicate */
+        Duplicate: {
+            /**
+             * Client Key
+             * Format: uuid
+             */
+            client_key: string;
         };
         /** EmailInput */
         EmailInput: {
@@ -631,6 +837,45 @@ export interface components {
             field: string;
             /** Code */
             code: string;
+        };
+        /** GoalInput */
+        GoalInput: {
+            /** Minutes */
+            minutes: number;
+            /**
+             * Paused
+             * @default false
+             */
+            paused: boolean;
+            /**
+             * Version
+             * @default 0
+             */
+            version: number;
+        };
+        /** GoalView */
+        GoalView: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Period
+             * @enum {string}
+             */
+            period: "daily" | "weekly";
+            /** Minutes */
+            minutes: number;
+            /** Paused */
+            paused: boolean;
+            /** Version */
+            version: number;
+            /**
+             * Effective From
+             * Format: date-time
+             */
+            effective_from: string;
         };
         /** Grant */
         Grant: {
@@ -708,6 +953,19 @@ export interface components {
             count: number;
             /** Issues */
             issues: string[];
+        };
+        /** IntervalView */
+        IntervalView: {
+            /**
+             * Start
+             * Format: date-time
+             */
+            start: string;
+            /**
+             * End
+             * Format: date-time
+             */
+            end: string;
         };
         /** Message */
         Message: {
@@ -938,6 +1196,73 @@ export interface components {
             /** Password */
             password: string;
         };
+        /** RoutineCreate */
+        RoutineCreate: {
+            /** Name */
+            name: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /** Activities */
+            activities: components["schemas"]["ActivityInput"][];
+            /**
+             * Client Key
+             * Format: uuid
+             */
+            client_key: string;
+        };
+        /** RoutineUpdate */
+        RoutineUpdate: {
+            /** Name */
+            name: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /** Activities */
+            activities: components["schemas"]["ActivityInput"][];
+            /** Version */
+            version: number;
+        };
+        /** RoutineView */
+        RoutineView: {
+            /** Name */
+            name: string;
+            /**
+             * Description
+             * @default
+             */
+            description: string;
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /** Activities */
+            activities: components["schemas"]["ActivityInput"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Version */
+            version: number;
+            /** Warnings */
+            warnings?: string[];
+        };
         /** SensitiveInput */
         SensitiveInput: {
             /** Current Password */
@@ -947,6 +1272,144 @@ export interface components {
              * @default false
              */
             confirm: boolean;
+        };
+        /** SessionStart */
+        SessionStart: {
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /**
+             * Focus
+             * @default
+             */
+            focus: string;
+            /**
+             * Notes
+             * @default
+             */
+            notes: string;
+            /** Song Id */
+            song_id?: string | null;
+            /** Chord Id */
+            chord_id?: string | null;
+            /**
+             * Chord Name
+             * @default
+             */
+            chord_name: string;
+            /**
+             * Client Key
+             * Format: uuid
+             */
+            client_key: string;
+            /** Routine Id */
+            routine_id?: string | null;
+            /** Target Seconds */
+            target_seconds?: number | null;
+        };
+        /** SessionUpdate */
+        SessionUpdate: {
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /**
+             * Focus
+             * @default
+             */
+            focus: string;
+            /**
+             * Notes
+             * @default
+             */
+            notes: string;
+            /** Song Id */
+            song_id?: string | null;
+            /** Chord Id */
+            chord_id?: string | null;
+            /**
+             * Chord Name
+             * @default
+             */
+            chord_name: string;
+            /** Version */
+            version: number;
+            /**
+             * Confirm Long
+             * @default false
+             */
+            confirm_long: boolean;
+            /** Corrected Start */
+            corrected_start?: string | null;
+            /** Corrected Seconds */
+            corrected_seconds?: number | null;
+        };
+        /** SessionView */
+        SessionView: {
+            /**
+             * Instrument
+             * @enum {string}
+             */
+            instrument: "acoustic_guitar" | "electric_guitar" | "bass" | "ukulele";
+            /**
+             * Focus
+             * @default
+             */
+            focus: string;
+            /**
+             * Notes
+             * @default
+             */
+            notes: string;
+            /** Song Id */
+            song_id?: string | null;
+            /** Chord Id */
+            chord_id?: string | null;
+            /**
+             * Chord Name
+             * @default
+             */
+            chord_name: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * State
+             * @enum {string}
+             */
+            state: "active" | "paused" | "ended" | "saved";
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Ended At */
+            ended_at: string | null;
+            /** Running Since */
+            running_since: string | null;
+            /** Intervals */
+            intervals: components["schemas"]["IntervalView"][];
+            /** Duration Seconds */
+            duration_seconds: number;
+            /** Target Seconds */
+            target_seconds: number | null;
+            /** Timezone */
+            timezone: string;
+            /** Version */
+            version: number;
+            /** Routine Id */
+            routine_id: string | null;
+            routine_snapshot: components["schemas"]["RoutineView"] | null;
+            /**
+             * As Of
+             * Format: date-time
+             */
+            as_of: string;
         };
         /** SharedPatternInput */
         SharedPatternInput: {
@@ -3414,6 +3877,629 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    active_api_v1_practice_current_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionView"] | null;
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    history_api_v1_practice_sessions_get: {
+        parameters: {
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionView"][];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    start_api_v1_practice_sessions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SessionStart"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    command_api_v1_practice_sessions__identifier___action__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+                action: "pause" | "resume" | "end" | "save";
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Command"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_session_api_v1_practice_sessions__identifier__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    update_session_api_v1_practice_sessions__identifier__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SessionUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    delete_session_api_v1_practice_sessions__identifier__delete: {
+        parameters: {
+            query: {
+                version: number;
+            };
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    routines_api_v1_practice_routines_get: {
+        parameters: {
+            query?: {
+                offset?: number;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RoutineView"][];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    create_routine_api_v1_practice_routines_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RoutineCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RoutineView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    get_routine_api_v1_practice_routines__identifier__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RoutineView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    update_routine_api_v1_practice_routines__identifier__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RoutineUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RoutineView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    delete_routine_api_v1_practice_routines__identifier__delete: {
+        parameters: {
+            query: {
+                version: number;
+            };
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    duplicate_routine_api_v1_practice_routines__identifier__duplicate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Duplicate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RoutineView"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    goals_api_v1_practice_goals_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GoalView"][];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    goal_api_v1_practice_goals__period__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                period: "daily" | "weekly";
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GoalInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GoalView"];
+                };
             };
             /** @description Unprocessable Content */
             422: {
