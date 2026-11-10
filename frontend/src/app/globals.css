@@ -624,3 +624,55 @@ fieldset {
 .roadmap li {
   margin-block: 1.5rem;
 }
+/* Catalogue operations keep nested multilingual content within small screens. */
+.content-fields {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.content-fields fieldset,
+.content-fields details {
+  min-width: 0;
+  border: 1px solid var(--line);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.content-fields summary {
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.content-fields textarea {
+  min-height: 6rem;
+  width: 100%;
+}
+.content-array-item {
+  padding-block: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.content-list {
+  list-style: none;
+  padding: 0;
+}
+.content-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.content-list small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+.content-preview {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 30rem;
+  overflow: auto;
+}

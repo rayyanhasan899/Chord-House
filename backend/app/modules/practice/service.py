@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from app.core.database import Database
 from app.modules.catalog.custom_chords import CustomChordRecord
-from app.modules.catalog.patterns import PatternRecord
+from app.modules.catalog.patterns import PatternRecord, pattern_available
 from app.modules.catalog.songs import SongRecord, detail
 from app.modules.identity.domain import IdentityError
 from app.modules.identity.models import AccountRecord
@@ -121,7 +121,7 @@ class Practice:
         if isinstance(data, ActivityInput) and data.pattern_id:
             pattern = session.get(PatternRecord, data.pattern_id)
             if pattern is None or not (
-                pattern.status == "published" or pattern.owner_id == owner
+                pattern_available(pattern) or pattern.owner_id == owner
             ):
                 raise ValueError(
                     "Choose an available pattern or your own private pattern"

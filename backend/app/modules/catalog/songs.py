@@ -38,6 +38,15 @@ class SongRecord(Base):
     document: Mapped[dict[str, object]] = mapped_column(JSONB)
     withdrawn: Mapped[list[str]] = mapped_column(JSONB, default=list)
     revision: Mapped[int] = mapped_column(default=1)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    actor_id: Mapped[UUID | None] = mapped_column(
+        ForeignKey("accounts.id", ondelete="SET NULL")
+    )
 
 
 class SongImportRecord(Base):
@@ -268,6 +277,9 @@ class Songs:
                 )
                 session.add(batch)
                 session.flush()
+                from app.modules.content_management.models import audit
+
+                audit(session, actor.id, "import", str(batch.id), "stage")
                 session.add(
                     SongAuditRecord(
                         id=uuid4(),
@@ -372,6 +384,11 @@ class Songs:
                     row.document = item.model_dump(mode="json")
                     row.withdrawn = []
                     row.revision += 1
+                    row.updated_at = datetime.now(UTC)
+                    row.actor_id = actor.id
+                    from app.modules.content_management.models import audit
+
+                    audit(session, actor.id, "song", str(row.id), "import:publish")
                 batch.state = "published"
                 session.add(
                     SongAuditRecord(
@@ -418,6 +435,13 @@ class Songs:
                     set([*row.withdrawn, f"{request.component}:{request.key}"])
                 )
             row.revision += 1
+            row.updated_at = datetime.now(UTC)
+            row.actor_id = actor.id
+            from app.modules.content_management.models import audit
+
+            audit(
+                session, actor.id, "song", str(row.id), "withdraw:" + request.component
+            )
             session.add(
                 SongAuditRecord(
                     id=uuid4(),

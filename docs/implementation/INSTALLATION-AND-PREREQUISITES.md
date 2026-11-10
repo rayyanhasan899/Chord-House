@@ -52,3 +52,8 @@ Phase 14 adds migration 0010 and /progress plus dashboard summaries. No new appl
 
 
 Current workstation: existing Docker service chord-house-api-local-1 was migrated to 0010_progress and restarted. Local readiness and /progress registration were verified. This avoids changing Windows policy and preserves the user's existing Docker setup/database. The native Python launcher remains subject to its separate Application Control issue. No additional user setup is currently required to open /progress on the running local frontend.
+
+
+## Phase 15 local update
+
+Run the normal backend Alembic upgrade to `0011_content` and `python -m app.modules.catalog.seeds` before restarting the API. Existing accounts and private records are retained. Reference seeds preserve manager edits and archives. Use the trusted local `python -m app.modules.content_management.operator ACCOUNT_UUID content_manager --confirm` command only for an explicitly selected, email-verified account; refresh its session. No new dependencies or providers. See ../architecture/CONTENT-OPERATIONS.md for complete API, rights, report, migration and rollback notes. Native Windows Application Control may block installed Python extensions on this machine; the existing Linux Docker backend remains the verified alternative without changing that policy.

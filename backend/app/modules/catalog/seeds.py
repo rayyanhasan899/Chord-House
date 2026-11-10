@@ -56,6 +56,9 @@ def seed_reference(session: Session) -> None:
                     )
                     .on_conflict_do_nothing()
                 )
+    from app.modules.content_management.seeds import seed_content
+
+    seed_content(session)
 
 
 def main() -> None:

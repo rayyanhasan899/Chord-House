@@ -20,6 +20,7 @@ from app.modules.catalog.patterns import (
     PatternRecord,
     SharedPatternInput,
 )
+from app.modules.content_management.seeds import GRANT
 from app.modules.identity.models import AccountRecord
 
 DATA = dict(
@@ -172,6 +173,7 @@ def test_pattern_api_privacy_management_and_favorites(
         shared = DATA | dict(
             status="draft",
             reviewed=True,
+            grant=GRANT,
             rights_statement="Original test exercise authored here",
             attribution="Test author",
         )

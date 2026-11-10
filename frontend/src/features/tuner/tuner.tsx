@@ -1,9 +1,13 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { presets, frequency, cents, note } from "./pitch";
+import { frequency, cents, note } from "./pitch";
+import { useReferences } from "@/features/content/references";
+import Link from "next/link";
 export function Tuner() {
-  const [preset, setPreset] = useState<keyof typeof presets>("Guitar standard");
+  const [preset, setPreset] = useState("Guitar standard");
+  const catalogue = useReferences("tuning");
+  const instruments = useReferences("instrument");
   const [target, setTarget] = useState(0);
   const [instrument, setInstrument] = useState("Acoustic guitar");
   const [running, setRunning] = useState(false);
@@ -23,7 +27,7 @@ export function Tuner() {
     timer?: ReturnType<typeof setInterval>;
   }>({});
   const version = useRef(0);
-  function stop() {
+  const stop = useCallback(() => {
     version.current++;
     const r = resources.current;
     if (r.timer) clearInterval(r.timer);
@@ -34,7 +38,7 @@ export function Tuner() {
     setRunning(false);
     setPending(false);
     setReading({ hz: null, rms: 0, confidence: 0 });
-  }
+  }, []);
   useEffect(
     () => () => {
       version.current++;
@@ -133,8 +137,21 @@ export function Tuner() {
       );
     }
   }
-  const pitches = presets[preset];
-  const selected = pitches[Math.min(target, pitches.length - 1)];
+  const instrumentCode = instruments.rows.find(
+    (row) => row.document.name === instrument,
+  )?.key;
+  const available = catalogue.rows.filter(
+    (row) => row.document.instrument === instrumentCode,
+  );
+  const current =
+    available.find((row) => row.document.name === preset) || available[0];
+  const pitches = (current?.document.pitches as number[] | undefined) || [];
+  useEffect(() => {
+    if (pitches.length) return;
+    const timer = setTimeout(stop, 0);
+    return () => clearTimeout(timer);
+  }, [pitches.length, stop]);
+  const selected = pitches[Math.min(target, pitches.length - 1)] ?? 69;
   const deviation = reading.hz ? cents(reading.hz, frequency(selected)) : null;
   const status =
     deviation === null
@@ -169,34 +186,39 @@ export function Tuner() {
             setTarget(0);
           }}
         >
-          <option>Acoustic guitar</option>
-          <option>Electric guitar</option>
-          <option>Bass guitar</option>
-          <option>Ukulele</option>
+          {instruments.rows.map((row) => (
+            <option key={row.key}>{String(row.document.name)}</option>
+          ))}
         </select>
       </label>
       <label>
         Tuning
         <select
-          value={preset}
+          value={String(current?.document.name || "")}
           onChange={(e) => {
-            setPreset(e.target.value as keyof typeof presets);
+            setPreset(e.target.value);
             setTarget(0);
           }}
         >
-          {Object.keys(presets)
-            .filter((key) =>
-              instrument === "Bass guitar"
-                ? key.startsWith("Bass")
-                : instrument === "Ukulele"
-                  ? key.startsWith("Ukulele")
-                  : key.startsWith("Guitar"),
-            )
-            .map((key) => (
-              <option key={key}>{key}</option>
-            ))}
+          {available.map((row) => (
+            <option key={row.key}>{String(row.document.name)}</option>
+          ))}
         </select>
       </label>
+      {!catalogue.loaded && <p role="status">Loading tuning presets…</p>}
+      {(catalogue.error || instruments.error) && (
+        <p role="alert">Unable to load tuning presets. Refresh to retry.</p>
+      )}
+      {catalogue.loaded && !pitches.length && (
+        <p>No published tuning available for this instrument.</p>
+      )}
+      {current && (
+        <Link
+          href={`/reports?kind=tuning&key=${encodeURIComponent(current.key)}`}
+        >
+          Report this tuning (sign-in required)
+        </Link>
+      )}
       <fieldset>
         <legend>Target string (instrument order)</legend>
         {pitches.map((midi, index) => (
@@ -268,7 +290,10 @@ export function Tuner() {
         </p>
       </div>
       <p role="status">{message}</p>
-      <Button disabled={pending || running} onClick={() => void start()}>
+      <Button
+        disabled={pending || running || !pitches.length}
+        onClick={() => void start()}
+      >
         {pending ? "Starting…" : "Start microphone"}
       </Button>{" "}
       <Button

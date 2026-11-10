@@ -1,0 +1,4322 @@
+[
+  {
+    "name": "Dm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      -1,
+      -1,
+      0,
+      2,
+      3,
+      1
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      2,
+      3,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "A",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      -1,
+      0,
+      2,
+      2,
+      2,
+      0
+    ],
+    "fingers": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "D",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      -1,
+      -1,
+      0,
+      2,
+      3,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      1,
+      2,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "G",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      3,
+      2,
+      0,
+      0,
+      0,
+      3
+    ],
+    "fingers": [
+      2,
+      1,
+      0,
+      0,
+      0,
+      3
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Am",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      -1,
+      0,
+      2,
+      2,
+      1,
+      0
+    ],
+    "fingers": [
+      0,
+      0,
+      2,
+      2,
+      1,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      -1,
+      3,
+      2,
+      0,
+      1,
+      0
+    ],
+    "fingers": [
+      0,
+      3,
+      2,
+      0,
+      1,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      8,
+      10,
+      8,
+      9,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      8,
+      10,
+      10,
+      9,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      8,
+      10,
+      10,
+      8,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      8,
+      10,
+      9,
+      9,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      8,
+      10,
+      8,
+      8,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Csus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      8,
+      10,
+      12,
+      12,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Csus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      8,
+      10,
+      10,
+      10,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      9,
+      11,
+      9,
+      10,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      9,
+      11,
+      11,
+      10,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#m",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      9,
+      11,
+      11,
+      9,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#maj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      9,
+      11,
+      10,
+      10,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#m7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      9,
+      11,
+      9,
+      9,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#sus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      9,
+      11,
+      13,
+      13,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#sus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      9,
+      11,
+      11,
+      11,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "D7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      10,
+      12,
+      10,
+      11,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "D",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      10,
+      12,
+      12,
+      11,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      10,
+      12,
+      12,
+      10,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      10,
+      12,
+      11,
+      11,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      10,
+      12,
+      10,
+      10,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dsus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      10,
+      12,
+      14,
+      14,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dsus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      10,
+      12,
+      12,
+      12,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Eb7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      11,
+      13,
+      11,
+      12,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Eb",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      11,
+      13,
+      13,
+      12,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      11,
+      13,
+      13,
+      11,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      11,
+      13,
+      12,
+      12,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      11,
+      13,
+      11,
+      11,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebsus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      11,
+      13,
+      15,
+      15,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebsus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      11,
+      13,
+      13,
+      13,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "E7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      2,
+      0,
+      1,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "E",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      0,
+      2,
+      2,
+      1,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      2,
+      2,
+      1,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Em",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      0,
+      2,
+      2,
+      0,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Emaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      0,
+      2,
+      1,
+      1,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      2,
+      1,
+      1,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Em7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Esus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      0,
+      2,
+      4,
+      4,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      1,
+      2,
+      2,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Esus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      0,
+      2,
+      2,
+      2,
+      0,
+      0
+    ],
+    "fingers": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      1,
+      3,
+      3,
+      1,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      1,
+      3,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fsus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      1,
+      3,
+      5,
+      5,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fsus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      1,
+      3,
+      3,
+      3,
+      1,
+      1
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      2,
+      4,
+      2,
+      3,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      2,
+      4,
+      4,
+      3,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#m",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      2,
+      4,
+      4,
+      2,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#maj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      2,
+      4,
+      3,
+      3,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#m7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      2,
+      4,
+      2,
+      2,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#sus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      2,
+      4,
+      6,
+      6,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#sus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      2,
+      4,
+      4,
+      4,
+      2,
+      2
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "G7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      3,
+      5,
+      3,
+      4,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "G",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      3,
+      5,
+      5,
+      4,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      3,
+      5,
+      5,
+      3,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      3,
+      5,
+      4,
+      4,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      3,
+      5,
+      3,
+      3,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gsus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      3,
+      5,
+      7,
+      7,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gsus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      3,
+      5,
+      5,
+      5,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ab7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      4,
+      6,
+      4,
+      5,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ab",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      4,
+      6,
+      6,
+      5,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      4,
+      6,
+      6,
+      4,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      4,
+      6,
+      5,
+      5,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      4,
+      6,
+      4,
+      4,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Absus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      4,
+      6,
+      8,
+      8,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Absus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      4,
+      6,
+      6,
+      6,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "A7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      5,
+      7,
+      5,
+      6,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "A",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      5,
+      7,
+      7,
+      6,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Am",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      5,
+      7,
+      7,
+      5,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Amaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      5,
+      7,
+      6,
+      6,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Am7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      5,
+      7,
+      5,
+      5,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Asus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      5,
+      7,
+      9,
+      9,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Asus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      5,
+      7,
+      7,
+      7,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bb7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      6,
+      8,
+      6,
+      7,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bb",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      6,
+      8,
+      8,
+      7,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      6,
+      8,
+      8,
+      6,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      6,
+      8,
+      7,
+      7,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      6,
+      8,
+      6,
+      6,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbsus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      6,
+      8,
+      10,
+      10,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbsus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      6,
+      8,
+      8,
+      8,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "B7",
+    "instrument": "guitar",
+    "quality": "7",
+    "frets": [
+      7,
+      9,
+      7,
+      8,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      3,
+      1,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "B",
+    "instrument": "guitar",
+    "quality": "major",
+    "frets": [
+      7,
+      9,
+      9,
+      8,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bm",
+    "instrument": "guitar",
+    "quality": "minor",
+    "frets": [
+      7,
+      9,
+      9,
+      7,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bmaj7",
+    "instrument": "guitar",
+    "quality": "maj7",
+    "frets": [
+      7,
+      9,
+      8,
+      8,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bm7",
+    "instrument": "guitar",
+    "quality": "m7",
+    "frets": [
+      7,
+      9,
+      7,
+      7,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bsus2",
+    "instrument": "guitar",
+    "quality": "sus2",
+    "frets": [
+      7,
+      9,
+      11,
+      11,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bsus4",
+    "instrument": "guitar",
+    "quality": "sus4",
+    "frets": [
+      7,
+      9,
+      9,
+      9,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      8,
+      10,
+      10,
+      9
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      8,
+      10,
+      10,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      9,
+      11,
+      11,
+      10
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#m",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      9,
+      11,
+      11,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "D",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      10,
+      12,
+      12,
+      11
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      10,
+      12,
+      12,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Eb",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      11,
+      13,
+      13,
+      12
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      11,
+      13,
+      13,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "E",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      0,
+      2,
+      2,
+      1
+    ],
+    "fingers": [
+      0,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Em",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      0,
+      2,
+      2,
+      0
+    ],
+    "fingers": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      1,
+      3,
+      3,
+      1
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      2,
+      4,
+      4,
+      3
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#m",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      2,
+      4,
+      4,
+      2
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "G",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      3,
+      5,
+      5,
+      4
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      3,
+      5,
+      5,
+      3
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ab",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      4,
+      6,
+      6,
+      5
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      4,
+      6,
+      6,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "A",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      5,
+      7,
+      7,
+      6
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Am",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      5,
+      7,
+      7,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bb",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      6,
+      8,
+      8,
+      7
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      6,
+      8,
+      8,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "B",
+    "instrument": "bass",
+    "quality": "major",
+    "frets": [
+      7,
+      9,
+      9,
+      8
+    ],
+    "fingers": [
+      1,
+      3,
+      3,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bm",
+    "instrument": "bass",
+    "quality": "minor",
+    "frets": [
+      7,
+      9,
+      9,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      0,
+      0,
+      0,
+      3
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      0,
+      3,
+      3,
+      3
+    ],
+    "fingers": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      0,
+      0,
+      0,
+      2
+    ],
+    "fingers": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Cm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Csus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      0,
+      2,
+      3,
+      3
+    ],
+    "fingers": [
+      0,
+      1,
+      2,
+      2
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Csus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      0,
+      0,
+      1,
+      3
+    ],
+    "fingers": [
+      0,
+      0,
+      1,
+      2
+    ],
+    "difficulty": "beginner",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      1,
+      1,
+      1,
+      4
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#m",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      1,
+      4,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#maj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      1,
+      1,
+      1,
+      3
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#m7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#sus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      1,
+      3,
+      4,
+      4
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "C#sus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      1,
+      1,
+      2,
+      4
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "D7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "D",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      2,
+      2,
+      2,
+      5
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      2,
+      5,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      2,
+      2,
+      2,
+      4
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      5,
+      5,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dsus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      2,
+      4,
+      5,
+      5
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Dsus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      2,
+      2,
+      3,
+      5
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Eb7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      3,
+      3,
+      3,
+      4
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Eb",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      3,
+      3,
+      3,
+      6
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      3,
+      6,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      3,
+      3,
+      3,
+      5
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebsus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      3,
+      5,
+      6,
+      6
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ebsus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      3,
+      3,
+      4,
+      6
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "E7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      4,
+      4,
+      4,
+      5
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "E",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      4,
+      4,
+      4,
+      7
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Em",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      4,
+      7,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Emaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      4,
+      4,
+      4,
+      6
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Em7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      7,
+      7,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Esus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      4,
+      6,
+      7,
+      7
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Esus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      4,
+      4,
+      5,
+      7
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      5,
+      5,
+      5,
+      6
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      5,
+      5,
+      5,
+      8
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      5,
+      8,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      5,
+      5,
+      5,
+      7
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fsus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      5,
+      7,
+      8,
+      8
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Fsus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      5,
+      5,
+      6,
+      8
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      6,
+      6,
+      6,
+      7
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      6,
+      6,
+      6,
+      9
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#m",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      6,
+      9,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#maj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      6,
+      6,
+      6,
+      8
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#m7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#sus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      6,
+      8,
+      9,
+      9
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "F#sus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      6,
+      6,
+      7,
+      9
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "G7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      7,
+      7,
+      7,
+      8
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "G",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      7,
+      7,
+      7,
+      10
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      7,
+      10,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      7,
+      7,
+      7,
+      9
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      10,
+      10,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gsus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      7,
+      9,
+      10,
+      10
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Gsus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      7,
+      7,
+      8,
+      10
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ab7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      8,
+      8,
+      8,
+      9
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Ab",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      8,
+      8,
+      8,
+      11
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      8,
+      11,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      8,
+      8,
+      8,
+      10
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Abm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      11,
+      11,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Absus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      8,
+      10,
+      11,
+      11
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Absus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      8,
+      8,
+      9,
+      11
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "A7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      9,
+      9,
+      9,
+      10
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "A",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      9,
+      9,
+      9,
+      12
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Am",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      9,
+      12,
+      12,
+      12
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Amaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      9,
+      9,
+      9,
+      11
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Am7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      12,
+      12,
+      12,
+      12
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Asus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      9,
+      11,
+      12,
+      12
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Asus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      9,
+      9,
+      10,
+      12
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bb7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      10,
+      10,
+      10,
+      11
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bb",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      10,
+      10,
+      10,
+      13
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      10,
+      13,
+      13,
+      13
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      10,
+      10,
+      10,
+      12
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      13,
+      13,
+      13,
+      13
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbsus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      10,
+      12,
+      13,
+      13
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bbsus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      10,
+      10,
+      11,
+      13
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "B7",
+    "instrument": "ukulele",
+    "quality": "7",
+    "frets": [
+      11,
+      11,
+      11,
+      12
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "B",
+    "instrument": "ukulele",
+    "quality": "major",
+    "frets": [
+      11,
+      11,
+      11,
+      14
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bm",
+    "instrument": "ukulele",
+    "quality": "minor",
+    "frets": [
+      11,
+      14,
+      14,
+      14
+    ],
+    "fingers": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bmaj7",
+    "instrument": "ukulele",
+    "quality": "maj7",
+    "frets": [
+      11,
+      11,
+      11,
+      13
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bm7",
+    "instrument": "ukulele",
+    "quality": "m7",
+    "frets": [
+      14,
+      14,
+      14,
+      14
+    ],
+    "fingers": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bsus2",
+    "instrument": "ukulele",
+    "quality": "sus2",
+    "frets": [
+      11,
+      13,
+      14,
+      14
+    ],
+    "fingers": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  },
+  {
+    "name": "Bsus4",
+    "instrument": "ukulele",
+    "quality": "sus4",
+    "frets": [
+      11,
+      11,
+      12,
+      14
+    ],
+    "fingers": [
+      1,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "intermediate",
+    "guidance": "Read strings in displayed instrument order. X is muted; O is open. Repeated finger numbers indicate a barre. Keep fingertips close to the fret wire; stop if a stretch hurts.",
+    "source": "Original structured voicings, transposed mathematically and checked for complete chord-tone sets; not expert-reviewed performance advice."
+  }
+]

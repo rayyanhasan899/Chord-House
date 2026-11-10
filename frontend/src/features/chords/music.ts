@@ -178,7 +178,12 @@ for (const [name, [quality, frets]] of Object.entries(open)) {
   const e = make(name, "guitar", quality, frets);
   if (!validate("guitar", frets, e.fingers)) library.unshift(e);
 }
-export function search(query: string, instrument: Instrument, quality: string) {
+export function search(
+  query: string,
+  instrument: Instrument,
+  quality: string,
+  entries: Voicing[] = library,
+) {
   const aliases: Record<string, string> = {
     Db: "C#",
     "D#": "Eb",
@@ -190,7 +195,7 @@ export function search(query: string, instrument: Instrument, quality: string) {
     .trim()
     .replace(/^[A-G](?:#|b)?/, (root) => aliases[root] || root)
     .toLowerCase();
-  return library.filter(
+  return entries.filter(
     (v) =>
       v.instrument === instrument &&
       (!quality || v.quality === quality) &&

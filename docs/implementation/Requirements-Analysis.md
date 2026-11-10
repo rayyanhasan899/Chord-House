@@ -24,3 +24,6 @@ Practice session lifecycle/history/corrections, optional learning links, reliabl
 
 
 Phase 14: PRA-011–018 and UNI-016–020 implemented through derived practice summaries, goals/history/charts/rankings, and private self-reported roadmap. UNI-025 weekly review MAY selected with derived time/goal results and private improvement notes. Calendar A-009/A-010 explicitly accepted by owner reply. ADR-0020 and ../architecture/PROGRESS.md describe calculation rules and limits; PHASE-14-REPORT.md records executed evidence.
+
+
+Phase 15 implements ADM-001–012 through protected shared catalogue management, rights-gated publication/import/withdrawal, private reporting/correction and redacted audits. All scoped SHOULD behaviors selected; no scoped MAY rows. Source acquisition and professional content/translation/audio review remain separate gates; adding administration does not close the popular-song coverage gap. See PHASE-15-REPORT.md and ADR-0021.

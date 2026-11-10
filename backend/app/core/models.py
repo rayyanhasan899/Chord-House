@@ -8,6 +8,11 @@ from app.modules.catalog.models import (
 )
 from app.modules.catalog.patterns import PatternFavorite, PatternRecord
 from app.modules.catalog.songs import SongAuditRecord, SongImportRecord, SongRecord
+from app.modules.content_management.models import (
+    ContentAudit,
+    ContentReport,
+    ReferenceContent,
+)
 from app.modules.identity.models import (
     AccountRecord,
     RateRecord,
@@ -26,6 +31,9 @@ from app.modules.practice.models import (
 from app.modules.practice.progress_models import MilestoneRecord, ReviewRecord
 
 __all__ = [
+    "ReferenceContent",
+    "ContentReport",
+    "ContentAudit",
     "MilestoneRecord",
     "ReviewRecord",
     "AccountRecord",
