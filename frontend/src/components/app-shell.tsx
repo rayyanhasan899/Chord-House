@@ -52,6 +52,7 @@ function Shell({ children }: { children: React.ReactNode }) {
               <Link href="/patterns">Patterns</Link>
               <Link href="/songs">Songs</Link>
               <Link href="/practice">Practice</Link>
+              <Link href="/progress">Progress</Link>
               <Link
                 href="/account"
                 aria-current={path === "/account" ? "page" : undefined}

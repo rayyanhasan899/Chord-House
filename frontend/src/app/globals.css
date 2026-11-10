@@ -582,3 +582,45 @@ fieldset {
 .guided-tools {
   margin-block: 1.5rem;
 }
+
+.progress-totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+.progress-totals dd {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.practice-chart {
+  height: 150px;
+  display: flex;
+  gap: 3px;
+  align-items: end;
+  margin-block: 1rem;
+}
+.practice-chart > div {
+  flex: 1;
+  background: var(--accent);
+  min-width: 0;
+}
+.progress-table {
+  overflow-x: auto;
+}
+.progress-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.progress-table th,
+.progress-table td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.roadmap {
+  padding-left: 1.5rem;
+}
+.roadmap li {
+  margin-block: 1.5rem;
+}

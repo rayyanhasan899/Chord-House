@@ -21,3 +21,6 @@ Remaining gates: permission/provenance for desired popular content; actual catal
 ## Phase 13 implementation reconciliation
 
 Practice session lifecycle/history/corrections, optional learning links, reliable timers, private reusable ordered routines and guided tools are implemented under PRA-001–010/019–022 and UNI-001–004. Daily/weekly goal settings (PRA-011/018 portion) are included as explicitly scoped; goal completion/aggregation/streaks are Phase 14. PRA-021 MAY is selected. UNI-005 MAY deterministic recommendations are explicitly not selected now, reconsidered in Phase 16. No popular-song rights or new public sharing permission is inferred. ADR-0019 and ../architecture/PRACTICE.md define timing, retry, ownership and retention. Phase 13 report holds executed verification; proposed calendar decisions remain open for Phase 14.
+
+
+Phase 14: PRA-011–018 and UNI-016–020 implemented through derived practice summaries, goals/history/charts/rankings, and private self-reported roadmap. UNI-025 weekly review MAY selected with derived time/goal results and private improvement notes. Calendar A-009/A-010 explicitly accepted by owner reply. ADR-0020 and ../architecture/PROGRESS.md describe calculation rules and limits; PHASE-14-REPORT.md records executed evidence.

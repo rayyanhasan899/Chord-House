@@ -46,3 +46,9 @@ Phase 12: Alembic head 0008_songs and existing reference seed command install th
 ## Phase 13 addition
 
 No new prerequisite, service, hosting provider or package is required. Existing `scripts/dev.py` applies additive migration 0009 before API startup. Restart the API after this update; keep the existing local database and credentials. Open `/practice` while signed in for sessions/routines/goal settings. Public tuner/chords/metronome remain available to guests. See ../architecture/PRACTICE.md for usage and retry/background-time behavior. No external deployment performed in this phase. Small-memory machines may set NODE_OPTIONS=--max-old-space-size=384 for lint; Vitest now defaults to one worker. Run heavy verification sequentially if other applications leave little memory. This does not weaken password hashing or production validation.
+
+
+Phase 14 adds migration 0010 and /progress plus dashboard summaries. No new application package/provider. The normal launcher applies migrations. Locked Linux test dependencies and disposable PostgreSQL were used for verification while native Windows Python imports remain subject to Application Control. CI additionally exports only the synthetic-account progress screenshot for visual verification, never local mail/credentials or personal data.
+
+
+Current workstation: existing Docker service chord-house-api-local-1 was migrated to 0010_progress and restarted. Local readiness and /progress registration were verified. This avoids changing Windows policy and preserves the user's existing Docker setup/database. The native Python launcher remains subject to its separate Application Control issue. No additional user setup is currently required to open /progress on the running local frontend.

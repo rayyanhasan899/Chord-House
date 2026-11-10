@@ -905,7 +905,7 @@ export function Practice() {
         <h2>Practice goal settings</h2>
         <p>
           Set or pause daily and weekly targets without changing saved practice.
-          Goal progress, charts and streaks are not yet available.
+          Open Progress for goal progress, charts and streaks.
         </p>
         <div className="form-grid">
           {(["daily", "weekly"] as const).map((period) => {
