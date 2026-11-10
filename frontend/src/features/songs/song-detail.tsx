@@ -236,6 +236,17 @@ export function SongDetail({ id }: { id: string }) {
             : "Hindi"}
       </p>
       <h1>{song.title}</h1>
+      <p>
+        <Link href={`/training?song=${song.id}`}>
+          Practice an approved section
+        </Link>
+        {" · "}
+        <Link
+          href={`/practice?song=${song.id}&focus=${encodeURIComponent(song.title)}`}
+        >
+          Start a linked practice session
+        </Link>
+      </p>
       <Link href={`/reports?kind=song&key=${id}`}>Report this song</Link>
       <p className="lede">{song.artist}</p>
       {song.version_note && <p>Recording context: {song.version_note}</p>}

@@ -1,4 +1,5 @@
 "use client";
+import { ReminderHost } from "@/features/training/reminder-host";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -53,6 +54,7 @@ function Shell({ children }: { children: React.ReactNode }) {
               <Link href="/songs">Songs</Link>
               <Link href="/practice">Practice</Link>
               <Link href="/progress">Progress</Link>
+              <Link href="/training">Training</Link>
               <Link href="/reports">Content reports</Link>
               {["admin", "content_manager"].includes(auth.profile.role) && (
                 <Link href="/admin">Administration</Link>
@@ -84,6 +86,9 @@ function Shell({ children }: { children: React.ReactNode }) {
       </header>
       <main id="main" className="page">
         <Feedback error message={message} />
+        {auth.profile && (
+          <ReminderHost key={auth.profile.id} owner={auth.profile.id} />
+        )}
         {children}
       </main>
       <footer className="site-footer">

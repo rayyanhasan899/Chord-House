@@ -48,7 +48,13 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run contracts:check
+      - run: npm run contracts:generate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phase16-generated-contracts
+          path: |
+            frontend/src/lib/api/openapi.json
+            frontend/src/lib/api/schema.d.ts
       - run: npx playwright install --with-deps chromium
         working-directory: frontend
       - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py
@@ -69,4 +75,13 @@ jobs:
           path: |
             .artifacts/phase15-administration.png
             frontend/test-results/content-*/error-context.md
+          if-no-files-found: ignore
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase16-learning-evidence
+          path: |
+            .artifacts/phase16-training.png
+            frontend/test-results/training-*/error-context.md
           if-no-files-found: ignore

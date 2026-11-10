@@ -54,6 +54,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         else None
     )
     app.include_router(identity_router)
+    from app.modules.integration.routes import router as integration_router
+
+    app.include_router(integration_router)
     from app.modules.personal_workspace.routes import router as workspace_router
 
     app.include_router(workspace_router)
@@ -114,6 +117,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 "/api/v1/auth",
                 "/api/v1/me",
                 "/api/v1/practice",
+                "/api/v1/integration",
                 "/api/v1/content",
                 "/api/v1/reference-content",
                 "/api/v1/managed-",
