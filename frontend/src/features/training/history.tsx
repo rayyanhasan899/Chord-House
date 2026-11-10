@@ -1,24 +1,33 @@
 "use client";
+import { useAuth } from "@/features/auth/context";
 import { useCallback, useEffect, useState } from "react";
 import { api, apiError } from "@/lib/api/client";
 import type { components } from "@/lib/api/schema";
 import { Button } from "@/components/ui/button";
 import { Feedback } from "@/components/ui/feedback";
 export function TrainingHistory() {
+  const { profile } = useAuth();
   const [rows, setRows] = useState<components["schemas"]["AssessmentView"][]>(
     [],
   );
   const [offset, setOffset] = useState(0),
     [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [loaded, setLoaded] = useState(false);
   const load = useCallback(async (start: number) => {
-    const r = await api.GET("/api/v1/integration/assessments", {
-      params: { query: { offset: start, limit: 50 } },
-    });
-    if (!r.data) throw new Error(apiError(r.error));
-    setRows(r.data);
-    setOffset(start);
-    setError("");
+    setBusy(true);
+    try {
+      const r = await api.GET("/api/v1/integration/assessments", {
+        params: { query: { offset: start, limit: 50 } },
+      });
+      if (!r.data) throw new Error(apiError(r.error));
+      setRows(r.data);
+      setOffset(start);
+      setLoaded(true);
+      setError("");
+    } finally {
+      setBusy(false);
+    }
   }, []);
   useEffect(() => {
     let active = true;
@@ -26,11 +35,15 @@ export function TrainingHistory() {
       .GET("/api/v1/integration/assessments")
       .then((r) => {
         if (!active) return;
+        setLoaded(true);
         if (r.data) setRows(r.data);
         else setError(apiError(r.error));
       })
       .catch(() => {
-        if (active) setError("Training history unavailable. Refresh to retry.");
+        if (active) {
+          setLoaded(true);
+          setError("Training history unavailable. Refresh to retry.");
+        }
       });
     return () => {
       active = false;
@@ -54,21 +67,24 @@ export function TrainingHistory() {
     }
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>Private training assessments</h2>
       <p>
         These are your own reports, not detected accuracy or saved practice
         time. Ear-training attempts remain on the current page only.
       </p>
       <Feedback error message={error} />
+      {!loaded && !error && <p role="status">Loading training history…</p>}
       <Button
         variant="outline"
-        disabled={busy}
+        disabled={busy || !loaded}
         onClick={() => void load(offset).catch((e) => setError(e.message))}
       >
         Refresh training history
       </Button>
-      {!rows.length && !error && <p>No saved assessments on this page.</p>}
+      {loaded && !rows.length && !error && (
+        <p>No saved assessments on this page.</p>
+      )}
       <ul>
         {rows.map((row) => (
           <li key={row.id}>
@@ -76,14 +92,22 @@ export function TrainingHistory() {
               {row.kind} · {row.chords.join(" → ")}
             </h3>
             <p>
+              <time dateTime={row.created_at}>
+                {new Date(row.created_at).toLocaleString("en", {
+                  timeZone: profile?.timezone || "UTC",
+                })}
+              </time>{" "}
+              · {row.instrument.replaceAll("_", " ")}
+            </p>
+            <p>
               {row.seconds} seconds · {row.changes} self-reported clean changes
               · {row.difficulty} ·{" "}
               {row.completed ? "Reported complete" : "Partial exercise"}
             </p>
-            <p>{row.notes}</p>
+            <p className="practice-notes">{row.notes}</p>
             <Button
               variant="outline"
-              disabled={busy}
+              disabled={busy || !loaded}
               aria-label={`Delete training assessment ${row.id}`}
               onClick={() => void remove(row.id)}
             >

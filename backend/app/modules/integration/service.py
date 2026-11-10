@@ -6,6 +6,7 @@ from zoneinfo import ZoneInfo
 from sqlalchemy import select
 
 from app.core.database import Database
+from app.modules.catalog.custom_chords import CustomChordRecord
 from app.modules.catalog.songs import SongRecord, detail
 from app.modules.identity.domain import IdentityError
 from app.modules.identity.models import AccountRecord
@@ -66,12 +67,16 @@ class Integration:
                     "assessment_deleted",
                     "This assessment was deleted; use a new key",
                 )
-            return AssessmentView(**row.payload, id=row.id, created_at=row.created_at)
+            return AssessmentView.model_validate(
+                row.payload | {"id": row.id, "created_at": row.created_at}
+            )
 
     def assessments(self, owner: UUID, offset: int, limit: int) -> list[AssessmentView]:
         with self.db.transaction() as session:
             return [
-                AssessmentView(**row.payload, id=row.id, created_at=row.created_at)
+                AssessmentView.model_validate(
+                    row.payload | {"id": row.id, "created_at": row.created_at}
+                )
                 for row in session.scalars(
                     select(AssessmentRecord)
                     .where(
@@ -191,6 +196,23 @@ class Integration:
                 else None
             )
             approved = detail(song) if song else None
+            chord = (
+                session.get(CustomChordRecord, recent.chord_id)
+                if recent and recent.chord_id
+                else None
+            )
+            family = (
+                "guitar"
+                if account.instrument.endswith("guitar")
+                else account.instrument
+            )
+            chord_id = (
+                chord.id
+                if chord and chord.owner_id == owner and chord.instrument == family
+                else None
+            )
+            symbol = recent.chord_name if recent else ""
+            focus = recent.focus if recent and recent.focus else "Music or free focus"
             tempo = {"beginner": 60, "intermediate": 90, "advanced": 120}[account.skill]
             technique = (
                 "Even plucking and muting"
@@ -205,45 +227,49 @@ class Integration:
             recent_label = (
                 "your most recent saved song"
                 if approved
-                else "free practice until a saved song is available"
+                else "your most recent saved chord"
+                if chord_id or symbol
+                else "your most recent saved focus"
+                if recent and recent.focus
+                else "free practice until saved material is available"
             )
-            return Suggestion(
-                name=f"{account.skill.title()} practice suggestion",
-                instrument=account.instrument,
-                description=(
-                    "Review before saving or starting; no automatic practice credit."
-                ),
-                reason=(
-                    f"Based on {account.instrument.replace('_', ' ')}, "
-                    f"{account.skill} level; {goal_label}; {recent_label}."
-                ),
-                activities=[
-                    ActivityInput(
-                        name="Tune and settle",
-                        duration_seconds=total // 5,
-                        tool="tuner",
-                        bpm=tempo,
+            return Suggestion.model_validate(
+                dict(
+                    name=f"{account.skill.title()} practice suggestion",
+                    instrument=account.instrument,
+                    description=("Review before saving; no automatic practice credit."),
+                    reason=(
+                        f"Based on {account.instrument.replace('_', ' ')}, "
+                        f"{account.skill} level; {goal_label}; {recent_label}."
                     ),
-                    ActivityInput(
-                        name=technique,
-                        duration_seconds=total * 2 // 5,
-                        tool="metronome",
-                        bpm=tempo,
-                    ),
-                    ActivityInput(
-                        name="Rhythm and rests",
-                        duration_seconds=total // 5,
-                        tool="metronome",
-                        bpm=tempo,
-                    ),
-                    ActivityInput(
-                        name=(approved.title if approved else "Music or free focus")[
-                            :120
-                        ],
-                        duration_seconds=total - total // 5 * 2 - total * 2 // 5,
-                        tool="song" if approved else "none",
-                        song_id=recent.song_id if approved and recent else None,
-                        bpm=tempo,
-                    ),
-                ],
+                    activities=[
+                        ActivityInput(
+                            name="Tune and settle",
+                            duration_seconds=total // 5,
+                            tool="tuner",
+                            bpm=tempo,
+                        ),
+                        ActivityInput(
+                            name=technique,
+                            duration_seconds=total * 2 // 5,
+                            tool="chords" if chord_id or symbol else "metronome",
+                            chord_id=chord_id,
+                            chord_name=symbol,
+                            bpm=tempo,
+                        ),
+                        ActivityInput(
+                            name="Rhythm and rests",
+                            duration_seconds=total // 5,
+                            tool="metronome",
+                            bpm=tempo,
+                        ),
+                        ActivityInput(
+                            name=(approved.title if approved else focus)[:120],
+                            duration_seconds=total - total // 5 * 2 - total * 2 // 5,
+                            tool="song" if approved else "none",
+                            song_id=recent.song_id if approved and recent else None,
+                            bpm=tempo,
+                        ),
+                    ],
+                )
             )

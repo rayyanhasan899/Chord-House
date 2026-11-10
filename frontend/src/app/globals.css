@@ -679,7 +679,7 @@ fieldset {
 
 .training-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1rem;
   margin-block: 1.5rem;
 }
@@ -690,7 +690,7 @@ fieldset {
 }
 .training-current {
   background: var(--accent);
-  color: white;
+  color: var(--accent-ink);
   padding: 0.4rem;
   border-radius: 0.3rem;
 }
@@ -698,4 +698,8 @@ nav[aria-label="Learning tools"] {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.training-panel {
+  overflow-wrap: anywhere;
 }

@@ -1305,6 +1305,343 @@
         }
       }
     },
+    "/api/v1/integration/assessments": {
+      "get": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Assessments",
+        "operationId": "assessments_api_v1_integration_assessments_get",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AssessmentView"
+                  },
+                  "title": "Response Assessments Api V1 Integration Assessments Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Assess",
+        "operationId": "assess_api_v1_integration_assessments_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssessmentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssessmentView"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/integration/assessments/{identifier}": {
+      "delete": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Delete",
+        "operationId": "delete_api_v1_integration_assessments__identifier__delete",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/integration/reminder": {
+      "get": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Reminder",
+        "operationId": "reminder_api_v1_integration_reminder_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReminderView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Update",
+        "operationId": "update_api_v1_integration_reminder_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReminderInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReminderView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/integration/reminder/check": {
+      "post": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Check",
+        "operationId": "check_api_v1_integration_reminder_check_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReminderDue"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/integration/suggestion": {
+      "get": {
+        "tags": [
+          "integration"
+        ],
+        "summary": "Suggest",
+        "operationId": "suggest_api_v1_integration_suggestion_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suggestion"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/workspace": {
       "get": {
         "tags": [
@@ -4875,6 +5212,178 @@
         ],
         "title": "ArrangementInput"
       },
+      "AssessmentInput": {
+        "properties": {
+          "client_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Client Key"
+          },
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "acoustic_guitar",
+              "electric_guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "transition",
+              "challenge"
+            ],
+            "title": "Kind"
+          },
+          "chords": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 8,
+            "minItems": 2,
+            "title": "Chords"
+          },
+          "seconds": {
+            "type": "integer",
+            "maximum": 3600,
+            "minimum": 1,
+            "title": "Seconds"
+          },
+          "changes": {
+            "type": "integer",
+            "maximum": 10000,
+            "minimum": 0,
+            "title": "Changes"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "easy",
+              "steady",
+              "hard"
+            ],
+            "title": "Difficulty"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Notes",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "client_key",
+          "instrument",
+          "kind",
+          "chords",
+          "seconds",
+          "changes",
+          "difficulty",
+          "completed"
+        ],
+        "title": "AssessmentInput"
+      },
+      "AssessmentView": {
+        "properties": {
+          "client_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Client Key"
+          },
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "acoustic_guitar",
+              "electric_guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "transition",
+              "challenge"
+            ],
+            "title": "Kind"
+          },
+          "chords": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 8,
+            "minItems": 2,
+            "title": "Chords"
+          },
+          "seconds": {
+            "type": "integer",
+            "maximum": 3600,
+            "minimum": 1,
+            "title": "Seconds"
+          },
+          "changes": {
+            "type": "integer",
+            "maximum": 10000,
+            "minimum": 0,
+            "title": "Changes"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "easy",
+              "steady",
+              "hard"
+            ],
+            "title": "Difficulty"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000,
+            "title": "Notes",
+            "default": ""
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "client_key",
+          "instrument",
+          "kind",
+          "chords",
+          "seconds",
+          "changes",
+          "difficulty",
+          "completed",
+          "id",
+          "created_at"
+        ],
+        "title": "AssessmentView"
+      },
       "AuditView": {
         "properties": {
           "id": {
@@ -6299,6 +6808,107 @@
         ],
         "title": "Registration"
       },
+      "ReminderDue": {
+        "properties": {
+          "due": {
+            "type": "boolean",
+            "title": "Due"
+          },
+          "browser_notifications": {
+            "type": "boolean",
+            "title": "Browser Notifications",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "due"
+        ],
+        "title": "ReminderDue"
+      },
+      "ReminderInput": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled"
+          },
+          "browser_notifications": {
+            "type": "boolean",
+            "title": "Browser Notifications",
+            "default": false
+          },
+          "local_time": {
+            "type": "string",
+            "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+            "title": "Local Time"
+          },
+          "weekdays": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 7,
+            "title": "Weekdays"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0,
+            "title": "Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "enabled",
+          "local_time",
+          "version"
+        ],
+        "title": "ReminderInput"
+      },
+      "ReminderView": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled"
+          },
+          "browser_notifications": {
+            "type": "boolean",
+            "title": "Browser Notifications",
+            "default": false
+          },
+          "local_time": {
+            "type": "string",
+            "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+            "title": "Local Time"
+          },
+          "weekdays": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "maxItems": 7,
+            "title": "Weekdays"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0,
+            "title": "Version"
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "enabled",
+          "local_time",
+          "version",
+          "timezone"
+        ],
+        "title": "ReminderView"
+      },
       "ReportInput": {
         "properties": {
           "kind": {
@@ -7514,6 +8124,54 @@
           "text_count"
         ],
         "title": "SongSummary"
+      },
+      "Suggestion": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Description",
+            "default": ""
+          },
+          "instrument": {
+            "type": "string",
+            "enum": [
+              "acoustic_guitar",
+              "electric_guitar",
+              "bass",
+              "ukulele"
+            ],
+            "title": "Instrument"
+          },
+          "activities": {
+            "items": {
+              "$ref": "#/components/schemas/ActivityInput"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Activities"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "instrument",
+          "activities",
+          "reason"
+        ],
+        "title": "Suggestion"
       },
       "TextInput": {
         "properties": {

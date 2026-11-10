@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useAuth } from "@/features/auth/context";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Transitions } from "./transitions";
@@ -19,6 +20,12 @@ const tools = {
   reminders: "Reminders",
 };
 export function Training({ initialSong = "" }: { initialSong?: string }) {
+  const { profile } = useAuth();
+  return profile ? (
+    <OwnedTraining key={profile.id} initialSong={initialSong} />
+  ) : null;
+}
+function OwnedTraining({ initialSong = "" }: { initialSong?: string }) {
   const [tool, setTool] = useState<keyof typeof tools>(
     initialSong ? "passage" : "transitions",
   );

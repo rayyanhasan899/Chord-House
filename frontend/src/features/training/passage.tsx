@@ -13,6 +13,8 @@ export function PassagePractice({
   initialSong?: string;
 }) {
   const [list, setList] = useState<components["schemas"]["SongSummary"][]>([]);
+  const [listLoaded, setListLoaded] = useState(false);
+  const [listReload, setListReload] = useState(0);
   const [id, setId] = useState(initialSong),
     [song, setSong] = useState<Song | null>(null);
   const [textIndex, setTextIndex] = useState(0),
@@ -36,9 +38,13 @@ export function PassagePractice({
     const engine = new TrainingAudio();
     audio.current = engine;
     engine.onTick = setElapsed;
-    engine.onEnded = () => setRunning(false);
+    engine.onEnded = () => {
+      setRunning(false);
+      setBusy(false);
+    };
     engine.onInterrupted = (text) => {
       setRunning(false);
+      setBusy(false);
       setError(text);
     };
     const hidden = () => {
@@ -72,16 +78,21 @@ export function PassagePractice({
           rows.push(...r.data.items.filter((s) => s.text_count > 0));
           if (offset + 100 >= r.data.total) break;
         }
-        if (active) setList(rows);
+        if (active) {
+          setList(rows);
+          setListLoaded(true);
+        }
       } catch (e) {
-        if (active)
+        if (active) {
+          setListLoaded(true);
           setError(e instanceof Error ? e.message : "Song list unavailable");
+        }
       }
     })();
     return () => {
       active = false;
     };
-  }, []);
+  }, [listReload]);
   useEffect(() => {
     let active = true,
       pending = false;
@@ -99,6 +110,7 @@ export function PassagePractice({
           audio.current?.stop();
           invalidate();
           setRunning(false);
+          setBusy(false);
           setTextIndex(0);
           setFrom(1);
           setTo(Math.min(4, r.data.texts[0]?.lines.length || 1));
@@ -108,8 +120,10 @@ export function PassagePractice({
         setError("");
       } catch (e) {
         if (active) {
+          invalidate();
           audio.current?.stop();
           setRunning(false);
+          setBusy(false);
           setSong(null);
           setError(e instanceof Error ? e.message : "Song unavailable");
         }
@@ -154,6 +168,7 @@ export function PassagePractice({
           audio.current?.stop();
           invalidate();
           setRunning(false);
+          setBusy(false);
           setSong(null);
           setError(
             "This text permission expired. Choose another approved passage.",
@@ -196,6 +211,7 @@ export function PassagePractice({
     } catch (e) {
       if (turn === generation.current) {
         setRunning(false);
+        setBusy(false);
         setError(e instanceof Error ? e.message : "Passage cues unavailable");
       }
     } finally {
@@ -203,7 +219,7 @@ export function PassagePractice({
     }
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>Approved song-section practice</h2>
       <p>
         Isolate lines from an approved text variant and loop a visual
@@ -212,6 +228,27 @@ export function PassagePractice({
         third-party audio is played.
       </p>
       <Feedback error message={error} />
+      {!listLoaded && !error && (
+        <p role="status">Loading approved song texts…</p>
+      )}
+      {id && !song && !error && <p role="status">Loading selected song…</p>}
+      {listLoaded && !list.length && !initialSong && !error && (
+        <p>
+          No approved text is available for section practice. Metadata-only
+          songs stay in the song library.
+        </p>
+      )}
+      <Button
+        variant="outline"
+        disabled={running || busy || !listLoaded}
+        onClick={() => {
+          setListLoaded(false);
+          setError("");
+          setListReload((n) => n + 1);
+        }}
+      >
+        Reload available texts
+      </Button>
       <fieldset disabled={running || busy}>
         <label>
           Practice song
@@ -219,6 +256,7 @@ export function PassagePractice({
             aria-label="Practice song"
             value={id}
             onChange={(e) => {
+              setError("");
               setId(e.target.value);
               setSong(null);
               fingerprint.current = "";
@@ -367,6 +405,7 @@ export function PassagePractice({
               invalidate();
               audio.current?.stop();
               setRunning(false);
+              setBusy(false);
               setBusy(false);
             }}
           >

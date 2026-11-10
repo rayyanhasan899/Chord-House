@@ -48,6 +48,7 @@ class ReminderInput(BaseModel):
             raise ValueError("Use Monday=0 through Sunday=6")
         if len(set(self.weekdays)) != len(self.weekdays):
             raise ValueError("Choose each weekday once")
+        self.weekdays = sorted(self.weekdays)
         return self
 
 

@@ -8,7 +8,9 @@ export default async function PracticePage({
   return (
     <Practice
       initialFocus={
-        typeof params.focus === "string" ? params.focus.slice(0, 200) : ""
+        typeof params.focus === "string"
+          ? Array.from(params.focus).slice(0, 200).join("")
+          : ""
       }
       initialSong={
         typeof params.song === "string" && /^[0-9a-f-]{36}$/i.test(params.song)

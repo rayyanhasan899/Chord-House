@@ -54,7 +54,7 @@ export function EarTraining() {
     if (value === current.answer) setCorrect((n) => n + 1);
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>Local ear training</h2>
       <p>
         Hear synthesized tones and choose an answer. Compare notes with the C4

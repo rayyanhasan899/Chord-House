@@ -15,7 +15,14 @@ export function NoteFinder() {
   useEffect(() => {
     const audio = new EarAudio();
     engine.current = audio;
-    return () => audio.stop();
+    const hidden = () => {
+      if (document.visibilityState === "hidden") audio.stop();
+    };
+    document.addEventListener("visibilitychange", hidden);
+    return () => {
+      audio.stop();
+      document.removeEventListener("visibilitychange", hidden);
+    };
   }, []);
   const strings =
     instrument === "guitar" && preset === "drop_d"
@@ -30,7 +37,7 @@ export function NoteFinder() {
     setError("");
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>Fretboard note finder</h2>
       <p>
         Choose a string and fret to calculate its note. String numbers use the

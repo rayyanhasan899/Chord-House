@@ -60,7 +60,7 @@ export function SuggestedRoutine() {
     }
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>Suggested practice routine</h2>
       <p>
         A deterministic starting point based on your profile, current daily goal

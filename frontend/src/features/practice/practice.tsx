@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api, apiError } from "@/lib/api/client";
 import type { components } from "@/lib/api/schema";
@@ -519,6 +520,14 @@ export function Practice({
         <h2 id="practice-timer" tabIndex={-1}>
           Practice timer
         </h2>
+        {session?.state === "active" && (
+          <p>
+            <Link href="/training">
+              Use training tools while this timer runs
+            </Link>
+            . Return here to end and explicitly save the session.
+          </p>
+        )}
         {!session ? (
           <>
             <SessionFields

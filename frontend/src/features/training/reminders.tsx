@@ -22,7 +22,7 @@ export function ReminderSettings() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const hydrated = useHydrated();
-  const supported = hydrated && "Notification" in window;
+  const supported = hydrated && typeof window.Notification === "function";
   const load = useCallback(async () => {
     const r = await api.GET("/api/v1/integration/reminder");
     if (!r.data) throw new Error(apiError(r.error));
@@ -103,7 +103,7 @@ export function ReminderSettings() {
     }
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>Optional practice reminders</h2>
       <p>
         Reminders are off until you enable and save them. Chord House can show
@@ -153,13 +153,13 @@ export function ReminderSettings() {
                 <label className="checkbox" key={day}>
                   <input
                     type="checkbox"
-                    checked={data.weekdays.includes(i)}
+                    checked={(data.weekdays ?? []).includes(i)}
                     onChange={(e) =>
                       setData({
                         ...data,
                         weekdays: e.target.checked
-                          ? [...data.weekdays, i].sort()
-                          : data.weekdays.filter((n) => n !== i),
+                          ? [...(data.weekdays ?? []), i].sort()
+                          : (data.weekdays ?? []).filter((n) => n !== i),
                       })
                     }
                   />
@@ -201,7 +201,7 @@ export function ReminderSettings() {
             </p>
             <Button
               disabled={
-                (data.enabled && !data.weekdays.length) ||
+                (data.enabled && !(data.weekdays ?? []).length) ||
                 !/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(data.local_time)
               }
               onClick={() => void save()}

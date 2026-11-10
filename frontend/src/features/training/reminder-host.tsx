@@ -37,7 +37,7 @@ export function ReminderHost({ owner }: { owner: string }) {
           setMessage("Time for your optional practice reminder.");
           if (
             r.data.browser_notifications &&
-            "Notification" in window &&
+            typeof window.Notification === "function" &&
             Notification.permission === "granted"
           ) {
             try {

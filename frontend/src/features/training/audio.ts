@@ -6,6 +6,7 @@ export class TrainingAudio {
   private audioAnchor = 0;
   private limit = 0;
   private running = false;
+  private version = 0;
   onTick?: (seconds: number) => void;
   onEnded?: () => void;
   onInterrupted?: (message: string) => void;
@@ -20,6 +21,7 @@ export class TrainingAudio {
     return this.running;
   }
   stop() {
+    this.version++;
     this.running = false;
     if (this.timer !== null) clearInterval(this.timer);
     this.timer = null;
@@ -32,6 +34,7 @@ export class TrainingAudio {
     audible: boolean,
   ) {
     this.stop();
+    const turn = this.version;
     if (
       !notes.length ||
       notes.some(
@@ -48,6 +51,7 @@ export class TrainingAudio {
       throw new Error("Invalid training settings");
     this.limit = limit;
     const tick = () => {
+      if (turn !== this.version) return;
       const elapsed = this.elapsed();
       this.onTick?.(elapsed);
       if (elapsed >= limit) {
@@ -108,7 +112,7 @@ export class TrainingAudio {
         };
       });
     } catch (error) {
-      this.stop();
+      if (turn === this.version) this.stop();
       throw error;
     }
   }

@@ -75,7 +75,7 @@ export function Transitions({
     audio.onTick = setElapsed;
     audio.onEnded = () => {
       setRunning(false);
-      setCompleted(true);
+      setCompleted(false);
       setMessage(
         "Round complete. Enter your own clean-change count and assessment.",
       );
@@ -132,7 +132,9 @@ export function Transitions({
     duration <= 300;
   const position = sequencePosition(
     Math.max(0, elapsed),
-    Math.max(0.5, interval || 4),
+    Number.isFinite(interval) && interval >= 0.5 && interval <= 30
+      ? interval
+      : 4,
     selected.length,
   );
   const current = plan[position.current],
@@ -210,7 +212,7 @@ export function Transitions({
     }
   }
   return (
-    <section className="panel">
+    <section className="panel training-panel">
       <h2>
         {challenge
           ? "Clean chord-change challenge"
