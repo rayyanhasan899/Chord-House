@@ -39,6 +39,9 @@ test("administration publishes reviewed content, resolves private reports and st
     env: process.env,
   });
   await page.goto("/admin");
+  expect((await (await page.request.get("/api/v1/me")).json()).role).toBe(
+    "content_manager",
+  );
   await expect(
     page.getByRole("heading", { name: "Administration", exact: true }),
   ).toBeVisible();

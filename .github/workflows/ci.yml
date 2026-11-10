@@ -66,5 +66,7 @@ jobs:
         if: always()
         with:
           name: phase15-administration-evidence
-          path: .artifacts/phase15-administration.png
+          path: |
+            .artifacts/phase15-administration.png
+            frontend/test-results/content-*/error-context.md
           if-no-files-found: ignore

@@ -137,6 +137,7 @@ export function Administration() {
         <label>
           Content type
           <select
+            aria-label="Content type"
             disabled={busy || document !== null}
             value={kind}
             onChange={(e) => {
