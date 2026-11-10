@@ -186,9 +186,9 @@ test("real account registration onboarding verification recovery and signout", a
     page.getByRole("link", { name: "Edit learning preferences" }),
   ).toBeVisible();
   await page.context().clearCookies();
-  await page.getByRole("link", { name: "Edit learning preferences" }).click();
-  await expect(page).toHaveURL(/onboarding/);
-  await page.getByRole("button", { name: "Save preferences" }).click();
+  // Reminder checks can detect expiry before the stale account link is clicked.
+  // A protected navigation must recover to sign-in in either case.
+  await page.goto("/onboarding");
   await expect(page).toHaveURL(/login/);
 });
 test("public pages are responsive accessible and recover from unavailable API", async ({

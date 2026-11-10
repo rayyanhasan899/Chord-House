@@ -1,0 +1,46 @@
+name: chord-house-phase16-preview
+services:
+  db:
+    image: postgres:17.9
+    environment:
+      POSTGRES_USER: chord_house
+      POSTGRES_PASSWORD: ${CHORD_PREVIEW_PASSWORD:?Use scripts/dev-preview.py}
+      POSTGRES_DB: chord_house
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - preview_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chord_house -d chord_house"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build:
+      context: backend
+      dockerfile: Dockerfile.preview
+    environment:
+      CHORD_DATABASE_URL: postgresql+psycopg://chord_house:${CHORD_PREVIEW_PASSWORD}@db:5432/chord_house
+      CHORD_TRUSTED_ORIGINS: '["http://127.0.0.2:3001"]'
+      CHORD_MAIL_DIRECTORY: /app/.local-mail
+    ports:
+      - "127.0.0.1:8001:8000"
+    volumes:
+      - preview_mail:/app/.local-mail
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=2)",
+        ]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+volumes:
+  preview_pgdata:
+  preview_mail:

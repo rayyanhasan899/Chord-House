@@ -169,6 +169,8 @@ Primary SRS IDs: ADM-001, ADM-002, ADM-003, ADM-004, ADM-005, ADM-006, ADM-007, 
 
 ## Phase 16: Cross-feature completion
 
+Execution refinement (ADR-0022): selected UNI-005 deterministic routines plus all assigned MAY tools. Section practice uses approved text/generated pacing cues; recorded-song playback/time stretching remains unselected without rights. Reminders require a visible signed-in tab, opt-in and explicit browser permission, with denied/unsupported in-app fallback. No closed-browser delivery guarantee or inferred owner reply. See PHASE-16-REPORT.md for executed evidence; do not automatically start Phase 17.
+
 Goal/scope and deliverables: Complete integrated learning journeys, transition trainer, local ear training with feedback/difficulty, optional deterministic routines, chord challenge/note finder/section practice where permitted, reminder preferences/timezone/permission fallbacks and consistent navigation.
 
 Owner: `integration`. Prerequisites: prior phase exit gates through 15; use module dependencies above. Risk: Neglected differentiators and unreliable background reminders. Acceptance and exit gate: Cross-feature browser journeys and denied-notification behavior pass. Include applicable unit, integration and browser evidence; no success without execution.

@@ -1,5 +1,11 @@
 # Architecture and database design
 
+## Phase 16 implementation refinement
+
+ADR-0022 and ../architecture/TRAINING.md define the training hub and integration module. Migration 0012_integration adds owner-cascaded training_assessments (UUID retry uniqueness, nullable JSON payload/tombstone), practice_reminder_preferences (owner PK, optimistic version constraint) and practice_reminder_deliveries (owner/local-date composite PK). Account-row locking serializes retry/delete/settings/claims; current timezone comes from the account. Existing Practice sessions/routines remain the saved-time/routine stores. Earlier planned ExerciseAttempt/ReminderPreference allocation to Practice is refined to integration-owned persistence. Questions/audio are browser-local and ear scores ephemeral. Pure reminder_due and pitch/sequence functions separate rules from adapters.
+
+Visible-tab reminders are a stated engineering contract, not an inferred owner answer or closed-browser guarantee. Approved-text passage loops use generated line cues, separate from recording playback rights. A separate persistent local preview preserves the dirty older checkout/database; this is not a hosting-provider decision.
+
 Retain Next.js/TypeScript/Tailwind/shadcn/ui, FastAPI/Pydantic, PostgreSQL/SQLAlchemy/Alembic; feature modules in a layered modular monolith. Framework-independent domain and application contracts; persistence adapters wired in composition. No microservices, Redis or paid AI needed. Frontend routes compose feature UI; browser audio owns real-time processing. Prefer same-origin browser/API routing to simplify secure cookies and CSRF. Generate frontend types from versioned OpenAPI and check drift in CI.
 
 Identity owns User, Profile, Preferences, Session (hashed opaque token, expiry, revocation), one-use verification/reset tokens and roles. Preferences include IANA timezone, instrument, tuning, skill, handedness and theme. Passwords securely hashed; never log tokens. Session rotation, CSRF tokens/origin checks, explicit CORS and production Secure/HttpOnly/SameSite cookies. Final timeout constants are proposed in assumptions.

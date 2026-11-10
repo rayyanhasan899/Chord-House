@@ -47,6 +47,10 @@ No unused feature tables or lyrics are created now. The above is the detailed de
 | Shared catalogue (implemented tunings; other content planned) | unaffected | archive referenced records; FK restriction for instrument removal | cascading tuning-string removal only after explicit tuning deletion |
 | Reports/audit (planned) | anonymize actor references/minimize payload | retention-controlled staff action | exact retention duration must be set before public release |
 
+## Phase 16 integration additions
+
+Migration 0012 adds private assessments, reminder preferences and date claims (TRAINING.md/ADR-0022). Owner FKs cascade on account deletion. Assessment deletion clears the payload but retains minimal client-key/fingerprint/UUID/time retry metadata until account deletion (delayed retry returns 410). Preference owner PK/version checks protect isolation/concurrency. Delivery owner/date PK prevents duplicates across tabs, DST folds and revisited dates. Delivery dates persist until account deletion. Saved Practice intervals remain authoritative for totals/streaks. No audio recordings or ear-answer history are stored.
+
 ## Seed and migration strategy
 
 0002_domain_foundation creates five tables; its downgrade removes them and all contained data and is only for reviewed disposable/development use. It does not import mutable ORM definitions or silently seed. Existing baseline 0001 remains unchanged. Autogeneration compares registered metadata and migration drift tests verify no changes needed after upgrade.

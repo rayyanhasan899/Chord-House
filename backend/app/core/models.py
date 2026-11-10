@@ -19,6 +19,11 @@ from app.modules.identity.models import (
     SessionRecord,
     TokenRecord,
 )
+from app.modules.integration.models import (
+    AssessmentRecord,
+    ReminderDeliveryRecord,
+    ReminderRecord,
+)
 from app.modules.personal_workspace.models import NoteRecord
 from app.modules.personal_workspace.workspace import SongReference, WorkspaceRecord
 from app.modules.practice.models import (
@@ -31,6 +36,9 @@ from app.modules.practice.models import (
 from app.modules.practice.progress_models import MilestoneRecord, ReviewRecord
 
 __all__ = [
+    "AssessmentRecord",
+    "ReminderRecord",
+    "ReminderDeliveryRecord",
     "ReferenceContent",
     "ContentReport",
     "ContentAudit",

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api, apiError } from "@/lib/api/client";
 import type { components } from "@/lib/api/schema";
@@ -26,7 +27,13 @@ import { instrumentLabel } from "./types";
 
 type Current = { session: PracticeSession | null; received: number };
 const emptySources: Sources = { songs: [], chords: [], patterns: [] };
-export function Practice() {
+export function Practice({
+  initialFocus = "",
+  initialSong = null,
+}: {
+  initialFocus?: string;
+  initialSong?: string | null;
+}) {
   const { profile } = useAuth();
   const [current, setCurrent] = useState<Current>({
     session: null,
@@ -48,9 +55,9 @@ export function Practice() {
   const [tick, setTick] = useState(0);
   const [details, setDetails] = useState<Details>({
     instrument: profile?.instrument || "acoustic_guitar",
-    focus: "",
+    focus: initialFocus,
     notes: "",
-    song_id: null,
+    song_id: initialSong,
     chord_id: null,
     chord_name: "",
   });
@@ -513,6 +520,14 @@ export function Practice() {
         <h2 id="practice-timer" tabIndex={-1}>
           Practice timer
         </h2>
+        {session?.state === "active" && (
+          <p>
+            <Link href="/training">
+              Use training tools while this timer runs
+            </Link>
+            . Return here to end and explicitly save the session.
+          </p>
+        )}
         {!session ? (
           <>
             <SessionFields

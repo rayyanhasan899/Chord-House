@@ -1,5 +1,9 @@
 # Chord House
 
+Phase 16 adds the signed-in [training hub and separate preview](docs/architecture/TRAINING.md): chord transitions/challenge, local ear training, note finder, approved-text section cues, routine suggestions, private assessments and optional visible-tab reminders. Only explicitly saved Practice sessions grant time credit. Closed-browser reminders and unlicensed song playback are not promised.
+
+Phase 16 is on `codex/phase-16` in `.artifacts/phase16-worktree` to preserve unfinished song changes in the original checkout. From that worktree run `npm ci`, then `python scripts/dev-preview.py`, and open **http://127.0.0.2:3001/training**. Register a preview account; it uses a separate persistent database. Use this hostname to keep its cookie separate from normal 127.0.0.1 usage. See ADR-0022 and the Phase 16 report.
+
 Your home for guitar learning. Phases 01–14 provide accounts, secure login/logout, onboarding/preferences, email verification and password recovery, a private workspace, tuner, chord library, metronome, strumming patterns and song discovery/learning, a responsive light/dark interface, API documentation and PostgreSQL migrations. Practice sessions, reusable routines and goal settings are available; progress summaries, streaks and roadmap are available.
 
 ## Run locally
