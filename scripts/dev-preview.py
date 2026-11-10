@@ -64,11 +64,12 @@ def main() -> None:
     npm = shutil.which("npm")
     if npm is None:
         raise RuntimeError("Node/npm is required; run npm ci in this checkout first")
-    with socket.socket() as sock:
-        if sock.connect_ex(("127.0.0.1", 3001)) == 0:
-            raise RuntimeError(
-                "Port 3001 is occupied; existing frontend left unchanged"
-            )
+    for host in ("127.0.0.1", "127.0.0.2"):
+        with socket.socket() as sock:
+            if sock.connect_ex((host, 3001)) == 0:
+                raise RuntimeError(
+                    "Port 3001 is occupied; existing frontend left unchanged"
+                )
     print(
         "Open http://127.0.0.2:3001 (use 127.0.0.2 to isolate the login cookie). "
         "Register a preview account; personal data has not been copied.",
