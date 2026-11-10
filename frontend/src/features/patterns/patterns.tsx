@@ -390,6 +390,11 @@ export function Patterns() {
           {filtered.map((p) => (
             <li key={p.id}>
               <h2>{p.name}</h2>
+              {p.status !== "private" && (
+                <a href={`/reports?kind=pattern&key=${p.id}`}>
+                  Report this pattern
+                </a>
+              )}
               <p>
                 {p.meter} · {p.difficulty} · {p.style} · {p.tempo_min}–
                 {p.tempo_max} BPM ·{" "}

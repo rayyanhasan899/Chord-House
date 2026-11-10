@@ -1,13 +1,25 @@
+from datetime import UTC, datetime
 from typing import Literal
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
-from sqlalchemy import CheckConstraint, ForeignKey, String, Text, or_, select
+from sqlalchemy import (
+    CheckConstraint,
+    DateTime,
+    ForeignKey,
+    String,
+    Text,
+    func,
+    or_,
+    select,
+)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base, Database
 from app.modules.catalog.pattern_domain import Rhythm, publication_allowed
+from app.modules.catalog.song_domain import publishable
+from app.modules.catalog.song_schemas import Grant
 from app.modules.identity.domain import Actor, IdentityError
 
 
@@ -47,6 +59,17 @@ class PatternRecord(Base):
     rights_statement: Mapped[str] = mapped_column(Text, default="")
     attribution: Mapped[str] = mapped_column(String(200), default="")
     reviewed: Mapped[bool] = mapped_column(default=False)
+    grant: Mapped[dict[str, object] | None] = mapped_column(JSONB, nullable=True)
+    revision: Mapped[int] = mapped_column(default=1, server_default="1")
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    actor_id: Mapped[UUID | None] = mapped_column(
+        ForeignKey("accounts.id", ondelete="SET NULL")
+    )
 
 
 class PatternFavorite(Base):
@@ -90,11 +113,14 @@ class SharedPatternInput(PatternInput):
     reviewed: bool = False
     rights_statement: str = Field(default="", max_length=2000)
     attribution: str = Field(default="", max_length=200)
+    grant: Grant | None = None
 
     @model_validator(mode="after")
     def publishable(self) -> SharedPatternInput:
         if self.status == "published":
             publication_allowed(self.reviewed, self.rights_statement, self.attribution)
+            if self.grant is None or not grant_current(self.grant):
+                raise ValueError("Pattern rights are expired or unreviewed")
         return self
 
 
@@ -106,6 +132,24 @@ class PatternView(PatternInput):
     attribution: str
     rights_statement: str
     reviewed: bool
+
+
+def grant_current(grant: Grant) -> bool:
+    return publishable(
+        grant.reviewed,
+        grant.display,
+        grant.cache,
+        grant.territories,
+        grant.evidence,
+        grant.expires_at,
+        datetime.now(UTC),
+    )
+
+
+def pattern_available(row: PatternRecord) -> bool:
+    return row.status == "published" and (
+        row.grant is None or grant_current(Grant.model_validate(row.grant))
+    )
 
 
 class Patterns:
@@ -142,15 +186,14 @@ class Patterns:
                 select(PatternRecord)
                 .where(scope)
                 .order_by(PatternRecord.name, PatternRecord.id)
-                .offset(offset)
-                .limit(limit)
             )
             return [
                 PatternView.model_validate(row).model_copy(
                     update={"favorite": row.id in favorites}
                 )
                 for row in rows
-            ]
+                if managed or row.owner_id == actor.id or pattern_available(row)
+            ][offset : offset + limit]
 
     def save(
         self,
@@ -180,8 +223,15 @@ class Patterns:
             )
             if row is None:
                 raise IdentityError(404, "not_found", "Pattern not found")
-            for key, value in data.model_dump().items():
+            for key, value in data.model_dump(mode="json").items():
                 setattr(row, key, value)
+            if shared:
+                from app.modules.content_management.models import audit
+
+                row.updated_at = datetime.now(UTC)
+                row.actor_id = actor.id
+                row.revision = (row.revision or 0) + 1
+                audit(session, actor.id, "pattern", str(row.id), "save:" + row.status)
             session.add(row)
             session.flush()
             return PatternView.model_validate(row)
@@ -202,6 +252,12 @@ class Patterns:
                 raise IdentityError(404, "not_found", "Pattern not found")
             if shared:
                 row.status = "archived"
+                from app.modules.content_management.models import audit
+
+                row.updated_at = datetime.now(UTC)
+                row.actor_id = actor.id
+                row.revision += 1
+                audit(session, actor.id, "pattern", str(row.id), "archive")
             else:
                 session.delete(row)
 
@@ -222,6 +278,8 @@ class Patterns:
             )
             if row is None:
                 raise IdentityError(404, "not_found", "Pattern not found")
+            if row.owner_id is None and not pattern_available(row):
+                raise IdentityError(404, "not_found", "Pattern not available")
             if enabled:
                 session.execute(
                     insert(PatternFavorite)

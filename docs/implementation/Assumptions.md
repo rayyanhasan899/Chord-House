@@ -70,3 +70,8 @@ Phase 13: ADR-0019 selects persisted UTC active intervals, one unfinished sessio
 
 
 Phase 14 owner reply (2026-11-09) accepts A-009/A-010: Monday weeks, any positive saved active time qualifies a day, split intervals at local midnight and recompute historical summaries in current profile timezone while retaining captured timezone. ADR-0020 records implementation. UNI-025 weekly review MAY selected. Historical goal results use the goal version active at each period close (current period uses now); paused/unconfigured targets have no completion result. This is a documented engineering rule, not a claim of a separately approved product decision. Roadmap completion is explicitly self-reported per owner/instrument; changing skill reorders suggestions without silently completing anything.
+
+
+## Phase 15
+
+A-031 (Accepted engineering): reference documents become authoritative for guest tuner/shared chord catalogue; original shapes and presets are adopted by non-overwriting seeds. Saving a published item as draft withdraws it until republished; no separate parallel draft branch. Per-component current worldwide (`*`) grants gate publication. Reports are owner-private with identity-redacted manager views and fixed dispositions; actor audits anonymize on deletion. Existing timestamps begin at migration time without invented authorship. Additional instrument definitions extend the tuner only; baseline practice/profile/chord families remain. See ADR-0021. Owner explicitly selected an existing account for content-manager provisioning in the Phase 15 conversation; no other role changes are authorized. Previous assumptions/history remain intact.

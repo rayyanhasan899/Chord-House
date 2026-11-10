@@ -16,6 +16,7 @@ api.use({
       response.status === 401 &&
       typeof window !== "undefined" &&
       (new URL(request.url).pathname.startsWith("/api/v1/practice") ||
+        new URL(request.url).pathname.startsWith("/api/v1/content") ||
         [
           "/api/v1/me",
           "/api/v1/me/delete",

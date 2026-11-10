@@ -53,6 +53,10 @@ function Shell({ children }: { children: React.ReactNode }) {
               <Link href="/songs">Songs</Link>
               <Link href="/practice">Practice</Link>
               <Link href="/progress">Progress</Link>
+              <Link href="/reports">Content reports</Link>
+              {["admin", "content_manager"].includes(auth.profile.role) && (
+                <Link href="/admin">Administration</Link>
+              )}
               <Link
                 href="/account"
                 aria-current={path === "/account" ? "page" : undefined}

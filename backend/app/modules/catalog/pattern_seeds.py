@@ -6,6 +6,7 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
 from app.modules.catalog.patterns import PatternRecord, SharedPatternInput
+from app.modules.content_management.seeds import GRANT
 
 EXERCISES = [
     ("Quarter-note foundation", "4/4", 1, "DDDD", "beginner", "Foundation"),
@@ -41,6 +42,7 @@ def seed_patterns(session: Session) -> None:
                 ),
                 status="published",
                 reviewed=True,
+                grant=GRANT,
                 rights_statement=(
                     "Original Chord House practice exercise authored for "
                     "this project; no third-party song arrangement or text reproduced."
@@ -53,7 +55,7 @@ def seed_patterns(session: Session) -> None:
             .values(
                 id=uuid5(NAMESPACE_URL, "chord-house:pattern:" + name),
                 owner_id=None,
-                **data.model_dump(),
+                **data.model_dump(mode="json"),
             )
             .on_conflict_do_nothing()
         )

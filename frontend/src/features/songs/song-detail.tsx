@@ -236,6 +236,7 @@ export function SongDetail({ id }: { id: string }) {
             : "Hindi"}
       </p>
       <h1>{song.title}</h1>
+      <Link href={`/reports?kind=song&key=${id}`}>Report this song</Link>
       <p className="lede">{song.artist}</p>
       {song.version_note && <p>Recording context: {song.version_note}</p>}
       {!simple && (

@@ -69,3 +69,8 @@ Existing startup applies reviewed migration `0009_practice`; no new package, pro
 ## Progress and roadmap (Phase 14)
 
 Open `/progress` while signed in for saved-practice totals, goal progress, streaks, charts, linked-session rankings, weekly review/reflection and private self-reported roadmap milestones. The dashboard includes a compact summary. Current profile timezone, Monday weeks and positive saved active time determine the calendar; edits/deletes recalculate on refresh. Apply migration `0010_progress` with the normal launcher. No new package/provider is required. See [progress guide](docs/architecture/PROGRESS.md) and ADR-0020 for exact goal/calendar rules and limitations.
+
+
+## Administration (Phase 15)
+
+Authorized content managers can open `/admin` to maintain instruments, tunings, chord voicings, patterns and song components; review/import content; publish, archive or withdraw rights; resolve private reports; and inspect redacted audit history. Signed-in users can submit and track reports at `/reports`. Apply migration `0011_content` and the normal reference seed. See [content operations](docs/architecture/CONTENT-OPERATIONS.md) for workflow, role provisioning and limits. This does not acquire any popular-song lyrics or arrangement rights.

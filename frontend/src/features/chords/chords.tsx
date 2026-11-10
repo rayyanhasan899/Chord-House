@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Feedback } from "@/components/ui/feedback";
 import { Diagram } from "./diagram";
 import { ChordAudio } from "./audio";
+import { useReferences } from "@/features/content/references";
 import {
   tuning,
   search,
@@ -17,10 +18,12 @@ import {
   pitches,
   noteName,
   type Instrument,
+  type Voicing,
 } from "./music";
 type Saved = components["schemas"]["ChordView"];
 export function Chords() {
   const auth = useAuth();
+  const catalogue = useReferences("chord");
   const [instrument, setInstrument] = useState<Instrument>("guitar");
   const [query, setQuery] = useState("");
   const [quality, setQuality] = useState("");
@@ -71,7 +74,15 @@ export function Chords() {
     };
   }, [auth.profile]);
   const error = validate(instrument, frets, fingers);
-  const results = search(query, instrument, quality);
+  const entries = catalogue.rows.map(
+    (row) =>
+      ({
+        ...row.document,
+        source: "Managed shared catalogue",
+        key: row.key,
+      }) as unknown as Voicing & { key: string },
+  );
+  const results = search(query, instrument, quality, entries);
   const notes = pitches(instrument, frets);
   function stop() {
     audio.current?.stop();
@@ -180,6 +191,13 @@ export function Chords() {
       <div className="account-grid" style={{ marginTop: "2rem" }}>
         <section className="panel">
           <h2>Voicings ({results.length})</h2>
+          {!catalogue.loaded && <p role="status">Loading shared chords…</p>}
+          <Feedback error message={catalogue.error} />
+          {auth.profile && (
+            <Link href="/reports?kind=chord">
+              Report a chord problem (use its catalogue code below)
+            </Link>
+          )}
           {!results.length && (
             <p>
               No matching voicings for this instrument/quality. Try another
@@ -203,6 +221,7 @@ export function Chords() {
               >
                 {c.name} · {c.difficulty} · fret{" "}
                 {Math.min(...c.frets.filter((f) => f >= 0))}
+                <small> · {entries.find((e) => e === c)?.key}</small>
               </Button>
             ))}
           </div>

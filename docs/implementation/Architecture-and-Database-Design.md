@@ -27,3 +27,8 @@ Migration 0009 adds practice_sessions, practice_starts, practice_routines, pract
 ## Phase 14 progress and roadmap
 
 Saved intervals are allocated by current account timezone in pure progress_domain functions with integer microsecond accounting and UTC elapsed durations. Progress service uses coherent repeatable-read snapshots; no aggregate counter can become stale after edit/delete. Goal versions are evaluated at period close. Migration 0010 adds owner/instrument/milestone completions and owner/week reflection text/version, both account-cascading. Request/response contracts and authenticated practice routes compose the service; frontend Progress is reused for full /progress and compact dashboard summaries. ADR-0020 and ../architecture/PROGRESS.md hold detailed behavior and owner-approved calendar rules.
+
+
+## Phase 15 content operations
+
+content_management owns managed_references, content_reports and content_audit; repository contracts compose existing song/pattern aggregates with new reference documents. Migration 0011 adds timestamps/actor metadata to shared aggregates and indexes/constraints/retention FKs. Managed-reference instrument cardinality/link checks run under transaction locks; archival preserves keys. Reports cascade with owners; audit actors SET NULL. ADR-0021 and ../architecture/CONTENT-OPERATIONS.md define lifecycle, provenance, API and operator setup. No private catalogue items enter management views.
