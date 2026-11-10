@@ -1,5 +1,26 @@
 export type Level = "beginner" | "intermediate" | "advanced";
 export type EarMode = "note" | "interval" | "quality";
+export function trainingVoicings<
+  T extends { name: string; difficulty: string; frets: number[] },
+>(entries: readonly T[], level: Level): T[] {
+  const ranks: Record<string, number> = {
+    beginner: 1,
+    intermediate: 2,
+    advanced: 3,
+  };
+  const rank = (entry: T) =>
+    entry.difficulty === level ? 0 : ranks[entry.difficulty] || 4;
+  // Choose a compatible shape deliberately; a Map's last duplicate could hide
+  // an open beginner chord behind a later high-fret barre voicing.
+  const sorted = [...entries].sort(
+    (a, b) =>
+      rank(a) - rank(b) || Math.max(0, ...a.frets) - Math.max(0, ...b.frets),
+  );
+  const choices = new Map<string, T>();
+  for (const entry of sorted)
+    if (!choices.has(entry.name)) choices.set(entry.name, entry);
+  return [...choices.values()].sort((a, b) => a.name.localeCompare(b.name));
+}
 export const noteNames = [
   "C",
   "C#",

@@ -14,7 +14,12 @@ import type { components } from "@/lib/api/schema";
 import { Button } from "@/components/ui/button";
 import { Feedback } from "@/components/ui/feedback";
 import { TrainingAudio } from "./audio";
-import { randomized, sequencePosition, type Level } from "./domain";
+import {
+  randomized,
+  sequencePosition,
+  trainingVoicings,
+  type Level,
+} from "./domain";
 type Instrument = components["schemas"]["SessionStart"]["instrument"];
 export function Transitions({
   challenge = false,
@@ -34,13 +39,13 @@ export function Transitions({
   const entries = catalogue.rows
     .map((row) => row.document as unknown as Voicing)
     .filter((c) => c.instrument === family);
-  const choices = [...new Map(entries.map((c) => [c.name, c])).values()];
+  const [level, setLevel] = useState<Level>("beginner");
+  const choices = trainingVoicings(entries, level);
   const [selected, setSelected] = useState(["C", "G"]);
   const plan = selected.map((name) => choices.find((c) => c.name === name));
   const [interval, setIntervalSeconds] = useState(4);
   const [duration, setDuration] = useState(60);
   const [audible, setAudible] = useState(false);
-  const [level, setLevel] = useState<Level>("beginner");
   const [running, setRunning] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [completed, setCompleted] = useState(false);

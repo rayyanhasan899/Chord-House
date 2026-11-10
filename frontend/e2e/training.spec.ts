@@ -66,6 +66,11 @@ test("learning journey connects local training, approved sections, saved practic
   await expect(
     page.getByRole("heading", { name: "Current chord: C", exact: true }),
   ).toBeVisible();
+  await expect(
+    page
+      .getByRole("img", { name: "C guitar chord diagram", exact: true })
+      .locator("title"),
+  ).toContainText("open");
   await page.getByLabel("Seconds per change", { exact: true }).fill("0.5");
   await page
     .getByLabel("Play synthesized guide chords", { exact: true })
@@ -114,6 +119,17 @@ test("learning journey connects local training, approved sections, saved practic
     (await (await page.request.get("/api/v1/practice/progress")).json())
       .total_seconds,
   ).toBe(0);
+  await page
+    .getByRole("button", { name: "Generate random sequence", exact: true })
+    .click();
+  const firstRandom = await page
+    .getByLabel("Chord 1", { exact: true })
+    .inputValue();
+  const secondRandom = await page
+    .getByLabel("Chord 2", { exact: true })
+    .inputValue();
+  expect(firstRandom).not.toBe("");
+  expect(secondRandom).not.toBe(firstRandom);
   await page.getByRole("button", { name: "Ear training", exact: true }).click();
   await page
     .getByRole("button", { name: "New ear question", exact: true })

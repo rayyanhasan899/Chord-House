@@ -4,7 +4,34 @@ import {
   sequencePosition,
   randomized,
   fretNote,
+  trainingVoicings,
 } from "../src/features/training/domain";
+test("duplicate chord names retain the selected difficulty and lowest-fret shape", () => {
+  const open = {
+    name: "C",
+    difficulty: "beginner",
+    frets: [-1, 3, 2, 0, 1, 0],
+  };
+  const high = {
+    name: "C",
+    difficulty: "beginner",
+    frets: [8, 10, 10, 9, 8, 8],
+  };
+  const barre = { ...high, difficulty: "intermediate" };
+  const g = { name: "G", difficulty: "beginner", frets: [3, 2, 0, 0, 0, 3] };
+  expect(trainingVoicings([open, g, high, barre], "beginner")).toEqual([
+    open,
+    g,
+  ]);
+  expect(trainingVoicings([barre, g, high, open], "beginner")).toEqual([
+    open,
+    g,
+  ]);
+  expect(trainingVoicings([open, g, barre], "intermediate")).toEqual([
+    barre,
+    g,
+  ]);
+});
 for (const level of ["beginner", "intermediate", "advanced"] as const)
   for (const mode of ["note", "interval", "quality"] as const) {
     test(`${level} ${mode} generated questions stay playable and include their answer`, () => {
