@@ -51,9 +51,9 @@ jobs:
       - run: npm run contracts:check
       - run: npx playwright install --with-deps chromium
         working-directory: frontend
-      - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py
+      - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py ../scripts/dev-preview.py
         working-directory: backend
-      - run: python -m ruff format --config pyproject.toml --check . ../scripts/dev.py
+      - run: python -m ruff format --config pyproject.toml --check . ../scripts/dev.py ../scripts/dev-preview.py
         working-directory: backend
       - run: python -m mypy app
         working-directory: backend

@@ -280,13 +280,13 @@ test("learning journey connects local training, approved sections, saved practic
   page.on("dialog", (d) => d.accept());
   await page
     .getByRole("button", {
-      name: `Delete training assessment ${assessments[0].id}`,
+      name: `Delete assessment ${assessments[0].id}`,
       exact: true,
     })
     .click();
   await expect(
     page.getByRole("button", {
-      name: `Delete training assessment ${assessments[0].id}`,
+      name: `Delete assessment ${assessments[0].id}`,
       exact: true,
     }),
   ).toHaveCount(0);

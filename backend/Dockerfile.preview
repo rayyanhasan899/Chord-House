@@ -1,0 +1,11 @@
+FROM python:3.14-slim
+WORKDIR /app
+COPY requirements-dev.lock .
+RUN pip install --no-cache-dir -r requirements-dev.lock
+COPY pyproject.toml alembic.ini ./
+COPY app ./app
+COPY migrations ./migrations
+RUN pip install --no-deps . && useradd --uid 10001 --create-home player \
+    && mkdir .local-mail && chown player:player .local-mail && chmod 700 .local-mail
+USER player
+CMD ["sh", "-c", "python -m alembic upgrade head && python -m app.modules.catalog.seeds && exec python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --no-access-log"]

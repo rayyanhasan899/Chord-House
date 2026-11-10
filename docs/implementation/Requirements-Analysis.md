@@ -1,5 +1,9 @@
 # Final requirements analysis — 2026-11-08
 
+Phase 16 implementation: assigned UNI-006–015 and NTF-001–007 behavior is implemented under ADR-0022. Selected MAYs: UNI-005 deterministic suggestions (revisited after 13), UNI-010 random sequences, UNI-021 self-reported challenge, UNI-022 note finder, UNI-023 approved-text section cues and NTF-004 browser notifications. Recorded-song/melody playback and time stretching remain unselected without verified recording rights. Catalog coverage remains 85 popular metadata entries plus six original exercises; no new rights or song count are claimed.
+
+Reminders default off, use current profile timezone/weekdays, a ten-minute due window and once-per-local-date claims. An open visible signed-in tab is required. Denied/unsupported notification permission retains in-app delivery and usable tools. The owner delivery question is unanswered: this is stated engineering assumption A-013, not owner approval. Assessments never count toward goals/streaks; explicit saved Practice sessions do. See the Phase 16 report for exact executed evidence and remaining content/hardware limits.
+
 User decisions supplement the unchanged source SRS and blueprint. Original documents remain preserved.
 
 1. Core song catalogue includes popular English, Urdu and Hindi songs, with Roman Urdu/Hindi variants. English UI is independent of song language. No fixed small sample-only cap.

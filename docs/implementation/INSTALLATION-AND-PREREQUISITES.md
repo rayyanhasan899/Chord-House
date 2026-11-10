@@ -1,5 +1,11 @@
 # Installation and prerequisites
 
+## Phase 16 isolated preview
+
+Phase 16 is in `.artifacts/phase16-worktree`, branch `codex/phase-16`; original uncommitted song changes and personal database are retained. Do not migrate the old checkout's database using the new branch while continuing to run its old migration tree. From the Phase 16 checkout run `npm ci`, then `python scripts/dev-preview.py`. Requirements: Node 24/npm 11, Python 3.14 standard library and responsive Docker. The backend runs in Linux without changing Windows Application Control.
+
+Open **http://127.0.0.2:3001/training** and register a preview account. Use this hostname to separate its cookie from normal 127.0.0.1 usage. API 8001 and DB 5434 bind loopback. Project/volumes are chord-house-phase16-preview; ignored .env.preview credentials must be preserved with the persistent database. No private data, roles or unfinished song-player changes are copied. Full start/stop/mail instructions are in ../architecture/TRAINING.md. Normal single-checkout upgrade uses reviewed 0012_integration plus the existing seed/restart. Training requires no new dependency, paid provider or content key. Browser notifications remain optional and visible-tab only.
+
 Inspected 2026-11-08 on Windows/PowerShell. Git 2.53.0, gh 2.103.3, Node 24.15.0, npm 11.12.1, Python 3.14.7, pip 26.2.1, Docker Engine 29.3.1 and Compose 5.1.1 are present. Docker daemon responds. GitHub repository visibility is PRIVATE and read access works; push permission is not yet verified. No application, lockfiles, tests or CI exist. No dependencies installed during planning. Terminal/filesystem access works; browser tooling exists but no browser/device/audio session was tested. No PostgreSQL CLI on PATH; existing database containers were not inspected.
 
 ## Mandatory local setup

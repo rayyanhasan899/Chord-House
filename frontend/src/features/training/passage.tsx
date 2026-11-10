@@ -406,7 +406,6 @@ export function PassagePractice({
               audio.current?.stop();
               setRunning(false);
               setBusy(false);
-              setBusy(false);
             }}
           >
             Stop passage cues

@@ -108,7 +108,7 @@ export function TrainingHistory() {
             <Button
               variant="outline"
               disabled={busy || !loaded}
-              aria-label={`Delete training assessment ${row.id}`}
+              aria-label={`Delete assessment ${row.id}`}
               onClick={() => void remove(row.id)}
             >
               Delete assessment
