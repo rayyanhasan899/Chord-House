@@ -69,6 +69,25 @@ summary {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
+html {
+  scroll-padding-block: 1rem;
+}
+.site-header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  min-width: 24px;
+}
+summary {
+  min-height: 44px;
+  padding-block: 0.35rem;
+  cursor: pointer;
+}
+.checkbox input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
 h1,
 h2,
 h3,

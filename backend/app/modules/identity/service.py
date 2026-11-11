@@ -199,4 +199,6 @@ class IdentityService:
                     "verification_failed",
                     "Verify your email, password and deletion confirmation",
                 )
+            if row.email:
+                self.mailer.forget(row.email)
             repo.remove(actor.id)

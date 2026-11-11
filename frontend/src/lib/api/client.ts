@@ -21,6 +21,7 @@ api.use({
         [
           "/api/v1/me",
           "/api/v1/me/delete",
+          "/api/v1/me/export",
           "/api/v1/auth/password",
           "/api/v1/auth/logout",
         ].includes(new URL(request.url).pathname))

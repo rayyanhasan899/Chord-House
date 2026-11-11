@@ -1,5 +1,7 @@
+import asyncio
 from collections.abc import AsyncIterator
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
+from datetime import UTC, datetime
 from typing import Any
 from uuid import uuid4
 
@@ -17,6 +19,8 @@ from app.modules.identity.adapters import ArgonPasswords, Delivery
 from app.modules.identity.domain import IdentityError
 from app.modules.identity.routes import router as identity_router
 from app.modules.identity.service import IdentityService
+from app.modules.security.maintenance import sweep
+from app.modules.security.middleware import BodyLimit
 
 
 class Health(BaseModel):
@@ -34,9 +38,42 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+        cleanup: asyncio.Task[None] | None = None
+
+        def clean_expired() -> None:
+            if database:
+                sweep(database, datetime.now(UTC))
+                Delivery(config).purge_expired()
+
+        async def maintain() -> None:
+            while True:
+                await asyncio.sleep(900)
+                try:
+                    await asyncio.to_thread(clean_expired)
+                except Exception:
+                    logger.warning(
+                        "security_cleanup_failed",
+                        extra={"event": "security_cleanup_failed"},
+                    )
+
         try:
+            if database and config.environment == "production":
+                database.require_runtime_privileges()
+            if database:
+                try:
+                    await asyncio.to_thread(clean_expired)
+                except Exception:
+                    logger.warning(
+                        "security_cleanup_failed",
+                        extra={"event": "security_cleanup_failed"},
+                    )
+                cleanup = asyncio.create_task(maintain())
             yield
         finally:
+            if cleanup:
+                cleanup.cancel()
+                with suppress(asyncio.CancelledError):
+                    await cleanup
             if database:
                 database.close()
 
@@ -44,9 +81,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         title="Chord House API",
         version="0.1.0",
         lifespan=lifespan,
+        docs_url=None if config.environment == "production" else "/docs",
+        redoc_url=None if config.environment == "production" else "/redoc",
+        openapi_url=None if config.environment == "production" else "/openapi.json",
         responses={422: {"model": ErrorResponse}, 500: {"model": ErrorResponse}},
     )
     app.state.database = database
+    app.add_middleware(BodyLimit)
     app.state.settings = config
     app.state.identity = (
         IdentityService(database, ArgonPasswords(), Delivery(config))
@@ -54,6 +95,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         else None
     )
     app.include_router(identity_router)
+    from app.modules.security.routes import router as security_router
+
+    app.include_router(security_router)
     from app.modules.integration.routes import router as integration_router
 
     app.include_router(integration_router)
@@ -93,14 +137,18 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                     "fields": fields or [],
                 }
             },
-            headers={"X-Request-ID": request.state.request_id},
+            headers={"X-Request-ID": request.state.request_id}
+            | ({"Retry-After": "900"} if status == 429 else {}),
         )
 
     @app.middleware("http")
     async def request_context(request: Request, call_next: Any) -> Any:
         request.state.request_id = str(uuid4())
         try:
-            response = await call_next(request)
+            if config.environment == "production" and request.url.scheme != "https":
+                response = error(request, 400, "https_required", "HTTPS is required")
+            else:
+                response = await call_next(request)
         except Exception as exc:
             logger.error(
                 "request_failed",
@@ -111,21 +159,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                     "exception_type": type(exc).__name__,
                 },
             )
-            return error(request, 500, "internal_error", "An unexpected error occurred")
-        if request.url.path.startswith(
-            (
-                "/api/v1/auth",
-                "/api/v1/me",
-                "/api/v1/practice",
-                "/api/v1/integration",
-                "/api/v1/content",
-                "/api/v1/reference-content",
-                "/api/v1/managed-",
-                "/api/v1/song-imports",
-                "/api/v1/patterns",
+            response = error(
+                request, 500, "internal_error", "An unexpected error occurred"
             )
-        ):
+        if request.url.path.startswith("/api/v1"):
             response.headers["Cache-Control"] = "no-store"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "no-referrer"
+        if config.environment == "production" and request.url.scheme == "https":
+            response.headers["Strict-Transport-Security"] = "max-age=31536000"
         response.headers["X-Request-ID"] = request.state.request_id
         logger.info(
             "request_complete",

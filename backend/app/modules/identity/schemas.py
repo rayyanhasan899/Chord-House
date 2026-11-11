@@ -75,7 +75,7 @@ class PasswordChange(Input):
 
 class SensitiveInput(Input):
     current_password: str = Field(min_length=1, max_length=128)
-    confirm: bool = False
+    confirm: bool = Field(default=False, strict=True)
 
 
 class Message(BaseModel):

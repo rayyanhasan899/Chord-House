@@ -1,4 +1,5 @@
 from typing import Literal
+from urllib.parse import urlsplit
 
 from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -29,9 +30,26 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def production_mail(self) -> Settings:
+        for origin in self.trusted_origins:
+            parsed = urlsplit(origin)
+            if (
+                parsed.scheme not in ("http", "https")
+                or not parsed.hostname
+                or parsed.username
+                or parsed.password
+                or parsed.path
+                or parsed.query
+                or parsed.fragment
+                or "*" in origin
+            ):
+                raise ValueError("Trusted origins must be exact HTTP(S) origins")
         if self.environment == "production":
-            if not self.smtp_host or not all(
-                origin.startswith("https://") for origin in self.trusted_origins
+            if (
+                not self.smtp_host
+                or not self.trusted_origins
+                or not all(
+                    origin.startswith("https://") for origin in self.trusted_origins
+                )
             ):
                 raise ValueError(
                     "Production requires SMTP and explicit HTTPS trusted origins"

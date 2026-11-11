@@ -187,6 +187,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/me/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Export */
+        post: operations["export_api_v1_me_export_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/integration/assessments": {
         parameters: {
             query?: never;
@@ -1445,6 +1462,7 @@ export interface components {
              */
             end: string;
         };
+        JsonValue: unknown;
         /** Message */
         Message: {
             /** Message */
@@ -1569,6 +1587,32 @@ export interface components {
             rights_statement: string;
             /** Reviewed */
             reviewed: boolean;
+        };
+        /** PersonalExport */
+        PersonalExport: {
+            /**
+             * Format
+             * @default chord-house.personal-data.v1
+             * @constant
+             */
+            format: "chord-house.personal-data.v1";
+            /**
+             * Exported At
+             * Format: date-time
+             */
+            exported_at: string;
+            /** Profile */
+            profile: {
+                [key: string]: components["schemas"]["JsonValue"];
+            };
+            /** Records */
+            records: {
+                [key: string]: {
+                    [key: string]: components["schemas"]["JsonValue"];
+                }[];
+            };
+            /** Exclusions */
+            exclusions: string[];
         };
         /** Profile */
         Profile: {
@@ -3552,6 +3596,48 @@ export interface operations {
             };
             /** @description Service Unavailable */
             503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    export_api_v1_me_export_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SensitiveInput"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PersonalExport"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
                 headers: {
                     [name: string]: unknown;
                 };

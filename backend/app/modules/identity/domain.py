@@ -24,6 +24,7 @@ def session_valid(now: datetime, last_seen: datetime, expires: datetime) -> bool
 
 class Mailer(Protocol):
     def send(self, recipient: str, purpose: str, token: str) -> None: ...
+    def forget(self, recipient: str) -> None: ...
 
 
 class Passwords(Protocol):
