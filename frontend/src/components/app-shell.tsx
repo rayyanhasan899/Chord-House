@@ -146,9 +146,12 @@ function Shell({ children }: { children: React.ReactNode }) {
       <main id="main" className="page" tabIndex={-1}>
         <Feedback error message={message} />
         {auth.profile && (
-          <ReminderHost key={auth.profile.id} owner={auth.profile.id} />
+          <ReminderHost
+            key={`reminders:${auth.profile.id}`}
+            owner={auth.profile.id}
+          />
         )}
-        <div key={auth.profile?.id || "guest"}>{children}</div>
+        <div key={`views:${auth.profile?.id || "guest"}`}>{children}</div>
       </main>
       <footer className="site-footer">
         <p>Chord House · Your home for guitar learning</p>
