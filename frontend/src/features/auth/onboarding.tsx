@@ -71,7 +71,7 @@ export function Onboarding() {
       <div className="panel">
         <h2>Learning preferences</h2>
         <Feedback error message={message} />
-        <form onSubmit={submit} aria-busy={busy}>
+        <form method="post" onSubmit={submit} aria-busy={busy}>
           <fieldset disabled={!hydrated || busy}>
             <label>
               Display name

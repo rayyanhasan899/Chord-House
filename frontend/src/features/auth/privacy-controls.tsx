@@ -69,7 +69,7 @@ export function PrivacyControls() {
         const result = await api.POST("/api/v1/me/delete", { body });
         if (!active.current) return;
         if (!result.data) throw new Error(apiError(result.error));
-        auth.accept(null);
+        auth.accept(null, "deleted");
         router.replace("/login?deleted=1");
       }
     } catch (reason) {
@@ -99,6 +99,7 @@ export function PrivacyControls() {
           saved on our server.
         </p>
         <form
+          method="post"
           onSubmit={(e) => void submit(e, "export")}
           aria-busy={busy}
           aria-describedby="export-explanation"
@@ -139,6 +140,7 @@ export function PrivacyControls() {
           </p>
         )}
         <form
+          method="post"
           onSubmit={(e) => void submit(e, "delete")}
           aria-busy={busy}
           aria-describedby="deletion-explanation"

@@ -85,6 +85,11 @@ test("private export and confirmed account deletion are usable and isolated", as
       ).status(),
     ).toBe(201);
     await page.goto("/account");
+    const staleTab = await page.context().newPage();
+    await staleTab.goto("/dashboard");
+    await expect(
+      staleTab.getByText("My private exercise", { exact: true }),
+    ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Your data and account", exact: true }),
     ).toBeVisible();
@@ -179,6 +184,11 @@ test("private export and confirmed account deletion are usable and isolated", as
       })
       .click();
     await expect(page).toHaveURL(/login\?deleted=1/);
+    await expect(staleTab).toHaveURL(/login/);
+    await expect(
+      staleTab.getByText("My private exercise", { exact: true }),
+    ).toHaveCount(0);
+    await staleTab.close();
     await expect(page.getByRole("status")).toContainText(
       "All sessions have been revoked",
     );

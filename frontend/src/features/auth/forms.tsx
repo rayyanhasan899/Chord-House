@@ -71,7 +71,7 @@ export function AuthForm({ register = false }: { register?: boolean }) {
             Sign in to your account
           </Link>
         ) : (
-          <form onSubmit={submit} aria-busy={busy}>
+          <form method="post" onSubmit={submit} aria-busy={busy}>
             <fieldset disabled={!hydrated || busy}>
               {register && (
                 <label>
@@ -181,7 +181,7 @@ export function CodeForm({ purpose }: { purpose: "verify" | "reset" }) {
       </p>
       <Feedback message={message} error={!success} />
       {!success && (
-        <form onSubmit={submit} aria-busy={busy}>
+        <form method="post" onSubmit={submit} aria-busy={busy}>
           <fieldset disabled={!hydrated || busy}>
             <label>
               {purpose === "verify" ? "Verification code" : "Reset code"}
@@ -256,7 +256,7 @@ export function EmailRequest({ purpose }: { purpose: "verify" | "reset" }) {
       </Heading>
       <p>Enter your account email to request a new code.</p>
       <Feedback message={message} error={error} />
-      <form onSubmit={submit} aria-busy={busy}>
+      <form method="post" onSubmit={submit} aria-busy={busy}>
         <fieldset disabled={!hydrated || busy}>
           <label>
             Email address

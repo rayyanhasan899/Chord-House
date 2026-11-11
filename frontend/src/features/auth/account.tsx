@@ -96,7 +96,7 @@ export function Account() {
               password.
             </p>
             <Feedback error message={message} />
-            <form onSubmit={changePassword} aria-busy={busy}>
+            <form method="post" onSubmit={changePassword} aria-busy={busy}>
               <fieldset disabled={!hydrated || busy}>
                 <label>
                   Current password
