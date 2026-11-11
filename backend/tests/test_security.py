@@ -484,7 +484,9 @@ def test_full_export_ownership_confirmed_deletion_and_other_account_survival(
         ]:
             assert (
                 second.delete(
-                    "/api/v1/" + path + "/" + str(identifier), headers=bh
+                    "/api/v1/" + path + "/" + str(identifier),
+                    headers=bh,
+                    params={"version": 1} if path.startswith("practice/") else {},
                 ).status_code
                 == 404
             )

@@ -163,7 +163,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 request, 500, "internal_error", "An unexpected error occurred"
             )
         if request.url.path.startswith("/api/v1"):
-            response.headers["Cache-Control"] = "no-store"
+            response.headers["Cache-Control"] = (
+                "private, no-store"
+                if "private" in response.headers.get("Cache-Control", "").lower()
+                else "no-store"
+            )
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["Referrer-Policy"] = "no-referrer"

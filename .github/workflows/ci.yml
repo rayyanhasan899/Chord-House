@@ -3,6 +3,28 @@ env:
   NEXT_TELEMETRY_DISABLED: "1"
 on: [push, pull_request]
 jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run security:audit
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: python -m venv .artifacts/audit-venv
+      - run: .artifacts/audit-venv/bin/python -m pip install pip-audit==2.10.1
+      - run: .artifacts/audit-venv/bin/python -m pip_audit -r backend/requirements-dev.lock --no-deps --disable-pip -f json -o .artifacts/security/python.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase17-dependency-evidence
+          path: .artifacts/security/*.json
+          if-no-files-found: ignore
   frontend:
     runs-on: ubuntu-latest
     steps:
