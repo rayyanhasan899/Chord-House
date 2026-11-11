@@ -118,7 +118,7 @@ test("noisy harmonic capture stays local responsive and releases on interruption
     ["Acoustic guitar", 82.406889],
   ] as const) {
     await page
-      .getByLabel("Instrument", { exact: true })
+      .getByRole("combobox", { name: "Instrument", exact: true })
       .selectOption(instrument);
     await page.evaluate((value) => {
       window.__qualityHz = value;
@@ -189,9 +189,9 @@ test("production navigation transfer and responsiveness measurements", async ({
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     // Await real controls/data rather than measuring only an empty shell.
     if (path === "/tuner")
-      await expect(page.getByLabel("Tuning", { exact: true })).toHaveValue(
-        "Guitar standard",
-      );
+      await expect(
+        page.getByRole("combobox", { name: "Tuning", exact: true }),
+      ).toHaveValue("Guitar standard");
     if (path === "/chords")
       await expect(
         page.getByRole("button", { name: "Play chord", exact: true }),
