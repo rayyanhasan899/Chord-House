@@ -5,6 +5,14 @@ test("guest tuner requests only on action, detects generated reference and relea
   page,
 }) => {
   await page.addInitScript(() => {
+    const Native = window.AudioContext;
+    const activeContexts: AudioContext[] = [];
+    window.AudioContext = class extends Native {
+      constructor(options?: AudioContextOptions) {
+        super(options);
+        activeContexts.push(this);
+      }
+    };
     document.addEventListener("DOMContentLoaded", () => {
       document.body.dataset.captures = "0";
       document.body.dataset.stops = "0";
@@ -14,7 +22,7 @@ test("guest tuner requests only on action, detects generated reference and relea
         document.body.dataset.captures = String(
           Number(document.body.dataset.captures || 0) + 1,
         );
-        const context = new AudioContext();
+        const context = activeContexts.at(-1) || new Native();
         await context.resume();
         const oscillator = context.createOscillator();
         oscillator.frequency.value = 82.406889;
@@ -29,7 +37,7 @@ test("guest tuner requests only on action, detects generated reference and relea
           );
           stop();
           oscillator.stop();
-          void context.close();
+          void context.close().catch(() => {});
         };
         return destination.stream;
       },

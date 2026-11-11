@@ -59,7 +59,7 @@ test("noisy harmonic capture stays local responsive and releases on interruption
     };
     Object.defineProperty(navigator.mediaDevices, "getUserMedia", {
       value: async () => {
-        const context = new NativeAudio();
+        const context = window.__qualityContexts.at(-1) || new NativeAudio();
         await context.resume();
         const destination = context.createMediaStreamDestination();
         const nodes: OscillatorNode[] = [];
@@ -99,7 +99,7 @@ test("noisy harmonic capture stays local responsive and releases on interruption
           nodes.forEach((node) => node.stop());
           noise.stop();
           stop();
-          void context.close();
+          void context.close().catch(() => {});
         };
         return destination.stream;
       },
@@ -182,10 +182,24 @@ test("production navigation transfer and responsiveness measurements", async ({
   browser,
 }, info) => {
   const errors: string[] = [];
-  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("pageerror", (error) =>
+    errors.push(`${page.url()}: ${error.message}`),
+  );
   const measurements = [];
-  for (const path of ["/", "/tuner", "/metronome", "/chords"]) {
-    await page.goto(path);
+  for (const [path, name] of [
+    ["/", "Home"],
+    ["/tuner", "Tuner"],
+    ["/metronome", "Metronome"],
+    ["/chords", "Chords"],
+  ]) {
+    const started = Date.now();
+    if (path === "/") await page.goto(path);
+    else
+      await page
+        .getByRole("navigation", { name: "Main navigation" })
+        .getByRole("link", { name, exact: true })
+        .click();
+    await expect(page).toHaveURL(new RegExp(`${path}$`));
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     // Await real controls/data rather than measuring only an empty shell.
     if (path === "/tuner")
@@ -196,6 +210,8 @@ test("production navigation transfer and responsiveness measurements", async ({
       await expect(
         page.getByRole("button", { name: "Play chord", exact: true }),
       ).toBeEnabled();
+    const routeReadyMs = Date.now() - started;
+    expect(routeReadyMs).toBeLessThan(10000);
     const measurement = await page.evaluate(() => {
       const navigation = performance.getEntriesByType(
         "navigation",
@@ -205,7 +221,7 @@ test("production navigation transfer and responsiveness measurements", async ({
       ) as PerformanceResourceTiming[];
       return {
         path: location.pathname,
-        domContentLoadedMs: navigation.domContentLoadedEventEnd,
+        initialDocumentDomContentLoadedMs: navigation.domContentLoadedEventEnd,
         scriptsTransferred: resources
           .filter((r) => r.initiatorType === "script")
           .reduce((sum, r) => sum + r.transferSize, 0),
@@ -215,11 +231,11 @@ test("production navigation transfer and responsiveness measurements", async ({
         overflow: document.documentElement.scrollWidth > innerWidth,
       };
     });
-    expect(measurement.domContentLoadedMs).toBeLessThan(10000);
+    expect(measurement.initialDocumentDomContentLoadedMs).toBeLessThan(10000);
     expect(measurement.scriptsTransferred).toBeLessThan(1_500_000);
     expect(measurement.audioResources).toBe(0);
     expect(measurement.overflow).toBe(false);
-    measurements.push(measurement);
+    measurements.push({ ...measurement, routeReadyMs });
   }
   expect(errors).toEqual([]);
   await evidence(info, "navigation-measurements", {

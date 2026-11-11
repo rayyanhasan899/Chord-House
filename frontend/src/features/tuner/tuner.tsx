@@ -70,6 +70,18 @@ export function Tuner() {
         throw new Error(
           "This browser does not support microphone tuning. Try a current browser on HTTPS or localhost.",
         );
+      // Unlock browser audio in the Start gesture, before permission can await
+      // user input. WebKit may reject a new context created only after capture.
+      const context = new AudioContext();
+      resources.current.context = context;
+      try {
+        await context.resume();
+      } catch {
+        throw new Error("Audio could not start. Press Start again to retry.");
+      }
+      if (current !== version.current) return;
+      if (context.state !== "running")
+        throw new Error("Audio could not resume. Try Start again.");
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: false,
@@ -82,12 +94,6 @@ export function Tuner() {
         return;
       }
       resources.current.stream = stream;
-      const context = new AudioContext();
-      resources.current.context = context;
-      await context.resume();
-      if (current !== version.current) return;
-      if (context.state !== "running")
-        throw new Error("Audio could not resume. Try Start again.");
       context.onstatechange = () => {
         if (current === version.current && context.state !== "running") {
           stop();

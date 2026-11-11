@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Feedback } from "@/components/ui/feedback";
 import { Diagram } from "./diagram";
 import { ChordAudio } from "./audio";
+import { useHydrated } from "@/lib/hydrated";
 import { useReferences } from "@/features/content/references";
 import {
   tuning,
@@ -22,6 +23,7 @@ import {
 } from "./music";
 type Saved = components["schemas"]["ChordView"];
 export function Chords() {
+  const hydrated = useHydrated();
   const auth = useAuth();
   const catalogue = useReferences("chord");
   const [instrument, setInstrument] = useState<Instrument>("guitar");
@@ -352,7 +354,7 @@ export function Chords() {
             Arpeggio
           </label>
           <Button
-            disabled={!!error}
+            disabled={!hydrated || !!error}
             onClick={async () => {
               try {
                 setMessage("");

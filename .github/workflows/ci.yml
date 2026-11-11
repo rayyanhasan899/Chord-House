@@ -85,6 +85,7 @@ jobs:
         working-directory: backend
       - run: python tests/profile_quality.py
         working-directory: backend
+      - run: chown "$(id -u):$(id -g)" /github/home
       - run: python tests/browser_system.py
         working-directory: backend
 
@@ -92,6 +93,7 @@ jobs:
         if: always()
         with:
           name: phase18-quality-evidence
+          include-hidden-files: true
           path: |
             .artifacts/phase18-*.json
             frontend/test-results/results.json
