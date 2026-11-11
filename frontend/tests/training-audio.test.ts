@@ -75,7 +75,10 @@ test("a cancelled old resume cannot stop a newer training round", async () => {
   await second;
   expect(audio.active()).toBe(true);
   old.reject(new Error("Old resume cancelled"));
-  await expect(first).rejects.toThrow("Old resume cancelled");
+  await expect(first).rejects.toMatchObject({
+    message: expect.stringContaining("Audio could not start"),
+    cause: expect.objectContaining({ message: "Old resume cancelled" }),
+  });
   expect(latest.close).not.toHaveBeenCalled();
   expect(audio.active()).toBe(true);
   audio.stop();

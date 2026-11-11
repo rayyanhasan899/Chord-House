@@ -12,9 +12,10 @@ export async function resumeAudio(context: AudioContext): Promise<void> {
       }),
     ]);
     if (context.state !== "running") throw new Error("Audio did not resume");
-  } catch {
+  } catch (cause) {
     throw new Error(
       "Audio could not start. Check your audio device, then press Start to retry.",
+      { cause },
     );
   } finally {
     if (timer !== undefined) clearTimeout(timer);
