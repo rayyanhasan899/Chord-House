@@ -27,7 +27,7 @@ export class AudioTransport {
     const context = new AudioContext();
     this.context = context;
     try {
-      await context.resume();
+      await resumeAudio(context);
       if (turn !== this.version) return;
       if (context.state !== "running")
         throw new Error("Audio could not resume. Try Start again.");
@@ -91,3 +91,4 @@ export function tone(
     envelope.disconnect();
   };
 }
+import { resumeAudio } from "./resume";

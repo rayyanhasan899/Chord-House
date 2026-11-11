@@ -37,7 +37,8 @@ test("guest tuner requests only on action, detects generated reference and relea
           );
           stop();
           oscillator.stop();
-          void context.close().catch(() => {});
+          if (context !== activeContexts.at(-1))
+            void context.close().catch(() => {});
         };
         return destination.stream;
       },

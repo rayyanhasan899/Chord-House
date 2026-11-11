@@ -122,6 +122,9 @@ test("real account registration onboarding verification recovery and signout", a
   await expect(page.getByText("Email verified", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Sign out", exact: true }).click();
   await expect(page).toHaveURL(/login/);
+  await expect(
+    page.getByRole("button", { name: "Sign in", exact: true }),
+  ).toBeEnabled();
   await page.goto("/account");
   await expect(page).toHaveURL(/login/);
   await page.getByRole("link", { name: "Forgot your password?" }).click();

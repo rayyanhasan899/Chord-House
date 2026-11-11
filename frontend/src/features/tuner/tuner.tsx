@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { frequency, cents, note } from "./pitch";
 import { useReferences } from "@/features/content/references";
 import Link from "next/link";
+import { resumeAudio } from "../../lib/audio/resume";
 export function Tuner() {
   const [preset, setPreset] = useState("Guitar standard");
   const catalogue = useReferences("tuning");
@@ -12,6 +13,7 @@ export function Tuner() {
   const [instrument, setInstrument] = useState("Acoustic guitar");
   const [running, setRunning] = useState(false);
   const [pending, setPending] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [message, setMessage] = useState(
     "Choose your instrument, then start the microphone.",
   );
@@ -35,7 +37,11 @@ export function Tuner() {
     r.stream?.getTracks().forEach((t) => t.stop());
     if (r.context) {
       r.context.onstatechange = null;
-      void r.context.close().catch(() => {});
+      setClosing(true);
+      void r.context
+        .close()
+        .catch(() => {})
+        .finally(() => setClosing(false));
     }
     resources.current = {};
     setRunning(false);
@@ -74,11 +80,7 @@ export function Tuner() {
       // user input. WebKit may reject a new context created only after capture.
       const context = new AudioContext();
       resources.current.context = context;
-      try {
-        await context.resume();
-      } catch {
-        throw new Error("Audio could not start. Press Start again to retry.");
-      }
+      await resumeAudio(context);
       if (current !== version.current) return;
       if (context.state !== "running")
         throw new Error("Audio could not resume. Try Start again.");
@@ -126,6 +128,7 @@ export function Tuner() {
         setReading({ ...data, hz: smooth });
       };
       worker.onerror = () => {
+        if (current !== version.current) return;
         stop();
         setMessage(
           "Audio analysis failed. Stop and start again, or try another browser.",
@@ -139,6 +142,7 @@ export function Tuner() {
         worker.postMessage({ input, rate: context.sampleRate }, [input.buffer]);
       }, 100);
       stream.getAudioTracks()[0].onended = () => {
+        if (current !== version.current) return;
         stop();
         setMessage("Microphone disconnected. Reconnect and start again.");
       };
@@ -315,10 +319,14 @@ export function Tuner() {
       </div>
       <p role="status">{message}</p>
       <Button
-        disabled={pending || running || !pitches.length}
+        disabled={pending || closing || running || !pitches.length}
         onClick={() => void start()}
       >
-        {pending ? "Starting…" : "Start microphone"}
+        {pending
+          ? "Starting…"
+          : closing
+            ? "Releasing microphone…"
+            : "Start microphone"}
       </Button>{" "}
       <Button
         variant="outline"

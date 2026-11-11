@@ -58,6 +58,8 @@ jobs:
           --health-interval 3s --health-timeout 3s --health-retries 20
     env:
       CHORD_PYTHON: python
+      XDG_RUNTIME_DIR: /tmp/chord-quality-runtime
+      PULSE_SERVER: unix:/tmp/chord-quality-runtime/pulse/native
       CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@postgres:5432/chord_house_test
     steps:
       - uses: actions/checkout@v4
@@ -86,6 +88,16 @@ jobs:
       - run: python tests/profile_quality.py
         working-directory: backend
       - run: chown "$(id -u):$(id -g)" /github/home
+      - name: Provide a virtual audio output for native browser clocks
+        run: |
+          apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+          apt-get install -y --no-install-recommends pulseaudio pulseaudio-utils
+          mkdir -p "$XDG_RUNTIME_DIR"
+          chmod 700 "$XDG_RUNTIME_DIR"
+          pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=chord_quality rate=48000
+          pactl set-default-sink chord_quality
+          pactl info
       - run: python tests/browser_system.py
         working-directory: backend
 

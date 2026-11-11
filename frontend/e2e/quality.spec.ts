@@ -99,7 +99,8 @@ test("noisy harmonic capture stays local responsive and releases on interruption
           nodes.forEach((node) => node.stop());
           noise.stop();
           stop();
-          void context.close().catch(() => {});
+          if (context !== window.__qualityContexts.at(-1))
+            void context.close().catch(() => {});
         };
         return destination.stream;
       },

@@ -14,7 +14,7 @@ export class ChordAudio {
     const context = new AudioContext();
     this.context = context;
     try {
-      await context.resume();
+      await resumeAudio(context);
       if (turn !== this.version) return;
       const start = context.currentTime + 0.03;
       notes.forEach((midi, index) => {
@@ -46,3 +46,4 @@ export class ChordAudio {
     }
   }
 }
+import { resumeAudio } from "../../lib/audio/resume";

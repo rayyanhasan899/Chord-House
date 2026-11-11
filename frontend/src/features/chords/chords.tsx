@@ -200,7 +200,7 @@ export function Chords() {
               Report a chord problem (use its catalogue code below)
             </Link>
           )}
-          {!results.length && (
+          {catalogue.loaded && !catalogue.error && !results.length && (
             <p>
               No matching voicings for this instrument/quality. Try another
               search.
