@@ -90,7 +90,8 @@ jobs:
       - run: chown "$(id -u):$(id -g)" /github/home
       - name: Provide a virtual audio output for native browser clocks
         run: |
-          sed -i -E 's@https?://(azure.archive|archive|security).ubuntu.com/ubuntu@https://archive.ubuntu.com/ubuntu@g' /etc/apt/sources.list.d/ubuntu.sources
+          python -c "import socket; print('CI mirror DNS:', socket.getaddrinfo('mirrors.edge.kernel.org', 443))"
+          sed -i -E 's@https?://(azure.archive|archive|security).ubuntu.com/ubuntu@https://mirrors.edge.kernel.org/ubuntu@g' /etc/apt/sources.list.d/ubuntu.sources
           apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
           apt-get install -y --no-install-recommends pulseaudio pulseaudio-utils
           mkdir -p "$XDG_RUNTIME_DIR"
