@@ -98,4 +98,6 @@ A-037 (Temporary engineering exception, not owner approval): nine moderate npm d
 
 A-038 (Accepted local continuity): Phase 17 uses codex/phase-17 in .artifacts/phase17-worktree, based on completed Phase 16; original song/player edits stay outside the security review. Current preview is a separate chord-house-preview project, host 127.0.0.3:3002, API 8002, DB 5435. Earlier apps/previews and personal databases are preserved. Full C: disk/package-cache relocation and Docker runtime availability are recorded honestly in the phase report; no shared service restart is inferred as authorized.
 
+A-038 operational update: the owner explicitly replied "Restart Docker and activate the preview". A targeted Docker engine restart restored existing apps and the separate Phase 17 preview without deleting volumes or stopping Ubuntu. Real local Edge export/deletion and session-revocation checks passed; the disposable test account was deleted. The preview is running at http://127.0.0.3:3002. This operational authorization does not approve unrelated product/security exceptions.
+
 ADR-0023 and SECURITY-AND-PRIVACY.md define review/retention/provider/accessibility evidence and residual limits. No new scoped MAY rows exist. No legal compliance certification, new popular-song permission, provider approval or hardware evidence is inferred.
