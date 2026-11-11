@@ -1,5 +1,9 @@
 # Chord House
 
+Phase 17 adds [account data download, confirmed deletion and security/privacy hardening](docs/architecture/SECURITY-AND-PRIVACY.md). Sign in and open My account → Your data and account. Your existing learning tools remain available; only explicitly saved practice sessions contribute to progress.
+
+Current isolated branch: codex/phase-17 in .artifacts/phase17-worktree. From that checkout run npm ci and python scripts/dev-preview.py with Docker running; open http://127.0.0.3:3002/account and register a preview account. This new chord-house-preview database is separate from the original app and earlier Phase 16 preview. See the Phase 17 report for actual startup/check status and current workstation prerequisites.
+
 Phase 16 adds the signed-in [training hub and separate preview](docs/architecture/TRAINING.md): chord transitions/challenge, local ear training, note finder, approved-text section cues, routine suggestions, private assessments and optional visible-tab reminders. Only explicitly saved Practice sessions grant time credit. Closed-browser reminders and unlicensed song playback are not promised.
 
 Phase 16 is on `codex/phase-16` in `.artifacts/phase16-worktree` to preserve unfinished song changes in the original checkout. From that worktree run `npm ci`, then `python scripts/dev-preview.py`, and open **http://127.0.0.2:3001/training**. Register a preview account; it uses a separate persistent database. Use this hostname to keep its cookie separate from normal 127.0.0.1 usage. See ADR-0022 and the Phase 16 report.

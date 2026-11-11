@@ -38,3 +38,8 @@ Saved intervals are allocated by current account timezone in pure progress_domai
 ## Phase 15 content operations
 
 content_management owns managed_references, content_reports and content_audit; repository contracts compose existing song/pattern aggregates with new reference documents. Migration 0011 adds timestamps/actor metadata to shared aggregates and indexes/constraints/retention FKs. Managed-reference instrument cardinality/link checks run under transaction locks; archival preserves keys. Reports cascade with owners; audit actors SET NULL. ADR-0021 and ../architecture/CONTENT-OPERATIONS.md define lifecycle, provenance, API and operator setup. No private catalogue items enter management views.
+
+
+## Phase 17 security/privacy layer
+
+Security owns the PersonalExport DTO, pure JSON value conversion, ExportSource protocol, explicit SQL export repository, reauthentication coordination, body limiter and expired-security maintenance. Routes compose the repository with existing identity/password adapters; export queries use coherent owner-scoped snapshots and field allowlists. No ORM introspection dumps credentials. No schema/table change is required; head remains reviewed 0012_integration, whose existing FK cascades/SET NULL links are exercised across all private stores and shared history. Startup and 15-minute cleanup own their task lifecycle and redact failures. API transport/cache/header hardening and runtime-role checks stay in composition/infrastructure; browser auth-boundary remount/BroadcastChannel reset, account confirmation forms and POST fallback remain presentation concerns. ADR-0023 records retention, role/proxy/CSP decisions and the bounded dev audit exception.

@@ -60,3 +60,8 @@ Run `python -m app.modules.catalog.seeds` from backend after migration with CHOR
 ## Acceptance and limitations
 
 Tests exercise owner A/B reads/updates/deletes and mismatched-owner creation; valid own updates/deletes; invalid notes, missing owners, duplicate instruments/strings and invalid pitches; cascade and restrict behavior; preserved catalogue after account deletion; repeat seeds/archive handling; all preset pitches and re-entrant frequency order; migration clean upgrade/downgrade/drift; connection lifecycle. No claim of API authentication, completed account deletion workflow or user-visible note CRUD is made. Each future private resource must add equivalent isolation tests, not inherit completion from notes.
+
+
+## Phase 17 lifecycle verification
+
+No new schema is added. Account deletion is tested against every owner-linked table, routine activities, start-key tombstones, local captured mail and shared actor SET NULL links. Another account and shared references survive. Explicit export projections cover all owner-linked tables except documented internal retry keys, with activities authorized through their routine. Tests fail if a future direct owner table has no export decision. Sessions/codes/rate rows have scheduled expiration cleanup; shared content/rights/audit retain provenance with anonymous account links. Full retention/export exclusions and backup limits are in SECURITY-AND-PRIVACY.md.
