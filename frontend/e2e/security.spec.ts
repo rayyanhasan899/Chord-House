@@ -116,7 +116,9 @@ test("private export and confirmed account deletion are usable and isolated", as
     await page
       .getByRole("button", { name: "Download personal data", exact: true })
       .click();
-    await expect(page.getByRole("alert")).toContainText("current password");
+    await expect(
+      page.getByRole("alert").filter({ hasText: "current password" }),
+    ).toBeVisible();
     await page
       .getByLabel("Current password for export", { exact: true })
       .fill(password);

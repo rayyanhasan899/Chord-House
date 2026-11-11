@@ -46,7 +46,7 @@ from app.modules.practice.models import (
 from app.modules.practice.progress_models import MilestoneRecord, ReviewRecord
 from app.modules.security.domain import export_value
 from app.modules.security.maintenance import sweep
-from app.modules.security.service import RESOURCES
+from app.modules.security.repository import RESOURCES
 
 PASSWORD = "Private security browser phrase 123!"
 ORIGIN = {"Origin": "http://127.0.0.1:3000"}
@@ -198,6 +198,12 @@ def populate(db, owner, marker, song):
     with db.transaction() as s:
         s.add_all(
             [
+                TokenRecord(
+                    owner_id=owner,
+                    token_hash=uuid4().hex * 2,
+                    purpose="reset",
+                    expires_at=now + timedelta(minutes=30),
+                ),
                 NoteRecord(id=uuid4(), owner_id=owner, body=marker),
                 CustomChordRecord(
                     id=chord,
@@ -355,6 +361,20 @@ def test_full_export_ownership_confirmed_deletion_and_other_account_survival(
     db, tmp_path
 ):
     from uuid import UUID
+
+    from app.core.database import Base
+
+    owner_tables = {
+        table.name
+        for table in Base.metadata.tables.values()
+        if "owner_id" in table.c
+        and any(
+            fk.target_fullname == "accounts.id" for fk in table.c.owner_id.foreign_keys
+        )
+    }
+    assert owner_tables == {model.__tablename__ for _, model, _ in RESOURCES} | {
+        "practice_start_keys"
+    }
 
     app = create_app(
         Settings(

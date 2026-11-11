@@ -6,6 +6,7 @@ from app.modules.identity.domain import Actor
 from app.modules.identity.routes import current, service
 from app.modules.identity.schemas import SensitiveInput
 from app.modules.identity.service import IdentityService
+from app.modules.security.repository import SqlExportRepository
 from app.modules.security.schemas import PersonalExport
 from app.modules.security.service import personal_export
 
@@ -23,4 +24,10 @@ def export(
     response.headers["Content-Disposition"] = (
         'attachment; filename="chord-house-personal-data.json"'
     )
-    return personal_export(svc, actor, data.current_password, data.confirm)
+    return personal_export(
+        SqlExportRepository(svc.db),
+        svc.passwords,
+        actor.id,
+        data.current_password,
+        data.confirm,
+    )
