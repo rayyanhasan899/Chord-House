@@ -147,9 +147,6 @@ def main() -> None:
                             samples_ms=warm,
                         )
                     )
-                    assert max(samples) < 5000, (
-                        "Disposable API search exceeded 5s budget"
-                    )
                 with db.transaction() as session:
                     plan = session.execute(
                         text(
@@ -179,6 +176,10 @@ def main() -> None:
                     json.dumps(output, indent=2), encoding="utf-8"
                 )
                 print(json.dumps(measurements, indent=2))
+                assert all(
+                    max(item["samples_ms"] + [item["first_ms"]]) < 5000
+                    for item in measurements
+                ), "Disposable API search exceeded 5s budget; measurements preserved"
     finally:
         with db.transaction() as session:
             session.execute(

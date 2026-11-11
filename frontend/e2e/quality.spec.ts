@@ -267,9 +267,9 @@ test("unsupported playback explains recovery without losing controls", async ({
   await page
     .getByRole("button", { name: "Start metronome", exact: true })
     .click();
-  await expect(page.getByRole("alert")).toContainText(
-    "Web Audio is unavailable",
-  );
+  await expect(
+    page.getByRole("alert").filter({ hasText: "Web Audio" }),
+  ).toContainText("Web Audio is unavailable");
   await page.goto("/chords");
   await page.getByRole("button", { name: "Play chord", exact: true }).click();
   await expect(
@@ -319,7 +319,7 @@ test("failed save preserves input and retry persists exactly one task", async ({
     route.request().method() === "POST" ? route.abort() : route.continue(),
   );
   await page.getByRole("button", { name: "Save item", exact: true }).click();
-  await expect(page.getByRole("alert")).toBeVisible();
+  await expect(page.locator(".feedback.error")).toBeVisible();
   await expect(page.getByLabel("Title", { exact: true })).toHaveValue(title);
   await expect(
     page.getByRole("heading", { name: title, exact: true }),

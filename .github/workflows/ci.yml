@@ -39,10 +39,11 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
-        working-directory: frontend
   backend:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.65.0-noble
+      options: --ipc=host
     services:
       postgres:
         image: postgres:17.9
@@ -57,7 +58,7 @@ jobs:
           --health-interval 3s --health-timeout 3s --health-retries 20
     env:
       CHORD_PYTHON: python
-      CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@127.0.0.1:5432/chord_house_test
+      CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@postgres:5432/chord_house_test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -73,8 +74,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run contracts:check
-      - run: npx playwright install --with-deps chromium firefox webkit chrome msedge
-        working-directory: frontend
       - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py ../scripts/dev-preview.py
         working-directory: backend
       - run: python -m ruff format --config pyproject.toml --check . ../scripts/dev.py ../scripts/dev-preview.py

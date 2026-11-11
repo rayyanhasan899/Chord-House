@@ -13,16 +13,20 @@ export default defineConfig({
     { name: "chromium", use: { browserName: "chromium" } },
     { name: "firefox", use: { browserName: "firefox" } },
     { name: "webkit", use: { browserName: "webkit" } },
-    {
-      name: "chrome-stable",
-      testMatch: /quality\.spec\.ts/,
-      use: { channel: "chrome" },
-    },
-    {
-      name: "edge-stable",
-      testMatch: /quality\.spec\.ts/,
-      use: { channel: "msedge" },
-    },
+    ...(process.env.CHORD_BRANDED_BROWSERS === "1"
+      ? ([
+          {
+            name: "chrome-stable",
+            testMatch: /quality\.spec\.ts/,
+            use: { channel: "chrome" },
+          },
+          {
+            name: "edge-stable",
+            testMatch: /quality\.spec\.ts/,
+            use: { channel: "msedge" },
+          },
+        ] as const)
+      : []),
     {
       name: "mobile-chromium-emulated",
       testMatch: /quality\.spec\.ts/,
