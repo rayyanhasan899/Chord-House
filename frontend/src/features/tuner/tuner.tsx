@@ -33,7 +33,10 @@ export function Tuner() {
     if (r.timer) clearInterval(r.timer);
     r.worker?.terminate();
     r.stream?.getTracks().forEach((t) => t.stop());
-    if (r.context) void r.context.close();
+    if (r.context) {
+      r.context.onstatechange = null;
+      void r.context.close().catch(() => {});
+    }
     resources.current = {};
     setRunning(false);
     setPending(false);
@@ -46,7 +49,10 @@ export function Tuner() {
       if (r.timer) clearInterval(r.timer);
       r.worker?.terminate();
       r.stream?.getTracks().forEach((t) => t.stop());
-      if (r.context) void r.context.close();
+      if (r.context) {
+        r.context.onstatechange = null;
+        void r.context.close().catch(() => {});
+      }
     },
     [],
   );
@@ -56,7 +62,11 @@ export function Tuner() {
     setPending(true);
     setMessage("Requesting microphone permission…");
     try {
-      if (!navigator.mediaDevices?.getUserMedia || !window.AudioContext)
+      if (
+        !navigator.mediaDevices?.getUserMedia ||
+        !window.AudioContext ||
+        !window.Worker
+      )
         throw new Error(
           "This browser does not support microphone tuning. Try a current browser on HTTPS or localhost.",
         );
@@ -76,6 +86,14 @@ export function Tuner() {
       resources.current.context = context;
       await context.resume();
       if (current !== version.current) return;
+      if (context.state !== "running")
+        throw new Error("Audio could not resume. Try Start again.");
+      context.onstatechange = () => {
+        if (current === version.current && context.state !== "running") {
+          stop();
+          setMessage("Audio paused or interrupted. Press Start to resume.");
+        }
+      };
       const analyser = context.createAnalyser();
       analyser.fftSize = 8192;
       context.createMediaStreamSource(stream).connect(analyser);

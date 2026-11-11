@@ -73,7 +73,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run contracts:check
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium firefox webkit chrome msedge
         working-directory: frontend
       - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py ../scripts/dev-preview.py
         working-directory: backend
@@ -83,8 +83,21 @@ jobs:
         working-directory: backend
       - run: python -m pytest
         working-directory: backend
+      - run: python tests/profile_quality.py
+        working-directory: backend
       - run: python tests/browser_system.py
         working-directory: backend
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase18-quality-evidence
+          path: |
+            .artifacts/phase18-*.json
+            frontend/test-results/results.json
+            frontend/test-results/**/error-context.md
+            frontend/test-results/**/attachments/*.json
+          if-no-files-found: error
 
       - uses: actions/upload-artifact@v4
         if: always()
