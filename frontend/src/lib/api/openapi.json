@@ -1305,6 +1305,57 @@
         }
       }
     },
+    "/api/v1/me/export": {
+      "post": {
+        "tags": [
+          "privacy"
+        ],
+        "summary": "Export",
+        "operationId": "export_api_v1_me_export_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SensitiveInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalExport"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/integration/assessments": {
       "get": {
         "tags": [
@@ -6168,6 +6219,7 @@
         ],
         "title": "IntervalView"
       },
+      "JsonValue": {},
       "Message": {
         "properties": {
           "message": {
@@ -6440,6 +6492,56 @@
           "reviewed"
         ],
         "title": "PatternView"
+      },
+      "PersonalExport": {
+        "properties": {
+          "format": {
+            "type": "string",
+            "const": "chord-house.personal-data.v1",
+            "title": "Format",
+            "default": "chord-house.personal-data.v1"
+          },
+          "exported_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Exported At"
+          },
+          "profile": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            },
+            "type": "object",
+            "title": "Profile"
+          },
+          "records": {
+            "additionalProperties": {
+              "items": {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Records"
+          },
+          "exclusions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exclusions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "exported_at",
+          "profile",
+          "records",
+          "exclusions"
+        ],
+        "title": "PersonalExport"
       },
       "Profile": {
         "properties": {

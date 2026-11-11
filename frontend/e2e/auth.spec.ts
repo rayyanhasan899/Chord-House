@@ -145,7 +145,9 @@ test("real account registration onboarding verification recovery and signout", a
   await page.getByRole("button", { name: "Sign in", exact: true }).click();
   await expect(page).toHaveURL(/account/);
   await page.getByText("Change password", { exact: true }).click();
-  await page.getByLabel("Current password").fill(password + "reset");
+  await page
+    .getByLabel("Current password", { exact: true })
+    .fill(password + "reset");
   await page.getByLabel("New password").fill(password + "changed");
   await page
     .getByRole("button", { name: "Change password and sign out" })

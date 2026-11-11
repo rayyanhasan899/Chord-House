@@ -167,28 +167,49 @@ def test_identity_journeys(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> N
             == 422
         )
         assert first.get("/api/v1/me/" + owner).status_code == 404
-        production = create_app(
-            Settings(
-                database_url=SecretStr(url),
-                environment="production",
-                trusted_origins=["https://app.example.com"],
-                smtp_host="unused.example.com",
+        from security_support import runtime_database
+
+        with runtime_database(db) as runtime:
+            production = create_app(
+                Settings(
+                    database_url=SecretStr(
+                        runtime.engine.url.render_as_string(hide_password=False)
+                    ),
+                    environment="production",
+                    trusted_origins=["https://app.example.com"],
+                    smtp_host="unused.example.com",
+                )
             )
-        )
-        with TestClient(
-            production,
-            base_url="https://app.example.com",
-            client=("secure-cookie-test", 123),
-        ) as secure:
-            secure_login = secure.post(
-                "/api/v1/auth/login",
-                json={"email": email, "password": PASSWORD},
-                headers={"Origin": "https://app.example.com"},
-            )
-            assert (
-                secure_login.status_code == 200
-                and "Secure" in secure_login.headers["set-cookie"]
-            )
+            with TestClient(
+                production,
+                base_url="https://app.example.com",
+                client=("secure-cookie-test", 123),
+            ) as secure:
+                secure_login = secure.post(
+                    "/api/v1/auth/login",
+                    json={"email": email, "password": PASSWORD},
+                    headers={"Origin": "https://app.example.com"},
+                )
+                assert (
+                    secure_login.status_code == 200
+                    and "Secure" in secure_login.headers["set-cookie"]
+                )
+                assert secure_login.headers["set-cookie"].startswith(
+                    "__Host-chord_session="
+                )
+                assert "HttpOnly" in secure_login.headers["set-cookie"]
+                assert "SameSite=lax" in secure_login.headers["set-cookie"]
+                assert "Domain=" not in secure_login.headers["set-cookie"]
+                signed_out = secure.post(
+                    "/api/v1/auth/logout",
+                    headers={
+                        "Origin": "https://app.example.com",
+                        "X-CSRF-Token": secure_login.json()["csrf_token"],
+                    },
+                )
+                assert signed_out.status_code == 200
+                assert "Secure" in signed_out.headers["set-cookie"]
+                assert secure.get("/api/v1/me").status_code == 401
         from app.modules.personal_workspace.workspace import SongReference
 
         song_id = uuid4()

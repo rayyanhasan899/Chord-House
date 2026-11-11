@@ -229,3 +229,6 @@ Substantial popular-song content with full lyrics cannot be guaranteed at zero c
 
 
 Easiest → hardest phase order: 02, 20, 06, 03, 10, 11, 07, 16, 19, 13, 04, 01, 09, 15, 14, 12, 18, 17, 05, 08.
+
+
+Phase 17 execution refinement: ADR-0023 records personal export, confirmed deletion/cascades, security expiration cleanup, secure production host cookies/transport/limited roles, no-store/private-view isolation, and WCAG-targeted semantic/keyboard/browser checks. No scoped MAY rows. The development-only dependency exception is explicit and expiring, not a clean full-audit claim. Actual provider/TLS/backup rollout stays in 19, and live assistive/hardware evidence is not fabricated. Phase 18 is not automatically started.

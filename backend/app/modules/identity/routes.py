@@ -30,6 +30,24 @@ router = APIRouter(
 COOKIE = "chord_session"
 
 
+def cookie_name(request: Request) -> str:
+    return (
+        "__Host-chord_session"
+        if request.app.state.settings.environment == "production"
+        else COOKIE
+    )
+
+
+def clear_cookie(request: Request, response: Response) -> None:
+    response.delete_cookie(
+        cookie_name(request),
+        path="/",
+        secure=request.app.state.settings.environment == "production",
+        httponly=True,
+        samesite="lax",
+    )
+
+
 def service(request: Request) -> IdentityService:
     result: IdentityService | None = request.app.state.identity
     if result is None:
@@ -45,7 +63,7 @@ def origin(request: Request) -> None:
 def current(
     request: Request, svc: Annotated[IdentityService, Depends(service)]
 ) -> Actor:
-    actor = svc.actor(request.cookies.get(COOKIE))
+    actor = svc.actor(request.cookies.get(cookie_name(request)))
     if request.method not in ("GET", "HEAD", "OPTIONS"):
         origin(request)
         svc.throttle(
@@ -85,9 +103,11 @@ def login(
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Profile:
     guard(request, svc, str(data.email))
-    token = svc.login(str(data.email), data.password, request.cookies.get(COOKIE))
+    token = svc.login(
+        str(data.email), data.password, request.cookies.get(cookie_name(request))
+    )
     response.set_cookie(
-        COOKIE,
+        cookie_name(request),
         token,
         httponly=True,
         secure=request.app.state.settings.environment == "production",
@@ -120,24 +140,26 @@ def update(
 
 @router.post("/auth/logout", response_model=Message)
 def logout(
+    request: Request,
     response: Response,
     actor: Annotated[Actor, Depends(current)],
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
     svc.logout(actor)
-    response.delete_cookie(COOKIE, path="/")
+    clear_cookie(request, response)
     return Message(message="Signed out")
 
 
 @router.post("/auth/password", response_model=Message)
 def password(
+    request: Request,
     data: PasswordChange,
     response: Response,
     actor: Annotated[Actor, Depends(current)],
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
     svc.change_password(actor, data.current_password, data.new_password)
-    response.delete_cookie(COOKIE, path="/")
+    clear_cookie(request, response)
     return Message(message="Password changed. Sign in again.")
 
 
@@ -187,13 +209,15 @@ def verify(
 
 @router.post("/me/delete", response_model=Message)
 def remove(
+    request: Request,
     data: SensitiveInput,
     response: Response,
     actor: Annotated[Actor, Depends(current)],
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
+    svc.throttle("personal-deletion:" + str(actor.id), 5)
     svc.delete_account(actor, data.current_password, data.confirm)
-    response.delete_cookie(COOKIE, path="/")
+    clear_cookie(request, response)
     return Message(message="Account deleted")
 
 

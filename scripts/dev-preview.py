@@ -21,7 +21,7 @@ def main() -> None:
             timeout=15,
             check=True,
         )
-        if "chord-house-phase16-preview_preview_pgdata" in volumes.stdout.splitlines():
+        if "chord-house-preview_preview_pgdata" in volumes.stdout.splitlines():
             raise RuntimeError(
                 "Preview database exists. Restore its original .env.preview; "
                 "do not replace credentials or delete the volume."
@@ -58,20 +58,20 @@ def main() -> None:
         check=True,
         timeout=1200,
     )
-    print("Preview API ready: http://127.0.0.1:8001/docs", flush=True)
+    print("Preview API ready: http://127.0.0.1:8002/docs", flush=True)
     if "--backend-only" in sys.argv:
         return
     npm = shutil.which("npm")
     if npm is None:
         raise RuntimeError("Node/npm is required; run npm ci in this checkout first")
-    for host in ("127.0.0.1", "127.0.0.2"):
+    for host in ("127.0.0.1", "127.0.0.3"):
         with socket.socket() as sock:
-            if sock.connect_ex((host, 3001)) == 0:
+            if sock.connect_ex((host, 3002)) == 0:
                 raise RuntimeError(
-                    "Port 3001 is occupied; existing frontend left unchanged"
+                    "Port 3002 is occupied; existing frontend left unchanged"
                 )
     print(
-        "Open http://127.0.0.2:3001 (use 127.0.0.2 to isolate the login cookie). "
+        "Open http://127.0.0.3:3002 (use 127.0.0.3 to isolate the login cookie). "
         "Register a preview account; personal data has not been copied.",
         flush=True,
     )
@@ -85,12 +85,12 @@ def main() -> None:
             "next",
             "dev",
             "--hostname",
-            "127.0.0.2",
+            "127.0.0.3",
             "--port",
-            "3001",
+            "3002",
         ],
         cwd=root,
-        env=env | {"CHORD_API_ORIGIN": "http://127.0.0.1:8001"},
+        env=env | {"CHORD_API_ORIGIN": "http://127.0.0.1:8002"},
     )
     try:
         if child.wait() != 0:

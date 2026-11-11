@@ -31,3 +31,8 @@ Phase 14: PRA-011–018 and UNI-016–020 implemented through derived practice s
 
 
 Phase 15 implements ADM-001–012 through protected shared catalogue management, rights-gated publication/import/withdrawal, private reporting/correction and redacted audits. All scoped SHOULD behaviors selected; no scoped MAY rows. Source acquisition and professional content/translation/audio review remain separate gates; adding administration does not close the popular-song coverage gap. See PHASE-15-REPORT.md and ADR-0021.
+
+
+## Phase 17 implementation
+
+ACC-024/025/027/028, NFR-SEC-001–014, NFR-PRI-001–008 and NFR-UX-001–009 are implemented/reviewed under ADR-0023 and SECURITY-AND-PRIVACY.md. Own-data export uses password/CSRF/explicit confirmation without a new verified-email gate; deletion retains verified email and explicit destructive confirmation. All owner-linked stores and shared actor anonymization are covered. Periodic expired-code/session/mail cleanup is implemented. Production transport/cookies/limited roles, response privacy, request bounds and cross-tab private-state clearing are hardened. No new scoped MAY exists. Actual public TLS, operator/provider/backup configuration, live assistive-reader and earlier instrument hardware checks remain distinguished from tested software. One known development-only dependency advisory graph has an expiring documented exception; runtime/Python scans have no observed findings. Original uncommitted local song/player code is preserved outside this reviewed branch.

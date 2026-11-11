@@ -8,6 +8,7 @@ import { api, apiError } from "@/lib/api/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Feedback } from "@/components/ui/feedback";
+import { PrivacyControls } from "./privacy-controls";
 export function Account() {
   const hydrated = useHydrated();
   const auth = useAuth();
@@ -95,7 +96,7 @@ export function Account() {
               password.
             </p>
             <Feedback error message={message} />
-            <form onSubmit={changePassword} aria-busy={busy}>
+            <form method="post" onSubmit={changePassword} aria-busy={busy}>
               <fieldset disabled={!hydrated || busy}>
                 <label>
                   Current password
@@ -126,6 +127,7 @@ export function Account() {
           </details>
         </section>
       </div>
+      <PrivacyControls key={profile.id} />
       <section className="availability">
         <h2>What’s available today</h2>
         <p>

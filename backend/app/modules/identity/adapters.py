@@ -2,6 +2,7 @@ import json
 import secrets
 import smtplib
 import ssl
+import time
 from collections.abc import Iterator
 from contextlib import contextmanager
 from email.message import EmailMessage
@@ -84,9 +85,38 @@ class Delivery:
         else:
             folder = Path(self.config.mail_directory)
             folder.mkdir(parents=True, exist_ok=True, mode=0o700)
+            self.purge_expired()
             path = folder / (secrets.token_hex(16) + ".json")
             with path.open("x", encoding="utf-8") as target:
                 path.chmod(0o600)
                 json.dump(
                     {"recipient": recipient, "purpose": purpose, "token": token}, target
                 )
+
+    def purge_expired(self) -> int:
+        if self.config.smtp_host:
+            return 0
+        removed = 0
+        for path in Path(self.config.mail_directory).glob("*.json"):
+            if (
+                not path.is_symlink()
+                and path.is_file()
+                and path.stat().st_mtime <= time.time() - 1800
+            ):
+                path.unlink()
+                removed += 1
+        return removed
+
+    def forget(self, recipient: str) -> None:
+        if self.config.smtp_host:
+            return
+        for path in Path(self.config.mail_directory).glob("*.json"):
+            if path.is_symlink() or not path.is_file():
+                continue
+            try:
+                captured = json.loads(path.read_text(encoding="utf-8"))
+            except ValueError, UnicodeError:
+                continue
+            address = captured.get("recipient") if isinstance(captured, dict) else None
+            if isinstance(address, str) and address.casefold() == recipient.casefold():
+                path.unlink()

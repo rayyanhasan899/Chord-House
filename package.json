@@ -18,7 +18,8 @@
     "format": "prettier --write frontend scripts package.json .github",
     "format:check": "prettier --check frontend scripts package.json .github",
     "contracts:generate": "node scripts/contracts.mjs",
-    "contracts:check": "node scripts/contracts.mjs --check"
+    "contracts:check": "node scripts/contracts.mjs --check",
+    "security:audit": "node scripts/security-audit.mjs"
   },
   "devDependencies": {
     "openapi-typescript": "^7.13.0",

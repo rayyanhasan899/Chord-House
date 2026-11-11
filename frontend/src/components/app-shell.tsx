@@ -41,23 +41,82 @@ function Shell({ children }: { children: React.ReactNode }) {
           Chord House
         </Link>
         <nav aria-label="Main navigation">
-          <Link href="/tuner">Tuner</Link>
-          <Link href="/chords">Chords</Link>
-          <Link href="/metronome">Metronome</Link>
+          <Link
+            href="/tuner"
+            aria-current={path === "/tuner" ? "page" : undefined}
+          >
+            Tuner
+          </Link>
+          <Link
+            href="/chords"
+            aria-current={path === "/chords" ? "page" : undefined}
+          >
+            Chords
+          </Link>
+          <Link
+            href="/metronome"
+            aria-current={path === "/metronome" ? "page" : undefined}
+          >
+            Metronome
+          </Link>
           <Link href="/" aria-current={path === "/" ? "page" : undefined}>
             Home
           </Link>
           {auth.profile ? (
             <>
-              <Link href="/dashboard">Workspace</Link>
-              <Link href="/patterns">Patterns</Link>
-              <Link href="/songs">Songs</Link>
-              <Link href="/practice">Practice</Link>
-              <Link href="/progress">Progress</Link>
-              <Link href="/training">Training</Link>
-              <Link href="/reports">Content reports</Link>
+              <Link
+                href="/dashboard"
+                aria-current={path === "/dashboard" ? "page" : undefined}
+              >
+                Workspace
+              </Link>
+              <Link
+                href="/patterns"
+                aria-current={path === "/patterns" ? "page" : undefined}
+              >
+                Patterns
+              </Link>
+              <Link
+                href="/songs"
+                aria-current={
+                  path === "/songs" || path.startsWith("/songs/")
+                    ? "page"
+                    : undefined
+                }
+              >
+                Songs
+              </Link>
+              <Link
+                href="/practice"
+                aria-current={path === "/practice" ? "page" : undefined}
+              >
+                Practice
+              </Link>
+              <Link
+                href="/progress"
+                aria-current={path === "/progress" ? "page" : undefined}
+              >
+                Progress
+              </Link>
+              <Link
+                href="/training"
+                aria-current={path === "/training" ? "page" : undefined}
+              >
+                Training
+              </Link>
+              <Link
+                href="/reports"
+                aria-current={path === "/reports" ? "page" : undefined}
+              >
+                Content reports
+              </Link>
               {["admin", "content_manager"].includes(auth.profile.role) && (
-                <Link href="/admin">Administration</Link>
+                <Link
+                  href="/admin"
+                  aria-current={path === "/admin" ? "page" : undefined}
+                >
+                  Administration
+                </Link>
               )}
               <Link
                 href="/account"
@@ -84,12 +143,15 @@ function Shell({ children }: { children: React.ReactNode }) {
           )}
         </nav>
       </header>
-      <main id="main" className="page">
+      <main id="main" className="page" tabIndex={-1}>
         <Feedback error message={message} />
         {auth.profile && (
-          <ReminderHost key={auth.profile.id} owner={auth.profile.id} />
+          <ReminderHost
+            key={`reminders:${auth.profile.id}`}
+            owner={auth.profile.id}
+          />
         )}
-        {children}
+        <div key={`views:${auth.profile?.id || "guest"}`}>{children}</div>
       </main>
       <footer className="site-footer">
         <p>Chord House · Your home for guitar learning</p>
