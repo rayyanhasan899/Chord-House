@@ -1,4 +1,4 @@
-name: chord-house-phase16-preview
+name: chord-house-preview
 services:
   db:
     image: postgres:17.9
@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: ${CHORD_PREVIEW_PASSWORD:?Use scripts/dev-preview.py}
       POSTGRES_DB: chord_house
     ports:
-      - "127.0.0.1:5434:5432"
+      - "127.0.0.1:5435:5432"
     volumes:
       - preview_pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -21,10 +21,10 @@ services:
       dockerfile: Dockerfile.preview
     environment:
       CHORD_DATABASE_URL: postgresql+psycopg://chord_house:${CHORD_PREVIEW_PASSWORD}@db:5432/chord_house
-      CHORD_TRUSTED_ORIGINS: '["http://127.0.0.2:3001"]'
+      CHORD_TRUSTED_ORIGINS: '["http://127.0.0.3:3002"]'
       CHORD_MAIL_DIRECTORY: /app/.local-mail
     ports:
-      - "127.0.0.1:8001:8000"
+      - "127.0.0.1:8002:8000"
     volumes:
       - preview_mail:/app/.local-mail
     depends_on:

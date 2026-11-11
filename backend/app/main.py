@@ -57,6 +57,10 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                     )
 
         try:
+            if config.environment == "production" and config.database_url_unpooled:
+                raise RuntimeError(
+                    "Do not supply migration credentials to the production API"
+                )
             if database and config.environment == "production":
                 database.require_runtime_privileges()
             if database:

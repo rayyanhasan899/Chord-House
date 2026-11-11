@@ -70,6 +70,21 @@ def test_origins_reject_wildcards_paths_and_credentials(origin):
 
 
 def test_transport_headers_body_limit_and_cors():
+    with pytest.raises(RuntimeError, match="migration credentials"):
+        with TestClient(
+            create_app(
+                Settings(
+                    database_url=None,
+                    database_url_unpooled=SecretStr(
+                        "postgresql+psycopg://migration:placeholder@localhost/database"
+                    ),
+                    environment="production",
+                    smtp_host="mail.example.com",
+                    trusted_origins=["https://app.example.com"],
+                )
+            )
+        ):
+            pass
     app = create_app(
         Settings(
             environment="production",
