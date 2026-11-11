@@ -194,6 +194,22 @@ def test_identity_journeys(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> N
                     secure_login.status_code == 200
                     and "Secure" in secure_login.headers["set-cookie"]
                 )
+                assert secure_login.headers["set-cookie"].startswith(
+                    "__Host-chord_session="
+                )
+                assert "HttpOnly" in secure_login.headers["set-cookie"]
+                assert "SameSite=lax" in secure_login.headers["set-cookie"]
+                assert "Domain=" not in secure_login.headers["set-cookie"]
+                signed_out = secure.post(
+                    "/api/v1/auth/logout",
+                    headers={
+                        "Origin": "https://app.example.com",
+                        "X-CSRF-Token": secure_login.json()["csrf_token"],
+                    },
+                )
+                assert signed_out.status_code == 200
+                assert "Secure" in signed_out.headers["set-cookie"]
+                assert secure.get("/api/v1/me").status_code == 401
         from app.modules.personal_workspace.workspace import SongReference
 
         song_id = uuid4()

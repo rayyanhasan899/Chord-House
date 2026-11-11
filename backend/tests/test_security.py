@@ -90,6 +90,13 @@ def test_transport_headers_body_limit_and_cors():
         assert (
             client.get("http://app.example.com/api/v1/health/live").status_code == 400
         )
+        assert (
+            client.get(
+                "http://app.example.com/api/v1/health/live",
+                headers={"X-Forwarded-Proto": "https"},
+            ).status_code
+            == 400
+        )
         assert client.get("/docs").status_code == 404
         assert (
             client.options(

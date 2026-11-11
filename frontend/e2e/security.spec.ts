@@ -268,6 +268,7 @@ test("keyboard text alternatives, reduced motion, permissions and response harde
     ).toEqual([]);
     const heading = await page.locator("h1").innerText();
     expect(heading.length).toBeGreaterThan(2);
+    expect(await page.locator("#main").ariaSnapshot()).toContain(heading);
   }
   await page.goto("/tuner");
   await expect(
