@@ -330,6 +330,7 @@ def test_song_api_search_import_rights_and_private_saves(
                 )
             )
             assert {e.action for e in events} == {
+                "local-assets-import",
                 "withdraw:metadata",
                 "withdraw:arrangement",
                 "withdraw:text",

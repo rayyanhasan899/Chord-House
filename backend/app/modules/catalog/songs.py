@@ -143,14 +143,17 @@ class Songs:
         self.db = db
         self.local_root = local_root
 
-    def local_assets(self, identifier: UUID) -> tuple[bool, bool]:
+    def local_assets(
+        self, identifier: UUID, files: dict[str, dict[str, str | int]] | None = None
+    ) -> tuple[bool, bool]:
         if self.local_root is None:
             return False, False
-        with self.db.transaction() as session:
-            binding = session.get(SongAssetRecord, identifier)
-            if binding is None or binding.source_kind != "local":
-                return False, False
-            files = dict(binding.files)
+        if files is None:
+            with self.db.transaction() as session:
+                binding = session.get(SongAssetRecord, identifier)
+                if binding is None or binding.source_kind != "local":
+                    return False, False
+                files = dict(binding.files)
         storage = LocalSongStorage(self.local_root)
         available = []
         for name in ("audio.mp3", "lyrics.txt"):
@@ -185,7 +188,15 @@ class Songs:
         limit: int,
     ) -> SongPage:
         with self.db.transaction() as session:
-            query = select(SongRecord).where(SongRecord.status == "published")
+            query = (
+                select(SongRecord, SongAssetRecord.files)
+                .outerjoin(
+                    SongAssetRecord,
+                    (SongAssetRecord.song_id == SongRecord.id)
+                    & (SongAssetRecord.source_kind == "local"),
+                )
+                .where(SongRecord.status == "published")
+            )
             if q.strip():
                 query = query.where(
                     SongRecord.search_text.contains(normalize(q), autoescape=True)
@@ -194,13 +205,13 @@ class Songs:
                 query = query.where(SongRecord.language == language)
             total = 0
             items: list[SongSummary] = []
-            for row in session.scalars(
+            for row, asset_files in session.execute(
                 query.order_by(SongRecord.identity_key).execution_options(yield_per=100)
             ):
                 # Listings do not need lyric lines, bars or placement copies. Keep
                 # live grant/withdrawal checks without validating every score again.
                 data = ListingDocument.model_validate(row.document)
-                audio, local_lyrics = self.local_assets(row.id)
+                audio, local_lyrics = self.local_assets(row.id, asset_files or {})
                 if self.local_root is not None and not audio and not local_lyrics:
                     continue
                 if (
