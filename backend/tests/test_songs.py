@@ -73,13 +73,34 @@ def test_song_api_search_import_rights_and_private_saves(
         pytest.skip("Requires disposable PostgreSQL")
     monkeypatch.setenv("CHORD_DATABASE_URL", url)
     command.upgrade(Config(str(Path(__file__).parents[1] / "alembic.ini")), "head")
+    # This test exercises rights/import behavior with an explicitly supplied
+    # folder fixture for each bundled identity, independent of personal files.
+    from app.modules.catalog.local_songs import LANGUAGES
+
+    songs_root = tmp_path / "songs"
+    for filename in ("popular-songs.json", "original-songs.json"):
+        rows = json.loads(
+            files("app.modules.catalog")
+            .joinpath("data", filename)
+            .read_text(encoding="utf-8")
+        )
+        for row in rows:
+            folder = songs_root / LANGUAGES[row["language"]] / row["title"]
+            folder.mkdir(parents=True, exist_ok=True)
+            (folder / "audio.mp3").write_bytes(b"ID3test-fixture")
     db = Database(url)
+    from app.modules.catalog.local_catalog import sync_local_catalog
+
+    with db.transaction() as session:
+        seed_songs(session)
+    sync_local_catalog(db, songs_root)
     app = create_app(
         Settings(
             database_url=SecretStr(url),
             environment="test",
             auth_limit=200,
             mail_directory=str(tmp_path),
+            songs_directory=str(songs_root),
         )
     )
     with (
@@ -200,6 +221,10 @@ def test_song_api_search_import_rights_and_private_saves(
             )
             assert sorted(e.action for e in events) == ["publish", "stage"]
             assert all(e.actor_id == manager_id for e in events)
+        folder = songs_root / LANGUAGES[item["language"]] / item["title"]
+        folder.mkdir(parents=True)
+        (folder / "audio.mp3").write_bytes(b"ID3test-fixture")
+        sync_local_catalog(db, songs_root)
         song = owner.get("/api/v1/songs", params={"q": item["title"]}).json()["items"][
             0
         ]

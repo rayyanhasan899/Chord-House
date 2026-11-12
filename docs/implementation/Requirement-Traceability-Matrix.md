@@ -505,3 +505,23 @@ Phase 16 selection: all assigned SHOULD/MUST behavior is implemented with the do
 Phase 17 implements/reviews ACC-024/025/027/028, SEC-001–014, PRI-001–008 and UX-001–009 under ADR-0023. No scoped MAY rows exist. Exact passing commands, failed attempts/remediation and unavailable prerequisites are in PHASE-17-REPORT.md. This review applies to the Phase 17 branch, excluding original uncommitted song/player work. Public TLS, providers/backups, live assistive technology and tuner hardware remain explicitly distinguished from automated/config evidence.
 
 Phase 18 final gate: 80/86 browser checks pass; six Firefox/WebKit cases remain unresolved. Implementation is delivered but Phase 18 is not complete; see PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
+
+
+## 12 November 2026 — shared library change requirements
+
+Original 450 SRS rows remain unchanged. These additions are accepted requirements with planned work; this planning revision does not assert implementation or verification. See [baseline](OWNER-SONG-LIBRARY-BASELINE.md) and [storage plan](SONG-LIBRARY-STORAGE-PLAN.md).
+
+| ID | Requirement | Planned phase evidence | Status |
+| --- | --- | --- | --- |
+| CHG-SONG-001 | Open registration; shared song read/play for all signed-in users; guests denied | 18 baseline/auth tests; 19 hosted checks; 20 audit | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-002 | Operator/manager-only shared asset changes; personal records remain private | 18 authorization; 19 ingestion; 20 audit | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-003 | Preserve language folders and audio-only/text-only/both-file discovery | 18 local import; 19 cloud sync; 20 new-song walkthrough | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-004 | Exact lyric format and safe English/Urdu/Hindi/Roman text presentation | 18 byte/layout tests; 19 round trip; 20 acceptance | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-005 | Existing music-player controls, design and lifecycle parity | 18 browser tests; 19 remote-media tests; 20 acceptance | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-006 | Stable identities, revisions and private references across rename/replacement | 18 mapping design/local tests; 19 migration; 20 restore audit | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-007 | Local/online storage adapters, protected range streaming and correct availability | 18 contract/local adapter; 19 live cloud adapter; 20 portability | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-008 | Idempotent, validated, incremental folder-to-cloud imports | 18 manifest/validation; 19 real sync; 20 operator walkthrough | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-009 | Verified upload-copy, explicit cutover and rollback without deleting source files | 19 implementation/rehearsal; 20 acceptance | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-010 | Truthful rights/source status, protected credentials and free-tier budgets | 18 source review; 19 provider/publishing checks; 20 release gate | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-011 | Matched metadata/media backups and tested restore/deletion behavior | 19 rehearsal; 20 independent acceptance | Accepted; implementation/verification pending revised phases |
+| CHG-SONG-012 | Simple documented add/replace/remove song workflow and honest release status | 18 instructions; 19 actual commands; 20 user/admin handover | Accepted; implementation/verification pending revised phases |

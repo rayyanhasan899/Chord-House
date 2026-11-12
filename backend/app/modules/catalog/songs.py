@@ -1,6 +1,7 @@
 import hashlib
 import json
 from datetime import UTC, datetime
+from pathlib import Path
 from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
 
 from sqlalchemy import DateTime, ForeignKey, String, Text, func, select
@@ -9,6 +10,8 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base, Database
+from app.modules.catalog.asset_models import SongAssetRecord
+from app.modules.catalog.local_storage import LocalSongStorage
 from app.modules.catalog.patterns import Patterns
 from app.modules.catalog.song_domain import normalize, publishable
 from app.modules.catalog.song_schemas import (
@@ -136,8 +139,38 @@ def detail(row: SongRecord) -> SongDetail | None:
 
 
 class Songs:
-    def __init__(self, db: Database):
+    def __init__(self, db: Database, local_root: Path | None = None):
         self.db = db
+        self.local_root = local_root
+
+    def local_assets(self, identifier: UUID) -> tuple[bool, bool]:
+        if self.local_root is None:
+            return False, False
+        with self.db.transaction() as session:
+            binding = session.get(SongAssetRecord, identifier)
+            if binding is None or binding.source_kind != "local":
+                return False, False
+            files = dict(binding.files)
+        storage = LocalSongStorage(self.local_root)
+        available = []
+        for name in ("audio.mp3", "lyrics.txt"):
+            expected = files.get(name)
+            asset = storage.describe(str(expected["key"])) if expected else None
+            available.append(
+                bool(asset and expected and asset.sha256 == expected["sha256"])
+            )
+        return available[0], available[1]
+
+    def visible_detail(self, row: SongRecord) -> SongDetail | None:
+        song = detail(row)
+        if song is None or self.local_root is None:
+            return song
+        audio, lyrics = self.local_assets(row.id)
+        if not audio and not lyrics:
+            return None
+        return song.model_copy(
+            update={"audio_available": audio, "local_lyrics_available": lyrics}
+        )
 
     def list(
         self,
@@ -167,6 +200,9 @@ class Songs:
                 # Listings do not need lyric lines, bars or placement copies. Keep
                 # live grant/withdrawal checks without validating every score again.
                 data = ListingDocument.model_validate(row.document)
+                audio, local_lyrics = self.local_assets(row.id)
+                if self.local_root is not None and not audio and not local_lyrics:
+                    continue
                 if (
                     not approved(data.metadata_grant)
                     or normalize(artist) not in normalize(data.artist)
@@ -194,6 +230,7 @@ class Songs:
                     and not arrangements
                     or availability == "lyrics"
                     and not texts
+                    and not local_lyrics
                 ):
                     continue
                 if offset <= total < offset + limit:
@@ -206,6 +243,8 @@ class Songs:
                             aliases=data.aliases,
                             genre=data.genre,
                             version_note=data.version_note,
+                            audio_available=audio,
+                            local_lyrics_available=local_lyrics,
                             arrangement_count=len(arrangements),
                             text_count=len(texts),
                         )
@@ -216,7 +255,7 @@ class Songs:
     def get(self, identifier: UUID) -> SongDetail:
         with self.db.transaction() as session:
             row = session.get(SongRecord, identifier)
-            song = detail(row) if row else None
+            song = self.visible_detail(row) if row else None
             if song is None:
                 raise IdentityError(404, "not_found", "Song is not available")
             return song

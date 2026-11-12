@@ -25,6 +25,27 @@ def run_browser(env: dict[str, str]) -> int:
     with tempfile.TemporaryDirectory(prefix="chord-house-mail-") as folder:
         child_env["CHORD_MAIL_DIRECTORY"] = folder
         child_env["CHORD_E2E_MAIL_DIR"] = folder
+        import json
+        from importlib.resources import files
+
+        from song_fixtures import silent_mp3
+
+        from app.modules.catalog.local_songs import LANGUAGES
+
+        songs_root = Path(folder) / "songs"
+        for filename in ("popular-songs.json", "original-songs.json"):
+            for row in json.loads(
+                files("app.modules.catalog")
+                .joinpath("data", filename)
+                .read_text(encoding="utf-8")
+            ):
+                target = songs_root / LANGUAGES[row["language"]] / row["title"]
+                target.mkdir(parents=True, exist_ok=True)
+                (target / "audio.mp3").write_bytes(silent_mp3())
+                (target / "lyrics.txt").write_bytes(
+                    b"Capo 2\r\n\r\n  C\tG\r\nOriginal practice text\r\n"
+                )
+        child_env["CHORD_SONGS_DIRECTORY"] = str(songs_root)
         child_env.pop("CHORD_SMTP_HOST", None)
         child_env.pop("CHORD_DATABASE_URL_UNPOOLED", None)
         subprocess.run(
@@ -32,6 +53,20 @@ def run_browser(env: dict[str, str]) -> int:
             cwd=root / "backend",
             env=child_env,
             check=True,
+        )
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "app.modules.catalog.local_catalog",
+                "sync",
+                "--root",
+                str(songs_root),
+            ],
+            cwd=root / "backend",
+            env=child_env,
+            check=True,
+            stdout=subprocess.DEVNULL,
         )
         server = subprocess.Popen(
             [
@@ -63,9 +98,12 @@ def run_browser(env: dict[str, str]) -> int:
                     time.sleep(0.5)
             else:
                 raise RuntimeError("Test API did not become ready")
-            subprocess.run([npm, "run", "build"], cwd=root, env=child_env, check=True)
+            if env.get("CHORD_E2E_SKIP_BUILD") != "1":
+                subprocess.run(
+                    [npm, "run", "build"], cwd=root, env=child_env, check=True
+                )
             return subprocess.run(
-                [npm, "run", "test:e2e"], cwd=root, env=child_env
+                [npm, "run", "test:e2e", "--", *sys.argv[1:]], cwd=root, env=child_env
             ).returncode
         finally:
             server.terminate()

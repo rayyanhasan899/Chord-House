@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Feedback } from "@/components/ui/feedback";
 import { Diagram } from "@/features/chords/diagram";
 import { search } from "@/features/chords/music";
+import { SongPlayer } from "./song-player";
 import { transposeChord, capoAdvice } from "./music";
 const originLabels = {
   application: "Original Chord House content",
@@ -17,6 +18,11 @@ type Song = components["schemas"]["SongDetail"];
 type Item = components["schemas"]["WorkspaceView"];
 type ItemInput = components["schemas"]["WorkspaceInput"];
 export function SongDetail({ id }: { id: string }) {
+  const [local, setLocal] = useState<{
+    lyrics: string | null;
+    audio_url: string | null;
+  } | null>(null);
+  const [localError, setLocalError] = useState("");
   const [song, setSong] = useState<Song | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -58,6 +64,23 @@ export function SongDetail({ id }: { id: string }) {
   useEffect(() => {
     let active = true;
     const refresh = () => {
+      fetch(`/api/v1/songs/${id}/local-files`, { cache: "no-store" })
+        .then(async (r) => {
+          if (!r.ok) throw new Error();
+          return r.json();
+        })
+        .then((data) => {
+          if (active) {
+            setLocal(data);
+            setLocalError("");
+          }
+        })
+        .catch(() => {
+          if (active)
+            setLocalError(
+              "Local song files could not be loaded. Refresh to retry.",
+            );
+        });
       loadSong()
         .then((s) => {
           if (active) {
@@ -83,7 +106,7 @@ export function SongDetail({ id }: { id: string }) {
       clearInterval(timer);
       window.removeEventListener("focus", focus);
     };
-  }, [loadSong]);
+  }, [loadSong, id]);
   useEffect(() => {
     let active = true;
     loadPersonal()
@@ -251,7 +274,8 @@ export function SongDetail({ id }: { id: string }) {
       <p className="lede">{song.artist}</p>
       {song.version_note && <p>Recording context: {song.version_note}</p>}
       {!simple && (
-        <>
+        <details className="song-source-details">
+          <summary>Song details & sources</summary>
           <p>
             {song.genre || "Genre unassigned"} ·{" "}
             {song.aliases.length
@@ -263,15 +287,19 @@ export function SongDetail({ id }: { id: string }) {
             <p>
               {song.metadata_grant.attribution} · {song.metadata_grant.license}
             </p>
-            <a
-              href={song.metadata_grant.source_url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              View metadata source
-            </a>
+            {song.metadata_grant.origin === "user_submission" ? (
+              <p>Added from your local song folder.</p>
+            ) : (
+              <a
+                href={song.metadata_grant.source_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View metadata source
+              </a>
+            )}
           </details>
-        </>
+        </details>
       )}
       <label className="checkbox">
         <input
@@ -291,169 +319,190 @@ export function SongDetail({ id }: { id: string }) {
           onChange={(e) => setSize(Number(e.target.value))}
         />
       </label>
-      <p className="hint">
-        Metadata: {song.metadata_grant.attribution} ·{" "}
-        {originLabels[song.metadata_grant.origin]}
-      </p>
-      <section aria-label="Song arrangement">
-        <h2>Chords & arrangement</h2>
-        {!arrangement ? (
-          <p>
-            No approved arrangement is available. No capo specified. Difficulty,
-            tuning, instrument and chord/capo information have not been invented
-            for this entry.
-          </p>
-        ) : (
-          <>
-            <label>
-              Choose arrangement
-              <select
-                value={arrangementIndex}
-                onChange={(e) => {
-                  setArrangementIndex(Number(e.target.value));
-                  setOffset(0);
-                }}
-              >
-                {song.arrangements.map((a, i) => (
-                  <option value={i} key={a.key}>
-                    {a.name} · {a.instrument}
-                  </option>
-                ))}
-              </select>
-            </label>
+
+      <Feedback error message={localError} />
+      {local?.audio_url && (
+        <SongPlayer
+          key={local.audio_url}
+          src={local.audio_url}
+          title={song.title}
+          artist={song.artist}
+        />
+      )}
+      {arrangement && (
+        <section aria-label="Song arrangement">
+          <h2>Chords & arrangement</h2>
+          {!arrangement ? (
             <p>
-              {arrangement.instrument} · {arrangement.tuning} tuning ·{" "}
-              {arrangement.difficulty} ·{" "}
-              {arrangement.capo == null
-                ? "No capo specified"
-                : `Source capo: ${arrangement.capo}`}{" "}
-              ·{" "}
-              {arrangement.key_note
-                ? `Source key: ${arrangement.key_note}`
-                : "Source key unspecified"}
+              No approved arrangement is available. No capo specified.
+              Difficulty, tuning, instrument and chord/capo information have not
+              been invented for this entry.
             </p>
-            <p>{arrangement.guidance}</p>
-            <label>
-              Transpose semitones
-              <select
-                disabled={!transposeAllowed}
-                value={shift}
-                onChange={(e) => setOffset(Number(e.target.value))}
-              >
-                {Array.from({ length: 25 }, (_, i) => i - 12).map((n) => (
-                  <option key={n} value={n}>
-                    {n > 0 ? "+" : ""}
-                    {n}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Accidental preference
-              <select
-                value={flats ? "flat" : "sharp"}
-                onChange={(e) => setFlats(e.target.value === "flat")}
-              >
-                <option value="sharp">Sharps</option>
-                <option value="flat">Flats</option>
-              </select>
-            </label>
-            <p>
-              Transpose offset: {shift > 0 ? "+" : ""}
-              {shift} semitones.{" "}
-              {transposeAllowed
-                ? "The stored arrangement is unchanged."
-                : "The grant does not permit transposition."}
-            </p>
-            <Button variant="outline" onClick={() => setOffset(0)}>
-              Reset original key
-            </Button>
-            <p>
-              {capoAdvice(
-                arrangement.instrument,
-                arrangement.tuning,
-                arrangement.capo,
-                arrangement.key_note,
-                shift,
+          ) : (
+            <>
+              <label>
+                Choose arrangement
+                <select
+                  value={arrangementIndex}
+                  onChange={(e) => {
+                    setArrangementIndex(Number(e.target.value));
+                    setOffset(0);
+                  }}
+                >
+                  {song.arrangements.map((a, i) => (
+                    <option value={i} key={a.key}>
+                      {a.name} · {a.instrument}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <p>
+                {arrangement.instrument} · {arrangement.tuning} tuning ·{" "}
+                {arrangement.difficulty} ·{" "}
+                {arrangement.capo == null
+                  ? "No capo specified"
+                  : `Source capo: ${arrangement.capo}`}{" "}
+                ·{" "}
+                {arrangement.key_note
+                  ? `Source key: ${arrangement.key_note}`
+                  : "Source key unspecified"}
+              </p>
+              <p>{arrangement.guidance}</p>
+              <label>
+                Transpose semitones
+                <select
+                  disabled={!transposeAllowed}
+                  value={shift}
+                  onChange={(e) => setOffset(Number(e.target.value))}
+                >
+                  {Array.from({ length: 25 }, (_, i) => i - 12).map((n) => (
+                    <option key={n} value={n}>
+                      {n > 0 ? "+" : ""}
+                      {n}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Accidental preference
+                <select
+                  value={flats ? "flat" : "sharp"}
+                  onChange={(e) => setFlats(e.target.value === "flat")}
+                >
+                  <option value="sharp">Sharps</option>
+                  <option value="flat">Flats</option>
+                </select>
+              </label>
+              <p>
+                Transpose offset: {shift > 0 ? "+" : ""}
+                {shift} semitones.{" "}
+                {transposeAllowed
+                  ? "The stored arrangement is unchanged."
+                  : "The grant does not permit transposition."}
+              </p>
+              <Button variant="outline" onClick={() => setOffset(0)}>
+                Reset original key
+              </Button>
+              <p>
+                {capoAdvice(
+                  arrangement.instrument,
+                  arrangement.tuning,
+                  arrangement.capo,
+                  arrangement.key_note,
+                  shift,
+                )}
+              </p>
+              <div className="song-chords">
+                {arrangement.chords.map((c, i) => {
+                  const name = chordName(c);
+                  const root = name.split("/")[0];
+                  const voicing =
+                    arrangement.tuning === "standard" ||
+                    arrangement.tuning === "reentrant"
+                      ? search(root, arrangement.instrument, "").find(
+                          (v) =>
+                            transposeChord(
+                              v.name.replaceAll(" ", ""),
+                              0,
+                              flats,
+                            ) === root,
+                        )
+                      : undefined;
+                  return (
+                    <section key={`${c}-${i}`}>
+                      <h3>{name}</h3>
+                      {voicing ? (
+                        <Diagram
+                          name={name}
+                          frets={voicing.frets}
+                          fingers={voicing.fingers}
+                          instrument={arrangement.instrument}
+                        />
+                      ) : (
+                        <p>
+                          No compatible diagram available. See{" "}
+                          <Link href="/chords">chord builder</Link>.
+                        </p>
+                      )}
+                      {name.includes("/") && (
+                        <p>
+                          Diagram shows the root chord; bass note{" "}
+                          {name.split("/")[1]} needs a suitable inversion.
+                        </p>
+                      )}
+                    </section>
+                  );
+                })}
+              </div>
+              {arrangement.pattern_id && patterns[arrangement.pattern_id] && (
+                <p>
+                  Practice suggestion:{" "}
+                  <Link href="/patterns">
+                    {patterns[arrangement.pattern_id]}
+                  </Link>
+                  . Start slowly and adapt only after checking the song’s meter.
+                </p>
               )}
-            </p>
-            <div className="song-chords">
-              {arrangement.chords.map((c, i) => {
-                const name = chordName(c);
-                const root = name.split("/")[0];
-                const voicing =
-                  arrangement.tuning === "standard" ||
-                  arrangement.tuning === "reentrant"
-                    ? search(root, arrangement.instrument, "").find(
-                        (v) =>
-                          transposeChord(
-                            v.name.replaceAll(" ", ""),
-                            0,
-                            flats,
-                          ) === root,
-                      )
-                    : undefined;
-                return (
-                  <section key={`${c}-${i}`}>
-                    <h3>{name}</h3>
-                    {voicing ? (
-                      <Diagram
-                        name={name}
-                        frets={voicing.frets}
-                        fingers={voicing.fingers}
-                        instrument={arrangement.instrument}
-                      />
-                    ) : (
-                      <p>
-                        No compatible diagram available. See{" "}
-                        <Link href="/chords">chord builder</Link>.
-                      </p>
-                    )}
-                    {name.includes("/") && (
-                      <p>
-                        Diagram shows the root chord; bass note{" "}
-                        {name.split("/")[1]} needs a suitable inversion.
-                      </p>
-                    )}
-                  </section>
-                );
-              })}
-            </div>
-            {arrangement.pattern_id && patterns[arrangement.pattern_id] && (
-              <p>
-                Practice suggestion:{" "}
-                <Link href="/patterns">{patterns[arrangement.pattern_id]}</Link>
-                . Start slowly and adapt only after checking the song’s meter.
+              <p className="hint">
+                Arrangement: {arrangement.grant.attribution} ·{" "}
+                {originLabels[arrangement.grant.origin]}
               </p>
-            )}
-            <p className="hint">
-              Arrangement: {arrangement.grant.attribution} ·{" "}
-              {originLabels[arrangement.grant.origin]}
-            </p>
-            <details>
-              <summary>Arrangement provenance</summary>
-              <p>
-                {arrangement.grant.attribution} · {arrangement.grant.license}
-              </p>
-              <a
-                href={arrangement.grant.source_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Arrangement source
-              </a>
-            </details>
-          </>
-        )}
-      </section>
-      <section aria-label="Song text">
-        <h2>Lyrics & text variants</h2>
-        {!text ? (
+              <details>
+                <summary>Arrangement provenance</summary>
+                <p>
+                  {arrangement.grant.attribution} · {arrangement.grant.license}
+                </p>
+                <a
+                  href={arrangement.grant.source_url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Arrangement source
+                </a>
+              </details>
+            </>
+          )}
+        </section>
+      )}
+      <section className="song-lyrics-panel" aria-label="Song text">
+        <p className="eyebrow">FOLLOW ALONG</p>
+        <h2>Lyrics & chord notes</h2>
+        {local?.lyrics ? (
+          <div
+            className="local-song-lyrics"
+            lang={song.language}
+            dir="auto"
+            style={{
+              fontSize: size,
+              whiteSpace: "pre-wrap",
+              overflowWrap: "anywhere",
+            }}
+          >
+            {local.lyrics}
+          </div>
+        ) : !text ? (
           <>
-            <p>
-              Full lyrics are unavailable because no display permission has been
-              verified. Roman Urdu/Hindi lyrics need permission too.
-            </p>
+            <p>No lyrics file has been added for this recording yet.</p>
             {song.lyrics_url && (
               <a href={song.lyrics_url} target="_blank" rel="noreferrer">
                 Open authorized lyrics source

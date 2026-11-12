@@ -572,6 +572,41 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/songs/{identifier}/local-files": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Local Files */
+        get: operations["local_files_api_v1_songs__identifier__local_files_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/songs/{identifier}/audio": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Local Audio */
+        get: operations["local_audio_api_v1_songs__identifier__audio_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        /** Local Audio */
+        head: operations["local_audio_api_v1_songs__identifier__audio_head"];
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/practice/current": {
         parameters: {
             query?: never;
@@ -1463,6 +1498,13 @@ export interface components {
             end: string;
         };
         JsonValue: unknown;
+        /** LocalSongFiles */
+        LocalSongFiles: {
+            /** Lyrics */
+            lyrics: string | null;
+            /** Audio Url */
+            audio_url: string | null;
+        };
         /** Message */
         Message: {
             /** Message */
@@ -2214,6 +2256,16 @@ export interface components {
              * @default
              */
             version_note: string;
+            /**
+             * Audio Available
+             * @default false
+             */
+            audio_available: boolean;
+            /**
+             * Local Lyrics Available
+             * @default false
+             */
+            local_lyrics_available: boolean;
             /** Arrangement Count */
             arrangement_count: number;
             /** Text Count */
@@ -2296,6 +2348,16 @@ export interface components {
              * @default
              */
             version_note: string;
+            /**
+             * Audio Available
+             * @default false
+             */
+            audio_available: boolean;
+            /**
+             * Local Lyrics Available
+             * @default false
+             */
+            local_lyrics_available: boolean;
             /** Arrangement Count */
             arrangement_count: number;
             /** Text Count */
@@ -4931,6 +4993,122 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    local_files_api_v1_songs__identifier__local_files_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LocalSongFiles"];
+                };
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    local_audio_api_v1_songs__identifier__audio_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Unprocessable Content */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Internal Server Error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+        };
+    };
+    local_audio_api_v1_songs__identifier__audio_head: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };

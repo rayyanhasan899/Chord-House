@@ -26,7 +26,8 @@ export class BeatTimeline {
       this.resynced = true;
     }
     const result: Tick[] = [];
-    while (this.next < now + 0.15) {
+    // Buffer brief foreground scheduling stalls without changing the audio clock.
+    while (this.next < now + 0.3) {
       result.push({
         time: this.next,
         beat: this.index % (beats * subdivision),

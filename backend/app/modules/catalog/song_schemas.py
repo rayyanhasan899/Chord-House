@@ -170,6 +170,8 @@ class SongSummary(BaseModel):
     aliases: list[str]
     genre: str | None
     version_note: str = ""
+    audio_available: bool = False
+    local_lyrics_available: bool = False
     arrangement_count: int
     text_count: int
 

@@ -1,5 +1,6 @@
 """Explicit metadata registration for migration composition, not domain imports."""
 
+from app.modules.catalog.asset_models import SongAssetRecord
 from app.modules.catalog.custom_chords import CustomChordRecord
 from app.modules.catalog.models import (
     InstrumentRecord,
@@ -36,6 +37,7 @@ from app.modules.practice.models import (
 from app.modules.practice.progress_models import MilestoneRecord, ReviewRecord
 
 __all__ = [
+    "SongAssetRecord",
     "AssessmentRecord",
     "ReminderRecord",
     "ReminderDeliveryRecord",

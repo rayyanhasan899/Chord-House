@@ -40,3 +40,10 @@ ACC-024/025/027/028, NFR-SEC-001–014, NFR-PRI-001–008 and NFR-UX-001–009 a
 ## Phase 18 quality qualification
 
 Execute all 42 assigned PER/REL/COMP/TST rows with exact measured evidence and explicit device gaps (ADR-0024). Existing unit/domain/ownership/API/migration/contract coverage is retained; complete journeys run in three engines, focused mobile emulation and installed-browser checks are distinguished from physical hardware. Profile a disposable 5,000-record catalog with live content rights and no private caching; test failed-save draft recovery, generated noisy/low-bass signals, 30-minute simulation and native scheduling/cleanup. REL-003 is conditional on the Phase 19 hosting/backup choice; physical output/microphone/Safari/mobile observations remain separate. Catalog content coverage/rights do not increase through test fixtures. Original uncommitted song work is outside this branch's verification. Exact results and residual limitations belong in PHASE-18-REPORT.md.
+
+
+## 12 November 2026 — accepted song library amendment
+
+Accepted: open registration; all signed-in users share the ready-to-play library; guests cannot read/play songs. Operators manage shared assets; user-specific information stays private. Preserve current audio player and exact English/Urdu/Hindi/Roman lyrics, with language/title folders containing audio.mp3 and/or lyrics.txt. Existing minimal folders remain sufficient. Substantial expandable coverage remains a product priority; possession does not prove distribution rights. The added twelve CHG-SONG requirements supplement the original 450. Planning is not implementation evidence.
+
+Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.

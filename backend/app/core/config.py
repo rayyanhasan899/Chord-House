@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Literal
 from urllib.parse import urlsplit
 
@@ -21,6 +22,7 @@ class Settings(BaseSettings):
         "http://127.0.0.1:8000",
     ]
     auth_limit: int = Field(default=30, ge=1, le=1000)
+    songs_directory: str = str(Path(__file__).resolve().parents[3] / "songs")
     mail_directory: str = ".local-mail"
     smtp_host: str | None = None
     smtp_port: int = 587

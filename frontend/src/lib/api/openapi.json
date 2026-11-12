@@ -3230,6 +3230,149 @@
         }
       }
     },
+    "/api/v1/songs/{identifier}/local-files": {
+      "get": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Local Files",
+        "operationId": "local_files_api_v1_songs__identifier__local_files_get",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocalSongFiles"
+                }
+              }
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/songs/{identifier}/audio": {
+      "head": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Local Audio",
+        "operationId": "local_audio_api_v1_songs__identifier__audio_head",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "songs"
+        ],
+        "summary": "Local Audio",
+        "operationId": "local_audio_api_v1_songs__identifier__audio_get",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Identifier"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/practice/current": {
       "get": {
         "tags": [
@@ -6220,6 +6363,38 @@
         "title": "IntervalView"
       },
       "JsonValue": {},
+      "LocalSongFiles": {
+        "properties": {
+          "lyrics": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lyrics"
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Audio Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lyrics",
+          "audio_url"
+        ],
+        "title": "LocalSongFiles"
+      },
       "Message": {
         "properties": {
           "message": {
@@ -7970,6 +8145,16 @@
             "title": "Version Note",
             "default": ""
           },
+          "audio_available": {
+            "type": "boolean",
+            "title": "Audio Available",
+            "default": false
+          },
+          "local_lyrics_available": {
+            "type": "boolean",
+            "title": "Local Lyrics Available",
+            "default": false
+          },
           "arrangement_count": {
             "type": "integer",
             "title": "Arrangement Count"
@@ -8204,6 +8389,16 @@
             "type": "string",
             "title": "Version Note",
             "default": ""
+          },
+          "audio_available": {
+            "type": "boolean",
+            "title": "Audio Available",
+            "default": false
+          },
+          "local_lyrics_available": {
+            "type": "boolean",
+            "title": "Local Lyrics Available",
+            "default": false
           },
           "arrangement_count": {
             "type": "integer",
