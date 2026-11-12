@@ -2,7 +2,7 @@
 
 Phase 17 adds [account data download, confirmed deletion and security/privacy hardening](docs/architecture/SECURITY-AND-PRIVACY.md). Sign in and open My account → Your data and account. Your existing learning tools remain available; only explicitly saved practice sessions contribute to progress.
 
-Current isolated branch: codex/phase-17 in .artifacts/phase17-worktree. From that checkout run npm ci and python scripts/dev-preview.py with Docker running; open http://127.0.0.3:3002/account and register a preview account. This new chord-house-preview database is separate from the original app and earlier Phase 16 preview. See the Phase 17 report for actual startup/check status and current workstation prerequisites.
+Current isolated branch: codex/phase-18 in .artifacts/phase18-worktree. Phase 18 adds [quality and compatibility qualification](docs/architecture/QUALITY-AND-COMPATIBILITY.md), lighter rights-aware song listings, browser audio recovery and chord rendering fixes. It reuses the isolated Phase 17 preview at http://127.0.0.3:3002, including its existing preview accounts/volume; the original app and unfinished song changes remain separate. See [installation](docs/implementation/INSTALLATION-AND-PREREQUISITES.md) and the Phase 18 report for actual checks, startup and device gaps.
 
 Phase 16 adds the signed-in [training hub and separate preview](docs/architecture/TRAINING.md): chord transitions/challenge, local ear training, note finder, approved-text section cues, routine suggestions, private assessments and optional visible-tab reminders. Only explicitly saved Practice sessions grant time credit. Closed-browser reminders and unlicensed song playback are not promised.
 

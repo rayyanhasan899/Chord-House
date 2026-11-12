@@ -101,3 +101,11 @@ A-038 (Accepted local continuity): Phase 17 uses codex/phase-17 in .artifacts/ph
 A-038 operational update: the owner explicitly replied "Restart Docker and activate the preview". A targeted Docker engine restart restored existing apps and the separate Phase 17 preview without deleting volumes or stopping Ubuntu. Real local Edge export/deletion and session-revocation checks passed; the disposable test account was deleted. The preview is running at http://127.0.0.3:3002. This operational authorization does not approve unrelated product/security exceptions.
 
 ADR-0023 and SECURITY-AND-PRIVACY.md define review/retention/provider/accessibility evidence and residual limits. No new scoped MAY rows exist. No legal compliance certification, new popular-song permission, provider approval or hardware evidence is inferred.
+
+## Phase 18 — 2026-11-11
+
+A-039 (Owner/device evidence): owner offers the current computer and Google Chrome, then replies "Just Do Yourself" to the exact physical-string procedure. Agent-run generated capture and installed-browser checks proceed; no guitar pluck, exact GuitarTuna comparison, physical microphone calibration or listening result is fabricated. Earlier approximate 81.x/109.x E2/A2 evidence remains inconclusive; no arbitrary offset is applied.
+
+A-040 (Accepted engineering): ADR-0024 defines raw measured evidence and broad regression budgets, three-engine full journeys, mobile emulation and opt-in installed Windows Chrome/Edge checks. Official Playwright image matches locked 1.65.0; Noble/Ubuntu 24.04 runtime alignment and container-home ownership are setup corrections, not reduced assertions. No new scoped MAY rows. REL-003 provider backups remain explicitly conditional on Phase 19 provider/restore configuration rather than counted complete.
+
+A-041 (Accepted local continuity): isolated Phase 18 worktree/branch are based on 35b5d86. Reuse existing Phase 17 preview project, credential, mail and DB volumes at 127.0.0.3:3002/API8002/DB5435; no personal data copy or additional DB. Head remains 0012. Rebuildable host-tool caches are preserved on D: with links after C: exhaustion; Docker recovery uses the owner's earlier explicit restart authorization. Previously running original services are restored; unrelated previously stopped services remain untouched. The report records actual results and activation.
