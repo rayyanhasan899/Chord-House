@@ -49,6 +49,7 @@ async function account(page: import("@playwright/test").Page, verified = true) {
 
 test("private export and confirmed account deletion are usable and isolated", async ({
   page,
+  browserName,
 }) => {
   test.skip(!process.env.CHORD_E2E_MAIL_DIR, "Requires isolated API/database");
   test.setTimeout(90000);
@@ -95,20 +96,52 @@ test("private export and confirmed account deletion are usable and isolated", as
     ).toBeVisible();
     await page.getByText("Download my personal data", { exact: true }).click();
     await page.getByText("Delete account", { exact: true }).click();
+    // Keep injected audit machinery out of the export/deletion journey. Each
+    // viewport gets a fresh authenticated context, with the same full rule set.
     for (const width of [375, 768, 1280]) {
-      await page.setViewportSize({ width, height: 900 });
-      expect(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
-      ).toBe(true);
-      expect(
-        (
-          await new AxeBuilder({ page })
-            .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
-            .analyze()
-        ).violations,
-      ).toEqual([]);
+      const auditContext = await page
+        .context()
+        .browser()!
+        .newContext({
+          baseURL: "http://127.0.0.1:3100",
+          storageState: await page.context().storageState(),
+          viewport: { width, height: 900 },
+        });
+      try {
+        const auditPage = await auditContext.newPage();
+        await auditPage.goto("/account");
+        await auditPage
+          .getByText("Download my personal data", { exact: true })
+          .click();
+        await auditPage.getByText("Delete account", { exact: true }).click();
+        expect(
+          await auditPage.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        ).toBe(true);
+        const audit = new AxeBuilder({ page: auditPage });
+        if (browserName === "firefox") {
+          // Use the supported in-page engine without temporary aggregation tabs.
+          // No frames are omitted and no accessibility rules are disabled.
+          expect(auditPage.frames()).toHaveLength(1);
+          audit.setLegacyMode();
+        }
+        expect(
+          (
+            await audit
+              .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+              .analyze()
+          ).violations,
+        ).toEqual([]);
+        await expect(
+          auditPage.getByRole("heading", {
+            name: "Your data and account",
+            exact: true,
+          }),
+        ).toBeVisible();
+      } finally {
+        await auditContext.close();
+      }
     }
     await page
       .getByLabel("Current password for export", { exact: true })
