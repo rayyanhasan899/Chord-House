@@ -96,7 +96,7 @@ jobs:
           apt-get install -y --no-install-recommends pulseaudio pulseaudio-utils
           mkdir -p "$XDG_RUNTIME_DIR"
           chmod 700 "$XDG_RUNTIME_DIR"
-          pulseaudio --start --exit-idle-time=-1
+          env -u PULSE_SERVER pulseaudio --start --exit-idle-time=-1
           pactl load-module module-null-sink sink_name=chord_quality rate=48000
           pactl set-default-sink chord_quality
           pactl info
