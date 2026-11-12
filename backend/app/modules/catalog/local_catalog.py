@@ -140,6 +140,23 @@ def sync_local_catalog(
             else:
                 row = candidates[0] if candidates else None
             if row is None:
+                signatures = {
+                    name: value["sha256"]
+                    for name, value in cast(
+                        dict[str, dict[str, str | int]], entry["files"]
+                    ).items()
+                }
+                present = {str(e["folder"]) for e in entries}
+                if any(
+                    b.source_key not in present
+                    and {name: value["sha256"] for name, value in b.files.items()}
+                    == signatures
+                    for b in bindings.values()
+                ):
+                    issues.append(
+                        f"{key}: possible rename; use explicit rename mapping"
+                    )
+                    continue
                 identifier = uuid5(
                     NAMESPACE_URL,
                     "chord-house:local:"
@@ -195,6 +212,19 @@ def sync_local_catalog(
                 session.add(row)
                 session.flush()
                 rows.append(row)
+            if row.external_key.startswith("local:"):
+                data = SongInput.model_validate(row.document)
+                if (
+                    data.metadata_grant.evidence
+                    == "Project owner confirmed publication permission."
+                ):
+                    data.metadata_grant.evidence = (
+                        "Folder metadata inventory only; "
+                        "media distribution permission is unverified."
+                    )
+                    data.metadata_grant.license = "Operator catalogue metadata"
+                    data.metadata_grant.terms_version = "local-inventory-v2"
+                    row.document = data.model_dump(mode="json")
             files = cast(dict[str, dict[str, str | int]], entry["files"])
             if binding is None:
                 if session.get(SongAssetRecord, row.id) is not None:

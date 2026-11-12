@@ -9,6 +9,7 @@ from app.modules.catalog.song_storage import (
     MAX_AUDIO_BYTES,
     MAX_LYRICS_BYTES,
     Asset,
+    SongStorage,
 )
 
 
@@ -89,7 +90,7 @@ class LocalSongStorage:
                     remaining -= len(data)
 
 
-def lyric_value(storage: LocalSongStorage, key: str) -> str | None:
+def lyric_value(storage: SongStorage, key: str) -> str | None:
     asset = storage.describe(key)
     if asset is None:
         return None

@@ -194,6 +194,8 @@ def test_shared_media_authorization_sync_rename_and_missing_source(
         )
         moved = folder.with_name("Renamed " + uuid4().hex[:12])
         folder.rename(moved)
+        unmapped = sync_local_catalog(db, root)
+        assert unmapped["added"] == 0 and "rename" in str(unmapped["issues"])
         sync_local_catalog(
             db, root, (UUID(str(identifier)), moved.relative_to(root).as_posix())
         )
