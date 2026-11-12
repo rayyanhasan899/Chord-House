@@ -15,6 +15,7 @@ from app.modules.catalog.song_schemas import (
     Grant,
     ImportInput,
     ImportView,
+    ListingDocument,
     SongDetail,
     SongInput,
     SongPage,
@@ -163,28 +164,52 @@ class Songs:
             for row in session.scalars(
                 query.order_by(SongRecord.identity_key).execution_options(yield_per=100)
             ):
-                song = detail(row)
+                # Listings do not need lyric lines, bars or placement copies. Keep
+                # live grant/withdrawal checks without validating every score again.
+                data = ListingDocument.model_validate(row.document)
                 if (
-                    song is None
-                    or normalize(artist) not in normalize(song.artist)
-                    or normalize(genre) not in normalize(song.genre or "")
+                    not approved(data.metadata_grant)
+                    or normalize(artist) not in normalize(data.artist)
+                    or normalize(genre) not in normalize(data.genre or "")
                 ):
                     continue
+                arrangements = [
+                    a
+                    for a in data.arrangements
+                    if "arrangement:" + a.key not in row.withdrawn and approved(a.grant)
+                ]
+                texts = [
+                    t
+                    for t in data.texts
+                    if "text:" + t.key not in row.withdrawn and approved(t.grant)
+                ]
                 if (difficulty or instrument) and not any(
                     (not difficulty or a.difficulty == difficulty)
                     and (not instrument or a.instrument == instrument)
-                    for a in song.arrangements
+                    for a in arrangements
                 ):
                     continue
                 if (
                     availability == "arrangement"
-                    and not song.arrangements
+                    and not arrangements
                     or availability == "lyrics"
-                    and not song.texts
+                    and not texts
                 ):
                     continue
                 if offset <= total < offset + limit:
-                    items.append(SongSummary.model_validate(song.model_dump()))
+                    items.append(
+                        SongSummary(
+                            id=row.id,
+                            title=data.title,
+                            artist=data.artist,
+                            language=data.language,
+                            aliases=data.aliases,
+                            genre=data.genre,
+                            version_note=data.version_note,
+                            arrangement_count=len(arrangements),
+                            text_count=len(texts),
+                        )
+                    )
                 total += 1
             return SongPage(items=items, total=total, offset=offset, limit=limit)
 

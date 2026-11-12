@@ -26,10 +26,7 @@ export function Diagram({
         marginInline: "auto",
       }}
     >
-      <title>
-        {name}: string frets{" "}
-        {frets.map((f) => (f < 0 ? "muted" : f === 0 ? "open" : f)).join(", ")}
-      </title>
+      <title>{`${name}: string frets ${frets.map((f) => (f < 0 ? "muted" : f === 0 ? "open" : f)).join(", ")}`}</title>
       {Array.from({ length: 6 }, (_, i) => (
         <g key={i}>
           <line

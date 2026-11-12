@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { frequency, cents, note } from "./pitch";
 import { useReferences } from "@/features/content/references";
 import Link from "next/link";
+import { resumeAudio } from "../../lib/audio/resume";
 export function Tuner() {
   const [preset, setPreset] = useState("Guitar standard");
   const catalogue = useReferences("tuning");
@@ -12,6 +13,7 @@ export function Tuner() {
   const [instrument, setInstrument] = useState("Acoustic guitar");
   const [running, setRunning] = useState(false);
   const [pending, setPending] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [message, setMessage] = useState(
     "Choose your instrument, then start the microphone.",
   );
@@ -33,7 +35,14 @@ export function Tuner() {
     if (r.timer) clearInterval(r.timer);
     r.worker?.terminate();
     r.stream?.getTracks().forEach((t) => t.stop());
-    if (r.context) void r.context.close();
+    if (r.context) {
+      r.context.onstatechange = null;
+      setClosing(true);
+      void r.context
+        .close()
+        .catch(() => {})
+        .finally(() => setClosing(false));
+    }
     resources.current = {};
     setRunning(false);
     setPending(false);
@@ -46,7 +55,10 @@ export function Tuner() {
       if (r.timer) clearInterval(r.timer);
       r.worker?.terminate();
       r.stream?.getTracks().forEach((t) => t.stop());
-      if (r.context) void r.context.close();
+      if (r.context) {
+        r.context.onstatechange = null;
+        void r.context.close().catch(() => {});
+      }
     },
     [],
   );
@@ -56,10 +68,22 @@ export function Tuner() {
     setPending(true);
     setMessage("Requesting microphone permission…");
     try {
-      if (!navigator.mediaDevices?.getUserMedia || !window.AudioContext)
+      if (
+        !navigator.mediaDevices?.getUserMedia ||
+        !window.AudioContext ||
+        !window.Worker
+      )
         throw new Error(
           "This browser does not support microphone tuning. Try a current browser on HTTPS or localhost.",
         );
+      // Unlock browser audio in the Start gesture, before permission can await
+      // user input. WebKit may reject a new context created only after capture.
+      const context = new AudioContext();
+      resources.current.context = context;
+      await resumeAudio(context);
+      if (current !== version.current) return;
+      if (context.state !== "running")
+        throw new Error("Audio could not resume. Try Start again.");
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: false,
@@ -72,10 +96,12 @@ export function Tuner() {
         return;
       }
       resources.current.stream = stream;
-      const context = new AudioContext();
-      resources.current.context = context;
-      await context.resume();
-      if (current !== version.current) return;
+      context.onstatechange = () => {
+        if (current === version.current && context.state !== "running") {
+          stop();
+          setMessage("Audio paused or interrupted. Press Start to resume.");
+        }
+      };
       const analyser = context.createAnalyser();
       analyser.fftSize = 8192;
       context.createMediaStreamSource(stream).connect(analyser);
@@ -102,6 +128,7 @@ export function Tuner() {
         setReading({ ...data, hz: smooth });
       };
       worker.onerror = () => {
+        if (current !== version.current) return;
         stop();
         setMessage(
           "Audio analysis failed. Stop and start again, or try another browser.",
@@ -115,6 +142,7 @@ export function Tuner() {
         worker.postMessage({ input, rate: context.sampleRate }, [input.buffer]);
       }, 100);
       stream.getAudioTracks()[0].onended = () => {
+        if (current !== version.current) return;
         stop();
         setMessage("Microphone disconnected. Reconnect and start again.");
       };
@@ -291,10 +319,14 @@ export function Tuner() {
       </div>
       <p role="status">{message}</p>
       <Button
-        disabled={pending || running || !pitches.length}
+        disabled={pending || closing || running || !pitches.length}
         onClick={() => void start()}
       >
-        {pending ? "Starting…" : "Start microphone"}
+        {pending
+          ? "Starting…"
+          : closing
+            ? "Releasing microphone…"
+            : "Start microphone"}
       </Button>{" "}
       <Button
         variant="outline"

@@ -52,6 +52,7 @@ test("administration publishes reviewed content, resolves private reports and st
     .getByRole("button", { name: "Create instrument", exact: true })
     .click();
   const key = `browser-${Date.now()}`;
+  const reportBody = `Please check this test definition. ${key}`;
   await page.getByLabel("Catalogue code", { exact: true }).fill(key);
   await page
     .getByLabel("Content · Name", { exact: true })
@@ -113,9 +114,7 @@ test("administration publishes reviewed content, resolves private reports and st
     data: { email: userEmail, password },
   });
   await player.goto(`/reports?kind=instrument&key=${key}`);
-  await player
-    .getByLabel("Problem or suggested correction")
-    .fill("Please check this test definition.");
+  await player.getByLabel("Problem or suggested correction").fill(reportBody);
   await player.getByRole("button", { name: "Submit private report" }).click();
   await expect(
     player.getByText("Report submitted privately.", { exact: true }),
@@ -130,9 +129,7 @@ test("administration publishes reviewed content, resolves private reports and st
   await page
     .getByRole("button", { name: "Refresh reports", exact: true })
     .click();
-  const report = page
-    .locator("li")
-    .filter({ hasText: "Please check this test definition." });
+  const report = page.locator("li").filter({ hasText: reportBody });
   await expect(report).toBeVisible();
   await expect(page.getByText(userEmail, { exact: true })).toHaveCount(0);
   await report.getByRole("button", { name: "Mark corrected" }).click();

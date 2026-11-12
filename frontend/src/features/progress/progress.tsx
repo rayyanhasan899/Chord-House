@@ -254,7 +254,12 @@ export function Progress({ compact = false }: { compact?: boolean }) {
                   />
                 ))}
               </div>
-              <div className="progress-table">
+              <div
+                className="progress-table"
+                role="region"
+                aria-label="Daily saved practice table"
+                tabIndex={0}
+              >
                 <table>
                   <caption>Daily saved practice</caption>
                   <thead>

@@ -1,5 +1,15 @@
 # Installation and prerequisites
 
+## Phase 18 current preview and quality checks
+
+Current checkout is `.artifacts/phase18-worktree`, branch `codex/phase-18`, based on completed Phase 17. It updates the existing isolated `chord-house-preview` application at http://127.0.0.3:3002 with API 8002 and DB 5435. The prior preview's generated `.env.preview` credential is preserved in this ignored checkout configuration; existing preview volume/accounts are reused, with no new migration (head `0012_integration`). Original app/personal data and unfinished song code are separate and unchanged. Preserve the credential with its volume; never generate a replacement for an existing volume.
+
+For a normal restart from this checkout: `npm ci`, then `python scripts/dev-preview.py` with Docker running. This workstation also supports a production preview: `docker compose --env-file .env.preview -f compose.preview.yaml up -d --build --wait`, set process `CHORD_API_ORIGIN=http://127.0.0.1:8002`, build with `npm --workspace frontend run build -- --webpack`, then `npm --workspace frontend run start -- --hostname 127.0.0.3 --port 3002`. Do not start a second frontend on an occupied port or build while that checkout's production server uses its output. The default Turbopack production build is checked on Linux; its Windows CSS helper failed locally, so the supported alternative builder is explicit.
+
+See `../architecture/QUALITY-AND-COMPATIBILITY.md` for disposable-database profiling, browser checks, budgets and device procedure. CI uses official Playwright 1.65.0 Noble on Ubuntu 24.04, with correctly owned container home for Firefox. This is not a hosting decision. No physical guitar, speaker, mobile or Safari certification follows from generated audio or emulation. Owner offered current-device Chrome, then asked the agent to perform the checks; no physical measurement is inferred.
+
+The nearly full C: drive interrupted local work. Rebuildable npm `_npx` and automated Playwright caches were preserved under ignored Phase 18 `.artifacts/host-cache` with junctions at their original C: locations. These contain tools, not personal browser profiles. Keep targets while these links exist, or relocate caches and links together; do not delete targets as ordinary disposable test output. Temporary writes use D: process settings. No personal data/volumes were removed or Windows policy weakened. The Phase 18 report records runtime recovery and final readiness.
+
 ## Phase 16 isolated preview
 
 Phase 16 is in `.artifacts/phase16-worktree`, branch `codex/phase-16`; original uncommitted song changes and personal database are retained. Do not migrate the old checkout's database using the new branch while continuing to run its old migration tree. From the Phase 16 checkout run `npm ci`, then `python scripts/dev-preview.py`. Requirements: Node 24/npm 11, Python 3.14 standard library and responsive Docker. The backend runs in Linux without changing Windows Application Control.

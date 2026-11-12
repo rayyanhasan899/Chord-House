@@ -1,3 +1,4 @@
+import { resumeAudio } from "./resume";
 export type AudioRun = { schedule: () => void; draw: () => void };
 /** Owns one lookahead timer, visual frame, context and cancellation. */
 export class AudioTransport {
@@ -27,7 +28,7 @@ export class AudioTransport {
     const context = new AudioContext();
     this.context = context;
     try {
-      await context.resume();
+      await resumeAudio(context);
       if (turn !== this.version) return;
       if (context.state !== "running")
         throw new Error("Audio could not resume. Try Start again.");

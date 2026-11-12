@@ -174,6 +174,32 @@ class SongSummary(BaseModel):
     text_count: int
 
 
+class ListingArrangement(BaseModel):
+    """Read projection; full arrangement validation remains at every write boundary."""
+
+    key: str
+    instrument: str
+    difficulty: str
+    grant: Grant
+
+
+class ListingText(BaseModel):
+    key: str
+    grant: Grant
+
+
+class ListingDocument(BaseModel):
+    title: str
+    artist: str
+    language: str
+    aliases: list[str]
+    genre: str | None
+    version_note: str = ""
+    metadata_grant: Grant
+    arrangements: list[ListingArrangement]
+    texts: list[ListingText]
+
+
 class SongPage(BaseModel):
     items: list[SongSummary]
     total: int

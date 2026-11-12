@@ -122,7 +122,12 @@ test("real account registration onboarding verification recovery and signout", a
   await expect(page.getByText("Email verified", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Sign out", exact: true }).click();
   await expect(page).toHaveURL(/login/);
-  await page.goto("/account");
+  await expect(
+    page.getByRole("button", { name: "Sign in", exact: true }),
+  ).toBeEnabled();
+  // The signed-out protected page redirects during hydration. Firefox can
+  // correctly abort its load; observe commit, then assert the sign-in route.
+  await page.goto("/account", { waitUntil: "commit" });
   await expect(page).toHaveURL(/login/);
   await page.getByRole("link", { name: "Forgot your password?" }).click();
   await expect(page).toHaveURL(/forgot/);

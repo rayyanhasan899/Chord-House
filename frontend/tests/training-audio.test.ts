@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { EarAudio, TrainingAudio } from "../src/features/training/audio";
+import { ChordAudio } from "../src/features/chords/audio";
 class ControlledAudio {
   static instances: ControlledAudio[] = [];
   state: AudioContextState = "suspended";
@@ -64,6 +65,23 @@ afterEach(() => {
   vi.useRealTimers();
   vi.unstubAllGlobals();
 });
+test("a cancelled chord start cannot close newer chord playback", async () => {
+  const audio = new ChordAudio();
+  const first = audio.play([60, 64, 67], false, 0.5);
+  const old = ControlledAudio.instances[0];
+  audio.stop();
+  const second = audio.play([62, 65, 69], false, 0.5);
+  const latest = ControlledAudio.instances[1];
+  latest.resolve();
+  await second;
+  old.reject(new Error("Old chord start cancelled"));
+  await expect(first).rejects.toThrow("Audio could not start");
+  expect(latest.close).not.toHaveBeenCalled();
+  expect(latest.voices).toHaveLength(3);
+  audio.stop();
+  expect(latest.close).toHaveBeenCalledOnce();
+});
+
 test("a cancelled old resume cannot stop a newer training round", async () => {
   const audio = new TrainingAudio();
   const first = audio.start([[60], [67]], 1, 10, true);
@@ -75,7 +93,10 @@ test("a cancelled old resume cannot stop a newer training round", async () => {
   await second;
   expect(audio.active()).toBe(true);
   old.reject(new Error("Old resume cancelled"));
-  await expect(first).rejects.toThrow("Old resume cancelled");
+  await expect(first).rejects.toMatchObject({
+    message: expect.stringContaining("Audio could not start"),
+    cause: expect.objectContaining({ message: "Old resume cancelled" }),
+  });
   expect(latest.close).not.toHaveBeenCalled();
   expect(audio.active()).toBe(true);
   audio.stop();

@@ -39,10 +39,11 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
-        working-directory: frontend
   backend:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.65.0-noble
+      options: --ipc=host
     services:
       postgres:
         image: postgres:17.9
@@ -57,12 +58,15 @@ jobs:
           --health-interval 3s --health-timeout 3s --health-retries 20
     env:
       CHORD_PYTHON: python
-      CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@127.0.0.1:5432/chord_house_test
+      XDG_RUNTIME_DIR: /tmp/chord-quality-runtime
+      PULSE_SERVER: unix:/tmp/chord-quality-runtime/pulse/native
+      CHORD_TEST_DATABASE_URL: postgresql+psycopg://chord_house:ci_disposable_only@postgres:5432/chord_house_test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.14"
+      - run: python -c "import ssl; print(ssl.OPENSSL_VERSION)"
       - run: python -m pip install -r requirements-dev.lock
         working-directory: backend
       - run: python -m pip install --no-deps -e .
@@ -73,8 +77,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run contracts:check
-      - run: npx playwright install --with-deps chromium
-        working-directory: frontend
       - run: python -m ruff check --config pyproject.toml . ../scripts/dev.py ../scripts/dev-preview.py
         working-directory: backend
       - run: python -m ruff format --config pyproject.toml --check . ../scripts/dev.py ../scripts/dev-preview.py
@@ -83,8 +85,40 @@ jobs:
         working-directory: backend
       - run: python -m pytest
         working-directory: backend
+      - run: python tests/profile_quality.py
+        working-directory: backend
+      - run: chown "$(id -u):$(id -g)" /github/home
+      - name: Provide a virtual audio output for native browser clocks
+        run: |
+          phase_audio_ready=0
+          for phase_mirror in https://archive.ubuntu.com/ubuntu https://mirrors.edge.kernel.org/ubuntu https://mirrors.mit.edu/ubuntu; do
+            sed -i -E "s@^URIs:.*@URIs: $phase_mirror@" /etc/apt/sources.list.d/ubuntu.sources
+            if apt-get -o Acquire::Retries=1 -o Acquire::ForceIPv4=true -o Acquire::https::Timeout=10 -o APT::Update::Error-Mode=any update && apt-get -o Acquire::Retries=1 -o Acquire::ForceIPv4=true -o Acquire::https::Timeout=10 install -y --no-install-recommends pulseaudio pulseaudio-utils; then
+              phase_audio_ready=1
+              break
+            fi
+          done
+          test "$phase_audio_ready" = 1
+          mkdir -p "$XDG_RUNTIME_DIR"
+          chmod 700 "$XDG_RUNTIME_DIR"
+          env -u PULSE_SERVER pulseaudio --start --exit-idle-time=-1
+          pactl load-module module-null-sink sink_name=chord_quality rate=48000
+          pactl set-default-sink chord_quality
+          pactl info
       - run: python tests/browser_system.py
         working-directory: backend
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phase18-quality-evidence
+          include-hidden-files: true
+          path: |
+            .artifacts/phase18-*.json
+            frontend/test-results/results.json
+            frontend/test-results/**/error-context.md
+            frontend/test-results/**/attachments/*.json
+          if-no-files-found: error
 
       - uses: actions/upload-artifact@v4
         if: always()
