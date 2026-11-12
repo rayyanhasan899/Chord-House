@@ -11,10 +11,11 @@ rapid-restart cleanup, chord hydration/start/cancellation fixes and keyboard
 access to the daily progress table. Original unfinished song/player changes and
 personal data remain outside the isolated Phase 18 checkout.
 
-**Final full-run verification is being recorded; do not interpret this draft as
-a passed exit gate.** The completed measurements below are real results; failed
-attempts are separated from them. Final run/commit results replace this paragraph
-only after they are observed.
+**Implementation delivered; Phase 18 exit gate is NOT met.** The final full
+run completed with **80/86 browser journeys passed, 6 failed, 0 skipped**.
+Chromium 24/24 and mobile Chromium emulation 7/7 pass; Firefox 23/24, WebKit
+20/24 and mobile WebKit emulation 6/7 remain incomplete. These failures are
+recorded below and are not represented as a passed phase or a ready-to-merge PR.
 
 Prerequisites inspected: phase prompt; source Requirements/Architecture Blueprint;
 requirements analysis, architecture/database, assumptions, traceability, roadmap
@@ -39,7 +40,7 @@ stop before Phase 19.
 | python -m mypy app | **75 source files** pass in hosted backend checks |
 | python -m pytest | **97 cases** pass against real disposable PostgreSQL, including fresh upgrade/downgrade/drift and new differential listing tests |
 | python tests/profile_quality.py | Real authenticated FastAPI/SQL profile of **5,000 disposable records** passes its 5-second budget; measurements below |
-| Full production browser_system.py | Chromium/Firefox/WebKit full journeys plus mobile Chromium/WebKit emulation; final results pending in this draft |
+| Full production browser_system.py | Chromium/Firefox/WebKit full journeys plus mobile Chromium/WebKit emulation; **80 passed / 6 failed / 0 skipped in 14m52s; gate not met** |
 | Native installed Chrome quality | **6/6 passed**, version **157.0.8103.40**, real generated analyser/worker pipeline and fallback/navigation checks |
 | Native installed Edge quality | **6/6 passed** on a separate successful attempt, version **157.0.4341.42** |
 | npm run security:audit / isolated pip-audit | Runtime npm **0** and 47 pinned Python packages **0 observed findings**; nine moderate dev entries from one advisory remain under the existing exception expiring 2026-12-11 |
@@ -220,4 +221,32 @@ presented as working functionality.
 
 Next prompt: `docs/implementation/phase-prompts/PHASE-19.md`, only on owner request.
 
-Final application under verification: **d4145cef19fc5c6a7074e8916c751235c4e44234**. Push run **43149225388** and PR run **43149230889** both pass frontend/security and all pre-browser backend stages; the serial 86-journey native-clock suite is running at this report update. Do not count it as passed until the observed result is recorded.
+Final tested application: **d4145cef19fc5c6a7074e8916c751235c4e44234**. Push run **43149225388** and PR run **43149230889** both completed with frontend/security success and backend failure at the browser stage. All pre-browser backend stages passed. Subsequent documentation-only commits do not change application behavior.
+
+## Final unresolved browser gate — 2026-11-12
+
+The full native-clock run executed; signed mirror/PulseAudio setup succeeded.
+Exact remaining failures on d4145ce:
+
+1. WebKit three-minute metronome: ordinal phase-error assertion received 0.5 seconds rather than less than 0.001. Determine whether the designed missed-beat recovery or real drift caused the gap; do not silently relax the test.
+2. WebKit synchronized-pattern/direction journey: expected nine scheduled voices, received eight (the final muted stroke needs investigation).
+3. WebKit noisy harmonic generated capture: second guitar capture reported microphone permission denied instead of in-tune; distinguish the controlled MediaStream fixture lifecycle from actual microphone support.
+4. Mobile WebKit emulation: the same generated-capture failure.
+5. Firefox account export/deletion: browser page crashed before filling the export password. Backend isolation/export/cascade checks and Chromium account journey pass, but this Firefox UI path is not certified.
+6. WebKit baseline tuner: second start did not reach in-tune after stopping the first capture.
+
+These are unresolved verification/runtime issues, not blanket physical-device
+successes or accepted requirement deferrals. No assertion was removed, failed
+case skipped or result fabricated. Phase 19 has not started. Further focused
+Firefox/WebKit diagnosis and successful regression verification are required
+before marking Phase 18 complete. The owner requested a prompt handover after
+the prolonged run; this report preserves the concrete implementation and exact
+remaining work instead of claiming a green gate.
+
+Final evidence: `.artifacts/evidence-d4145ce/frontend/test-results/results.json`,
+its error contexts, `.artifacts/final-run-failures.log` and the uploaded
+`phase18-quality-evidence` artifact in run 43149225388. Native Chrome/Edge six-case
+successful attempts and final loaded-chord/start-cancellation check are separate
+local evidence, with no physical microphone access. The preview remains usable
+at http://127.0.0.3:3002 with the verified Chrome path. Original changes/data are
+preserved. PR 18 is a draft, unmerged; no readiness or full-compatibility claim.
