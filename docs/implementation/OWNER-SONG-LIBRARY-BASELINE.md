@@ -149,3 +149,8 @@ These supplement the original 450 SRS IDs; they do not renumber or erase them.
 | CHG-SONG-010 | Truthful rights/source status, protected credentials and free-tier budgets | 18 source review; 19 provider/publishing checks; 20 release gate |
 | CHG-SONG-011 | Matched metadata/media backups and tested restore/deletion behavior | 19 rehearsal; 20 independent acceptance |
 | CHG-SONG-012 | Simple documented add/replace/remove song workflow and honest release status | 18 instructions; 19 actual commands; 20 user/admin handover |
+
+
+## Revised execution location
+
+The accepted features have been reconciled in `codex/phase-18-reconciled`, application revision c0e6f77, at `D:/RAYYAN/Projects/Chord-House/.artifacts/phase18-revised-worktree`. The current preview is http://127.0.0.3:3003 and the original dirty checkout/media remain unchanged. See [the revised report](Phase-Reports/PHASE-18-REPORT.md) for verification and final gate status. Phase 19 must start from this reconciled application rather than the stale historical worktree or branch name alone.

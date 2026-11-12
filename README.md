@@ -82,3 +82,8 @@ Open `/progress` while signed in for saved-practice totals, goal progress, strea
 ## Administration (Phase 15)
 
 Authorized content managers can open `/admin` to maintain instruments, tunings, chord voicings, patterns and song components; review/import content; publish, archive or withdraw rights; resolve private reports; and inspect redacted audit history. Signed-in users can submit and track reports at `/reports`. Apply migration `0011_content` and the normal reference seed. See [content operations](docs/architecture/CONTENT-OPERATIONS.md) for workflow, role provisioning and limits. This does not acquire any popular-song lyrics or arrangement rights.
+
+
+## Revised Phase 18 song library
+
+The accepted local recording/lyrics player is reconciled with the security/training baseline. Sign in to use your supplied songs. See [folder import and media guide](docs/architecture/SONG-ASSETS.md) for scan/sync/rename, migration 0013 and exact lyric handling; [current Phase 18 report](docs/implementation/Phase-Reports/PHASE-18-REPORT.md) gives test status and the working preview. Historical metadata-only song counts above are not current playable-collection counts. Media and database credentials remain outside Git.

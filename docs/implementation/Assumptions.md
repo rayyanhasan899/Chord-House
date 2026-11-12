@@ -110,7 +110,7 @@ A-040 (Accepted engineering): ADR-0024 defines raw measured evidence and broad r
 
 A-041 (Accepted local continuity): isolated Phase 18 worktree/branch are based on 35b5d86. Reuse existing Phase 17 preview project, credential, mail and DB volumes at 127.0.0.3:3002/API8002/DB5435; no personal data copy or additional DB. Head remains 0012. Rebuildable host-tool caches are preserved on D: with links after C: exhaustion; Docker recovery uses the owner's earlier explicit restart authorization. Previously running original services are restored; unrelated previously stopped services remain untouched. The report records actual results and activation.
 
-Phase 18 final gate: 80/86 browser checks pass; six Firefox/WebKit cases remain unresolved. Implementation is delivered but Phase 18 is not complete; see PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
+Historical pre-revision Phase 18 gate: 80/86 browser checks passed with six unresolved cases; see PHASE-18-LEGACY-2026-11-12-REPORT.md. The revised execution has separate evidence and status in PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
 
 
 ## 12 November 2026 — accepted song library amendment

@@ -103,7 +103,17 @@ def run_browser(env: dict[str, str]) -> int:
                     [npm, "run", "build"], cwd=root, env=child_env, check=True
                 )
             return subprocess.run(
-                [npm, "run", "test:e2e", "--", *sys.argv[1:]], cwd=root, env=child_env
+                [
+                    npm,
+                    "run",
+                    "test:e2e",
+                    "--workspace",
+                    "frontend",
+                    "--",
+                    *sys.argv[1:],
+                ],
+                cwd=root,
+                env=child_env,
             ).returncode
         finally:
             server.terminate()

@@ -104,7 +104,7 @@ export function PrivacyControls() {
           aria-busy={busy}
           aria-describedby="export-explanation"
         >
-          <fieldset disabled={busy}>
+          <fieldset className="privacy-fields" disabled={busy}>
             <label>
               Current password for export
               <Input
@@ -145,7 +145,10 @@ export function PrivacyControls() {
           aria-busy={busy}
           aria-describedby="deletion-explanation"
         >
-          <fieldset disabled={busy || !auth.profile?.email_verified}>
+          <fieldset
+            className="privacy-fields"
+            disabled={busy || !auth.profile?.email_verified}
+          >
             <label>
               Current password for deletion
               <Input

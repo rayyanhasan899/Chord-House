@@ -2,6 +2,8 @@
 
 Phase 18 preserves the accepted listening-room player and exact supplied lyrics. The application interface is English; the shared catalogue supports English, Urdu, Hindi and Roman text. Open registration remains enabled. All signed-in accounts read the same available songs; guests cannot fetch details, lyrics, GET audio or HEAD/ranges. Shared changes require a trusted host operator or existing authorized content manager. Personal favorites and collections remain private.
 
+During this isolated execution, run backend commands in `D:/RAYYAN/Projects/Chord-House/.artifacts/phase18-revised-worktree/backend` with the actual original songs path. The original checkout remains preserved; after merging the reviewed changes, use the normal project backend directory. The running preview-container commands below already target the correct read-only source.
+
 ## Add or update songs
 
 Use one folder per song beneath `songs/English songs`, `songs/Urdu songs` or `songs/Hindi songs`. Put `audio.mp3`, `lyrics.txt`, or both inside. No hand-written JSON is required. Text must be nonblank UTF-8 (optional BOM); original CRLF/LF, tabs, indentation and blank lines are retained. Audio has a 100 MiB limit; lyrics have a 400,000-byte limit. Header validation does not certify complete MP3 decoding; the player reports decoding failures. Unsupported files are diagnosed and ignored; unsafe links, normalized-title collisions and invalid supported assets prevent that folder being imported.

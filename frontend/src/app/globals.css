@@ -1018,3 +1018,8 @@ nav[aria-label="Learning tools"] {
     transition: none;
   }
 }
+
+/* Firefox fieldsets otherwise retain input min-content width on narrow screens. */
+.privacy-fields {
+  min-inline-size: 0;
+}

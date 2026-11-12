@@ -76,6 +76,11 @@ test("supplied song collection, playback controls and private favorites", async 
     await expect
       .poll(() => media.evaluate((el: HTMLAudioElement) => el.paused))
       .toBe(true);
+    expect(await media.evaluate((el: HTMLAudioElement) => el.loop)).toBe(true);
+    // End-of-track seeking is tested with repeat off: native looping may wrap
+    // immediately at the endpoint, especially in WebKit.
+    await page.getByRole("button", { name: "Repeat on" }).click();
+    expect(await media.evaluate((el: HTMLAudioElement) => el.loop)).toBe(false);
     await page.getByRole("slider", { name: "Seek in song" }).focus();
     await page.getByRole("slider", { name: "Seek in song" }).press("End");
     await page.getByRole("button", { name: "Rewind 10 seconds" }).click();
