@@ -37,6 +37,8 @@ export function Chords() {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [starting, setStarting] = useState(false);
+  const playback = useRef(0);
   const [arpeggio, setArpeggio] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const audio = useRef<ChordAudio | null>(null);
@@ -87,8 +89,10 @@ export function Chords() {
   const results = search(query, instrument, quality, entries);
   const notes = pitches(instrument, frets);
   function stop() {
+    playback.current++;
     audio.current?.stop();
     setPlaying(false);
+    setStarting(false);
   }
   async function save() {
     if (error) {
@@ -354,26 +358,44 @@ export function Chords() {
             Arpeggio
           </label>
           <Button
-            disabled={!hydrated || !!error}
+            disabled={!hydrated || !!error || starting}
             onClick={async () => {
+              const turn = ++playback.current;
+              setStarting(true);
+              setPlaying(false);
               try {
                 setMessage("");
-                await audio.current?.play(notes, arpeggio, volume);
+                if (!audio.current) throw new Error("Audio is not ready");
+                await audio.current.play(notes, arpeggio, volume);
+                if (turn !== playback.current) return;
                 setPlaying(true);
               } catch {
+                if (turn !== playback.current) return;
                 setMessage(
                   "Audio is unavailable. Try again after interacting with the page.",
                 );
                 setPlaying(false);
+              } finally {
+                if (turn === playback.current) setStarting(false);
               }
             }}
           >
             Play chord
           </Button>{" "}
-          <Button disabled={!playing} variant="outline" onClick={stop}>
+          <Button
+            disabled={!playing && !starting}
+            variant="outline"
+            onClick={stop}
+          >
             Stop chord
           </Button>
-          <p role="status">{playing ? "Audio playing" : "Audio stopped"}</p>
+          <p role="status">
+            {starting
+              ? "Starting audio…"
+              : playing
+                ? "Audio playing"
+                : "Audio stopped"}
+          </p>
           {auth.profile ? (
             <>
               <Button

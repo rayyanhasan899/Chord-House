@@ -1,3 +1,4 @@
+import { resumeAudio } from "./resume";
 export type AudioRun = { schedule: () => void; draw: () => void };
 /** Owns one lookahead timer, visual frame, context and cancellation. */
 export class AudioTransport {
@@ -91,4 +92,3 @@ export function tone(
     envelope.disconnect();
   };
 }
-import { resumeAudio } from "./resume";

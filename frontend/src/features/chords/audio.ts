@@ -1,3 +1,4 @@
+import { resumeAudio } from "../../lib/audio/resume";
 export class ChordAudio {
   onEnded?: () => void;
   private context: AudioContext | null = null;
@@ -6,7 +7,7 @@ export class ChordAudio {
     this.version++;
     const context = this.context;
     this.context = null;
-    if (context) void context.close();
+    if (context) void context.close().catch(() => {});
   }
   async play(notes: number[], arpeggio: boolean, volume: number) {
     this.stop();
@@ -41,9 +42,8 @@ export class ChordAudio {
           };
       });
     } catch (error) {
-      this.stop();
+      if (turn === this.version) this.stop();
       throw error;
     }
   }
 }
-import { resumeAudio } from "../../lib/audio/resume";
