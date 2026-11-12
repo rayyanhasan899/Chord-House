@@ -1,6 +1,8 @@
 """Original fixtures only; never copy the owner's media into CI."""
 
 import os
+import subprocess
+import sys
 from pathlib import Path
 from uuid import UUID, uuid4
 
@@ -108,6 +110,19 @@ def test_shared_media_authorization_sync_rename_and_missing_source(
     db = Database(url)
     assert sync_local_catalog(db, root)["added"] == 1
     assert sync_local_catalog(db, root)["unchanged"] == 1
+    subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "app.modules.catalog.local_catalog",
+            "sync",
+            "--root",
+            str(root),
+        ],
+        cwd=Path(__file__).parents[1],
+        check=True,
+        stdout=subprocess.DEVNULL,
+    )
     with db.transaction() as session:
         binding = session.scalar(
             select(SongAssetRecord).where(

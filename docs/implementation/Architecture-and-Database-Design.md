@@ -54,3 +54,8 @@ ADR-0024 and QUALITY-AND-COMPATIBILITY.md separate controlled-signal, browser-en
 Add a storage port with local and private-object-storage adapters behind existing application services and server-managed cookie authentication. PostgreSQL holds stable song IDs, asset revisions, keys, checksums, availability, provenance/rights and import results; object storage holds original MP3/text bytes. Design reviewed migrations for these fields, explicit rename mapping and stable favorites/collection references. Authenticated backend GET/HEAD/range streaming serves all signed-in users; only operators mutate shared content. Stage and verify uploads before transactional active-reference changes, with idempotent resume, copy retention and matched database/media restore. No distributed-transaction claim, silent remote deletion or authentication-provider migration.
 
 Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.
+
+
+## Revised Phase 18 implementation
+
+See [local asset operations](../architecture/SONG-ASSETS.md) and [ADR-0025](../adr/ADR-0025.md) for migration 0013, scan/sync/rename commands, source preservation, streaming, privacy and limits. Online object storage remains Phase 19; current verification status is in [the report](Phase-Reports/PHASE-18-REPORT.md).

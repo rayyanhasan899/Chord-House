@@ -142,6 +142,8 @@ class Songs:
     def __init__(self, db: Database, local_root: Path | None = None):
         self.db = db
         self.local_root = local_root
+        self.storage = LocalSongStorage(local_root) if local_root is not None else None
+        self._checked: dict[tuple[str, str], bool] = {}
 
     def local_assets(
         self, identifier: UUID, files: dict[str, dict[str, str | int]] | None = None
@@ -154,14 +156,18 @@ class Songs:
                 if binding is None or binding.source_kind != "local":
                     return False, False
                 files = dict(binding.files)
-        storage = LocalSongStorage(self.local_root)
+        assert self.storage is not None
         available = []
         for name in ("audio.mp3", "lyrics.txt"):
             expected = files.get(name)
-            asset = storage.describe(str(expected["key"])) if expected else None
-            available.append(
-                bool(asset and expected and asset.sha256 == expected["sha256"])
-            )
+            if expected is None:
+                available.append(False)
+                continue
+            key = (str(expected["key"]), str(expected["sha256"]))
+            if key not in self._checked:
+                asset = self.storage.describe(key[0])
+                self._checked[key] = bool(asset and asset.sha256 == key[1])
+            available.append(self._checked[key])
         return available[0], available[1]
 
     def visible_detail(self, row: SongRecord) -> SongDetail | None:

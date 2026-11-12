@@ -272,6 +272,7 @@ def main() -> None:
         parser.error(
             "rename requires --song-id and --to (language/title relative folder)"
         )
+    import app.core.models  # noqa: F401 -- register referenced FK metadata
     from app.core.config import Settings
 
     settings = Settings()

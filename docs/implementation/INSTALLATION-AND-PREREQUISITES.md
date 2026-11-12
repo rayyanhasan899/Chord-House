@@ -93,3 +93,8 @@ Expired codes/sessions/rate windows and local captured codes are cleaned at star
 This update changes planning documents only; it creates no cloud account, deployment or importer command. Continue using the existing tested local setup. Future Phase 19 setup must document actual operator scan/dry-run/sync/status/resume commands, provider account/region, environment variable names (never credentials), server-only object-storage access, same-origin HTTPS/session settings and PostgreSQL migrations. Preserve songs/{English songs,Urdu songs,Hindi songs}/{title}/audio.mp3 and/or lyrics.txt; optional metadata must not block the minimal format. Keep original files and a database snapshot before upload; the online copy must play from a clean host with no source directory mounted. Do not commit source media or deploy it through a public asset folder. Recheck free-tier traffic/backup limitations and prove matched metadata/media restore. No paid billing or live distribution assumed authorized by this plan.
 
 Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.
+
+
+## Revised Phase 18 implementation
+
+See [local asset operations](../architecture/SONG-ASSETS.md) and [ADR-0025](../adr/ADR-0025.md) for migration 0013, scan/sync/rename commands, source preservation, streaming, privacy and limits. Online object storage remains Phase 19; current verification status is in [the report](Phase-Reports/PHASE-18-REPORT.md).

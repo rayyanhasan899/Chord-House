@@ -118,3 +118,8 @@ Phase 18 final gate: 80/86 browser checks pass; six Firefox/WebKit cases remain 
 D-20261112-01 — Confirmed owner decision: open registration, shared song reading/playback for every signed-in user; no invitation/approval gate. D-20261112-02 — Preserve the preferred current root song/player/lyrics behavior while reconciling earlier Phase 17 security; branch numbering alone does not identify the accepted source. D-20261112-03 — Accepted folder-based expansion; optional generated metadata may stabilize identities, but hand-written song JSON is not required. D-20261112-04 — Proposed technical starting point: evaluate Neon Free PostgreSQL plus private Object Storage, with R2/Supabase alternatives. Provider/account/region/billing remain Phase 19 decisions based on current capabilities. No licensed source has been established in chat; hard-coded permission assertions in existing code are not evidence. Archive and dated amendments preserve earlier decisions/history.
 
 Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.
+
+
+## Revised Phase 18 implementation
+
+See [local asset operations](../architecture/SONG-ASSETS.md) and [ADR-0025](../adr/ADR-0025.md) for migration 0013, scan/sync/rename commands, source preservation, streaming, privacy and limits. Online object storage remains Phase 19; current verification status is in [the report](Phase-Reports/PHASE-18-REPORT.md).
