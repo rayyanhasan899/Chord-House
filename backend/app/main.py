@@ -10,7 +10,6 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from sqlalchemy.engine import make_url
 from starlette.exceptions import HTTPException
 
 from app.core.config import Settings
@@ -65,17 +64,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                     "Do not supply migration credentials to the production API"
                 )
             if database and config.environment == "production":
-                try:
-                    database.require_runtime_privileges()
-                except Exception as exc:
-                    detail = str(getattr(exc, "orig", exc))
-                    assert config.database_url is not None
-                    secret = make_url(config.database_url.get_secret_value()).password
-                    if secret:
-                        detail = detail.replace(secret, "[redacted]")
-                    raise RuntimeError(
-                        "Database startup failed: " + detail[-1200:]
-                    ) from None
+                database.require_runtime_privileges()
             if database:
                 try:
                     await asyncio.to_thread(clean_expired)
