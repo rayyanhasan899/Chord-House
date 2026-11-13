@@ -23,6 +23,8 @@ class Settings(BaseSettings):
     ]
     auth_limit: int = Field(default=30, ge=1, le=1000)
     songs_directory: str = str(Path(__file__).resolve().parents[3] / "songs")
+    object_bucket: str | None = None
+    media_request_limit: int = Field(default=120, ge=1, le=1000)
     mail_directory: str = ".local-mail"
     smtp_host: str | None = None
     smtp_port: int = 587

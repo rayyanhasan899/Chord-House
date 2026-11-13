@@ -1,0 +1,44 @@
+# Requires an existing zero-cost Docker host and DNS name; provisions no paid host.
+services:
+  api:
+    build:
+      context: .
+      dockerfile: deploy/backend.Dockerfile
+    environment:
+      CHORD_ENVIRONMENT: production
+      CHORD_DATABASE_URL: ${CHORD_DATABASE_URL:?non-owner runtime URL required}
+      CHORD_TRUSTED_ORIGINS: '["https://${CHORD_DOMAIN:?domain required}"]'
+      CHORD_OBJECT_BUCKET: ${CHORD_OBJECT_BUCKET:?private bucket required}
+      AWS_ENDPOINT_URL_S3: ${AWS_ENDPOINT_URL_S3:?HTTPS storage endpoint required}
+      AWS_REGION: ${AWS_REGION:?region required}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:?read-only credential required}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:?read-only secret required}
+      CHORD_SMTP_HOST: ${CHORD_SMTP_HOST:?SMTP required}
+      CHORD_SMTP_PORT: ${CHORD_SMTP_PORT:-587}
+      CHORD_SMTP_USER: ${CHORD_SMTP_USER:?SMTP user required}
+      CHORD_SMTP_PASSWORD: ${CHORD_SMTP_PASSWORD:?SMTP secret required}
+      CHORD_MAIL_FROM: ${CHORD_MAIL_FROM:?verified sender required}
+    restart: unless-stopped
+  web:
+    build:
+      context: .
+      dockerfile: deploy/frontend.Dockerfile
+    environment:
+      CHORD_API_ORIGIN: http://api:8000
+    restart: unless-stopped
+  ingress:
+    image: caddy:2-alpine
+    environment:
+      CHORD_DOMAIN: ${CHORD_DOMAIN:?domain required}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - tls:/data
+    depends_on:
+      - api
+      - web
+    restart: unless-stopped
+volumes:
+  tls:

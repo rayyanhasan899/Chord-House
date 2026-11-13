@@ -78,7 +78,7 @@ jobs:
         with:
           python-version: "3.14"
       - run: python -c "import ssl; print(ssl.OPENSSL_VERSION)"
-      - run: python -m pip install -r requirements-dev.lock
+      - run: python -m pip install -r requirements-dev.lock -r requirements-cloud.txt
         working-directory: backend
       - run: python -m pip install --no-deps -e .
         working-directory: backend
