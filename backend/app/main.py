@@ -69,11 +69,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                     database.require_runtime_privileges()
                 except Exception as exc:
                     detail = str(getattr(exc, "orig", exc))
+                    assert config.database_url is not None
                     secret = make_url(config.database_url.get_secret_value()).password
                     if secret:
                         detail = detail.replace(secret, "[redacted]")
-                    logger.error("database_startup_failed: " + detail[-1200:])
-                    raise
+                    raise RuntimeError(
+                        "Database startup failed: " + detail[-1200:]
+                    ) from None
             if database:
                 try:
                     await asyncio.to_thread(clean_expired)
