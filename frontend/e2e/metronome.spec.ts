@@ -143,6 +143,18 @@ test("three minute audio scheduling remains on time through brief UI work", asyn
       maximum,
       Math.abs(clicks[i].time - clicks[0].time - i * 0.5),
     );
+  console.log(
+    "Metronome scheduling diagnostics:",
+    JSON.stringify({
+      clicks: clicks.length,
+      maximumPhaseError: maximum,
+      gaps: clicks.slice(1).flatMap((click, i) => {
+        const previous = clicks[i];
+        const gap = click.time - previous.time;
+        return gap > 0.501 ? [{ ordinal: i + 1, gap, previous, click }] : [];
+      }),
+    }),
+  );
   expect(maximum).toBeLessThan(0.001);
   expect(clicks[0].frequency).toBe(1760);
   expect(clicks[1].frequency).toBe(880);
