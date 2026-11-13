@@ -66,6 +66,13 @@ class Delivery:
         self.config = config
 
     def send(self, recipient: str, purpose: str, token: str) -> None:
+        if not self.config.email_enabled:
+            raise IdentityError(
+                503,
+                "email_unavailable",
+                "Email delivery is temporarily disabled. "
+                "Registration and email recovery are unavailable.",
+            )
         if self.config.smtp_host:
             mail = EmailMessage()
             mail["From"] = self.config.mail_from
@@ -94,7 +101,7 @@ class Delivery:
                 )
 
     def purge_expired(self) -> int:
-        if self.config.smtp_host:
+        if self.config.smtp_host or not self.config.email_enabled:
             return 0
         removed = 0
         for path in Path(self.config.mail_directory).glob("*.json"):
@@ -108,7 +115,7 @@ class Delivery:
         return removed
 
     def forget(self, recipient: str) -> None:
-        if self.config.smtp_host:
+        if self.config.smtp_host or not self.config.email_enabled:
             return
         for path in Path(self.config.mail_directory).glob("*.json"):
             if path.is_symlink() or not path.is_file():
