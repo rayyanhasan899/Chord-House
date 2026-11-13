@@ -83,7 +83,9 @@ def songs(
 ) -> list[dict[str, str]]:
     from app.modules.catalog.song_routes import catalogue
 
-    page = catalogue(request, svc).list("", None, "", None, None, "", None, offset, limit)
+    page = catalogue(request, svc).list(
+        "", None, "", None, None, "", None, offset, limit
+    )
     return [
         {
             "id": str(row.id),

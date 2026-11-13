@@ -151,7 +151,7 @@ def test_cloud_media_and_private_picker_without_original_mount(
             for client in (first, second):
                 email = uuid4().hex + "@example.com"
                 password = "Original cloud fixture password 123!"
-                assert client.post(
+                registered = client.post(
                     "/api/v1/auth/register",
                     json={
                         "email": email,
@@ -160,7 +160,8 @@ def test_cloud_media_and_private_picker_without_original_mount(
                         "acknowledge_privacy": True,
                     },
                     headers=origin,
-                ).status_code == 201
+                )
+                assert registered.status_code == 201
                 login = client.post(
                     "/api/v1/auth/login",
                     json={"email": email, "password": password},
@@ -170,9 +171,9 @@ def test_cloud_media_and_private_picker_without_original_mount(
                 headers.append(origin | {"X-CSRF-Token": login.json()["csrf_token"]})
             base = f"/api/v1/songs/{identifier}"
             for client in (first, second):
-                assert str(identifier) in [
-                    song["id"] for song in client.get("/api/v1/workspace/songs").json()
-                ]
+                picker = client.get("/api/v1/workspace/songs")
+                assert picker.status_code == 200
+                assert str(identifier) in [song["id"] for song in picker.json()]
                 assert client.get(base).status_code == 200
                 files = client.get(base + "/local-files")
                 assert files.status_code == 200
@@ -195,20 +196,21 @@ def test_cloud_media_and_private_picker_without_original_mount(
             )
             assert favorite.status_code == 201
             favorite_id = favorite.json()["id"]
-            assert favorite_id not in [
-                item["id"] for item in second.get("/api/v1/workspace").json()
-            ]
-            assert second.delete(
+            private_items = second.get("/api/v1/workspace")
+            assert private_items.status_code == 200
+            assert favorite_id not in [item["id"] for item in private_items.json()]
+            remove = second.delete(
                 f"/api/v1/workspace/{favorite_id}", headers=headers[1]
-            ).status_code == 404
-            assert first.post(
+            )
+            assert remove.status_code == 404
+            withdrawal = first.post(
                 f"/api/v1/managed-songs/{identifier}/withdraw",
                 json={"component": "metadata"},
                 headers=headers[0],
-            ).status_code == 403
-            assert (
-                first.post("/api/v1/auth/logout", headers=headers[0]).status_code == 200
             )
+            assert withdrawal.status_code == 403
+            logout = first.post("/api/v1/auth/logout", headers=headers[0])
+            assert logout.status_code == 200
             assert first.get(base + "/audio").status_code == 401
             assert second.get(base + "/audio").status_code == 200
     finally:
