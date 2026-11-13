@@ -90,7 +90,7 @@ def require_email(request: Request) -> None:
             503,
             "email_unavailable",
             "Email delivery is temporarily disabled. "
-            "Registration and email recovery are unavailable.",
+            "Email verification and recovery are unavailable.",
         )
 
 
@@ -101,9 +101,15 @@ def register(
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
     guard(request, svc, str(data.email))
-    require_email(request)
-    svc.register(data)
-    return Message(message="Account created. Check your email to verify ownership.")
+    enabled = request.app.state.settings.email_enabled
+    svc.register(data, send_verification=enabled)
+    return Message(
+        message=(
+            "Account created. Check your email to verify ownership."
+            if enabled
+            else "Account created. Email verification is temporarily unavailable."
+        )
+    )
 
 
 @router.post("/auth/login", response_model=Profile)
@@ -239,4 +245,3 @@ def admin(actor: Annotated[Actor, Depends(current)]) -> Message:
     if actor.role not in ("admin", "content_manager"):
         raise IdentityError(403, "forbidden", "Administrator access required")
     return Message(message="Content manager access granted")
-

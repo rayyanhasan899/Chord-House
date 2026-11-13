@@ -71,7 +71,7 @@ class Delivery:
                 503,
                 "email_unavailable",
                 "Email delivery is temporarily disabled. "
-                "Registration and email recovery are unavailable.",
+                "Email verification and recovery are unavailable.",
             )
         if self.config.smtp_host:
             mail = EmailMessage()
