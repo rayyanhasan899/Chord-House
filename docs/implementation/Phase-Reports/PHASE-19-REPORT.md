@@ -124,3 +124,10 @@ Only the 30 reviewed phase-owned files were committed through the connected priv
 The local source copy is not a registered worktree and root remains unchanged apart from this new report.
 No merge, force push, paid Actions run or supplied-media publication occurred.
 A following documentation-only commit records this handover; application code remains at cab003b.
+
+
+### Resumed execution and owner decisions - 13 November 2026
+
+The owner explicitly confirmed permission for online distribution of the supplied recordings and lyrics, and confirmed GitHub Actions paid usage is disabled with a $0 spending limit. Record the rights basis as owner attestation in this conversation; no independent license document has been reviewed. This supersedes the earlier missing-attestation blocker without inventing a license. Full hosted checks may now run within the confirmed zero-spend constraint.
+
+SQLAlchemy's official checksum-verified 2.1.8 Python-only wheel works in an isolated test overlay. Windows security policy was not changed. The separate psycopg/libpq and Docker restrictions remain; local non-database checks are running. Render/Vercel connection and working email delivery remain pending.

@@ -24,6 +24,28 @@ def checksum(path: Path) -> str:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
+def safe_path(root: Path, key: str) -> Path:
+    """Reject portable path escapes and links before reading or creating files."""
+    relative = Path(key)
+    if (
+        relative.is_absolute()
+        or relative.drive
+        or "\\" in key
+        or ":" in key
+        or any(part in ("", ".", "..") for part in key.split("/"))
+    ):
+        raise ValueError("Unsafe backup path")
+    root = root.resolve()
+    target = root / relative
+    if not target.resolve().is_relative_to(root) or any(
+        p.is_symlink() or p.is_junction()
+        for p in (target, *target.parents)
+        if p.is_relative_to(root) and p != root
+    ):
+        raise ValueError("Unsafe backup path")
+    return target
+
+
 def postgres_env(url: str) -> dict[str, str]:
     parsed = make_url(url)
     env = dict(os.environ)
@@ -104,17 +126,15 @@ def backup(db: Database, url: str, storage: MediaStorage, destination: Path) -> 
 
 
 def verify(root: Path) -> dict[str, object]:
-    manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads(safe_path(root, "manifest.json").read_text(encoding="utf-8"))
     if (
         manifest["version"] != 1
-        or checksum(root / "database.dump") != manifest["dump_sha256"]
+        or checksum(safe_path(root, "database.dump")) != manifest["dump_sha256"]
     ):
         raise ValueError("Invalid database snapshot")
     for binding in manifest["bindings"]:
         for asset in binding["files"]:
-            target = (root / asset["backup_path"]).resolve()
-            if not target.is_relative_to(root.resolve()) or target.is_symlink():
-                raise ValueError("Unsafe backup path")
+            target = safe_path(root, asset["backup_path"])
             if (
                 checksum(target) != asset["sha256"]
                 or target.stat().st_size != asset["size"]
@@ -146,10 +166,7 @@ def restore(db: Database, url: str, storage: MediaStorage, root: Path) -> None:
                     raise ValueError("Private restore bucket required")
                 storage.objects.copy_verified(source, asset, key)
             else:
-                relative = Path(key)
-                if relative.is_absolute() or ".." in relative.parts:
-                    raise ValueError("Unsafe local restore key")
-                target = storage.local.root / relative
+                target = safe_path(storage.local.root, key)
                 target.parent.mkdir(parents=True, exist_ok=True)
                 if target.exists():
                     if checksum(target) != asset.sha256:
