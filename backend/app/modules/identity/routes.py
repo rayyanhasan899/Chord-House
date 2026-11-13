@@ -84,6 +84,16 @@ def guard(request: Request, svc: IdentityService, email: str = "") -> None:
         svc.throttle("email:" + email.casefold(), request.app.state.settings.auth_limit)
 
 
+def require_email(request: Request) -> None:
+    if not request.app.state.settings.email_enabled:
+        raise IdentityError(
+            503,
+            "email_unavailable",
+            "Email delivery is temporarily disabled. "
+            "Email verification and recovery are unavailable.",
+        )
+
+
 @router.post("/auth/register", response_model=Message, status_code=201)
 def register(
     data: Registration,
@@ -91,8 +101,15 @@ def register(
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
     guard(request, svc, str(data.email))
-    svc.register(data)
-    return Message(message="Account created. Check your email to verify ownership.")
+    enabled = request.app.state.settings.email_enabled
+    svc.register(data, send_verification=enabled)
+    return Message(
+        message=(
+            "Account created. Check your email to verify ownership."
+            if enabled
+            else "Account created. Email verification is temporarily unavailable."
+        )
+    )
 
 
 @router.post("/auth/login", response_model=Profile)
@@ -170,6 +187,7 @@ def reset_request(
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
     guard(request, svc, str(data.email))
+    require_email(request)
     svc.request_token(str(data.email), "reset")
     return Message(message="If eligible, a code has been sent.")
 
@@ -192,6 +210,7 @@ def verify_request(
     svc: Annotated[IdentityService, Depends(service)],
 ) -> Message:
     guard(request, svc, str(data.email))
+    require_email(request)
     svc.request_token(str(data.email), "verify")
     return Message(message="If eligible, a code has been sent.")
 

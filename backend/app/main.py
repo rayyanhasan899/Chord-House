@@ -1,4 +1,5 @@
 import asyncio
+import os
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager, suppress
 from datetime import UTC, datetime
@@ -72,7 +73,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                         "security_cleanup_failed",
                         extra={"event": "security_cleanup_failed"},
                     )
-                cleanup = asyncio.create_task(maintain())
+                if not os.environ.get("VERCEL"):
+                    cleanup = asyncio.create_task(maintain())
             yield
         finally:
             if cleanup:
