@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 name = "chord-house-backend"
 version = "0.1.0"
 requires-python = ">=3.14,<3.15"
-dependencies = ["fastapi", "uvicorn", "sqlalchemy>=2,<3", "alembic>=1,<2", "psycopg[binary]>=3,<4", "pydantic-settings>=2,<3", "argon2-cffi>=25", "email-validator>=2"]
+dependencies = ["fastapi", "uvicorn", "sqlalchemy>=2,<3", "alembic>=1,<2", "psycopg[binary]>=3,<4", "pydantic-settings>=2,<3", "argon2-cffi>=25", "email-validator>=2", "boto3==1.44.2"]
 [project.optional-dependencies]
 dev = ["pytest", "httpx2", "ruff", "mypy"]
 [tool.setuptools.packages.find]
@@ -23,3 +23,7 @@ known-first-party = ["app"]
 [tool.mypy]
 python_version = "3.14"
 strict = true
+
+[[tool.mypy.overrides]]
+module = ["boto3", "botocore.*"]
+ignore_missing_imports = true

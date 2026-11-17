@@ -18,6 +18,8 @@ from sqlalchemy import delete, insert, text
 from app.core.config import Settings
 from app.core.database import Database
 from app.main import create_app
+from app.modules.catalog.asset_models import SongAssetRecord
+from app.modules.catalog.local_storage import LocalSongStorage
 from app.modules.catalog.song_domain import normalize
 from app.modules.catalog.song_schemas import SongInput
 from app.modules.catalog.songs import SongRecord
@@ -47,6 +49,15 @@ def main() -> None:
             "language": ["en", "ur", "hi"][index % 3],
         }
         documents.append(SongInput.model_validate(item).model_dump(mode="json"))
+    media = tempfile.TemporaryDirectory(prefix="chord-quality-media-")
+    media_root = Path(media.name)
+    (media_root / "lyrics.txt").write_text(
+        "Original profiling exercise", encoding="utf-8"
+    )
+    asset = LocalSongStorage(media_root).describe("lyrics.txt")
+    assert asset is not None
+    from dataclasses import asdict
+
     try:
         with db.transaction() as session:
             session.execute(
@@ -79,12 +90,27 @@ def main() -> None:
                     for identifier, item in zip(identifiers, documents, strict=True)
                 ],
             )
+            session.execute(
+                insert(SongAssetRecord),
+                [
+                    dict(
+                        song_id=identifier,
+                        source_kind="local",
+                        source_key="quality/" + str(identifier),
+                        revision=1,
+                        files={"lyrics.txt": asdict(asset)},
+                        rights_status="original_fixture",
+                    )
+                    for identifier in identifiers
+                ],
+            )
         with tempfile.TemporaryDirectory(prefix="chord-quality-mail-") as mail:
             settings = Settings(
                 database_url=SecretStr(url),
                 environment="test",
                 mail_directory=mail,
                 auth_limit=1000,
+                songs_directory=str(media_root),
             )
             with TestClient(create_app(settings)) as client:
                 email = uuid4().hex + "@example.com"
@@ -130,7 +156,7 @@ def main() -> None:
                         )
                         samples.append((perf_counter() - started) * 1000)
                         assert response.status_code == 200
-                        assert len(response.json()["items"]) <= 20
+                        assert 0 < len(response.json()["items"]) <= 20
                         assert response.headers["cache-control"] == "private, no-store"
                     # First request retained separately, not hidden in warm statistics.
                     warm = samples[1:]
@@ -190,6 +216,7 @@ def main() -> None:
                     delete(AccountRecord).where(AccountRecord.id == account)
                 )
         db.close()
+        media.cleanup()
 
 
 if __name__ == "__main__":

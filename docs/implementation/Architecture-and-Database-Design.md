@@ -47,3 +47,27 @@ Security owns the PersonalExport DTO, pure JSON value conversion, ExportSource p
 ## Phase 18 measured quality
 
 ADR-0024 and QUALITY-AND-COMPATIBILITY.md separate controlled-signal, browser-engine, installed-browser and physical-device evidence. Catalog read adapters use ListingDocument/ListingArrangement/ListingText projections to avoid revalidating/copying every full score and lyric on list requests; live grant/expiry/withdrawal rules and private, no-store responses remain authoritative. Detail/write validation stays complete. Differential tests compare list counts/filtering/pagination against rights-aware details. Existing status/language indexes and streamed candidates remain; no migration, extension or cache. Head remains 0012_integration. Tuner presentation unlocks audio in the Start gesture and owns interruption cleanup; chord SVG title/readiness fixes prevent hydration and premature actions. Quality tooling is not a production domain service.
+
+
+## 12 November 2026 — accepted song library amendment
+
+Add a storage port with local and private-object-storage adapters behind existing application services and server-managed cookie authentication. PostgreSQL holds stable song IDs, asset revisions, keys, checksums, availability, provenance/rights and import results; object storage holds original MP3/text bytes. Design reviewed migrations for these fields, explicit rename mapping and stable favorites/collection references. Authenticated backend GET/HEAD/range streaming serves all signed-in users; only operators mutate shared content. Stage and verify uploads before transactional active-reference changes, with idempotent resume, copy retention and matched database/media restore. No distributed-transaction claim, silent remote deletion or authentication-provider migration.
+
+Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.
+
+
+## Revised Phase 18 implementation
+
+See [local asset operations](../architecture/SONG-ASSETS.md) and [ADR-0025](../adr/ADR-0025.md) for migration 0013, scan/sync/rename commands, source preservation, streaming, privacy and limits. Online object storage remains Phase 19; current verification status is in [the report](Phase-Reports/PHASE-18-REPORT.md).
+
+
+## Phase 19 execution update - 13 November 2026
+
+Private Neon Free storage has been provisioned and the cloud adapter, operator
+copy/verification/cutover/recovery tooling and production manifests prepared.
+The release gate remains open: distribution rights, hosting/mail configuration,
+full regression and matched restore are not verified. Preserve the accepted
+reconciled Phase 18 app; do not replace it with the stale root checkout.
+See [Phase 19 report](Phase-Reports/PHASE-19-REPORT.md),
+[provider decision](../adr/ADR-0026.md) and
+[operator guide](../architecture/CLOUD-SONG-OPERATIONS.md) for exact evidence.

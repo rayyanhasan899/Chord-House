@@ -94,6 +94,7 @@ def test_content_role_matrix_reports_rights_revisions_and_retention(
             environment="test",
             auth_limit=500,
             mail_directory=str(tmp_path),
+            songs_directory=str(tmp_path / "songs"),
         )
     )
     ids: list[UUID] = []
@@ -354,6 +355,15 @@ def test_content_role_matrix_reports_rights_revisions_and_retention(
             manager.put(song_endpoint, json=song_write, headers=headers).status_code
             == 200
         )
+        from app.modules.catalog.local_catalog import sync_local_catalog
+        from app.modules.catalog.local_songs import LANGUAGES
+
+        folder = tmp_path / "songs" / LANGUAGES[song["language"]] / song["title"]
+        folder.mkdir(parents=True)
+        (folder / "lyrics.txt").write_text(
+            "Original practice fixture", encoding="utf-8"
+        )
+        sync_local_catalog(db, tmp_path / "songs")
         assert owner.get("/api/v1/songs/" + song_key).status_code == 200
         first_text = song["texts"][0]["key"]
         assert (

@@ -86,3 +86,27 @@ No new schema migration is introduced; apply existing head 0012 and reference se
 Production now requires exact non-empty HTTPS origins, configured certificate-verified SMTP and a limited, non-owner/no-CREATE/no-role-membership DB login. Use administrative/migration credentials only in migration/seed jobs; do not supply an unpooled migration URL to the production API process. Trust forwarded scheme/IP only from the actual proxy addresses, never wildcard trust. Development Compose credentials are loopback setup credentials, not a production template. Review provider/contact/location/backup retention/deletion-after-restore before public use. See SECURITY-AND-PRIVACY.md for constraints and ADR-0023 for decisions.
 
 Expired codes/sessions/rate windows and local captured codes are cleaned at startup/every 15 minutes; python -m app.modules.security.maintenance --confirm is an explicit operator alternative. Do not run tests against personal/production data. Dependency checks: npm run security:audit (zero runtime findings; only the documented dev advisory graph permitted until 2026-12-11), and isolated pip-audit 2.10.1 over requirements-dev.lock. CI records scan evidence; no user mail/export/database is uploaded.
+
+
+## 12 November 2026 — accepted song library amendment
+
+This update changes planning documents only; it creates no cloud account, deployment or importer command. Continue using the existing tested local setup. Future Phase 19 setup must document actual operator scan/dry-run/sync/status/resume commands, provider account/region, environment variable names (never credentials), server-only object-storage access, same-origin HTTPS/session settings and PostgreSQL migrations. Preserve songs/{English songs,Urdu songs,Hindi songs}/{title}/audio.mp3 and/or lyrics.txt; optional metadata must not block the minimal format. Keep original files and a database snapshot before upload; the online copy must play from a clean host with no source directory mounted. Do not commit source media or deploy it through a public asset folder. Recheck free-tier traffic/backup limitations and prove matched metadata/media restore. No paid billing or live distribution assumed authorized by this plan.
+
+Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.
+
+
+## Revised Phase 18 implementation
+
+See [local asset operations](../architecture/SONG-ASSETS.md) and [ADR-0025](../adr/ADR-0025.md) for migration 0013, scan/sync/rename commands, source preservation, streaming, privacy and limits. Online object storage remains Phase 19; current verification status is in [the report](Phase-Reports/PHASE-18-REPORT.md).
+
+
+## Phase 19 execution update - 13 November 2026
+
+Private Neon Free storage has been provisioned and the cloud adapter, operator
+copy/verification/cutover/recovery tooling and production manifests prepared.
+The release gate remains open: distribution rights, hosting/mail configuration,
+full regression and matched restore are not verified. Preserve the accepted
+reconciled Phase 18 app; do not replace it with the stale root checkout.
+See [Phase 19 report](Phase-Reports/PHASE-19-REPORT.md),
+[provider decision](../adr/ADR-0026.md) and
+[operator guide](../architecture/CLOUD-SONG-OPERATIONS.md) for exact evidence.

@@ -17,31 +17,35 @@ test("guest tuner requests only on action, detects generated reference and relea
       document.body.dataset.captures = "0";
       document.body.dataset.stops = "0";
     });
-    Object.defineProperty(navigator.mediaDevices, "getUserMedia", {
-      value: async () => {
-        document.body.dataset.captures = String(
-          Number(document.body.dataset.captures || 0) + 1,
+    const capture = async () => {
+      document.body.dataset.captures = String(
+        Number(document.body.dataset.captures || 0) + 1,
+      );
+      const context = activeContexts.at(-1) || new Native();
+      await context.resume();
+      const oscillator = context.createOscillator();
+      oscillator.frequency.value = 82.406889;
+      const destination = context.createMediaStreamDestination();
+      oscillator.connect(destination);
+      oscillator.start();
+      const track = destination.stream.getAudioTracks()[0];
+      const stop = track.stop.bind(track);
+      track.stop = () => {
+        document.body.dataset.stops = String(
+          Number(document.body.dataset.stops || 0) + 1,
         );
-        const context = activeContexts.at(-1) || new Native();
-        await context.resume();
-        const oscillator = context.createOscillator();
-        oscillator.frequency.value = 82.406889;
-        const destination = context.createMediaStreamDestination();
-        oscillator.connect(destination);
-        oscillator.start();
-        const track = destination.stream.getAudioTracks()[0];
-        const stop = track.stop.bind(track);
-        track.stop = () => {
-          document.body.dataset.stops = String(
-            Number(document.body.dataset.stops || 0) + 1,
-          );
-          stop();
-          oscillator.stop();
-          if (context !== activeContexts.at(-1))
-            void context.close().catch(() => {});
-        };
-        return destination.stream;
-      },
+        stop();
+        oscillator.stop();
+        if (context !== activeContexts.at(-1))
+          void context.close().catch(() => {});
+      };
+      return destination.stream;
+    };
+    // Bind the injected capture to navigator itself so a browser cannot return
+    // a refreshed native MediaDevices wrapper after stopping the first stream.
+    Object.defineProperty(navigator, "mediaDevices", {
+      configurable: true,
+      value: { getUserMedia: capture },
     });
   });
   const posts: string[] = [];

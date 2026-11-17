@@ -82,13 +82,12 @@ export function SongList() {
     setError("");
   }
   return (
-    <section className="panel">
-      <p className="eyebrow">Song discovery</p>
-      <h1>Find a song to learn.</h1>
+    <section className="panel song-library">
+      <p className="eyebrow">Your song collection</p>
+      <h1>Press play. Find your rhythm.</h1>
       <p>
-        English, Urdu and Hindi identities, including Roman-script search.
-        Learning content is shown only when approved. Metadata-only entries are
-        clearly marked; an entry is not a promise of lyrics or an arrangement.
+        Your English, Urdu and Hindi songs, together in one place. Listen,
+        follow the lyrics and keep your favorites close.
       </p>
       <div className="form-grid">
         <label>
@@ -162,7 +161,7 @@ export function SongList() {
           >
             <option value="">All entries</option>
             <option value="arrangement">Approved arrangement</option>
-            <option value="lyrics">Approved full text</option>
+            <option value="lyrics">Lyrics available</option>
           </select>
         </label>
       </div>
@@ -191,24 +190,37 @@ export function SongList() {
               arrangements with that metadata.
             </p>
           )}
-          <ul className="pattern-library">
+          <ul className="pattern-library song-library-grid">
             {data.items.map((song) => (
               <li key={song.id}>
+                <div className="song-card-top">
+                  <span className="song-card-note" aria-hidden="true">
+                    ♪
+                  </span>
+                  <span className="tag">{languages[song.language]}</span>
+                </div>
                 <h2>
                   <Link href={`/songs/${song.id}`}>{song.title}</Link>
                 </h2>
                 <p>
-                  {song.artist} · {languages[song.language]}
+                  {song.artist === "Artist not specified"
+                    ? "Your collection"
+                    : song.artist}
                 </p>
                 <p>
-                  {song.arrangement_count
-                    ? `${song.arrangement_count} approved arrangements`
-                    : "Metadata only — arrangement unavailable"}{" "}
-                  ·{" "}
-                  {song.text_count
-                    ? `${song.text_count} approved text variants`
-                    : "Lyrics unavailable"}
+                  <span className="song-content-badge">
+                    {song.audio_available ? "● Audio ready" : "Audio not added"}
+                  </span>
+                  {" · "}
+                  <span>
+                    {song.local_lyrics_available || song.text_count
+                      ? "Lyrics ready"
+                      : "Lyrics not added"}
+                  </span>
                 </p>
+                <Link className="song-card-open" href={`/songs/${song.id}`}>
+                  Open song <span aria-hidden="true">↗</span>
+                </Link>
               </li>
             ))}
           </ul>

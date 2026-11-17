@@ -57,53 +57,57 @@ test("noisy harmonic capture stays local responsive and releases on interruption
         window.__qualityContexts.push(this);
       }
     };
-    Object.defineProperty(navigator.mediaDevices, "getUserMedia", {
-      value: async () => {
-        const context = window.__qualityContexts.at(-1) || new NativeAudio();
-        await context.resume();
-        const destination = context.createMediaStreamDestination();
-        const nodes: OscillatorNode[] = [];
-        for (const [harmonic, amplitude] of [
-          [1, 0.18],
-          [2, 0.28],
-          [3, 0.1],
-        ]) {
-          const oscillator = context.createOscillator();
-          const gain = context.createGain();
-          oscillator.frequency.value = window.__qualityHz * harmonic;
-          gain.gain.value = amplitude;
-          oscillator.connect(gain).connect(destination);
-          oscillator.start();
-          nodes.push(oscillator);
-        }
-        const buffer = context.createBuffer(
-          1,
-          context.sampleRate,
-          context.sampleRate,
-        );
-        let state = 18;
-        const samples = buffer.getChannelData(0);
-        for (let i = 0; i < samples.length; i++) {
-          state = (state * 16807) % 2147483647;
-          samples[i] = (state / 2147483647 - 0.5) * 0.012;
-        }
-        const noise = context.createBufferSource();
-        noise.buffer = buffer;
-        noise.loop = true;
-        noise.connect(destination);
-        noise.start();
-        const track = destination.stream.getAudioTracks()[0];
-        const stop = track.stop.bind(track);
-        track.stop = () => {
-          window.__qualityStops++;
-          nodes.forEach((node) => node.stop());
-          noise.stop();
-          stop();
-          if (context !== window.__qualityContexts.at(-1))
-            void context.close().catch(() => {});
-        };
-        return destination.stream;
-      },
+    const capture = async () => {
+      const context = window.__qualityContexts.at(-1) || new NativeAudio();
+      await context.resume();
+      const destination = context.createMediaStreamDestination();
+      const nodes: OscillatorNode[] = [];
+      for (const [harmonic, amplitude] of [
+        [1, 0.18],
+        [2, 0.28],
+        [3, 0.1],
+      ]) {
+        const oscillator = context.createOscillator();
+        const gain = context.createGain();
+        oscillator.frequency.value = window.__qualityHz * harmonic;
+        gain.gain.value = amplitude;
+        oscillator.connect(gain).connect(destination);
+        oscillator.start();
+        nodes.push(oscillator);
+      }
+      const buffer = context.createBuffer(
+        1,
+        context.sampleRate,
+        context.sampleRate,
+      );
+      let state = 18;
+      const samples = buffer.getChannelData(0);
+      for (let i = 0; i < samples.length; i++) {
+        state = (state * 16807) % 2147483647;
+        samples[i] = (state / 2147483647 - 0.5) * 0.012;
+      }
+      const noise = context.createBufferSource();
+      noise.buffer = buffer;
+      noise.loop = true;
+      noise.connect(destination);
+      noise.start();
+      const track = destination.stream.getAudioTracks()[0];
+      const stop = track.stop.bind(track);
+      track.stop = () => {
+        window.__qualityStops++;
+        nodes.forEach((node) => node.stop());
+        noise.stop();
+        stop();
+        if (context !== window.__qualityContexts.at(-1))
+          void context.close().catch(() => {});
+      };
+      return destination.stream;
+    };
+    // Bind the injected capture to navigator itself so a browser cannot return
+    // a refreshed native MediaDevices wrapper after stopping the first stream.
+    Object.defineProperty(navigator, "mediaDevices", {
+      configurable: true,
+      value: { getUserMedia: capture },
     });
   });
   const posts: string[] = [];

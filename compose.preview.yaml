@@ -21,11 +21,16 @@ services:
       dockerfile: Dockerfile.preview
     environment:
       CHORD_DATABASE_URL: postgresql+psycopg://chord_house:${CHORD_PREVIEW_PASSWORD}@db:5432/chord_house
-      CHORD_TRUSTED_ORIGINS: '["http://127.0.0.3:3002"]'
+      CHORD_TRUSTED_ORIGINS: '["http://127.0.0.3:3002","http://127.0.0.3:3003"]'
+      CHORD_SONGS_DIRECTORY: /songs
       CHORD_MAIL_DIRECTORY: /app/.local-mail
     ports:
       - "127.0.0.1:8002:8000"
+    command: ["sh", "-c", "python -m alembic upgrade head && python -m app.modules.catalog.seeds && python -m app.modules.catalog.local_catalog sync --root /songs >/dev/null && exec python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --no-access-log"]
     volumes:
+      - "${CHORD_SONGS_SOURCE:-./songs}:/songs:ro"
+      - ./backend/app:/app/app:ro
+      - ./backend/migrations:/app/migrations:ro
       - preview_mail:/app/.local-mail
     depends_on:
       db:

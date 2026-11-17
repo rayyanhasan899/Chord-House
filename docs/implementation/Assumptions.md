@@ -110,4 +110,28 @@ A-040 (Accepted engineering): ADR-0024 defines raw measured evidence and broad r
 
 A-041 (Accepted local continuity): isolated Phase 18 worktree/branch are based on 35b5d86. Reuse existing Phase 17 preview project, credential, mail and DB volumes at 127.0.0.3:3002/API8002/DB5435; no personal data copy or additional DB. Head remains 0012. Rebuildable host-tool caches are preserved on D: with links after C: exhaustion; Docker recovery uses the owner's earlier explicit restart authorization. Previously running original services are restored; unrelated previously stopped services remain untouched. The report records actual results and activation.
 
-Phase 18 final gate: 80/86 browser checks pass; six Firefox/WebKit cases remain unresolved. Implementation is delivered but Phase 18 is not complete; see PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
+Historical pre-revision Phase 18 gate: 80/86 browser checks passed with six unresolved cases; see PHASE-18-LEGACY-2026-11-12-REPORT.md. The revised execution has separate evidence and status in PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
+
+
+## 12 November 2026 — accepted song library amendment
+
+D-20261112-01 — Confirmed owner decision: open registration, shared song reading/playback for every signed-in user; no invitation/approval gate. D-20261112-02 — Preserve the preferred current root song/player/lyrics behavior while reconciling earlier Phase 17 security; branch numbering alone does not identify the accepted source. D-20261112-03 — Accepted folder-based expansion; optional generated metadata may stabilize identities, but hand-written song JSON is not required. D-20261112-04 — Proposed technical starting point: evaluate Neon Free PostgreSQL plus private Object Storage, with R2/Supabase alternatives. Provider/account/region/billing remain Phase 19 decisions based on current capabilities. No licensed source has been established in chat; hard-coded permission assertions in existing code are not evidence. Archive and dated amendments preserve earlier decisions/history.
+
+Details: [accepted baseline and added requirement IDs](OWNER-SONG-LIBRARY-BASELINE.md), [storage and migration plan](SONG-LIBRARY-STORAGE-PLAN.md), and revised [Phase 18](phase-prompts/PHASE-18.md), [Phase 19](phase-prompts/PHASE-19.md), [Phase 20](phase-prompts/PHASE-20.md). These dated decisions supersede conflicting earlier proposals only for their stated scope.
+
+
+## Revised Phase 18 implementation
+
+See [local asset operations](../architecture/SONG-ASSETS.md) and [ADR-0025](../adr/ADR-0025.md) for migration 0013, scan/sync/rename commands, source preservation, streaming, privacy and limits. Online object storage remains Phase 19; current verification status is in [the report](Phase-Reports/PHASE-18-REPORT.md).
+
+
+## Phase 19 execution update - 13 November 2026
+
+Private Neon Free storage has been provisioned and the cloud adapter, operator
+copy/verification/cutover/recovery tooling and production manifests prepared.
+The release gate remains open: distribution rights, hosting/mail configuration,
+full regression and matched restore are not verified. Preserve the accepted
+reconciled Phase 18 app; do not replace it with the stale root checkout.
+See [Phase 19 report](Phase-Reports/PHASE-19-REPORT.md),
+[provider decision](../adr/ADR-0026.md) and
+[operator guide](../architecture/CLOUD-SONG-OPERATIONS.md) for exact evidence.

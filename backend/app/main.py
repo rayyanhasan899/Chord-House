@@ -1,4 +1,5 @@
 import asyncio
+import os
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager, suppress
 from datetime import UTC, datetime
@@ -15,6 +16,7 @@ from app.core.config import Settings
 from app.core.contracts import ErrorResponse
 from app.core.database import Database
 from app.core.logging import configure_logging
+from app.modules.catalog.object_storage import StorageUnavailable
 from app.modules.identity.adapters import ArgonPasswords, Delivery
 from app.modules.identity.domain import IdentityError
 from app.modules.identity.routes import router as identity_router
@@ -71,7 +73,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                         "security_cleanup_failed",
                         extra={"event": "security_cleanup_failed"},
                     )
-                cleanup = asyncio.create_task(maintain())
+                if not os.environ.get("VERCEL"):
+                    cleanup = asyncio.create_task(maintain())
             yield
         finally:
             if cleanup:
@@ -153,6 +156,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 response = error(request, 400, "https_required", "HTTPS is required")
             else:
                 response = await call_next(request)
+        except StorageUnavailable:
+            response = error(
+                request,
+                503,
+                "media_unavailable",
+                "Media storage is temporarily unavailable",
+            )
         except Exception as exc:
             logger.error(
                 "request_failed",

@@ -1,7 +1,7 @@
 from typing import Annotated, Literal
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Request
 from sqlalchemy.exc import IntegrityError
 
 from app.modules.identity.domain import Actor, IdentityError
@@ -75,14 +75,17 @@ def remove(identifier: UUID, actor: ActorDep, svc: ServiceDep) -> None:
 
 @router.get("/songs")
 def songs(
+    request: Request,
     actor: ActorDep,
     svc: ServiceDep,
     offset: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=100),
 ) -> list[dict[str, str]]:
-    from app.modules.catalog.songs import Songs
+    from app.modules.catalog.song_routes import catalogue
 
-    page = Songs(svc.db).list("", None, "", None, None, "", None, offset, limit)
+    page = catalogue(request, svc).list(
+        "", None, "", None, None, "", None, offset, limit
+    )
     return [
         {
             "id": str(row.id),

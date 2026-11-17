@@ -1,6 +1,7 @@
 import hashlib
 import json
 from datetime import UTC, datetime
+from pathlib import Path
 from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
 
 from sqlalchemy import DateTime, ForeignKey, String, Text, func, select
@@ -9,6 +10,8 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base, Database
+from app.modules.catalog.asset_models import SongAssetRecord
+from app.modules.catalog.local_storage import LocalSongStorage
 from app.modules.catalog.patterns import Patterns
 from app.modules.catalog.song_domain import normalize, publishable
 from app.modules.catalog.song_schemas import (
@@ -22,6 +25,7 @@ from app.modules.catalog.song_schemas import (
     SongSummary,
     Withdrawal,
 )
+from app.modules.catalog.song_storage import SongStorage
 from app.modules.identity.domain import Actor, IdentityError
 from app.modules.personal_workspace.workspace import SongReference
 
@@ -136,8 +140,60 @@ def detail(row: SongRecord) -> SongDetail | None:
 
 
 class Songs:
-    def __init__(self, db: Database):
+    def __init__(
+        self,
+        db: Database,
+        local_root: Path | None = None,
+        storage: SongStorage | None = None,
+        verified_only: bool = False,
+    ):
         self.db = db
+        self.local_root = local_root
+        self.storage = storage or (
+            LocalSongStorage(local_root) if local_root is not None else None
+        )
+        self.verified_only = verified_only
+        self._checked: dict[tuple[str, str], bool] = {}
+
+    def local_assets(
+        self, identifier: UUID, files: dict[str, dict[str, str | int]] | None = None
+    ) -> tuple[bool, bool]:
+        if self.storage is None:
+            return False, False
+        if files is None:
+            with self.db.transaction() as session:
+                binding = session.get(SongAssetRecord, identifier)
+                if (
+                    binding is None
+                    or self.verified_only
+                    and binding.rights_status != "verified"
+                ):
+                    return False, False
+                files = dict(binding.files)
+        assert self.storage is not None
+        available = []
+        for name in ("audio.mp3", "lyrics.txt"):
+            expected = files.get(name)
+            if expected is None:
+                available.append(False)
+                continue
+            key = (str(expected["key"]), str(expected["sha256"]))
+            if key not in self._checked:
+                asset = self.storage.describe(key[0])
+                self._checked[key] = bool(asset and asset.sha256 == key[1])
+            available.append(self._checked[key])
+        return available[0], available[1]
+
+    def visible_detail(self, row: SongRecord) -> SongDetail | None:
+        song = detail(row)
+        if song is None or self.storage is None:
+            return song
+        audio, lyrics = self.local_assets(row.id)
+        if not audio and not lyrics:
+            return None
+        return song.model_copy(
+            update={"audio_available": audio, "local_lyrics_available": lyrics}
+        )
 
     def list(
         self,
@@ -152,7 +208,14 @@ class Songs:
         limit: int,
     ) -> SongPage:
         with self.db.transaction() as session:
-            query = select(SongRecord).where(SongRecord.status == "published")
+            query = (
+                select(SongRecord, SongAssetRecord.files, SongAssetRecord.rights_status)
+                .outerjoin(
+                    SongAssetRecord,
+                    (SongAssetRecord.song_id == SongRecord.id),
+                )
+                .where(SongRecord.status == "published")
+            )
             if q.strip():
                 query = query.where(
                     SongRecord.search_text.contains(normalize(q), autoescape=True)
@@ -161,12 +224,17 @@ class Songs:
                 query = query.where(SongRecord.language == language)
             total = 0
             items: list[SongSummary] = []
-            for row in session.scalars(
+            for row, asset_files, rights_status in session.execute(
                 query.order_by(SongRecord.identity_key).execution_options(yield_per=100)
             ):
                 # Listings do not need lyric lines, bars or placement copies. Keep
                 # live grant/withdrawal checks without validating every score again.
                 data = ListingDocument.model_validate(row.document)
+                if self.verified_only and rights_status != "verified":
+                    continue
+                audio, local_lyrics = self.local_assets(row.id, asset_files or {})
+                if self.storage is not None and not audio and not local_lyrics:
+                    continue
                 if (
                     not approved(data.metadata_grant)
                     or normalize(artist) not in normalize(data.artist)
@@ -194,6 +262,7 @@ class Songs:
                     and not arrangements
                     or availability == "lyrics"
                     and not texts
+                    and not local_lyrics
                 ):
                     continue
                 if offset <= total < offset + limit:
@@ -206,6 +275,8 @@ class Songs:
                             aliases=data.aliases,
                             genre=data.genre,
                             version_note=data.version_note,
+                            audio_available=audio,
+                            local_lyrics_available=local_lyrics,
                             arrangement_count=len(arrangements),
                             text_count=len(texts),
                         )
@@ -216,7 +287,7 @@ class Songs:
     def get(self, identifier: UUID) -> SongDetail:
         with self.db.transaction() as session:
             row = session.get(SongRecord, identifier)
-            song = detail(row) if row else None
+            song = self.visible_detail(row) if row else None
             if song is None:
                 raise IdentityError(404, "not_found", "Song is not available")
             return song

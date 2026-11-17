@@ -1,252 +1,94 @@
-# Phase 18 report — Quality, compatibility and performance
-
-Dates: 2026-11-11–12, Asia/Karachi. Phase 18 only; Phase 19 has not started.
+# Phase 18 revised execution — 12–13 November 2026
 
 ## Outcome
 
-Implemented: complete cross-engine qualification tooling, demanding generated
-audio fixtures and timing measurements, disposable catalog profiling, lighter
-rights-aware listings, bounded/retryable audio startup, tuner interruption and
-rapid-restart cleanup, chord hydration/start/cancellation fixes and keyboard
-access to the daily progress table. Original unfinished song/player changes and
-personal data remain outside the isolated Phase 18 checkout.
+Implemented the revised phase in `codex/phase-18-reconciled`, isolated at `D:/RAYYAN/Projects/Chord-House/.artifacts/phase18-revised-worktree`. Application code under final automated qualification: **27028419d9c16777b7d9e8bc5548600d3311ffe4**. Phase 19 has not started.
 
-**Implementation delivered; Phase 18 exit gate is NOT met.** The final full
-run completed with **80/86 browser journeys passed, 6 failed, 0 skipped**.
-Chromium 24/24 and mobile Chromium emulation 7/7 pass; Firefox 23/24, WebKit
-20/24 and mobile WebKit emulation 6/7 remain incomplete. These failures are
-recorded below and are not represented as a passed phase or a ready-to-merge PR.
+**Implementation is delivered and the preview is usable; the final Phase 18 exit gate is NOT met. Latest complete qualification: 85/86 browser journeys passed, one failed, zero skipped.** The old 80/86 result is historical and preserved verbatim in PHASE-18-LEGACY-2026-11-12-REPORT.md.
 
-Prerequisites inspected: phase prompt; source Requirements/Architecture Blueprint;
-requirements analysis, architecture/database, assumptions, traceability, roadmap
-and relevant Phase 08/10/12–17 reports; frontend AGENTS/installed Next 16.4.5
-production/error guides; Git branch/worktrees/status/private remote and runtime.
-Phase 17 is complete at 35b5d86 with passing implementation bbde6aa and run
-42995354280. Checklist: preserve work; map all 42 rows; measure and repair;
-execute full negative/database/browser/audio gates; document/review/commit/push/PR;
-stop before Phase 19.
+The working revised preview is **http://127.0.0.3:3003**, API 8002/database 5435. The original checkout and 3002 frontend were not overwritten. Preview credentials, accounts and persistent database/mail volumes were reused; no personal database was copied. A local SQL snapshot was taken before migration 0013. Shared recordings are mounted read-only from the original songs directory.
 
-### Executed verification
+### What the owner can use
 
-| Check | Observed result |
+- All 24 supplied songs: 4 English, 7 Urdu and 13 Hindi, with recordings and original-format lyrics; open registration and shared reading/playback for every signed-in account.
+- The preserved listening-room player: play/pause, seek, rewind/forward 10 seconds, volume, repeat, timing, buffering and error feedback; readable lyric/chord/capo spacing and text-size/practice controls.
+- Trusted operator folder scan, idempotent sync and explicit rename mapping, preserving song UUIDs, known artist metadata and private favorites/collection links.
+- Existing guest tuner/metronome/public chords, and signed-in private workspace, custom chords/patterns, practice/routines/goals/timezone progress, training/reminders and account security/accessibility from the reconciled Phase 17 baseline.
+
+## Implemented changes
+
+The baseline is 7d157b3 (successful Phase 17 plus earlier quality work), reconciled with the owner-approved original root song/player changes using a scoped three-way patch. Listing conflicts retained the lightweight live-rights projection and new local availability; CSS conflicts retained both training and player styles. Before handover documentation updates, source fingerprints verified **81 original files; zero changed**, including all **24 MP3s and 24 lyric files**. Application/media originals remain unchanged; subsequent root edits are documentation only. Local source hashes and the original patch remain excluded from Git in `.artifacts/phase18-revision`.
+
+Migration **0013_song_assets** adds relational stable active asset bindings: source kind/key, revision, per-file key/checksum/size/type and unverified media-rights status. Metadata stays in PostgreSQL; recording/text bytes stay on disk. No cloud adapter, upload, paid service, provider account or source removal was performed.
+
+The application storage protocol has no HTTP/ORM dependency. Its local adapter checks containment/links, type header, bounds and UTF-8 validity, preserves text line endings/BOM handling, and reads at most 64 KiB at a time. Authenticated audio GET/HEAD/ranges return 200/206/416 with correct length/content-range and private/no-store. Two-account reading is shared intentionally; writing remains operator/manager-only and personal resources stay isolated.
+
+Operator `scan` is a dry run; `sync` is idempotent; `rename` requires a stable UUID and explicit destination. Invalid supported assets and normalized collisions produce diagnostics. A possible rename of a missing source is reported rather than silently reimported as a duplicate. Missing folders/outages never delete stable records or favorites. Catalogue GET requests no longer import files. Fresh-process CLI execution now registers all referenced ORM metadata, preventing the real preview startup FK error discovered during activation.
+
+Listing uses one asset-binding join, plus a request-scoped checksum/availability cache for shared file keys. No cross-request grant/content cache was introduced. The performance fixture has 5,000 metadata identities sharing one original lyric file; it is not a 5,000-recording or public-network throughput benchmark.
+
+Player design remains intact. Source changes/unmount release media; pending play and stale promises are guarded, seek IDs are unique across player instances and invalid media has recovery feedback. Generated tuner fixtures bind a stable navigator mediaDevices object across restarts. Audio lookahead is 300 ms instead of 150 ms to survive brief foreground scheduling stalls; strict native-clock phase and voice-count assertions remain in place. Physical accuracy targets were not changed.
+
+## Verification
+
+Hosted run: https://github.com/rayyanhasan899/Chord-House/actions/runs/43255050519
+
+| Check | Evidence/status |
 | --- | --- |
-| Locked npm ci | Passed; existing development-only advisory remains disclosed |
-| npm run format:check / lint / typecheck | Passed locally and in hosted frontend checks; final exact-run linkage below |
-| npm test | **465 passed, 11 files**, local final-review run; earlier 464 passed before the added chord cancellation regression |
-| npm run build | Default production Turbopack passes on Linux; native Windows helper failure is recorded below |
-| npm --workspace frontend run build -- --webpack | Passed locally; final preview rebuild documented below |
-| npm run contracts:check | Actual FastAPI/OpenAPI/client drift check passes in hosted backend checks |
-| Ruff check / Ruff format --check | Passed; **110 files** formatted |
-| python -m mypy app | **75 source files** pass in hosted backend checks |
-| python -m pytest | **97 cases** pass against real disposable PostgreSQL, including fresh upgrade/downgrade/drift and new differential listing tests |
-| python tests/profile_quality.py | Real authenticated FastAPI/SQL profile of **5,000 disposable records** passes its 5-second budget; measurements below |
-| Full production browser_system.py | Chromium/Firefox/WebKit full journeys plus mobile Chromium/WebKit emulation; **80 passed / 6 failed / 0 skipped in 14m52s; gate not met** |
-| Native installed Chrome quality | **6/6 passed**, version **157.0.8103.40**, real generated analyser/worker pipeline and fallback/navigation checks |
-| Native installed Edge quality | **6/6 passed** on a separate successful attempt, version **157.0.4341.42** |
-| npm run security:audit / isolated pip-audit | Runtime npm **0** and 47 pinned Python packages **0 observed findings**; nine moderate dev entries from one advisory remain under the existing exception expiring 2026-12-11 |
+| Locked install, formatting, ESLint, TypeScript | Passed on 2702841 |
+| Frontend Vitest | **473 passed, 12 files** |
+| Production build | Default Linux builder passed; local Windows Webpack build passed |
+| OpenAPI/client drift | Passed |
+| Ruff check/format and strict mypy | Passed; 80 application modules |
+| Full PostgreSQL pytest | **115 passed** on each isolated engine worker (115 unique backend cases) |
+| Fresh upgrade, migration drift and downgrade/upgrade | Included in the passing PostgreSQL gate; head 0013_song_assets |
+| 5,000-record authenticated search | Passed the retained five-second gate in the hosted run; exact measurements in phase18-search.json |
+| Dependency/security checks | Passed using existing audit policy; historical development-only advisory exception remains documented |
+| Full three-engine/mobile-emulated browser qualification | **85/86 passed, 1 failed, 0 skipped**: Chromium + mobile 31/31, Firefox 24/24, WebKit + mobile 30/31 |
+| Actual local preview smoke | Passed in installed Chrome: 24 songs (4/7/13), real MP3 metadata and advancing playback, authenticated 206 range, guest 401, exact source lyric comparison, no horizontal overflow at 390 px |
+| Original source preservation | 81 SHA-256 comparisons passed; no source/media changed |
 
-Commands use Node 24, Python 3.14 and committed locks. Native Windows tests use
-process-only D: TEMP/TMP. CI backend uses official matching Playwright 1.65.0 Noble
-and Ubuntu 24.04 with a correctly owned container home and PulseAudio null output;
-the virtual output is not a physical speaker. All temporary DBs are explicitly
-disposable. No personal database, mail, export or credentials are uploaded.
+The actual Chrome smoke observed a 224.525-second recording, readyState 4 and advancing playback. This proves browser media playback/control behavior; it does not certify a physical speaker. Screenshots mask supplied lyrics. Its synthetic account and captured verification mail were removed; shared songs remained.
 
-### Measured results and practical limits
+Generated plucks still cover 80 noisy/harmonic/decayed combinations across low bass/guitar and 32/44.1/48/96 kHz. Maximum observed unit-test error is **3.0030601675 cents**, under the unchanged five-cent gate. Thirty-minute deterministic timing produced 901/3,601/9,002 scheduled ticks at 30/120/300 BPM; maximum phase error was **2.724e-10 seconds**. Lookahead includes future ticks. Neither simulation measures acoustic output latency.
 
-The exact deterministic noisy-pluck replay covers **80** combinations: ten pitches
-including bass E1 and guitar E2/A2, 32/44.1/48/96 kHz, post-attack and decayed
-windows, strong second/third harmonics, seeded noise and DC offset. Maximum
-absolute error is **3.0030602 cents**, below the controlled ±5-cent threshold.
-Existing preset/silence/weak/noise tests remain. Explicit 81.3/81.8/82.406889 and
-109.2/109.8/110 Hz fixtures test the earlier approximate report without inventing
-physical calibration or changing the detector reference.
+## Traceability and decisions
 
-Thirty-minute deterministic jitter simulations produced **901/3,601/9,001 ticks**
-at 30/120/300 BPM. Maximum phase errors were **0/0/2.724e-10 seconds**. The
-lookahead includes the next tick just beyond the observation window. Existing
-three-minute native browser scheduling checks include an 80 ms UI stall;
-final per-engine results are recorded below. Scheduled timestamps do not measure
-speaker latency or acoustic jitter.
+Original assigned scope remains all 42 IDs: NFR-PER-001–007, NFR-REL-001–006, NFR-COMP-001–005 and TST-001–024. Shared original song/auth/privacy/accessibility requirements also apply. ADR-0025 and SONG-ASSETS.md document the storage boundary and operator workflow; ADR-0024 remains the quality baseline.
 
-Successful native Chrome capture displayed **41.20 Hz / -0.145 cents** and
-**82.56 Hz / +3.214 cents** for synthesized 41.2034446/82.406889 Hz targets;
-maximum observed worker round trip **5.3 ms**. Successful Edge displayed
-**41.21/82.42 Hz**, both approximately **+0.275 cents**, maximum worker round
-trip **5.9 ms**. These rounded display comparisons, stopped tracks/closed contexts,
-secure localhost and zero audio POSTs are observed generated-stream results,
-not measurements of the owner's microphone or guitar.
+CHG-SONG-001/002: shared authenticated reading, guest denial and private ownership tests. 003/004: three-language folders, audio/text variants, validation, exact text and layout tests. 005: player controls, pending/source-change lifecycle and independent labels. 006: stable UUID/favorite across mapped rename/replacement/outage. 007: local contract/adapter and protected range behavior. 008: local manifest/validation/idempotency; cloud sync remains Phase 19. 010: truthful unverified media source status and secret/media exclusion. 012: tested local operator commands and honest handover. CHG-SONG-009/011 online cutover/paired restore remain Phase 19; retaining originals and the preview SQL snapshot do not claim those online gates complete.
 
-On that Chrome production build, initial document DOM-ready was **91.7 ms**;
-Home/Tuner/Metronome/Chords became ready in **225/204/72/81 ms**, with cumulative
-script transfer at most **173,101 bytes**, no downloaded audio assets and no
-horizontal overflow. Edge's separate successful run measured **34.8 ms** initial
-document DOM-ready and **191/113/63/65 ms** route readiness. Soft-navigation route
-timings are distinct from initial-document DOM readiness. This is local,
-unthrottled production-build evidence, not mobile-network/field-vitals or capacity
-certification. Sample maxima are not called population p95.
+## Failures, recovery and limits
 
-Hosted profile run 43050354359 measured authenticated 5,000-record substring
-search warm median **660.9 ms**, maximum **786.5 ms**; Urdu filtering **187.6 ms**
-median, exact-title match **6.63 ms**, offset 4,980 **657.0 ms**, lyrics-availability
-filter **663.7 ms**. Each category includes one first request plus five warm
-samples and bounded 20-item responses. The SQL plan is preserved in the artifact.
-These are in-process FastAPI/auth/SQL measurements, excluding public network
-latency. Existing status/language indexes remain; substring scans still scale
-with matching candidates. No unsupported speedup ratio is inferred from the
-earlier overloaded local run that exceeded five seconds.
+Earlier local Windows runs hit restricted temporary-cache paths, low-memory worker termination and intermittent session 401s. D: process-local TEMP/TMP and a bounded Node heap were used; no security assertion, expiry tolerance or password setting was weakened. A targeted local identity/song diagnostic subsequently passed 2/2, without reproducing a rejected-clock sample. The final hosted regression is independent evidence, not a retroactive pass for earlier attempts.
 
-## Changes and traceability
+Initial import tests needed explicit sync fixtures after GET imports were removed; the audit assertion was updated to include the real local-assets-import event. Preview startup exposed missing standalone FK metadata registration, now covered by a subprocess regression. The first local 5,000-row offset measurement exceeded five seconds under workstation load; SQL joins and request-local shared-asset checks were corrected. Only the final hosted result is a passed budget claim.
 
-Catalog listing DTOs project metadata and component grants instead of validating
-and copying every full lyric/score for every match. Full write/detail validation,
-live grant/expiry/withdrawal checks, filtering, total counts, pagination and
-private/no-store remain. Differential tests compare listings with full details
-after rights changes. No schema migration, new content, result cache or database
-extension; head remains **0012_integration**.
+C: fell below 100 MB and Docker stopped responding during a build. The ordinary restart failed; using the owner's prior restart authorization, only verified Docker processes and the docker-desktop WSL engine were recovered. Original Chord House and previously running Devtreck services were restored; Ubuntu and unrelated stopped services were not restarted. A 276 MB rebuildable NuGet package cache was moved to `D:/RAYYAN/Projects/Chord-House/.artifacts/host-cache/nuget-packages`, with its original `C:/Users/rayya/.nuget/packages` path preserved as a junction. Keep that target while the junction exists. No personal files were deleted. The revised preview reuses installed dependencies and read-only source/migration mounts, avoiding repeated heavy builds.
 
-Audio startup has a five-second bound and device/retry guidance. The tuner
-unlocks audio in the Start gesture, waits for actual context closure before
-allowing restart, releases capture on interruption and ignores stale worker/track
-callbacks. Chord playback waits for hydration, exposes startup/cancel states and
-protects newer playback from an older rejected start. SVG titles use one stable
-string, eliminating observed hydration errors. Loading chord lists no longer
-also announce an empty result. The progress table is explicitly keyboard focusable.
+Popular-song distribution permission remains **unverified**. Legacy hard-coded owner permission assertions are corrected for local records, not treated as evidence. Production media delivery rejects unverified permission; externally hosted distribution is a Phase 19 prerequisite. No scraped replacements or fabricated licenses were introduced.
 
-| SRS scope | Evidence / residual condition |
-| --- | --- |
-| NFR-PER-001–007 | Production navigation/transfer, off-thread capture, live-rights 5,000-record search/plan, streamed pages and private/no-store; broad engineering budgets in ADR-0024 |
-| NFR-REL-001/002/005/006 | API/audio/permission failures, bounded startup, explicit recovery, failed task save retains its draft and retry persists one item; no private browser draft persistence |
-| NFR-REL-003 | Conditional provider backup configuration/restore gate explicitly remains Phase 19; no hosted provider selected or backup claimed configured |
-| NFR-REL-004 | Disposable fresh upgrade, drift and downgrade/upgrade tests; no new migration |
-| NFR-COMP-001–005 | Three-engine journeys, installed Windows Chrome/Edge, mobile emulation, missing APIs, secure localhost and cleanup; actual Safari/mobile/output gaps remain explicit |
-| TST-001–010 | Complete pure/domain/repository/API/component/music/diagram/negative/keyboard/responsive suite; existing assertions retained |
-| TST-011–017 | Real registration/login/logout/profile/workspace/favorites/practice/search/learning journeys across engines; test reports are scoped to each browser's own fixture |
-| TST-018–021 | All presets, known frequencies, bass, harmonics, decays, silence/weak/noise/DC and native generated capture |
-| TST-022–024 | Thirty-minute simulation, three-minute native schedules, chord/pattern controls and interruption/navigation/cancellation cleanup; physical outputs remain unverified |
+Exact physical GuitarTuna/E2/A2 comparison, real microphone calibration, speakers/headphones, branded Safari and physical phones remain unverified. Generated audio and mobile emulation cannot establish those results. Background/sleep continuity is limited by browsers and documented. No arbitrary tuner correction was applied.
 
-All **42 assigned rows** are updated; no scoped MAY rows exist. A-039–041 and
-**ADR-0024** record engineering budgets, device evidence, virtual-audio/runtime
-choices and preview continuity. Requirements, architecture/database, plan,
-traceability, README and installation/quality documentation are updated. Source
-SRS/blueprint/master prompt are preserved. Quality code is tooling and focused
-feature fixes, not a manufactured production domain service.
+## Git and next phase
 
-## Failures, remediation and remaining work
+Branch: codex/phase-18-reconciled. Application revision: 2702841. Private repository pushes succeeded after review of the exact outgoing files; one earlier automatic-review push rejection was resolved by confirming the authorized existing private destination and reviewing the precise code/test/documentation payload. No supplied recordings, raw lyrics, credentials, dumps or personal exports were pushed.
 
-- Initial Windows restricted-temp tests could not rename their cache; D: process
-  TEMP/TMP resolved it. CRLF checkout conversion caused format failures despite
-  unchanged source; `.gitattributes` now standardizes LF in this checkout.
-- Native Turbopack's CSS helper exited before connection, including an ordinary
-  process-access retry. The supported Webpack production builder passes; Linux
-  still checks the default builder. No OS policy or driver was weakened.
-- Two local disposable full-suite attempts each had one transient auth/session
-  failure. Sanitized diagnostics did not establish its cause; selected 13 tests
-  and then all 96 baseline tests passed, with repeated independent hosted 97-case
-  passes. No auth check was weakened or artificial session tolerance introduced.
-- Early hosted font/browser installation failed Ubuntu DNS. The matching official
-  browser image removed that dependency. Runner/container OS alignment fixed a
-  Python SSL mismatch; container-home ownership fixed Firefox launching. Parallel
-  memory pressure produced a browser crash, so native-clock CI runs serially.
-- First expanded run had 53/86 browser passes; the next had 72/86. They are not
-  counted as passed gates. They exposed hydration, keyboard, rapid restart and
-  unavailable audio-backend issues plus a shared moderation-report fixture and
-  Firefox client-redirect test race. Fixes retain substantive assertions.
-- Ubuntu/Azure/archive DNS and a later kernel-mirror TCP timeout blocked package
-  setup. Signed mirror installation succeeded once; its explicit PULSE_SERVER
-  prevented daemon autostart, corrected by starting without that client selector.
-  Current setup uses bounded signed-mirror fallback and leaves Ubuntu package
-  signature verification enabled. Final setup/run outcome belongs below.
-- Native Edge/Chrome cold-start or GPU/resource stalls occurred in early combined
-  attempts. The successful separate six-case runs are identified above; the
-  combined attempt with a failed Edge case is not claimed as a 12/12 pass.
+Remote inspection shows historical PR 18 was already merged by the owner; this execution does not rewrite that history or merge changes itself. The revised PR is a draft because the final timing gate remains open; its URL is recorded in the final handover. Original checkout remains codex/phase-15 with its prior user changes intact. Future work must use the reconciled revision, not the stale historical phase-18 worktree.
 
-The owner offered the current computer and Google Chrome, then asked the agent
-to perform the checks itself. The agent cannot physically pluck the guitar or
-read GuitarTuna, so exact real E2/A2/other-string comparison remains **unverified**.
-Physical microphones, speakers/headphones, actual iOS/Android, branded Safari,
-background/sleep continuity and live assistive-reader certification remain device
-gaps. No arbitrary detector correction or hardware success claim was added.
-Provider backups/TLS/proxy/restore are Phase 19 gates. Popular-song coverage
-remains **85 metadata identities plus six original practice songs**; performance
-fixtures are not an expanded licensed learning catalog. Existing development
-dependency exception and content-rights limitations remain disclosed.
+Next prompt: PHASE-19.md, only when requested. Online storage/deployment has not been started.
 
-### Local environment and activation
 
-C: was nearly full (as low as approximately 60 MB), with about 0.7–0.9 GB physical
-RAM free on this 8 GB workstation during failures. Rebuildable npm `_npx`
-(approximately 729 MB) and automated Playwright cache (approximately 776 MB)
-were preserved on D: under ignored `.artifacts/host-cache`, with junctions at
-their old C: locations. Keep those targets while links exist. No personal browser
-profile, project data, env/mail or volume was removed; subsequent temporary files
-use D:. Drive space remains a material operating limit, not a resolved capacity
-guarantee.
+## Final qualification and handover — 13 November 2026
 
-Docker became unresponsive. Using the owner's earlier explicit restart approval,
-normal restart was attempted and timed out; only verified Docker processes and
-the `docker-desktop` WSL engine were restarted. Ubuntu was not stopped. Original
-Chord House and Devtreck running containers recovered; previously stopped
-unrelated services were left stopped. Disposable test containers/networks were
-not retained. Original API readiness and restored preview readiness returned 200.
-One automatic approval timed out before a commit; its narrow retry completed.
-No unresolved permission rejection is being represented as a successful action.
+No additional test rounds were started after the owner's final urgency instruction. Final run 43255050519 on 2702841 completed: frontend/security succeeded; PostgreSQL, contracts, style/types, migrations and search budgets passed on all workers. Chromium 24/24 plus mobile Chromium 7/7, Firefox 24/24, WebKit 23/24 plus mobile WebKit 7/7: **85 passed, 1 failed, 0 skipped**.
 
-Phase 18 uses the existing isolated `chord-house-preview` project, generated
-credential, DB/mail volumes and accounts at **http://127.0.0.3:3002** (API 8002,
-DB 5435). The preview API was rebuilt from Phase 18 and verified healthy. The
-Windows production frontend uses the verified alternative builder. Final local
-activation/rendering evidence is recorded below. Original personal data and
-unfinished local-song/player code are neither copied nor certified.
+The only remaining failure is `frontend/e2e/metronome.spec.ts:146`, WebKit's three-minute scheduling check: ordinal phase comparison received 0.5 seconds against a <0.001-second gate. The same unchanged production scheduler passed this check in the preceding run 43251863805 with 361 clicks and zero printed phase error. This is an intermittent qualification failure, not a waived requirement or a successful final gate. Follow-up must distinguish the documented missed-beat recovery from actual schedule drift using captured tick times; no assertion was weakened, failure skipped or unsupported calibration applied. Do not mark the phase ready to merge until this gate is resolved.
 
-## Git and handover
+All earlier WebKit capture/restart and pattern failures pass. The seek test now uses original FFmpeg/libmp3lame-encoded silence with seek metadata and tests endpoint seeking with repeat off, while checking native loop on/off independently. Firefox's real narrow-screen fieldset overflow was fixed with min-inline-size:0. Its remaining automation crash was resolved by isolating accessibility scans from the account lifecycle page and using the supported in-page axe engine for a verified frame-free page. All original WCAG rule tags, all three viewport checks and export/deletion/isolation assertions remain. Firefox now passes 24/24.
 
-Isolated branch **codex/phase-18**, base **35b5d86** on completed codex/phase-17;
-worktree `D:/RAYYAN/Projects/Chord-House/.artifacts/phase18-worktree`.
-[PR 18](https://github.com/rayyanhasan899/Chord-House/pull/18) targets codex/phase-17
-in the existing **private** repository and remains unmerged. Final tested code,
-run links and documentation-only commit are recorded after verification. No
-force push, visibility change, merge or Phase 19 work.
+CI qualifies engines on separate isolated workers, serially within each engine; this preserves coverage while avoiding one long combined runner. The last commit changes only the test harness/diagnostics; production application source is identical to b8a3baa. No further application redesign or Phase 19 work was introduced.
 
-Original checkout stays on codex/phase-15 with its backend catalog/workspace,
-frontend song/player/style/contracts/test edits and untracked source documents/
-songs intact. Only phase-owned worktree files are committed. A final report copy
-is supplied in the original Phase-Reports directory without overwriting user edits.
+The refreshed Windows production preview was rechecked in installed Chrome: 24 songs (4 English / 7 Urdu / 13 Hindi), source-exact lyrics, real decoded MP3 playback, protected seeking (206), guest rejection (401), no song-page overflow at 390 px, and account forms fitting 375/768/1280 px. Temporary test accounts/mail were removed. Preview: **http://127.0.0.3:3003**. The source collection and original app remain preserved. Physical guitar/reference-tuner calibration and physical phone/Safari results remain unverified.
 
-What you can use: guest tuner/chord library/metronome; signed-in songs, private
-workspace/customs/favorites, practice/routines/goals/progress and training/reminders;
-account export/confirmed deletion. Phase 18 improves rendering, recovery, cleanup,
-keyboard access and measured catalog behavior. Use the isolated preview for this
-version. Physical calibration and unavailable licensed popular content are not
-presented as working functionality.
-
-Next prompt: `docs/implementation/phase-prompts/PHASE-19.md`, only on owner request.
-
-Final tested application: **d4145cef19fc5c6a7074e8916c751235c4e44234**. Push run **43149225388** and PR run **43149230889** both completed with frontend/security success and backend failure at the browser stage. All pre-browser backend stages passed. Subsequent documentation-only commits do not change application behavior.
-
-## Final unresolved browser gate — 2026-11-12
-
-The full native-clock run executed; signed mirror/PulseAudio setup succeeded.
-Exact remaining failures on d4145ce:
-
-1. WebKit three-minute metronome: ordinal phase-error assertion received 0.5 seconds rather than less than 0.001. Determine whether the designed missed-beat recovery or real drift caused the gap; do not silently relax the test.
-2. WebKit synchronized-pattern/direction journey: expected nine scheduled voices, received eight (the final muted stroke needs investigation).
-3. WebKit noisy harmonic generated capture: second guitar capture reported microphone permission denied instead of in-tune; distinguish the controlled MediaStream fixture lifecycle from actual microphone support.
-4. Mobile WebKit emulation: the same generated-capture failure.
-5. Firefox account export/deletion: browser page crashed before filling the export password. Backend isolation/export/cascade checks and Chromium account journey pass, but this Firefox UI path is not certified.
-6. WebKit baseline tuner: second start did not reach in-tune after stopping the first capture.
-
-These are unresolved verification/runtime issues, not blanket physical-device
-successes or accepted requirement deferrals. No assertion was removed, failed
-case skipped or result fabricated. Phase 19 has not started. Further focused
-Firefox/WebKit diagnosis and successful regression verification are required
-before marking Phase 18 complete. The owner requested a prompt handover after
-the prolonged run; this report preserves the concrete implementation and exact
-remaining work instead of claiming a green gate.
-
-Final evidence: `.artifacts/evidence-d4145ce/frontend/test-results/results.json`,
-its error contexts, `.artifacts/final-run-failures.log` and the uploaded
-`phase18-quality-evidence` artifact in run 43149225388. Native Chrome/Edge six-case
-successful attempts and final loaded-chord/start-cancellation check are separate
-local evidence, with no physical microphone access. The preview remains usable
-at http://127.0.0.3:3002 with the verified Chrome path. Original changes/data are
-preserved. PR 18 is a draft, unmerged; no readiness or full-compatibility claim.
+The operator guide contains working folder scan/sync/rename commands. Online migration, hosted media, provider setup and paired cloud restore remain Phase 19 deliverables. The usable implementation is in the reconciled checkout; the original root receives this report and documentation pointers without overwriting its application edits.

@@ -40,3 +40,16 @@ test("tap tempo and limits", () => {
   expect(validBpm(30)).toBe(true);
   expect(validBpm(300)).toBe(true);
 });
+
+// A 200ms foreground stall previously skipped a beat with the 150ms horizon.
+test("foreground stall within the audio buffer preserves every scheduled beat", () => {
+  const timeline = new BeatTimeline();
+  timeline.reset(0.05);
+  const events = [];
+  for (const now of [0, 0.025, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35]) {
+    events.push(...timeline.due(now, 300, 4));
+    expect(timeline.resynced).toBe(false);
+  }
+  for (let i = 0; i < events.length; i++)
+    expect(events[i].time).toBeCloseTo(0.05 + i * 0.2, 9);
+});

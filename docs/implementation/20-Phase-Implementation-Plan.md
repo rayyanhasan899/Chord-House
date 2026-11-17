@@ -191,7 +191,7 @@ Primary SRS IDs: ACC-024, ACC-025, ACC-027, ACC-028, NFR-SEC-001, NFR-SEC-002, N
 
 ## Phase 18: Quality compatibility performance
 
-Goal/scope and deliverables: Run complete domain/API/repository/component/E2E/contract/migration suite, supported browser/device audio checks, generated noisy/harmonic/low-bass signals, long timing runs, responsive/performance/search profiling and regression fixes.
+Goal/scope and deliverables: Reconcile and preserve the accepted local song catalogue, listening-room player and exact lyrics with Phase 17 security/features; implement stable local asset mapping and storage contracts; complete original quality/browser/audio/performance checks and diagnose all six historical browser failures. No cloud provisioning in this phase.
 
 Owner: `quality`. Prerequisites: prior phase exit gates through 17; use module dependencies above. Risk: Synthetic tests masking real hardware defects. Acceptance and exit gate: Document measured results and remaining device gaps; critical failures resolved. Include applicable unit, integration and browser evidence; no success without execution.
 
@@ -199,9 +199,11 @@ Difficulty rank: 17/20 (higher is harder). Model: **GPT 6 ASTRA — Medium**. Re
 
 Primary SRS IDs: NFR-PER-001, NFR-PER-002, NFR-PER-003, NFR-PER-004, NFR-PER-005, NFR-PER-006, NFR-PER-007, NFR-REL-001, NFR-REL-002, NFR-REL-003, NFR-REL-004, NFR-REL-005, NFR-REL-006, NFR-COMP-001, NFR-COMP-002, NFR-COMP-003, NFR-COMP-004, NFR-COMP-005, TST-001, TST-002, TST-003, TST-004, TST-005, TST-006, TST-007, TST-008, TST-009, TST-010, TST-011, TST-012, TST-013, TST-014, TST-015, TST-016, TST-017, TST-018, TST-019, TST-020, TST-021, TST-022, TST-023, TST-024. Cross-cutting authorization, accessibility, local operation, tests and documentation apply in every phase.
 
+Dated amendment (12 November 2026): follow [accepted song/player baseline](OWNER-SONG-LIBRARY-BASELINE.md), [storage/migration plan](SONG-LIBRARY-STORAGE-PLAN.md) and the revised [phase prompt](phase-prompts/PHASE-18.md) for detailed additional acceptance gates. Open registration and shared signed-in song reading are accepted decisions; operator writes and personal-resource privacy remain enforced. Original SRS IDs below/above remain in scope.
+
 ## Phase 19: CI CD and deployment
 
-Goal/scope and deliverables: Harden initial CI with reproducible checks/builds and migration gates; evaluate current free providers, environment/secrets, same-origin routing, deployment manifests, HTTPS, smoke checks, backup/restore rehearsal and rollback. Deploy only with accounts/authorization available.
+Goal/scope and deliverables: Implement private online object storage plus PostgreSQL metadata, authenticated range streaming, repeatable incremental folder imports, verified copy/cutover/rollback of the supplied collection, deployment and matched metadata/media backup/restore. Evaluate current free providers using SONG-LIBRARY-STORAGE-PLAN.md; retain complete local operation.
 
 Owner: `operations`. Prerequisites: prior phase exit gates through 18; use module dependencies above. Risk: Free-tier expiration, cold starts and data loss. Acceptance and exit gate: Local fresh setup verified; hosted status and recovery evidence explicitly reported. Include applicable unit, integration and browser evidence; no success without execution.
 
@@ -209,15 +211,19 @@ Difficulty rank: 9/20 (higher is harder). Model: **GPT 6 ASTRA — Medium**. Rea
 
 Primary SRS IDs: BUD-001, BUD-002, BUD-003, BUD-004, BUD-005, BUD-006, BUD-007, BUD-008, BUD-009, BUD-010, DEP-001, DEP-002, DEP-003, DEP-004, DEP-005, DEP-006, DEP-007, DEP-008, DEP-009, DEP-010, DEP-011, DEP-012, DEP-013, DEP-014. Cross-cutting authorization, accessibility, local operation, tests and documentation apply in every phase.
 
+Dated amendment (12 November 2026): follow [accepted song/player baseline](OWNER-SONG-LIBRARY-BASELINE.md), [storage/migration plan](SONG-LIBRARY-STORAGE-PLAN.md) and the revised [phase prompt](phase-prompts/PHASE-19.md) for detailed additional acceptance gates. Open registration and shared signed-in song reading are accepted decisions; operator writes and personal-resource privacy remain enforced. Original SRS IDs below/above remain in scope.
+
 ## Phase 20: Release audit and handoff
 
-Goal/scope and deliverables: Audit all 450 SRS IDs and added decisions, close evidence gaps, document user/admin/developer guides, content limitations, release notes and recovery, review repository/PR status and publish final acceptance checklist.
+Goal/scope and deliverables: Audit all 450 SRS IDs plus CHG-SONG-001 through CHG-SONG-012; demonstrate deployed playback without a local songs mount, two-user shared access/guest denial, an actual folder-add/update walkthrough, matched restore and final practical user/operator/developer handover.
 
 Owner: `release`. Prerequisites: prior phase exit gates through 19; use module dependencies above. Risk: False completion despite content/device gaps. Acceptance and exit gate: No unresolved critical requirement; distinguish releasable from blocked gates. Include applicable unit, integration and browser evidence; no success without execution.
 
 Difficulty rank: 2/20 (higher is harder). Model: **GPT 6 ASTRA — Medium**. Reason: high uncertainty, cross-boundary correctness or release verification.
 
 Primary SRS IDs: DOC-001, DOC-002, DOC-003, DOC-004, DOC-005, DOC-006, DOC-007, DOC-008, DOC-009, DOC-010. Cross-cutting authorization, accessibility, local operation, tests and documentation apply in every phase.
+
+Dated amendment (12 November 2026): follow [accepted song/player baseline](OWNER-SONG-LIBRARY-BASELINE.md), [storage/migration plan](SONG-LIBRARY-STORAGE-PLAN.md) and the revised [phase prompt](phase-prompts/PHASE-20.md) for detailed additional acceptance gates. Open registration and shared signed-in song reading are accepted decisions; operator writes and personal-resource privacy remain enforced. Original SRS IDs below/above remain in scope.
 
 ## Difficulty order
 
@@ -236,3 +242,15 @@ Phase 17 execution refinement: ADR-0023 records personal export, confirmed delet
 Phase 18 execution refinement: ADR-0024 separates real API/database/production-browser measurements from emulation and physical-device evidence. Lightweight catalog projections retain live rights decisions; native audio activation/interruption and chord hydration are checked across engines. REL-003 provider backup configuration stays a conditional Phase 19 gate, with no silent completion claim. Owner requested agent-run checks after offering current-device Chrome, so physical guitar comparison is not fabricated. See PHASE-18-REPORT.md for actual results. Do not automatically start Phase 19.
 
 Phase 18 final gate: 80/86 browser checks pass; six Firefox/WebKit cases remain unresolved. Implementation is delivered but Phase 18 is not complete; see PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
+
+
+## Phase 19 execution update - 13 November 2026
+
+Private Neon Free storage has been provisioned and the cloud adapter, operator
+copy/verification/cutover/recovery tooling and production manifests prepared.
+The release gate remains open: distribution rights, hosting/mail configuration,
+full regression and matched restore are not verified. Preserve the accepted
+reconciled Phase 18 app; do not replace it with the stale root checkout.
+See [Phase 19 report](Phase-Reports/PHASE-19-REPORT.md),
+[provider decision](../adr/ADR-0026.md) and
+[operator guide](../architecture/CLOUD-SONG-OPERATIONS.md) for exact evidence.

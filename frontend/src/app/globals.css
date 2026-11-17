@@ -722,3 +722,304 @@ nav[aria-label="Learning tools"] {
 .training-panel {
   overflow-wrap: anywhere;
 }
+
+/* Song library and listening room share the app's light/dark palette. */
+.song-library > h1 {
+  max-width: 850px;
+}
+.song-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+  gap: 1rem;
+}
+.song-library-grid > li {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+.song-library-grid > li:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.song-library-grid h2 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.35rem;
+}
+.song-library-grid h2 a {
+  text-decoration: none;
+}
+.song-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.song-card-note {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--tint);
+  color: var(--accent);
+  font-size: 1.6rem;
+}
+.song-content-badge {
+  color: var(--accent);
+  font-weight: 600;
+}
+.song-card-open {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+  margin-top: auto;
+  text-decoration: none;
+  font-weight: 600;
+}
+.song-player {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  margin-block: 2rem;
+  background: linear-gradient(125deg, var(--tint), var(--surface));
+  color: var(--ink);
+}
+.song-player-heading {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.song-player-heading h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 0 0 0.4rem;
+}
+.song-player-heading p {
+  margin: 0;
+}
+.song-player-heading .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.5rem;
+}
+.song-record {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 7px solid var(--ink);
+  background: repeating-radial-gradient(
+    circle,
+    var(--ink) 0 3px,
+    var(--muted) 4px,
+    var(--ink) 5px 8px
+  );
+}
+.song-record span {
+  background: var(--accent);
+  color: var(--accent-ink);
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1.4rem;
+}
+.song-record.is-playing {
+  animation: song-spin 12s linear infinite;
+}
+@keyframes song-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.player-status {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.song-player-transport {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.song-player button {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.player-play {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 16px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 5px 18px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.player-play svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+.player-play:hover {
+  filter: brightness(1.1);
+}
+.player-skip {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 44px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+}
+.player-skip span {
+  position: absolute;
+  font-size: 0.6rem;
+  bottom: 5px;
+}
+.player-timeline {
+  flex: 1;
+  min-width: 0;
+  margin-left: 0.5rem;
+}
+.song-player input[type="range"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+  width: 100%;
+  min-height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.player-times {
+  display: flex;
+  justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.player-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+}
+.player-repeat {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+}
+.player-repeat[aria-pressed="true"] {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.player-repeat span {
+  font-size: 1.2rem;
+  margin-right: 0.35rem;
+}
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+.player-volume input {
+  max-width: 110px;
+}
+.player-error {
+  margin: 1rem 0 0;
+  color: var(--error);
+}
+.song-source-details {
+  margin-block: 1rem;
+  color: var(--muted);
+}
+.song-lyrics-panel {
+  margin-block: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--surface);
+}
+.local-song-lyrics {
+  line-height: 1.9;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  tab-size: 4;
+  color: var(--ink);
+}
+.song-player button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+@media (max-width: 600px) {
+  .song-player-heading {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .song-record {
+    width: 64px;
+    height: 64px;
+  }
+  .player-status {
+    margin-left: 0;
+    width: 100%;
+  }
+  .song-player-transport {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .player-timeline {
+    flex-basis: 100%;
+    margin: 0.5rem 0 0;
+  }
+  .player-options {
+    flex-wrap: wrap;
+  }
+  .player-volume {
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .song-record.is-playing {
+    animation: none;
+  }
+  .song-library-grid > li {
+    transition: none;
+  }
+}
+
+/* Firefox fieldsets otherwise retain input min-content width on narrow screens. */
+.privacy-fields {
+  min-inline-size: 0;
+}
