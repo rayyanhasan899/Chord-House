@@ -1,8 +1,8 @@
 from collections.abc import Iterator
 from contextlib import contextmanager
 
-from sqlalchemy import MetaData, create_engine, text
-from sqlalchemy.engine import Engine
+from sqlalchemy import MetaData, create_engine, event, text
+from sqlalchemy.engine import Connection, Engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 
@@ -27,8 +27,14 @@ class Database:
             max_overflow=5,
             pool_timeout=5,
             hide_parameters=True,
-            connect_args={"connect_timeout": 3, "options": "-c statement_timeout=3000"},
+            connect_args={"connect_timeout": 3},
         )
+
+        @event.listens_for(self.engine, "begin")
+        def transaction_timeout(connection: Connection) -> None:
+            # SET LOCAL applies to this transaction on pooled and direct hosts.
+            connection.exec_driver_sql("SET LOCAL statement_timeout = '3s'")
+
         self.sessions = sessionmaker(self.engine, expire_on_commit=False)
 
     @contextmanager

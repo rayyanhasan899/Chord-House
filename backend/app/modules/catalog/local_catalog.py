@@ -212,6 +212,9 @@ def sync_local_catalog(
                 session.add(row)
                 session.flush()
                 rows.append(row)
+            if binding is not None and binding.source_kind == "object":
+                issues.append(f"{key}: active remote binding preserved; use cloud sync")
+                continue
             if row.external_key.startswith("local:"):
                 data = SongInput.model_validate(row.document)
                 if (

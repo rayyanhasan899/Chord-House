@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Annotated, Literal
 from uuid import UUID
 
@@ -82,9 +81,9 @@ def songs(
     offset: int = Query(0, ge=0),
     limit: int = Query(100, ge=1, le=100),
 ) -> list[dict[str, str]]:
-    from app.modules.catalog.songs import Songs
+    from app.modules.catalog.song_routes import catalogue
 
-    page = Songs(svc.db, Path(request.app.state.settings.songs_directory)).list(
+    page = catalogue(request, svc).list(
         "", None, "", None, None, "", None, offset, limit
     )
     return [

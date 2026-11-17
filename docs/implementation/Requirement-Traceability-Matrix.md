@@ -525,3 +525,15 @@ Original 450 SRS rows remain unchanged. These additions are accepted requirement
 | CHG-SONG-010 | Truthful rights/source status, protected credentials and free-tier budgets | 18 source review; 19 provider/publishing checks; 20 release gate | 18 source claims corrected and secrets reviewed; 19 actual distribution/provider gates pending |
 | CHG-SONG-011 | Matched metadata/media backups and tested restore/deletion behavior | 19 rehearsal; 20 independent acceptance | 19 paired backup/restore planned; local preview snapshot is not that release gate |
 | CHG-SONG-012 | Simple documented add/replace/remove song workflow and honest release status | 18 instructions; 19 actual commands; 20 user/admin handover | 18 local operator guide and real CLI test implemented; 19 cloud/20 final handover pending |
+
+
+## Phase 19 execution update - 13 November 2026
+
+Private Neon Free storage has been provisioned and the cloud adapter, operator
+copy/verification/cutover/recovery tooling and production manifests prepared.
+The release gate remains open: distribution rights, hosting/mail configuration,
+full regression and matched restore are not verified. Preserve the accepted
+reconciled Phase 18 app; do not replace it with the stale root checkout.
+See [Phase 19 report](Phase-Reports/PHASE-19-REPORT.md),
+[provider decision](../adr/ADR-0026.md) and
+[operator guide](../architecture/CLOUD-SONG-OPERATIONS.md) for exact evidence.

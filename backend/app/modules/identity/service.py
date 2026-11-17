@@ -33,7 +33,7 @@ class IdentityService:
         if hits > limit:
             raise IdentityError(429, "rate_limited", "Please wait before trying again")
 
-    def register(self, data: Registration) -> None:
+    def register(self, data: Registration, *, send_verification: bool = True) -> None:
         if not data.acknowledge_privacy:
             raise IdentityError(
                 422, "privacy_required", "Acknowledge the privacy notice"
@@ -48,8 +48,9 @@ class IdentityService:
                     data.display_name,
                     self.passwords.hash(data.password),
                 )
-                repo.issue_token(row.id, "verify", digest(token), datetime.now(UTC))
-                self.mailer.send(str(data.email), "verify", token)
+                if send_verification:
+                    repo.issue_token(row.id, "verify", digest(token), datetime.now(UTC))
+                    self.mailer.send(str(data.email), "verify", token)
         except IntegrityError:
             raise IdentityError(
                 409, "registration_failed", "Registration could not be completed"

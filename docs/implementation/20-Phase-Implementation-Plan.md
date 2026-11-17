@@ -242,3 +242,15 @@ Phase 17 execution refinement: ADR-0023 records personal export, confirmed delet
 Phase 18 execution refinement: ADR-0024 separates real API/database/production-browser measurements from emulation and physical-device evidence. Lightweight catalog projections retain live rights decisions; native audio activation/interruption and chord hydration are checked across engines. REL-003 provider backup configuration stays a conditional Phase 19 gate, with no silent completion claim. Owner requested agent-run checks after offering current-device Chrome, so physical guitar comparison is not fabricated. See PHASE-18-REPORT.md for actual results. Do not automatically start Phase 19.
 
 Phase 18 final gate: 80/86 browser checks pass; six Firefox/WebKit cases remain unresolved. Implementation is delivered but Phase 18 is not complete; see PHASE-18-REPORT.md. No Phase 19 start or requirement deferral is inferred.
+
+
+## Phase 19 execution update - 13 November 2026
+
+Private Neon Free storage has been provisioned and the cloud adapter, operator
+copy/verification/cutover/recovery tooling and production manifests prepared.
+The release gate remains open: distribution rights, hosting/mail configuration,
+full regression and matched restore are not verified. Preserve the accepted
+reconciled Phase 18 app; do not replace it with the stale root checkout.
+See [Phase 19 report](Phase-Reports/PHASE-19-REPORT.md),
+[provider decision](../adr/ADR-0026.md) and
+[operator guide](../architecture/CLOUD-SONG-OPERATIONS.md) for exact evidence.

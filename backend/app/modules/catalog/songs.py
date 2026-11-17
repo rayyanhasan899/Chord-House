@@ -25,6 +25,7 @@ from app.modules.catalog.song_schemas import (
     SongSummary,
     Withdrawal,
 )
+from app.modules.catalog.song_storage import SongStorage
 from app.modules.identity.domain import Actor, IdentityError
 from app.modules.personal_workspace.workspace import SongReference
 
@@ -139,21 +140,34 @@ def detail(row: SongRecord) -> SongDetail | None:
 
 
 class Songs:
-    def __init__(self, db: Database, local_root: Path | None = None):
+    def __init__(
+        self,
+        db: Database,
+        local_root: Path | None = None,
+        storage: SongStorage | None = None,
+        verified_only: bool = False,
+    ):
         self.db = db
         self.local_root = local_root
-        self.storage = LocalSongStorage(local_root) if local_root is not None else None
+        self.storage = storage or (
+            LocalSongStorage(local_root) if local_root is not None else None
+        )
+        self.verified_only = verified_only
         self._checked: dict[tuple[str, str], bool] = {}
 
     def local_assets(
         self, identifier: UUID, files: dict[str, dict[str, str | int]] | None = None
     ) -> tuple[bool, bool]:
-        if self.local_root is None:
+        if self.storage is None:
             return False, False
         if files is None:
             with self.db.transaction() as session:
                 binding = session.get(SongAssetRecord, identifier)
-                if binding is None or binding.source_kind != "local":
+                if (
+                    binding is None
+                    or self.verified_only
+                    and binding.rights_status != "verified"
+                ):
                     return False, False
                 files = dict(binding.files)
         assert self.storage is not None
@@ -172,7 +186,7 @@ class Songs:
 
     def visible_detail(self, row: SongRecord) -> SongDetail | None:
         song = detail(row)
-        if song is None or self.local_root is None:
+        if song is None or self.storage is None:
             return song
         audio, lyrics = self.local_assets(row.id)
         if not audio and not lyrics:
@@ -195,11 +209,10 @@ class Songs:
     ) -> SongPage:
         with self.db.transaction() as session:
             query = (
-                select(SongRecord, SongAssetRecord.files)
+                select(SongRecord, SongAssetRecord.files, SongAssetRecord.rights_status)
                 .outerjoin(
                     SongAssetRecord,
-                    (SongAssetRecord.song_id == SongRecord.id)
-                    & (SongAssetRecord.source_kind == "local"),
+                    (SongAssetRecord.song_id == SongRecord.id),
                 )
                 .where(SongRecord.status == "published")
             )
@@ -211,14 +224,16 @@ class Songs:
                 query = query.where(SongRecord.language == language)
             total = 0
             items: list[SongSummary] = []
-            for row, asset_files in session.execute(
+            for row, asset_files, rights_status in session.execute(
                 query.order_by(SongRecord.identity_key).execution_options(yield_per=100)
             ):
                 # Listings do not need lyric lines, bars or placement copies. Keep
                 # live grant/withdrawal checks without validating every score again.
                 data = ListingDocument.model_validate(row.document)
+                if self.verified_only and rights_status != "verified":
+                    continue
                 audio, local_lyrics = self.local_assets(row.id, asset_files or {})
-                if self.local_root is not None and not audio and not local_lyrics:
+                if self.storage is not None and not audio and not local_lyrics:
                     continue
                 if (
                     not approved(data.metadata_grant)

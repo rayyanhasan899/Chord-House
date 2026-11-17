@@ -23,7 +23,10 @@ class Settings(BaseSettings):
     ]
     auth_limit: int = Field(default=30, ge=1, le=1000)
     songs_directory: str = str(Path(__file__).resolve().parents[3] / "songs")
+    object_bucket: str | None = None
+    media_request_limit: int = Field(default=120, ge=1, le=1000)
     mail_directory: str = ".local-mail"
+    email_enabled: bool = True
     smtp_host: str | None = None
     smtp_port: int = 587
     smtp_user: str | None = None
@@ -47,14 +50,14 @@ class Settings(BaseSettings):
                 raise ValueError("Trusted origins must be exact HTTP(S) origins")
         if self.environment == "production":
             if (
-                not self.smtp_host
+                (self.email_enabled and not self.smtp_host)
                 or not self.trusted_origins
                 or not all(
                     origin.startswith("https://") for origin in self.trusted_origins
                 )
             ):
                 raise ValueError(
-                    "Production requires SMTP and explicit HTTPS trusted origins"
+                    "Production requires SMTP when email is enabled and HTTPS origins"
                 )
         return self
 
